@@ -1,0 +1,2059 @@
+{
+  "generatedAt": "2026-05-24T23:37:54.697Z",
+  "workbookPath": "/Users/hgw3lls/Documents/Codex/2026-05-24/github-plugin-github-openai-curated-deadcampus/deadcampus/DEAD_CAMPUS_ATLAS_MASTER_WORKBOOK.xlsx",
+  "workbookFile": "DEAD_CAMPUS_ATLAS_MASTER_WORKBOOK.xlsx",
+  "totalRecords": 11486,
+  "coordinateCount": 34,
+  "missingCoordinateCount": 11452,
+  "unresolvedAfterlifeCount": 11452,
+  "yearRange": {
+    "min": 1984,
+    "max": 2026
+  },
+  "statusCodes": [
+    "ACTIVE-RISK",
+    "CLOSURE-EVENT",
+    "ASSET-TRANSFER",
+    "PARCELIZED",
+    "CLOUD",
+    "SECURITY",
+    "RUIN",
+    "COUNTER-USE"
+  ],
+  "closureByYear": {
+    "1984": 1,
+    "1985": 1,
+    "1986": 91,
+    "1987": 154,
+    "1988": 250,
+    "1989": 395,
+    "1990": 620,
+    "1991": 575,
+    "1992": 420,
+    "1993": 356,
+    "1994": 380,
+    "1995": 440,
+    "1996": 232,
+    "1997": 240,
+    "1998": 215,
+    "1999": 228,
+    "2000": 326,
+    "2001": 384,
+    "2002": 275,
+    "2003": 406,
+    "2004": 341,
+    "2005": 318,
+    "2006": 361,
+    "2007": 448,
+    "2008": 461,
+    "2009": 476,
+    "2010": 606,
+    "2011": 388,
+    "2012": 855,
+    "2013": 566,
+    "2014": 423,
+    "2015": 178,
+    "2016": 4,
+    "2017": 4,
+    "2018": 6,
+    "2019": 10,
+    "2020": 10,
+    "2021": 2,
+    "2022": 2,
+    "2023": 14,
+    "2024": 10,
+    "2025": 2,
+    "2026": 2
+  },
+  "closureByDecade": {
+    "1980s": 892,
+    "1990s": 3706,
+    "2000s": 3796,
+    "2010s": 3040,
+    "2020s": 42
+  },
+  "countsByState": {
+    "PA": 537,
+    "MA": 344,
+    "CA": 1252,
+    "DC": 61,
+    "NJ": 255,
+    "AZ": 261,
+    "NY": 472,
+    "RI": 30,
+    "FL": 505,
+    "IL": 850,
+    "OK": 184,
+    "LA": 194,
+    "TN": 287,
+    "WA": 204,
+    "CO": 220,
+    "WV": 142,
+    "NH": 38,
+    "WI": 281,
+    "AL": 116,
+    "CT": 93,
+    "MI": 383,
+    "IA": 96,
+    "OH": 447,
+    "NC": 154,
+    "NM": 77,
+    "SC": 105,
+    "MD": 148,
+    "SD": 23,
+    "AR": 69,
+    "KS": 165,
+    "MO": 341,
+    "MN": 324,
+    "IN": 513,
+    "OR": 135,
+    "VA": 213,
+    "TX": 586,
+    "NE": 44,
+    "GA": 266,
+    "ME": 47,
+    "ND": 30,
+    "KY": 116,
+    "NV": 72,
+    "UT": 73,
+    "MT": 56,
+    "AK": 21,
+    "ID": 36,
+    "DE": 24,
+    "PR": 145,
+    "MS": 65,
+    "WY": 30,
+    "VT": 25,
+    "HI": 35,
+    "GU": 5,
+    "Unknown": 291
+  },
+  "topStates": [
+    {
+      "key": "CA",
+      "count": 1252
+    },
+    {
+      "key": "IL",
+      "count": 850
+    },
+    {
+      "key": "TX",
+      "count": 586
+    },
+    {
+      "key": "PA",
+      "count": 537
+    },
+    {
+      "key": "IN",
+      "count": 513
+    },
+    {
+      "key": "FL",
+      "count": 505
+    },
+    {
+      "key": "NY",
+      "count": 472
+    },
+    {
+      "key": "OH",
+      "count": 447
+    },
+    {
+      "key": "MI",
+      "count": 383
+    },
+    {
+      "key": "MA",
+      "count": 344
+    },
+    {
+      "key": "MO",
+      "count": 341
+    },
+    {
+      "key": "MN",
+      "count": 324
+    },
+    {
+      "key": "Unknown",
+      "count": 291
+    },
+    {
+      "key": "TN",
+      "count": 287
+    },
+    {
+      "key": "WI",
+      "count": 281
+    },
+    {
+      "key": "GA",
+      "count": 266
+    }
+  ],
+  "morphologyCounts": {
+    "MAIN / ROOT CLOSURE": 3155,
+    "BRANCH / SATELLITE RETREAT": 7286,
+    "DISTRIBUTED SITE / ANNEX": 834,
+    "FOR-PROFIT SYSTEM COLLAPSE": 133,
+    "Ruin": 2,
+    "Speculative": 12,
+    "Parcelized": 13,
+    "Corporate": 3,
+    "Absorbed": 13,
+    "SPECULATIVE": 3,
+    "Educational reuse": 3,
+    "Housing": 4,
+    "Health": 4,
+    "PARCELIZED": 2,
+    "Arts reuse": 2,
+    "HOUSING": 1,
+    "ABSORBED": 3,
+    "Religious/K12": 2,
+    "K12": 2,
+    "SECURITY": 1,
+    "Security": 2,
+    "HEALTH": 1,
+    "EDUCATIONAL_REUSE": 1,
+    "CLOUD": 1,
+    "Cloud": 2,
+    "Educational Reuse": 1
+  },
+  "statusCounts": {
+    "CLOSURE-EVENT": 11414,
+    "ASSET-TRANSFER": 35,
+    "PARCELIZED": 31,
+    "SECURITY": 3,
+    "CLOUD": 3
+  },
+  "sectorCounts": {
+    "Unknown": 11418,
+    "Private nonprofit": 66,
+    "For-profit linked": 2
+  },
+  "campusTypeCounts": {
+    "Main/Root": 3451,
+    "Branch/Satellite": 7957,
+    "Main": 48,
+    "Urban": 14,
+    "Multiple campuses": 1,
+    "Multiple": 1,
+    "Urban campus": 2,
+    "Research campus": 1,
+    "Research": 1,
+    "Unknown": 10
+  },
+  "afterlifeCounts": {
+    "Unresolved": 11452,
+    "Absentee ownership": 1,
+    "Property liquidation": 1,
+    "Auction/redevelopment": 1,
+    "Auction sale": 1,
+    "Corporate acquisition": 1,
+    "Parcel liquidation": 1,
+    "Public university acquisition": 3,
+    "Elite university merger": 2,
+    "Bankruptcy / auction": 1,
+    "Auction / speculative reuse": 1,
+    "Community educational redevelopment": 1,
+    "Senior housing conversion": 1,
+    "Health/resort redevelopment": 1,
+    "Auctioned in parcels": 1,
+    "Arts/music reuse": 1,
+    "Redevelopment marketing": 1,
+    "Municipal/emergency reuse": 1,
+    "Bankruptcy sale": 1,
+    "Private school conversion": 1,
+    "Mixed redevelopment": 1,
+    "Civic/nonprofit fragmentation": 1,
+    "Investment acquisition": 1,
+    "Charter school conversion": 1,
+    "Municipal fragmentation": 1,
+    "Federal/security reuse": 1,
+    "Mega-university absorption": 1,
+    "Public authority redevelopment": 1,
+    "Auction / institutional reuse": 1,
+    "Indigenous educational reuse": 1,
+    "Elite university acquisition": 1,
+    "Cloud infrastructure acquisition": 1
+  },
+  "sourceSheetCounts": {
+    "dead_campus_atlas__PEPS_SITE_": 11408,
+    "dead_campus_phase9_peps_normali": 11408,
+    "peps_site_retreat_cleaned": 11408,
+    "dead_campus_atlas__PHASE2_CLA": 34,
+    "dead_campus_master_DeadCampus": 34,
+    "dead_campus_master_table_v1": 34,
+    "dead_campus_atlas__SPATIALIZE": 34,
+    "dead_campus_atlas__CURATED_IC": 14,
+    "dead_campus_atlas__AFTERLIFE_": 10
+  },
+  "researchPriorityCounts": {
+    "High": 11418,
+    "Medium": 52,
+    "Low": 16
+  },
+  "sheetCatalog": [
+    {
+      "name": "PROJECT_INDEX",
+      "rows": 15,
+      "columns": 4,
+      "title": "DEAD CAMPUS ATLAS — MASTER INDEX",
+      "headers": [
+        "DEAD_CAMPUS_ATLAS_MASTER_INDEX",
+        "Column_2",
+        "Column_3",
+        "Column_4"
+      ]
+    },
+    {
+      "name": "dead_campus_atlas__README",
+      "rows": 15,
+      "columns": 2,
+      "title": "dead_campus_atlas_phase1_foundation.xlsx :: README",
+      "headers": [
+        "dead_campus_atlas_phase1_foundation_xlsx_README",
+        "Column_2"
+      ]
+    },
+    {
+      "name": "dead_campus_atlas__Summary",
+      "rows": 6,
+      "columns": 3,
+      "title": "dead_campus_atlas_phase1_foundation.xlsx :: Summary",
+      "headers": [
+        "dead_campus_atlas_phase1_foundation_xlsx_Summary",
+        "Column_2",
+        "Column_3"
+      ]
+    },
+    {
+      "name": "dead_campus_atlas__PEPS_SITE_",
+      "rows": 11408,
+      "columns": 21,
+      "title": "dead_campus_atlas_phase1_foundation.xlsx :: PEPS_SITE_RETREAT",
+      "headers": [
+        "Atlas_Scale",
+        "Closed_Date",
+        "Closed_Year",
+        "OPEID_8",
+        "Root_OPEID_6",
+        "Branch_Suffix",
+        "Is_Main_Campus_OPEID00",
+        "School_Name",
+        "Location",
+        "Address",
+        "City",
+        "State",
+        "Zip_Code",
+        "Country_Foreign",
+        "Afterlife_Status",
+        "Morphology",
+        "Buyer_or_Controller",
+        "Sale_Price",
+        "Acreage",
+        "Research_Priority",
+        "Source_URL"
+      ]
+    },
+    {
+      "name": "dead_campus_atlas__PEPS_COUNT",
+      "rows": 32,
+      "columns": 4,
+      "title": "dead_campus_atlas_phase1_foundation.xlsx :: PEPS_COUNTS_BY_YEAR",
+      "headers": [
+        "Closed_Year",
+        "Site_Closure_Count",
+        "Unique_Root_OPEID_6",
+        "Main_Campus_OPEID00_Count"
+      ]
+    },
+    {
+      "name": "dead_campus_atlas__SHEEO_CONT",
+      "rows": 748,
+      "columns": 32,
+      "title": "dead_campus_atlas_phase1_foundation.xlsx :: SHEEO_CONTEXT_RAW",
+      "headers": [
+        "Date_Closed",
+        "School_Name",
+        "City",
+        "State",
+        "Zip_Code",
+        "Address",
+        "Sector",
+        "OPEID",
+        "Source_s",
+        "Date_Closure_Announced",
+        "Source_s_1",
+        "Notes",
+        "Abrupt_1_vs_Orderly_0",
+        "Program_Flag",
+        "Source_s_2",
+        "Notes_1",
+        "Teach_Out_Plan_in_Place",
+        "Source_s_3",
+        "Notes_2",
+        "Attempted_or_Executed_Merger",
+        "Source_s_4",
+        "Notes_3",
+        "Record_Retention_Agreement",
+        "Source_s_5",
+        "Notes_4",
+        "Merged_Consolidated_in_PEPS",
+        "Merge_Date_in_PEPS",
+        "Accrediting_Agency_1_in_PEPS",
+        "Accrediting_Agency_2_in_PEPS",
+        "Accrediting_Agency_3_in_PEPS",
+        "Atlas_Scale",
+        "Source_URL"
+      ]
+    },
+    {
+      "name": "dead_campus_atlas__CURATED_IC",
+      "rows": 14,
+      "columns": 13,
+      "title": "dead_campus_atlas_phase1_foundation.xlsx :: CURATED_ICONIC_AFTERLIFE",
+      "headers": [
+        "Institution",
+        "State",
+        "Closure_Year",
+        "Sector",
+        "Campus_Type",
+        "Status",
+        "Reuse_Type",
+        "Buyer_or_Controller",
+        "Morphology",
+        "Scale",
+        "Notes",
+        "Verification",
+        "Source_URL"
+      ]
+    },
+    {
+      "name": "dead_campus_atlas__PHASE2_202",
+      "rows": 0,
+      "columns": 23,
+      "title": "dead_campus_atlas_phase1_foundation.xlsx :: PHASE2_2020_PRESENT_TRACKER",
+      "headers": [
+        "Institution",
+        "Campus_or_Location",
+        "State",
+        "City",
+        "Address",
+        "OPEID_8",
+        "Root_OPEID_6",
+        "Closure_Year",
+        "Closure_Announcement_Date",
+        "Sector",
+        "Campus_Type",
+        "Status",
+        "Sale_or_Transfer_Date",
+        "Buyer_or_Controller",
+        "Sale_Price",
+        "Acreage",
+        "Coordinates",
+        "Afterlife_Status",
+        "Morphology",
+        "Evidence_URL_1",
+        "Evidence_URL_2",
+        "Notes",
+        "Verification_Status"
+      ]
+    },
+    {
+      "name": "dead_campus_atlas__DATA_DICTI",
+      "rows": 6,
+      "columns": 2,
+      "title": "dead_campus_atlas_phase1_foundation.xlsx :: DATA_DICTIONARY",
+      "headers": [
+        "Atlas_Scale",
+        "Which_layer_of_the_project_this_row_belongs_to"
+      ]
+    },
+    {
+      "name": "dead_campus_atlas__PHASE2_CLA",
+      "rows": 34,
+      "columns": 10,
+      "title": "dead_campus_atlas_phase2.xlsx :: PHASE2_CLASSIFIED",
+      "headers": [
+        "Institution",
+        "State",
+        "Region",
+        "Sector",
+        "Closure_Year",
+        "Campus_Type",
+        "Morphology",
+        "Buyer_or_Controller",
+        "Transformation",
+        "Atlas_Priority"
+      ]
+    },
+    {
+      "name": "dead_campus_atlas__MORPHOLOGY",
+      "rows": 13,
+      "columns": 2,
+      "title": "dead_campus_atlas_phase2.xlsx :: MORPHOLOGY_SUMMARY",
+      "headers": [
+        "Morphology",
+        "Count"
+      ]
+    },
+    {
+      "name": "dead_campus_atlas__REGIONAL_C",
+      "rows": 9,
+      "columns": 2,
+      "title": "dead_campus_atlas_phase2.xlsx :: REGIONAL_CLUSTERS",
+      "headers": [
+        "dead_campus_atlas_phase2_xlsx_REGIONAL_CLUSTERS",
+        "Column_2"
+      ]
+    },
+    {
+      "name": "dead_campus_atlas__SPATIALIZE",
+      "rows": 34,
+      "columns": 13,
+      "title": "dead_campus_atlas_phase3_spatialization.xlsx :: SPATIALIZED_CAMPUSES",
+      "headers": [
+        "Institution",
+        "City",
+        "State",
+        "Region",
+        "Closure_Year",
+        "Sector",
+        "Campus_Type",
+        "Morphology",
+        "Buyer_or_Controller",
+        "Transformation",
+        "Atlas_Priority",
+        "Latitude",
+        "Longitude"
+      ]
+    },
+    {
+      "name": "dead_campus_atlas__MORPHOLOGY1",
+      "rows": 13,
+      "columns": 2,
+      "title": "dead_campus_atlas_phase3_spatialization.xlsx :: MORPHOLOGY_COUNTS",
+      "headers": [
+        "Morphology",
+        "Count"
+      ]
+    },
+    {
+      "name": "dead_campus_atlas__REGIONAL_C1",
+      "rows": 9,
+      "columns": 2,
+      "title": "dead_campus_atlas_phase3_spatialization.xlsx :: REGIONAL_COUNTS",
+      "headers": [
+        "dead_campus_atlas_phase3_spatialization_xlsx_REGIONAL_COUNTS",
+        "Column_2"
+      ]
+    },
+    {
+      "name": "dead_campus_atlas__TIMELINE",
+      "rows": 12,
+      "columns": 2,
+      "title": "dead_campus_atlas_phase3_spatialization.xlsx :: TIMELINE",
+      "headers": [
+        "Closure_Year",
+        "Closure_Count"
+      ]
+    },
+    {
+      "name": "dead_campus_atlas__PRIORITY_B",
+      "rows": 18,
+      "columns": 3,
+      "title": "dead_campus_atlas_phase3_spatialization.xlsx :: PRIORITY_BY_MORPHOLOGY",
+      "headers": [
+        "Atlas_Priority",
+        "Morphology",
+        "Count"
+      ]
+    },
+    {
+      "name": "dead_campus_atlas__AFTERLIFE_",
+      "rows": 10,
+      "columns": 9,
+      "title": "dead_campus_atlas_phase4_afterlife_forensics.xlsx :: AFTERLIFE_FORENSICS",
+      "headers": [
+        "Institution",
+        "State",
+        "Buyer",
+        "Buyer_Type",
+        "Morphology",
+        "Sale_Price",
+        "Afterlife",
+        "Transformation_Logic",
+        "Atlas_Importance"
+      ]
+    },
+    {
+      "name": "dead_campus_atlas__BUYER_TYPE",
+      "rows": 10,
+      "columns": 2,
+      "title": "dead_campus_atlas_phase4_afterlife_forensics.xlsx :: BUYER_TYPES",
+      "headers": [
+        "dead_campus_atlas_phase4_afterlife_forensics_xlsx_BUYER_TYPES",
+        "Column_2"
+      ]
+    },
+    {
+      "name": "dead_campus_atlas__PHASE4_MET",
+      "rows": 8,
+      "columns": 1,
+      "title": "dead_campus_atlas_phase4_afterlife_forensics.xlsx :: PHASE4_METHOD",
+      "headers": [
+        "dead_campus_atlas_phase4_afterlife_forensics_xlsx_PHASE4_METHOD"
+      ]
+    },
+    {
+      "name": "dead_campus_atlas__NODES",
+      "rows": 36,
+      "columns": 4,
+      "title": "dead_campus_atlas_phase5_ownership_networks.xlsx :: NODES",
+      "headers": [
+        "Name",
+        "Node_Type",
+        "Sector_or_State",
+        "Network_Role"
+      ]
+    },
+    {
+      "name": "dead_campus_atlas__EDGES",
+      "rows": 18,
+      "columns": 6,
+      "title": "dead_campus_atlas_phase5_ownership_networks.xlsx :: EDGES",
+      "headers": [
+        "Source",
+        "Target",
+        "Relationship",
+        "Morphology",
+        "Sale_Price",
+        "Transformation"
+      ]
+    },
+    {
+      "name": "dead_campus_atlas__BUYER_SECT",
+      "rows": 17,
+      "columns": 2,
+      "title": "dead_campus_atlas_phase5_ownership_networks.xlsx :: BUYER_SECTORS",
+      "headers": [
+        "dead_campus_atlas_phase5_ownership_networks_xlsx_BUYER_SECTORS",
+        "Column_2"
+      ]
+    },
+    {
+      "name": "dead_campus_atlas__MORPHOLOGY2",
+      "rows": 12,
+      "columns": 2,
+      "title": "dead_campus_atlas_phase5_ownership_networks.xlsx :: MORPHOLOGY_FLOWS",
+      "headers": [
+        "Morphology",
+        "Count"
+      ]
+    },
+    {
+      "name": "dead_campus_atlas__RELATIONSH",
+      "rows": 7,
+      "columns": 2,
+      "title": "dead_campus_atlas_phase5_ownership_networks.xlsx :: RELATIONSHIP_TYPES",
+      "headers": [
+        "Relationship",
+        "Count"
+      ]
+    },
+    {
+      "name": "dead_campus_atlas__PHASE5_MET",
+      "rows": 6,
+      "columns": 2,
+      "title": "dead_campus_atlas_phase5_ownership_networks.xlsx :: PHASE5_METHOD",
+      "headers": [
+        "dead_campus_atlas_phase5_ownership_networks_xlsx_PHASE5_METHOD",
+        "Column_2"
+      ]
+    },
+    {
+      "name": "dead_campus_atlas__REPLACEMEN",
+      "rows": 18,
+      "columns": 9,
+      "title": "dead_campus_atlas_phase6_research_art_machine.xlsx :: REPLACEMENT_MATRIX",
+      "headers": [
+        "Campus",
+        "State",
+        "Original_System",
+        "Replacement_System",
+        "Buyer_Sector",
+        "Morphology",
+        "Ideological_Shift",
+        "Atlas_Reading",
+        "Priority"
+      ]
+    },
+    {
+      "name": "dead_campus_atlas__BUYER_SECT1",
+      "rows": 19,
+      "columns": 2,
+      "title": "dead_campus_atlas_phase6_research_art_machine.xlsx :: BUYER_SECTOR_COUNTS",
+      "headers": [
+        "dead_campus_atlas_phase6_research_art_machine_xlsx_BUYER_SECTOR_COUNTS",
+        "Column_2"
+      ]
+    },
+    {
+      "name": "dead_campus_atlas__MORPHOLOGY3",
+      "rows": 12,
+      "columns": 2,
+      "title": "dead_campus_atlas_phase6_research_art_machine.xlsx :: MORPHOLOGY_COUNTS",
+      "headers": [
+        "Morphology",
+        "Count"
+      ]
+    },
+    {
+      "name": "dead_campus_atlas__VISUAL_GRA",
+      "rows": 11,
+      "columns": 3,
+      "title": "dead_campus_atlas_phase6_research_art_machine.xlsx :: VISUAL_GRAMMAR",
+      "headers": [
+        "dead_campus_atlas_phase6_research_art_machine_xlsx_VISUAL_GRAMMAR",
+        "Column_2",
+        "Column_3"
+      ]
+    },
+    {
+      "name": "dead_campus_atlas__STATUS_COD",
+      "rows": 10,
+      "columns": 3,
+      "title": "dead_campus_atlas_phase6_research_art_machine.xlsx :: STATUS_CODES",
+      "headers": [
+        "dead_campus_atlas_phase6_research_art_machine_xlsx_STATUS_CODES",
+        "Column_2",
+        "Column_3"
+      ]
+    },
+    {
+      "name": "dead_campus_atlas__PUBLICATIO",
+      "rows": 11,
+      "columns": 4,
+      "title": "dead_campus_atlas_phase6_research_art_machine.xlsx :: PUBLICATION_SPREADS",
+      "headers": [
+        "dead_campus_atlas_phase6_research_art_machine_xlsx_PUBLICATION_SPREADS",
+        "Column_2",
+        "Column_3",
+        "Column_4"
+      ]
+    },
+    {
+      "name": "dead_campus_atlas__PEPS_NORMA",
+      "rows": 4,
+      "columns": 4,
+      "title": "dead_campus_atlas_phase8_peps_engine.xlsx :: PEPS_NORMALIZATION",
+      "headers": [
+        "Address",
+        "Federal_address",
+        "Geocodable_spatial_field",
+        "GIS_ingestion"
+      ]
+    },
+    {
+      "name": "dead_campus_atlas__AUTO_MORPH",
+      "rows": 11,
+      "columns": 3,
+      "title": "dead_campus_atlas_phase8_peps_engine.xlsx :: AUTO_MORPHOLOGY",
+      "headers": [
+        "dead_campus_atlas_phase8_peps_engine_xlsx_AUTO_MORPHOLOGY",
+        "Column_2",
+        "Column_3"
+      ]
+    },
+    {
+      "name": "dead_campus_atlas__STATUS_COD1",
+      "rows": 11,
+      "columns": 2,
+      "title": "dead_campus_atlas_phase8_peps_engine.xlsx :: STATUS_CODES",
+      "headers": [
+        "dead_campus_atlas_phase8_peps_engine_xlsx_STATUS_CODES",
+        "Column_2"
+      ]
+    },
+    {
+      "name": "dead_campus_atlas__RETREAT_BE",
+      "rows": 6,
+      "columns": 3,
+      "title": "dead_campus_atlas_phase8_peps_engine.xlsx :: RETREAT_BELTS",
+      "headers": [
+        "dead_campus_atlas_phase8_peps_engine_xlsx_RETREAT_BELTS",
+        "Column_2",
+        "Column_3"
+      ]
+    },
+    {
+      "name": "dead_campus_atlas__PHASE8_PLA",
+      "rows": 5,
+      "columns": 2,
+      "title": "dead_campus_atlas_phase8_peps_engine.xlsx :: PHASE8_PLAN",
+      "headers": [
+        "dead_campus_atlas_phase8_peps_engine_xlsx_PHASE8_PLAN",
+        "Column_2"
+      ]
+    },
+    {
+      "name": "dead_campus_atlas__ABYSS_SUMM",
+      "rows": 8,
+      "columns": 2,
+      "title": "dead_campus_atlas_phase9_peps_abyss_dashboard.xlsx :: ABYSS_SUMMARY",
+      "headers": [
+        "dead_campus_atlas_phase9_peps_abyss_dashboard_xlsx_ABYSS_SUMMARY",
+        "Column_2"
+      ]
+    },
+    {
+      "name": "dead_campus_atlas__STATE_COUN",
+      "rows": 54,
+      "columns": 2,
+      "title": "dead_campus_atlas_phase9_peps_abyss_dashboard.xlsx :: STATE_COUNTS",
+      "headers": [
+        "dead_campus_atlas_phase9_peps_abyss_dashboard_xlsx_STATE_COUNTS",
+        "Column_2"
+      ]
+    },
+    {
+      "name": "dead_campus_atlas__SITE_TYPE_",
+      "rows": 3,
+      "columns": 2,
+      "title": "dead_campus_atlas_phase9_peps_abyss_dashboard.xlsx :: SITE_TYPE_COUNTS",
+      "headers": [
+        "dead_campus_atlas_phase9_peps_abyss_dashboard_xlsx_SITE_TYPE_COUNTS",
+        "Column_2"
+      ]
+    },
+    {
+      "name": "dead_campus_atlas__PRELIM_CLA",
+      "rows": 5,
+      "columns": 2,
+      "title": "dead_campus_atlas_phase9_peps_abyss_dashboard.xlsx :: PRELIM_CLASS_COUNTS",
+      "headers": [
+        "dead_campus_atlas_phase9_peps_abyss_dashboard_xlsx_PRELIM_CLASS_COUNTS",
+        "Column_2"
+      ]
+    },
+    {
+      "name": "dead_campus_atlas__TIMELINE1",
+      "rows": 33,
+      "columns": 2,
+      "title": "dead_campus_atlas_phase9_peps_abyss_dashboard.xlsx :: TIMELINE",
+      "headers": [
+        "dead_campus_atlas_phase9_peps_abyss_dashboard_xlsx_TIMELINE",
+        "Column_2"
+      ]
+    },
+    {
+      "name": "dead_campus_atlas__TOP_OPEID_",
+      "rows": 101,
+      "columns": 3,
+      "title": "dead_campus_atlas_phase9_peps_abyss_dashboard.xlsx :: TOP_OPEID_SYSTEMS",
+      "headers": [
+        "dead_campus_atlas_phase9_peps_abyss_dashboard_xlsx_TOP_OPEID_SYSTEMS",
+        "Column_2",
+        "Column_3"
+      ]
+    },
+    {
+      "name": "dead_campus_atlas__NORMALIZED",
+      "rows": 1000,
+      "columns": 31,
+      "title": "dead_campus_atlas_phase9_peps_abyss_dashboard.xlsx :: NORMALIZED_SAMPLE_1000",
+      "headers": [
+        "Atlas_Scale",
+        "Closed_Date",
+        "Closed_Year",
+        "OPEID_8",
+        "Root_OPEID_6",
+        "Branch_Suffix",
+        "Is_Main_Campus_OPEID00",
+        "School_Name",
+        "Location",
+        "Address",
+        "City",
+        "State",
+        "Zip_Code",
+        "Country_Foreign",
+        "Afterlife_Status",
+        "Morphology",
+        "Buyer_or_Controller",
+        "Sale_Price",
+        "Acreage",
+        "Research_Priority",
+        "Source_URL",
+        "ATLAS_OPEID_RAW",
+        "ATLAS_OPEID_ROOT",
+        "ATLAS_BRANCH_SUFFIX",
+        "ATLAS_SITE_TYPE",
+        "ATLAS_CLOSURE_YEAR",
+        "ATLAS_INSTITUTION_NAME",
+        "ATLAS_STATE",
+        "ATLAS_CITY",
+        "ATLAS_ADDRESS",
+        "ATLAS_PRELIMINARY_CLASS"
+      ]
+    },
+    {
+      "name": "dead_campus_atlas__PHASE9_MET",
+      "rows": 6,
+      "columns": 2,
+      "title": "dead_campus_atlas_phase9_peps_abyss_dashboard.xlsx :: PHASE9_METHOD",
+      "headers": [
+        "dead_campus_atlas_phase9_peps_abyss_dashboard_xlsx_PHASE9_METHOD",
+        "Column_2"
+      ]
+    },
+    {
+      "name": "dead_campus_atlas__STATE_RETR",
+      "rows": 53,
+      "columns": 14,
+      "title": "dead_campus_atlas_phase10_territorial_analysis.xlsx :: STATE_RETREAT_INTENSITY",
+      "headers": [
+        "State",
+        "Closure_Site_Records",
+        "Unique_Root_Systems",
+        "Main_Root_Records",
+        "Branch_Satellite_Records",
+        "For_Profit_Collapse_Class",
+        "Distributed_Site_Class",
+        "Earliest_Year",
+        "Latest_Year",
+        "Branch_Share",
+        "ForProfit_Collapse_Share",
+        "Latitude",
+        "Longitude",
+        "Territorial_Type"
+      ]
+    },
+    {
+      "name": "dead_campus_atlas__TERRITORIA",
+      "rows": 5,
+      "columns": 2,
+      "title": "dead_campus_atlas_phase10_territorial_analysis.xlsx :: TERRITORIAL_TYPES",
+      "headers": [
+        "dead_campus_atlas_phase10_territorial_analysis_xlsx_TERRITORIAL_TYPES",
+        "Column_2"
+      ]
+    },
+    {
+      "name": "dead_campus_atlas__OVERLAY_SY",
+      "rows": 11,
+      "columns": 4,
+      "title": "dead_campus_atlas_phase10_territorial_analysis.xlsx :: OVERLAY_SYSTEMS",
+      "headers": [
+        "dead_campus_atlas_phase10_territorial_analysis_xlsx_OVERLAY_SYSTEMS",
+        "Column_2",
+        "Column_3",
+        "Column_4"
+      ]
+    },
+    {
+      "name": "dead_campus_atlas__REGIONAL_B",
+      "rows": 7,
+      "columns": 4,
+      "title": "dead_campus_atlas_phase10_territorial_analysis.xlsx :: REGIONAL_BELTS",
+      "headers": [
+        "dead_campus_atlas_phase10_territorial_analysis_xlsx_REGIONAL_BELTS",
+        "Column_2",
+        "Column_3",
+        "Column_4"
+      ]
+    },
+    {
+      "name": "dead_campus_atlas__DECADE_TIM",
+      "rows": 5,
+      "columns": 2,
+      "title": "dead_campus_atlas_phase10_territorial_analysis.xlsx :: DECADE_TIMELINE",
+      "headers": [
+        "dead_campus_atlas_phase10_territorial_analysis_xlsx_DECADE_TIMELINE",
+        "Column_2"
+      ]
+    },
+    {
+      "name": "dead_campus_atlas__PHASE10_ME",
+      "rows": 6,
+      "columns": 2,
+      "title": "dead_campus_atlas_phase10_territorial_analysis.xlsx :: PHASE10_METHOD",
+      "headers": [
+        "dead_campus_atlas_phase10_territorial_analysis_xlsx_PHASE10_METHOD",
+        "Column_2"
+      ]
+    },
+    {
+      "name": "dead_campus_atlas__OVERLAY_SY1",
+      "rows": 11,
+      "columns": 5,
+      "title": "dead_campus_atlas_phase12_overlay_engine.xlsx :: OVERLAY_SYSTEMS",
+      "headers": [
+        "dead_campus_atlas_phase12_overlay_engine_xlsx_OVERLAY_SYSTEMS",
+        "Column_2",
+        "Column_3",
+        "Column_4",
+        "Column_5"
+      ]
+    },
+    {
+      "name": "dead_campus_atlas__RESEARCH_Q",
+      "rows": 8,
+      "columns": 2,
+      "title": "dead_campus_atlas_phase12_overlay_engine.xlsx :: RESEARCH_QUESTIONS",
+      "headers": [
+        "dead_campus_atlas_phase12_overlay_engine_xlsx_RESEARCH_QUESTIONS",
+        "Column_2"
+      ]
+    },
+    {
+      "name": "dead_campus_atlas__TERRITORIA1",
+      "rows": 7,
+      "columns": 3,
+      "title": "dead_campus_atlas_phase12_overlay_engine.xlsx :: TERRITORIAL_SYSTEMS",
+      "headers": [
+        "dead_campus_atlas_phase12_overlay_engine_xlsx_TERRITORIAL_SYSTEMS",
+        "Column_2",
+        "Column_3"
+      ]
+    },
+    {
+      "name": "dead_campus_atlas__INSTALLATI",
+      "rows": 7,
+      "columns": 2,
+      "title": "dead_campus_atlas_phase12_overlay_engine.xlsx :: INSTALLATION_SYSTEMS",
+      "headers": [
+        "dead_campus_atlas_phase12_overlay_engine_xlsx_INSTALLATION_SYSTEMS",
+        "Column_2"
+      ]
+    },
+    {
+      "name": "dead_campus_atlas__PHASE12_ME",
+      "rows": 6,
+      "columns": 2,
+      "title": "dead_campus_atlas_phase12_overlay_engine.xlsx :: PHASE12_METHOD",
+      "headers": [
+        "dead_campus_atlas_phase12_overlay_engine_xlsx_PHASE12_METHOD",
+        "Column_2"
+      ]
+    },
+    {
+      "name": "dead_campus_atlas__OVERLAY_PR",
+      "rows": 4,
+      "columns": 2,
+      "title": "dead_campus_atlas_phase12_overlay_engine.xlsx :: OVERLAY_PRIORITY",
+      "headers": [
+        "dead_campus_atlas_phase12_overlay_engine_xlsx_OVERLAY_PRIORITY",
+        "Column_2"
+      ]
+    },
+    {
+      "name": "dead_campus_master_DeadCampus",
+      "rows": 34,
+      "columns": 12,
+      "title": "dead_campus_master_table_v1.xlsx :: DeadCampusAtlas",
+      "headers": [
+        "Institution",
+        "State",
+        "Closure_Year",
+        "Sector",
+        "Campus_Type",
+        "Status",
+        "Reuse_Type",
+        "Buyer_or_Controller",
+        "Morphology",
+        "Scale",
+        "Notes",
+        "Verification"
+      ]
+    },
+    {
+      "name": "dead_campus_master_table_v1",
+      "rows": 34,
+      "columns": 12,
+      "title": "dead_campus_master_table_v1.csv",
+      "headers": [
+        "Institution",
+        "State",
+        "Closure_Year",
+        "Sector",
+        "Campus_Type",
+        "Status",
+        "Reuse_Type",
+        "Buyer_or_Controller",
+        "Morphology",
+        "Scale",
+        "Notes",
+        "Verification"
+      ]
+    },
+    {
+      "name": "dead_campus_phase9_peps_normali",
+      "rows": 11408,
+      "columns": 31,
+      "title": "dead_campus_phase9_peps_normalized.csv",
+      "headers": [
+        "Atlas_Scale",
+        "Closed_Date",
+        "Closed_Year",
+        "OPEID_8",
+        "Root_OPEID_6",
+        "Branch_Suffix",
+        "Is_Main_Campus_OPEID00",
+        "School_Name",
+        "Location",
+        "Address",
+        "City",
+        "State",
+        "Zip_Code",
+        "Country_Foreign",
+        "Afterlife_Status",
+        "Morphology",
+        "Buyer_or_Controller",
+        "Sale_Price",
+        "Acreage",
+        "Research_Priority",
+        "Source_URL",
+        "ATLAS_OPEID_RAW",
+        "ATLAS_OPEID_ROOT",
+        "ATLAS_BRANCH_SUFFIX",
+        "ATLAS_SITE_TYPE",
+        "ATLAS_CLOSURE_YEAR",
+        "ATLAS_INSTITUTION_NAME",
+        "ATLAS_STATE",
+        "ATLAS_CITY",
+        "ATLAS_ADDRESS",
+        "ATLAS_PRELIMINARY_CLASS"
+      ]
+    },
+    {
+      "name": "peps_site_retreat_cleaned",
+      "rows": 11408,
+      "columns": 21,
+      "title": "peps_site_retreat_cleaned.csv",
+      "headers": [
+        "Atlas_Scale",
+        "Closed_Date",
+        "Closed_Year",
+        "OPEID_8",
+        "Root_OPEID_6",
+        "Branch_Suffix",
+        "Is_Main_Campus_OPEID00",
+        "School_Name",
+        "Location",
+        "Address",
+        "City",
+        "State",
+        "Zip_Code",
+        "Country_Foreign",
+        "Afterlife_Status",
+        "Morphology",
+        "Buyer_or_Controller",
+        "Sale_Price",
+        "Acreage",
+        "Research_Priority",
+        "Source_URL"
+      ]
+    }
+  ],
+  "phaseSheets": {
+    "dead_campus_atlas__Summary": [
+      {
+        "dead_campus_atlas_phase1_foundation_xlsx_Summary": "Metric",
+        "Column_2": "Value",
+        "Column_3": "Meaning"
+      },
+      {
+        "dead_campus_atlas_phase1_foundation_xlsx_Summary": "PEPS_SITE_RETREAT rows imported",
+        "Column_2": 11408,
+        "Column_3": "Federal Student Aid Closed School Search file"
+      },
+      {
+        "dead_campus_atlas_phase1_foundation_xlsx_Summary": "Unique root OPEID_6 in PEPS import",
+        "Column_2": 4740,
+        "Column_3": "Approximates unique institutional systems represented in closed-school file"
+      },
+      {
+        "dead_campus_atlas_phase1_foundation_xlsx_Summary": "Main-campus suffix 00 records",
+        "Column_2": 3451,
+        "Column_3": "Not equivalent to all independent universities, but useful filter"
+      },
+      {
+        "dead_campus_atlas_phase1_foundation_xlsx_Summary": "SHEEO context rows imported",
+        "Column_2": 748,
+        "Column_3": "SHEEO closed-college context spreadsheet"
+      },
+      {
+        "dead_campus_atlas_phase1_foundation_xlsx_Summary": "Curated iconic afterlife rows started",
+        "Column_2": 14,
+        "Column_3": "Manual post-2020/high-visual-potential atlas layer"
+      }
+    ],
+    "dead_campus_atlas__PEPS_COUNT": [
+      {
+        "Closed_Year": 1984,
+        "Site_Closure_Count": 1,
+        "Unique_Root_OPEID_6": 1,
+        "Main_Campus_OPEID00_Count": 1
+      },
+      {
+        "Closed_Year": 1985,
+        "Site_Closure_Count": 1,
+        "Unique_Root_OPEID_6": 1,
+        "Main_Campus_OPEID00_Count": 1
+      },
+      {
+        "Closed_Year": 1986,
+        "Site_Closure_Count": 91,
+        "Unique_Root_OPEID_6": 87,
+        "Main_Campus_OPEID00_Count": 78
+      },
+      {
+        "Closed_Year": 1987,
+        "Site_Closure_Count": 154,
+        "Unique_Root_OPEID_6": 124,
+        "Main_Campus_OPEID00_Count": 107
+      },
+      {
+        "Closed_Year": 1988,
+        "Site_Closure_Count": 250,
+        "Unique_Root_OPEID_6": 207,
+        "Main_Campus_OPEID00_Count": 175
+      },
+      {
+        "Closed_Year": 1989,
+        "Site_Closure_Count": 395,
+        "Unique_Root_OPEID_6": 302,
+        "Main_Campus_OPEID00_Count": 250
+      },
+      {
+        "Closed_Year": 1990,
+        "Site_Closure_Count": 620,
+        "Unique_Root_OPEID_6": 462,
+        "Main_Campus_OPEID00_Count": 371
+      },
+      {
+        "Closed_Year": 1991,
+        "Site_Closure_Count": 575,
+        "Unique_Root_OPEID_6": 408,
+        "Main_Campus_OPEID00_Count": 324
+      },
+      {
+        "Closed_Year": 1992,
+        "Site_Closure_Count": 420,
+        "Unique_Root_OPEID_6": 300,
+        "Main_Campus_OPEID00_Count": 230
+      },
+      {
+        "Closed_Year": 1993,
+        "Site_Closure_Count": 356,
+        "Unique_Root_OPEID_6": 290,
+        "Main_Campus_OPEID00_Count": 239
+      },
+      {
+        "Closed_Year": 1994,
+        "Site_Closure_Count": 380,
+        "Unique_Root_OPEID_6": 274,
+        "Main_Campus_OPEID00_Count": 229
+      },
+      {
+        "Closed_Year": 1995,
+        "Site_Closure_Count": 440,
+        "Unique_Root_OPEID_6": 281,
+        "Main_Campus_OPEID00_Count": 231
+      },
+      {
+        "Closed_Year": 1996,
+        "Site_Closure_Count": 232,
+        "Unique_Root_OPEID_6": 205,
+        "Main_Campus_OPEID00_Count": 161
+      },
+      {
+        "Closed_Year": 1997,
+        "Site_Closure_Count": 240,
+        "Unique_Root_OPEID_6": 199,
+        "Main_Campus_OPEID00_Count": 148
+      },
+      {
+        "Closed_Year": 1998,
+        "Site_Closure_Count": 215,
+        "Unique_Root_OPEID_6": 154,
+        "Main_Campus_OPEID00_Count": 94
+      },
+      {
+        "Closed_Year": 1999,
+        "Site_Closure_Count": 228,
+        "Unique_Root_OPEID_6": 143,
+        "Main_Campus_OPEID00_Count": 77
+      },
+      {
+        "Closed_Year": 2000,
+        "Site_Closure_Count": 326,
+        "Unique_Root_OPEID_6": 165,
+        "Main_Campus_OPEID00_Count": 66
+      },
+      {
+        "Closed_Year": 2001,
+        "Site_Closure_Count": 384,
+        "Unique_Root_OPEID_6": 164,
+        "Main_Campus_OPEID00_Count": 59
+      },
+      {
+        "Closed_Year": 2002,
+        "Site_Closure_Count": 275,
+        "Unique_Root_OPEID_6": 170,
+        "Main_Campus_OPEID00_Count": 62
+      },
+      {
+        "Closed_Year": 2003,
+        "Site_Closure_Count": 406,
+        "Unique_Root_OPEID_6": 163,
+        "Main_Campus_OPEID00_Count": 33
+      },
+      {
+        "Closed_Year": 2004,
+        "Site_Closure_Count": 341,
+        "Unique_Root_OPEID_6": 186,
+        "Main_Campus_OPEID00_Count": 34
+      },
+      {
+        "Closed_Year": 2005,
+        "Site_Closure_Count": 318,
+        "Unique_Root_OPEID_6": 187,
+        "Main_Campus_OPEID00_Count": 31
+      },
+      {
+        "Closed_Year": 2006,
+        "Site_Closure_Count": 361,
+        "Unique_Root_OPEID_6": 214,
+        "Main_Campus_OPEID00_Count": 38
+      },
+      {
+        "Closed_Year": 2007,
+        "Site_Closure_Count": 448,
+        "Unique_Root_OPEID_6": 241,
+        "Main_Campus_OPEID00_Count": 60
+      },
+      {
+        "Closed_Year": 2008,
+        "Site_Closure_Count": 461,
+        "Unique_Root_OPEID_6": 248,
+        "Main_Campus_OPEID00_Count": 47
+      },
+      {
+        "Closed_Year": 2009,
+        "Site_Closure_Count": 476,
+        "Unique_Root_OPEID_6": 228,
+        "Main_Campus_OPEID00_Count": 36
+      },
+      {
+        "Closed_Year": 2010,
+        "Site_Closure_Count": 606,
+        "Unique_Root_OPEID_6": 190,
+        "Main_Campus_OPEID00_Count": 27
+      },
+      {
+        "Closed_Year": 2011,
+        "Site_Closure_Count": 388,
+        "Unique_Root_OPEID_6": 215,
+        "Main_Campus_OPEID00_Count": 32
+      },
+      {
+        "Closed_Year": 2012,
+        "Site_Closure_Count": 855,
+        "Unique_Root_OPEID_6": 225,
+        "Main_Campus_OPEID00_Count": 44
+      },
+      {
+        "Closed_Year": 2013,
+        "Site_Closure_Count": 566,
+        "Unique_Root_OPEID_6": 233,
+        "Main_Campus_OPEID00_Count": 51
+      },
+      {
+        "Closed_Year": 2014,
+        "Site_Closure_Count": 421,
+        "Unique_Root_OPEID_6": 223,
+        "Main_Campus_OPEID00_Count": 67
+      },
+      {
+        "Closed_Year": 2015,
+        "Site_Closure_Count": 178,
+        "Unique_Root_OPEID_6": 115,
+        "Main_Campus_OPEID00_Count": 48
+      }
+    ],
+    "dead_campus_atlas__MORPHOLOGY": [
+      {
+        "Morphology": "Speculative",
+        "Count": 7
+      },
+      {
+        "Morphology": "Parcelized",
+        "Count": 7
+      },
+      {
+        "Morphology": "Absorbed",
+        "Count": 7
+      },
+      {
+        "Morphology": "Health",
+        "Count": 2
+      },
+      {
+        "Morphology": "Educational reuse",
+        "Count": 2
+      },
+      {
+        "Morphology": "Housing",
+        "Count": 2
+      },
+      {
+        "Morphology": "Security",
+        "Count": 1
+      },
+      {
+        "Morphology": "K12",
+        "Count": 1
+      },
+      {
+        "Morphology": "Religious/K12",
+        "Count": 1
+      },
+      {
+        "Morphology": "Arts reuse",
+        "Count": 1
+      },
+      {
+        "Morphology": "Ruin",
+        "Count": 1
+      },
+      {
+        "Morphology": "Corporate",
+        "Count": 1
+      },
+      {
+        "Morphology": "Cloud",
+        "Count": 1
+      }
+    ],
+    "dead_campus_atlas__REGIONAL_C": [
+      {
+        "dead_campus_atlas_phase2_xlsx_REGIONAL_CLUSTERS": "Region",
+        "Column_2": "Count"
+      },
+      {
+        "dead_campus_atlas_phase2_xlsx_REGIONAL_CLUSTERS": "New England",
+        "Column_2": 11
+      },
+      {
+        "dead_campus_atlas_phase2_xlsx_REGIONAL_CLUSTERS": "Northeast",
+        "Column_2": 6
+      },
+      {
+        "dead_campus_atlas_phase2_xlsx_REGIONAL_CLUSTERS": "South",
+        "Column_2": 4
+      },
+      {
+        "dead_campus_atlas_phase2_xlsx_REGIONAL_CLUSTERS": "Rust Belt",
+        "Column_2": 4
+      },
+      {
+        "dead_campus_atlas_phase2_xlsx_REGIONAL_CLUSTERS": "Midwest",
+        "Column_2": 4
+      },
+      {
+        "dead_campus_atlas_phase2_xlsx_REGIONAL_CLUSTERS": "West",
+        "Column_2": 3
+      },
+      {
+        "dead_campus_atlas_phase2_xlsx_REGIONAL_CLUSTERS": "Plains",
+        "Column_2": 1
+      },
+      {
+        "dead_campus_atlas_phase2_xlsx_REGIONAL_CLUSTERS": "Appalachia",
+        "Column_2": 1
+      }
+    ],
+    "dead_campus_atlas__MORPHOLOGY1": [
+      {
+        "Morphology": "Absorbed",
+        "Count": 7
+      },
+      {
+        "Morphology": "Parcelized",
+        "Count": 7
+      },
+      {
+        "Morphology": "Speculative",
+        "Count": 7
+      },
+      {
+        "Morphology": "Educational reuse",
+        "Count": 2
+      },
+      {
+        "Morphology": "Health",
+        "Count": 2
+      },
+      {
+        "Morphology": "Housing",
+        "Count": 2
+      },
+      {
+        "Morphology": "Arts reuse",
+        "Count": 1
+      },
+      {
+        "Morphology": "Cloud",
+        "Count": 1
+      },
+      {
+        "Morphology": "Corporate",
+        "Count": 1
+      },
+      {
+        "Morphology": "K12",
+        "Count": 1
+      },
+      {
+        "Morphology": "Religious/K12",
+        "Count": 1
+      },
+      {
+        "Morphology": "Ruin",
+        "Count": 1
+      },
+      {
+        "Morphology": "Security",
+        "Count": 1
+      }
+    ],
+    "dead_campus_atlas__REGIONAL_C1": [
+      {
+        "dead_campus_atlas_phase3_spatialization_xlsx_REGIONAL_COUNTS": "Region",
+        "Column_2": "Count"
+      },
+      {
+        "dead_campus_atlas_phase3_spatialization_xlsx_REGIONAL_COUNTS": "New England",
+        "Column_2": 11
+      },
+      {
+        "dead_campus_atlas_phase3_spatialization_xlsx_REGIONAL_COUNTS": "Northeast",
+        "Column_2": 6
+      },
+      {
+        "dead_campus_atlas_phase3_spatialization_xlsx_REGIONAL_COUNTS": "Midwest",
+        "Column_2": 4
+      },
+      {
+        "dead_campus_atlas_phase3_spatialization_xlsx_REGIONAL_COUNTS": "Rust Belt",
+        "Column_2": 4
+      },
+      {
+        "dead_campus_atlas_phase3_spatialization_xlsx_REGIONAL_COUNTS": "South",
+        "Column_2": 4
+      },
+      {
+        "dead_campus_atlas_phase3_spatialization_xlsx_REGIONAL_COUNTS": "West",
+        "Column_2": 3
+      },
+      {
+        "dead_campus_atlas_phase3_spatialization_xlsx_REGIONAL_COUNTS": "Appalachia",
+        "Column_2": 1
+      },
+      {
+        "dead_campus_atlas_phase3_spatialization_xlsx_REGIONAL_COUNTS": "Plains",
+        "Column_2": 1
+      }
+    ],
+    "dead_campus_atlas__TIMELINE": [
+      {
+        "Closure_Year": 2014,
+        "Closure_Count": 1
+      },
+      {
+        "Closure_Year": 2016,
+        "Closure_Count": 2
+      },
+      {
+        "Closure_Year": 2017,
+        "Closure_Count": 2
+      },
+      {
+        "Closure_Year": 2018,
+        "Closure_Count": 3
+      },
+      {
+        "Closure_Year": 2019,
+        "Closure_Count": 5
+      },
+      {
+        "Closure_Year": 2020,
+        "Closure_Count": 5
+      },
+      {
+        "Closure_Year": 2021,
+        "Closure_Count": 1
+      },
+      {
+        "Closure_Year": 2022,
+        "Closure_Count": 1
+      },
+      {
+        "Closure_Year": 2023,
+        "Closure_Count": 7
+      },
+      {
+        "Closure_Year": 2024,
+        "Closure_Count": 5
+      },
+      {
+        "Closure_Year": 2025,
+        "Closure_Count": 1
+      },
+      {
+        "Closure_Year": 2026,
+        "Closure_Count": 1
+      }
+    ],
+    "dead_campus_atlas__MORPHOLOGY2": [
+      {
+        "Morphology": "Parcelized",
+        "Count": 3
+      },
+      {
+        "Morphology": "Speculative",
+        "Count": 3
+      },
+      {
+        "Morphology": "Absorbed",
+        "Count": 2
+      },
+      {
+        "Morphology": "Health",
+        "Count": 2
+      },
+      {
+        "Morphology": "Cloud",
+        "Count": 1
+      },
+      {
+        "Morphology": "Corporate",
+        "Count": 1
+      },
+      {
+        "Morphology": "Educational Reuse",
+        "Count": 1
+      },
+      {
+        "Morphology": "Housing",
+        "Count": 1
+      },
+      {
+        "Morphology": "K12",
+        "Count": 1
+      },
+      {
+        "Morphology": "Religious/K12",
+        "Count": 1
+      },
+      {
+        "Morphology": "Ruin",
+        "Count": 1
+      },
+      {
+        "Morphology": "Security",
+        "Count": 1
+      }
+    ],
+    "dead_campus_atlas__MORPHOLOGY3": [
+      {
+        "Morphology": "Parcelized",
+        "Count": 3
+      },
+      {
+        "Morphology": "Speculative",
+        "Count": 3
+      },
+      {
+        "Morphology": "Absorbed",
+        "Count": 2
+      },
+      {
+        "Morphology": "Health",
+        "Count": 2
+      },
+      {
+        "Morphology": "Cloud",
+        "Count": 1
+      },
+      {
+        "Morphology": "Corporate",
+        "Count": 1
+      },
+      {
+        "Morphology": "Educational Reuse",
+        "Count": 1
+      },
+      {
+        "Morphology": "Housing",
+        "Count": 1
+      },
+      {
+        "Morphology": "K12",
+        "Count": 1
+      },
+      {
+        "Morphology": "Religious/K12",
+        "Count": 1
+      },
+      {
+        "Morphology": "Ruin",
+        "Count": 1
+      },
+      {
+        "Morphology": "Security",
+        "Count": 1
+      }
+    ],
+    "dead_campus_atlas__STATUS_COD": [
+      {
+        "dead_campus_atlas_phase6_research_art_machine_xlsx_STATUS_CODES": "Status_Code",
+        "Column_2": "Definition",
+        "Column_3": "Graphic_Treatment"
+      },
+      {
+        "dead_campus_atlas_phase6_research_art_machine_xlsx_STATUS_CODES": "ACTIVE-RISK",
+        "Column_2": "Open institution with severe financial/property stress",
+        "Column_3": "Dotted outline; amber label"
+      },
+      {
+        "dead_campus_atlas_phase6_research_art_machine_xlsx_STATUS_CODES": "CLOSURE-EVENT",
+        "Column_2": "Institution has announced or completed closure",
+        "Column_3": "Black label; closure year prominent"
+      },
+      {
+        "dead_campus_atlas_phase6_research_art_machine_xlsx_STATUS_CODES": "ASSET-TRANSFER",
+        "Column_2": "Campus sold/transferred/auctioned",
+        "Column_3": "Arrow to buyer sector"
+      },
+      {
+        "dead_campus_atlas_phase6_research_art_machine_xlsx_STATUS_CODES": "PARCELIZED",
+        "Column_2": "Campus divided into multiple ownership pieces",
+        "Column_3": "Fragmented grid/parcel hatch"
+      },
+      {
+        "dead_campus_atlas_phase6_research_art_machine_xlsx_STATUS_CODES": "ABSORBED",
+        "Column_2": "Campus taken into stronger institution",
+        "Column_3": "Thick consolidation arrow"
+      },
+      {
+        "dead_campus_atlas_phase6_research_art_machine_xlsx_STATUS_CODES": "SECURITY",
+        "Column_2": "Education replaced by policing/federal/military training",
+        "Column_3": "Red-black restricted zone overlay"
+      },
+      {
+        "dead_campus_atlas_phase6_research_art_machine_xlsx_STATUS_CODES": "CLOUD",
+        "Column_2": "Education replaced by data/cloud infrastructure",
+        "Column_3": "Server-grid overlay; cold blue"
+      },
+      {
+        "dead_campus_atlas_phase6_research_art_machine_xlsx_STATUS_CODES": "RUIN",
+        "Column_2": "Campus abandoned, burned, deteriorating, or unresolved",
+        "Column_3": "Gray void fill; broken boundary"
+      },
+      {
+        "dead_campus_atlas_phase6_research_art_machine_xlsx_STATUS_CODES": "COUNTER-USE",
+        "Column_2": "Educational reuse with reparative/alternative mission",
+        "Column_3": "Green-blue marker; exception node"
+      }
+    ],
+    "dead_campus_atlas__STATUS_COD1": [
+      {
+        "dead_campus_atlas_phase8_peps_engine_xlsx_STATUS_CODES": "Status_Code",
+        "Column_2": "Definition"
+      },
+      {
+        "dead_campus_atlas_phase8_peps_engine_xlsx_STATUS_CODES": "ACTIVE-RISK",
+        "Column_2": "Institution under severe financial/property stress"
+      },
+      {
+        "dead_campus_atlas_phase8_peps_engine_xlsx_STATUS_CODES": "CLOSURE-EVENT",
+        "Column_2": "Educational function terminated"
+      },
+      {
+        "dead_campus_atlas_phase8_peps_engine_xlsx_STATUS_CODES": "ASSET-TRANSFER",
+        "Column_2": "Campus sold/transferred"
+      },
+      {
+        "dead_campus_atlas_phase8_peps_engine_xlsx_STATUS_CODES": "ABSORBED",
+        "Column_2": "Campus integrated into stronger institution"
+      },
+      {
+        "dead_campus_atlas_phase8_peps_engine_xlsx_STATUS_CODES": "PARCELIZED",
+        "Column_2": "Campus fragmented into parcels"
+      },
+      {
+        "dead_campus_atlas_phase8_peps_engine_xlsx_STATUS_CODES": "CLOUD",
+        "Column_2": "Computational/data infrastructure conversion"
+      },
+      {
+        "dead_campus_atlas_phase8_peps_engine_xlsx_STATUS_CODES": "SECURITY",
+        "Column_2": "Federal/military/policing reuse"
+      },
+      {
+        "dead_campus_atlas_phase8_peps_engine_xlsx_STATUS_CODES": "SPECULATIVE",
+        "Column_2": "Held by developer/LLC without clear educational use"
+      },
+      {
+        "dead_campus_atlas_phase8_peps_engine_xlsx_STATUS_CODES": "RUIN",
+        "Column_2": "Abandoned, deteriorating, unresolved"
+      },
+      {
+        "dead_campus_atlas_phase8_peps_engine_xlsx_STATUS_CODES": "COUNTER-USE",
+        "Column_2": "Alternative educational or civic reuse"
+      }
+    ],
+    "dead_campus_atlas__TIMELINE1": [
+      {
+        "dead_campus_atlas_phase9_peps_abyss_dashboard_xlsx_TIMELINE": "ATLAS_CLOSURE_YEAR",
+        "Column_2": "Closure_Site_Count"
+      },
+      {
+        "dead_campus_atlas_phase9_peps_abyss_dashboard_xlsx_TIMELINE": 1984,
+        "Column_2": 1
+      },
+      {
+        "dead_campus_atlas_phase9_peps_abyss_dashboard_xlsx_TIMELINE": 1985,
+        "Column_2": 1
+      },
+      {
+        "dead_campus_atlas_phase9_peps_abyss_dashboard_xlsx_TIMELINE": 1986,
+        "Column_2": 91
+      },
+      {
+        "dead_campus_atlas_phase9_peps_abyss_dashboard_xlsx_TIMELINE": 1987,
+        "Column_2": 154
+      },
+      {
+        "dead_campus_atlas_phase9_peps_abyss_dashboard_xlsx_TIMELINE": 1988,
+        "Column_2": 250
+      },
+      {
+        "dead_campus_atlas_phase9_peps_abyss_dashboard_xlsx_TIMELINE": 1989,
+        "Column_2": 395
+      },
+      {
+        "dead_campus_atlas_phase9_peps_abyss_dashboard_xlsx_TIMELINE": 1990,
+        "Column_2": 620
+      },
+      {
+        "dead_campus_atlas_phase9_peps_abyss_dashboard_xlsx_TIMELINE": 1991,
+        "Column_2": 575
+      },
+      {
+        "dead_campus_atlas_phase9_peps_abyss_dashboard_xlsx_TIMELINE": 1992,
+        "Column_2": 420
+      },
+      {
+        "dead_campus_atlas_phase9_peps_abyss_dashboard_xlsx_TIMELINE": 1993,
+        "Column_2": 356
+      },
+      {
+        "dead_campus_atlas_phase9_peps_abyss_dashboard_xlsx_TIMELINE": 1994,
+        "Column_2": 380
+      },
+      {
+        "dead_campus_atlas_phase9_peps_abyss_dashboard_xlsx_TIMELINE": 1995,
+        "Column_2": 440
+      },
+      {
+        "dead_campus_atlas_phase9_peps_abyss_dashboard_xlsx_TIMELINE": 1996,
+        "Column_2": 232
+      },
+      {
+        "dead_campus_atlas_phase9_peps_abyss_dashboard_xlsx_TIMELINE": 1997,
+        "Column_2": 240
+      },
+      {
+        "dead_campus_atlas_phase9_peps_abyss_dashboard_xlsx_TIMELINE": 1998,
+        "Column_2": 215
+      },
+      {
+        "dead_campus_atlas_phase9_peps_abyss_dashboard_xlsx_TIMELINE": 1999,
+        "Column_2": 228
+      },
+      {
+        "dead_campus_atlas_phase9_peps_abyss_dashboard_xlsx_TIMELINE": 2000,
+        "Column_2": 326
+      },
+      {
+        "dead_campus_atlas_phase9_peps_abyss_dashboard_xlsx_TIMELINE": 2001,
+        "Column_2": 384
+      },
+      {
+        "dead_campus_atlas_phase9_peps_abyss_dashboard_xlsx_TIMELINE": 2002,
+        "Column_2": 275
+      },
+      {
+        "dead_campus_atlas_phase9_peps_abyss_dashboard_xlsx_TIMELINE": 2003,
+        "Column_2": 406
+      },
+      {
+        "dead_campus_atlas_phase9_peps_abyss_dashboard_xlsx_TIMELINE": 2004,
+        "Column_2": 341
+      },
+      {
+        "dead_campus_atlas_phase9_peps_abyss_dashboard_xlsx_TIMELINE": 2005,
+        "Column_2": 318
+      },
+      {
+        "dead_campus_atlas_phase9_peps_abyss_dashboard_xlsx_TIMELINE": 2006,
+        "Column_2": 361
+      },
+      {
+        "dead_campus_atlas_phase9_peps_abyss_dashboard_xlsx_TIMELINE": 2007,
+        "Column_2": 448
+      },
+      {
+        "dead_campus_atlas_phase9_peps_abyss_dashboard_xlsx_TIMELINE": 2008,
+        "Column_2": 461
+      },
+      {
+        "dead_campus_atlas_phase9_peps_abyss_dashboard_xlsx_TIMELINE": 2009,
+        "Column_2": 476
+      },
+      {
+        "dead_campus_atlas_phase9_peps_abyss_dashboard_xlsx_TIMELINE": 2010,
+        "Column_2": 606
+      },
+      {
+        "dead_campus_atlas_phase9_peps_abyss_dashboard_xlsx_TIMELINE": 2011,
+        "Column_2": 388
+      },
+      {
+        "dead_campus_atlas_phase9_peps_abyss_dashboard_xlsx_TIMELINE": 2012,
+        "Column_2": 855
+      },
+      {
+        "dead_campus_atlas_phase9_peps_abyss_dashboard_xlsx_TIMELINE": 2013,
+        "Column_2": 566
+      },
+      {
+        "dead_campus_atlas_phase9_peps_abyss_dashboard_xlsx_TIMELINE": 2014,
+        "Column_2": 421
+      },
+      {
+        "dead_campus_atlas_phase9_peps_abyss_dashboard_xlsx_TIMELINE": 2015,
+        "Column_2": 178
+      }
+    ],
+    "dead_campus_atlas__TERRITORIA": [
+      {
+        "dead_campus_atlas_phase10_territorial_analysis_xlsx_TERRITORIAL_TYPES": "Territorial_Type",
+        "Column_2": "State_Count"
+      },
+      {
+        "dead_campus_atlas_phase10_territorial_analysis_xlsx_TERRITORIAL_TYPES": "MIXED RETREAT FIELD",
+        "Column_2": 38
+      },
+      {
+        "dead_campus_atlas_phase10_territorial_analysis_xlsx_TERRITORIAL_TYPES": "SATELLITE / ANNEX WITHDRAWAL ZONE",
+        "Column_2": 9
+      },
+      {
+        "dead_campus_atlas_phase10_territorial_analysis_xlsx_TERRITORIAL_TYPES": "HIGH-DENSITY DISTRIBUTED RETREAT",
+        "Column_2": 3
+      },
+      {
+        "dead_campus_atlas_phase10_territorial_analysis_xlsx_TERRITORIAL_TYPES": "MAIN-CAMPUS CLOSURE HEAVY",
+        "Column_2": 3
+      }
+    ],
+    "dead_campus_atlas__REGIONAL_B": [
+      {
+        "dead_campus_atlas_phase10_territorial_analysis_xlsx_REGIONAL_BELTS": "Territorial_Belt",
+        "Column_2": "States",
+        "Column_3": "Signature",
+        "Column_4": "Atlas_Reading"
+      },
+      {
+        "dead_campus_atlas_phase10_territorial_analysis_xlsx_REGIONAL_BELTS": "New England Liberal Arts Extinction Belt",
+        "Column_2": "VT, MA, NH, ME, CT",
+        "Column_3": "Small private colleges, eco-colleges, experimental/rural liberal arts",
+        "Column_4": "Civic aspiration becomes land-bank, care economy, elite absorption"
+      },
+      {
+        "dead_campus_atlas_phase10_territorial_analysis_xlsx_REGIONAL_BELTS": "Rust Belt Catholic / Regional Collapse",
+        "Column_2": "OH, MI, WI, PA, WV",
+        "Column_3": "Catholic colleges, ethnic colleges, regional private institutions",
+        "Column_4": "Religious/social infrastructure contracts into hospitals, K12, fragments"
+      },
+      {
+        "dead_campus_atlas_phase10_territorial_analysis_xlsx_REGIONAL_BELTS": "For-Profit Strip-Mall Wasteland",
+        "Column_2": "FL, CA, TX, AZ, IL",
+        "Column_3": "High-volume distributed campus/branch closures",
+        "Column_4": "Higher education mirrors retail/franchise collapse"
+      },
+      {
+        "dead_campus_atlas_phase10_territorial_analysis_xlsx_REGIONAL_BELTS": "Cloud / Security Conversion Corridor",
+        "Column_2": "VA, DC, AL, MD",
+        "Column_3": "Research and liberal arts campuses converted toward federal/cloud systems",
+        "Column_4": "Knowledge infrastructure becomes computation/training state"
+      },
+      {
+        "dead_campus_atlas_phase10_territorial_analysis_xlsx_REGIONAL_BELTS": "Bay Area Land-Extraction Zone",
+        "Column_2": "CA",
+        "Column_3": "High land-value campuses under redevelopment/elite-acquisition pressure",
+        "Column_4": "Educational mission loses to real-estate value"
+      },
+      {
+        "dead_campus_atlas_phase10_territorial_analysis_xlsx_REGIONAL_BELTS": "Parcelized Small-Town Campus Belt",
+        "Column_2": "NY, IL, SD, MI",
+        "Column_3": "Campuses sold as pieces to civic/developer fragments",
+        "Column_4": "The campus totality becomes a market of parts"
+      }
+    ],
+    "dead_campus_atlas__TERRITORIA1": [
+      {
+        "dead_campus_atlas_phase12_overlay_engine_xlsx_TERRITORIAL_SYSTEMS": "Territorial_System",
+        "Column_2": "Region",
+        "Column_3": "Atlas_Reading"
+      },
+      {
+        "dead_campus_atlas_phase12_overlay_engine_xlsx_TERRITORIAL_SYSTEMS": "Dead Mall ↔ Dead Campus Belt",
+        "Column_2": "Midwest / Rust Belt suburbs",
+        "Column_3": "Retail + educational collapse systems overlap"
+      },
+      {
+        "dead_campus_atlas_phase12_overlay_engine_xlsx_TERRITORIAL_SYSTEMS": "Cloud Conversion Corridor",
+        "Column_2": "VA / DC / Northern Virginia",
+        "Column_3": "Research campuses becoming computational infrastructure"
+      },
+      {
+        "dead_campus_atlas_phase12_overlay_engine_xlsx_TERRITORIAL_SYSTEMS": "Catholic Retreat Geography",
+        "Column_2": "OH / MI / WI / PA",
+        "Column_3": "Religious institutional contraction"
+      },
+      {
+        "dead_campus_atlas_phase12_overlay_engine_xlsx_TERRITORIAL_SYSTEMS": "Bay Area Educational Extraction Zone",
+        "Column_2": "CA",
+        "Column_3": "Land value exceeds educational value"
+      },
+      {
+        "dead_campus_atlas_phase12_overlay_engine_xlsx_TERRITORIAL_SYSTEMS": "For-Profit Collapse Archipelago",
+        "Column_2": "FL / AZ / TX / CA",
+        "Column_3": "Distributed strip-mall education collapse"
+      },
+      {
+        "dead_campus_atlas_phase12_overlay_engine_xlsx_TERRITORIAL_SYSTEMS": "Wellness / Care Economy Belt",
+        "Column_2": "VT / MA / retirement-growth regions",
+        "Column_3": "Campus reuse by healthcare/wellness sectors"
+      }
+    ]
+  }
+}

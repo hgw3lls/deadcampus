@@ -1,0 +1,506 @@
+[
+  {
+    "id": "birmingham southern college",
+    "name": "Birmingham–Southern College",
+    "nodeType": "Campus",
+    "sectorOrState": "Private nonprofit",
+    "networkRole": "Liberal arts college",
+    "sourceSheet": "dead_campus_atlas__NODES",
+    "original": {
+      "Name": "Birmingham–Southern College",
+      "Node_Type": "Campus",
+      "Sector_or_State": "Private nonprofit",
+      "Network_Role": "Liberal arts college"
+    }
+  },
+  {
+    "id": "gwu virginia science and technology campus",
+    "name": "GWU Virginia Science & Technology Campus",
+    "nodeType": "Campus",
+    "sectorOrState": "Private nonprofit",
+    "networkRole": "Research campus",
+    "sourceSheet": "dead_campus_atlas__NODES",
+    "original": {
+      "Name": "GWU Virginia Science & Technology Campus",
+      "Node_Type": "Campus",
+      "Sector_or_State": "Private nonprofit",
+      "Network_Role": "Research campus"
+    }
+  },
+  {
+    "id": "fontbonne university",
+    "name": "Fontbonne University",
+    "nodeType": "Campus",
+    "sectorOrState": "Private nonprofit",
+    "networkRole": "Catholic university",
+    "sourceSheet": "dead_campus_atlas__NODES",
+    "original": {
+      "Name": "Fontbonne University",
+      "Node_Type": "Campus",
+      "Sector_or_State": "Private nonprofit",
+      "Network_Role": "Catholic university"
+    }
+  },
+  {
+    "id": "cabrini university",
+    "name": "Cabrini University",
+    "nodeType": "Campus",
+    "sectorOrState": "Private nonprofit",
+    "networkRole": "Catholic university",
+    "sourceSheet": "dead_campus_atlas__NODES",
+    "original": {
+      "Name": "Cabrini University",
+      "Node_Type": "Campus",
+      "Sector_or_State": "Private nonprofit",
+      "Network_Role": "Catholic university"
+    }
+  },
+  {
+    "id": "notre dame college",
+    "name": "Notre Dame College",
+    "nodeType": "Campus",
+    "sectorOrState": "Private nonprofit",
+    "networkRole": "Catholic college",
+    "sourceSheet": "dead_campus_atlas__NODES",
+    "original": {
+      "Name": "Notre Dame College",
+      "Node_Type": "Campus",
+      "Sector_or_State": "Private nonprofit",
+      "Network_Role": "Catholic college"
+    }
+  },
+  {
+    "id": "holy names university",
+    "name": "Holy Names University",
+    "nodeType": "Campus",
+    "sectorOrState": "Private nonprofit",
+    "networkRole": "Catholic university",
+    "sourceSheet": "dead_campus_atlas__NODES",
+    "original": {
+      "Name": "Holy Names University",
+      "Node_Type": "Campus",
+      "Sector_or_State": "Private nonprofit",
+      "Network_Role": "Catholic university"
+    }
+  },
+  {
+    "id": "newbury college",
+    "name": "Newbury College",
+    "nodeType": "Campus",
+    "sectorOrState": "Private nonprofit",
+    "networkRole": "Private college",
+    "sourceSheet": "dead_campus_atlas__NODES",
+    "original": {
+      "Name": "Newbury College",
+      "Node_Type": "Campus",
+      "Sector_or_State": "Private nonprofit",
+      "Network_Role": "Private college"
+    }
+  },
+  {
+    "id": "st gregory s university",
+    "name": "St. Gregory's University",
+    "nodeType": "Campus",
+    "sectorOrState": "Private nonprofit",
+    "networkRole": "Catholic university",
+    "sourceSheet": "dead_campus_atlas__NODES",
+    "original": {
+      "Name": "St. Gregory's University",
+      "Node_Type": "Campus",
+      "Sector_or_State": "Private nonprofit",
+      "Network_Role": "Catholic university"
+    }
+  },
+  {
+    "id": "wells college",
+    "name": "Wells College",
+    "nodeType": "Campus",
+    "sectorOrState": "Private nonprofit",
+    "networkRole": "Liberal arts college",
+    "sourceSheet": "dead_campus_atlas__NODES",
+    "original": {
+      "Name": "Wells College",
+      "Node_Type": "Campus",
+      "Sector_or_State": "Private nonprofit",
+      "Network_Role": "Liberal arts college"
+    }
+  },
+  {
+    "id": "college of saint rose",
+    "name": "College of Saint Rose",
+    "nodeType": "Campus",
+    "sectorOrState": "Private nonprofit",
+    "networkRole": "Catholic college",
+    "sourceSheet": "dead_campus_atlas__NODES",
+    "original": {
+      "Name": "College of Saint Rose",
+      "Node_Type": "Campus",
+      "Sector_or_State": "Private nonprofit",
+      "Network_Role": "Catholic college"
+    }
+  },
+  {
+    "id": "green mountain college",
+    "name": "Green Mountain College",
+    "nodeType": "Campus",
+    "sectorOrState": "Private nonprofit",
+    "networkRole": "Eco/liberal arts college",
+    "sourceSheet": "dead_campus_atlas__NODES",
+    "original": {
+      "Name": "Green Mountain College",
+      "Node_Type": "Campus",
+      "Sector_or_State": "Private nonprofit",
+      "Network_Role": "Eco/liberal arts college"
+    }
+  },
+  {
+    "id": "southern vermont college",
+    "name": "Southern Vermont College",
+    "nodeType": "Campus",
+    "sectorOrState": "Private nonprofit",
+    "networkRole": "Liberal arts college",
+    "sourceSheet": "dead_campus_atlas__NODES",
+    "original": {
+      "Name": "Southern Vermont College",
+      "Node_Type": "Campus",
+      "Sector_or_State": "Private nonprofit",
+      "Network_Role": "Liberal arts college"
+    }
+  },
+  {
+    "id": "medaille university",
+    "name": "Medaille University",
+    "nodeType": "Campus",
+    "sectorOrState": "Private nonprofit",
+    "networkRole": "Urban college",
+    "sourceSheet": "dead_campus_atlas__NODES",
+    "original": {
+      "Name": "Medaille University",
+      "Node_Type": "Campus",
+      "Sector_or_State": "Private nonprofit",
+      "Network_Role": "Urban college"
+    }
+  },
+  {
+    "id": "cardinal stritch university",
+    "name": "Cardinal Stritch University",
+    "nodeType": "Campus",
+    "sectorOrState": "Private nonprofit",
+    "networkRole": "Catholic university",
+    "sourceSheet": "dead_campus_atlas__NODES",
+    "original": {
+      "Name": "Cardinal Stritch University",
+      "Node_Type": "Campus",
+      "Sector_or_State": "Private nonprofit",
+      "Network_Role": "Catholic university"
+    }
+  },
+  {
+    "id": "macmurray college",
+    "name": "MacMurray College",
+    "nodeType": "Campus",
+    "sectorOrState": "Private nonprofit",
+    "networkRole": "Liberal arts college",
+    "sourceSheet": "dead_campus_atlas__NODES",
+    "original": {
+      "Name": "MacMurray College",
+      "Node_Type": "Campus",
+      "Sector_or_State": "Private nonprofit",
+      "Network_Role": "Liberal arts college"
+    }
+  },
+  {
+    "id": "finlandia university",
+    "name": "Finlandia University",
+    "nodeType": "Campus",
+    "sectorOrState": "Private nonprofit",
+    "networkRole": "Ethnic/Lutheran college",
+    "sourceSheet": "dead_campus_atlas__NODES",
+    "original": {
+      "Name": "Finlandia University",
+      "Node_Type": "Campus",
+      "Sector_or_State": "Private nonprofit",
+      "Network_Role": "Ethnic/Lutheran college"
+    }
+  },
+  {
+    "id": "virginia intermont college",
+    "name": "Virginia Intermont College",
+    "nodeType": "Campus",
+    "sectorOrState": "Private nonprofit",
+    "networkRole": "Historic college",
+    "sourceSheet": "dead_campus_atlas__NODES",
+    "original": {
+      "Name": "Virginia Intermont College",
+      "Node_Type": "Campus",
+      "Sector_or_State": "Private nonprofit",
+      "Network_Role": "Historic college"
+    }
+  },
+  {
+    "id": "daniel webster college",
+    "name": "Daniel Webster College",
+    "nodeType": "Campus",
+    "sectorOrState": "For-profit linked",
+    "networkRole": "Aviation college",
+    "sourceSheet": "dead_campus_atlas__NODES",
+    "original": {
+      "Name": "Daniel Webster College",
+      "Node_Type": "Campus",
+      "Sector_or_State": "For-profit linked",
+      "Network_Role": "Aviation college"
+    }
+  },
+  {
+    "id": "federal coast guard",
+    "name": "Federal / Coast Guard",
+    "nodeType": "Buyer",
+    "sectorOrState": "Federal Government",
+    "networkRole": "Security state",
+    "sourceSheet": "dead_campus_atlas__NODES",
+    "original": {
+      "Name": "Federal / Coast Guard",
+      "Node_Type": "Buyer",
+      "Sector_or_State": "Federal Government",
+      "Network_Role": "Security state"
+    }
+  },
+  {
+    "id": "amazon data services",
+    "name": "Amazon Data Services",
+    "nodeType": "Buyer",
+    "sectorOrState": "Cloud / Platform Capital",
+    "networkRole": "Data infrastructure",
+    "sourceSheet": "dead_campus_atlas__NODES",
+    "original": {
+      "Name": "Amazon Data Services",
+      "Node_Type": "Buyer",
+      "Sector_or_State": "Cloud / Platform Capital",
+      "Network_Role": "Data infrastructure"
+    }
+  },
+  {
+    "id": "washington university",
+    "name": "Washington University",
+    "nodeType": "Buyer",
+    "sectorOrState": "Elite University",
+    "networkRole": "University consolidation",
+    "sourceSheet": "dead_campus_atlas__NODES",
+    "original": {
+      "Name": "Washington University",
+      "Node_Type": "Buyer",
+      "Sector_or_State": "Elite University",
+      "Network_Role": "University consolidation"
+    }
+  },
+  {
+    "id": "villanova university",
+    "name": "Villanova University",
+    "nodeType": "Buyer",
+    "sectorOrState": "Elite University",
+    "networkRole": "University consolidation",
+    "sourceSheet": "dead_campus_atlas__NODES",
+    "original": {
+      "Name": "Villanova University",
+      "Node_Type": "Buyer",
+      "Sector_or_State": "Elite University",
+      "Network_Role": "University consolidation"
+    }
+  },
+  {
+    "id": "akron children s hospital",
+    "name": "Akron Children's Hospital",
+    "nodeType": "Buyer",
+    "sectorOrState": "Hospital System",
+    "networkRole": "Medical territorial expansion",
+    "sourceSheet": "dead_campus_atlas__NODES",
+    "original": {
+      "Name": "Akron Children's Hospital",
+      "Node_Type": "Buyer",
+      "Sector_or_State": "Hospital System",
+      "Network_Role": "Medical territorial expansion"
+    }
+  },
+  {
+    "id": "bh properties",
+    "name": "BH Properties",
+    "nodeType": "Buyer",
+    "sectorOrState": "Real Estate Investment",
+    "networkRole": "Speculative redevelopment",
+    "sourceSheet": "dead_campus_atlas__NODES",
+    "original": {
+      "Name": "BH Properties",
+      "Node_Type": "Buyer",
+      "Sector_or_State": "Real Estate Investment",
+      "Network_Role": "Speculative redevelopment"
+    }
+  },
+  {
+    "id": "welltower",
+    "name": "Welltower",
+    "nodeType": "Buyer",
+    "sectorOrState": "REIT / Care Economy",
+    "networkRole": "Senior housing",
+    "sourceSheet": "dead_campus_atlas__NODES",
+    "original": {
+      "Name": "Welltower",
+      "Node_Type": "Buyer",
+      "Sector_or_State": "REIT / Care Economy",
+      "Network_Role": "Senior housing"
+    }
+  },
+  {
+    "id": "hobby lobby",
+    "name": "Hobby Lobby",
+    "nodeType": "Buyer",
+    "sectorOrState": "Corporate / Religious Capital",
+    "networkRole": "Private ideological acquisition",
+    "sourceSheet": "dead_campus_atlas__NODES",
+    "original": {
+      "Name": "Hobby Lobby",
+      "Node_Type": "Buyer",
+      "Sector_or_State": "Corporate / Religious Capital",
+      "Network_Role": "Private ideological acquisition"
+    }
+  },
+  {
+    "id": "hiawatha institute",
+    "name": "Hiawatha Institute",
+    "nodeType": "Buyer",
+    "sectorOrState": "Indigenous Education",
+    "networkRole": "Reparative educational reuse",
+    "sourceSheet": "dead_campus_atlas__NODES",
+    "original": {
+      "Name": "Hiawatha Institute",
+      "Node_Type": "Buyer",
+      "Sector_or_State": "Indigenous Education",
+      "Network_Role": "Reparative educational reuse"
+    }
+  },
+  {
+    "id": "albany county acphla",
+    "name": "Albany County / ACPHLA",
+    "nodeType": "Buyer",
+    "sectorOrState": "Public Authority",
+    "networkRole": "Public redevelopment",
+    "sourceSheet": "dead_campus_atlas__NODES",
+    "original": {
+      "Name": "Albany County / ACPHLA",
+      "Node_Type": "Buyer",
+      "Sector_or_State": "Public Authority",
+      "Network_Role": "Public redevelopment"
+    }
+  },
+  {
+    "id": "private ownership",
+    "name": "Private ownership",
+    "nodeType": "Buyer",
+    "sectorOrState": "Speculative Capital",
+    "networkRole": "Estate/redevelopment holding",
+    "sourceSheet": "dead_campus_atlas__NODES",
+    "original": {
+      "Name": "Private ownership",
+      "Node_Type": "Buyer",
+      "Sector_or_State": "Speculative Capital",
+      "Network_Role": "Estate/redevelopment holding"
+    }
+  },
+  {
+    "id": "southwestern vermont health care",
+    "name": "Southwestern Vermont Health Care",
+    "nodeType": "Buyer",
+    "sectorOrState": "Hospital System",
+    "networkRole": "Health/wellness expansion",
+    "sourceSheet": "dead_campus_atlas__NODES",
+    "original": {
+      "Name": "Southwestern Vermont Health Care",
+      "Node_Type": "Buyer",
+      "Sector_or_State": "Hospital System",
+      "Network_Role": "Health/wellness expansion"
+    }
+  },
+  {
+    "id": "buffsci",
+    "name": "BuffSci",
+    "nodeType": "Buyer",
+    "sectorOrState": "Charter / K12 Network",
+    "networkRole": "K12 conversion",
+    "sourceSheet": "dead_campus_atlas__NODES",
+    "original": {
+      "Name": "BuffSci",
+      "Node_Type": "Buyer",
+      "Sector_or_State": "Charter / K12 Network",
+      "Network_Role": "K12 conversion"
+    }
+  },
+  {
+    "id": "ramirez foundation",
+    "name": "Ramirez Foundation",
+    "nodeType": "Buyer",
+    "sectorOrState": "Private Philanthropy / K12",
+    "networkRole": "Religious/K12 conversion",
+    "sourceSheet": "dead_campus_atlas__NODES",
+    "original": {
+      "Name": "Ramirez Foundation",
+      "Node_Type": "Buyer",
+      "Sector_or_State": "Private Philanthropy / K12",
+      "Network_Role": "Religious/K12 conversion"
+    }
+  },
+  {
+    "id": "multiple buyers",
+    "name": "Multiple buyers",
+    "nodeType": "Buyer",
+    "sectorOrState": "Fragmented Market",
+    "networkRole": "Parcel liquidation",
+    "sourceSheet": "dead_campus_atlas__NODES",
+    "original": {
+      "Name": "Multiple buyers",
+      "Node_Type": "Buyer",
+      "Sector_or_State": "Fragmented Market",
+      "Network_Role": "Parcel liquidation"
+    }
+  },
+  {
+    "id": "local groups",
+    "name": "Local groups",
+    "nodeType": "Buyer",
+    "sectorOrState": "Civic / Nonprofit Mix",
+    "networkRole": "Fragmented civic reuse",
+    "sourceSheet": "dead_campus_atlas__NODES",
+    "original": {
+      "Name": "Local groups",
+      "Node_Type": "Buyer",
+      "Sector_or_State": "Civic / Nonprofit Mix",
+      "Network_Role": "Fragmented civic reuse"
+    }
+  },
+  {
+    "id": "us magis",
+    "name": "US Magis",
+    "nodeType": "Buyer",
+    "sectorOrState": "Absentee Ownership",
+    "networkRole": "Ruin / neglect",
+    "sourceSheet": "dead_campus_atlas__NODES",
+    "original": {
+      "Name": "US Magis",
+      "Node_Type": "Buyer",
+      "Sector_or_State": "Absentee Ownership",
+      "Network_Role": "Ruin / neglect"
+    }
+  },
+  {
+    "id": "xinhua education",
+    "name": "Xinhua Education",
+    "nodeType": "Buyer",
+    "sectorOrState": "Foreign / Education Capital",
+    "networkRole": "Speculative education holding",
+    "sourceSheet": "dead_campus_atlas__NODES",
+    "original": {
+      "Name": "Xinhua Education",
+      "Node_Type": "Buyer",
+      "Sector_or_State": "Foreign / Education Capital",
+      "Network_Role": "Speculative education holding"
+    }
+  }
+]

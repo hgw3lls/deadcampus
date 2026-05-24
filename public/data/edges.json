@@ -1,0 +1,326 @@
+[
+  {
+    "id": "birmingham southern college--federal coast guard--0",
+    "source": "Birmingham–Southern College",
+    "target": "Federal / Coast Guard",
+    "relationship": "sold/transferred toward",
+    "morphology": "Security",
+    "salePrice": "$126.5M",
+    "transformation": "Campus → training center",
+    "sourceSheet": "dead_campus_atlas__EDGES",
+    "original": {
+      "Source": "Birmingham–Southern College",
+      "Target": "Federal / Coast Guard",
+      "Relationship": "sold/transferred toward",
+      "Morphology": "Security",
+      "Sale_Price": "$126.5M",
+      "Transformation": "Campus → training center"
+    }
+  },
+  {
+    "id": "gwu virginia science and technology campus--amazon data services--1",
+    "source": "GWU Virginia Science & Technology Campus",
+    "target": "Amazon Data Services",
+    "relationship": "sold to",
+    "morphology": "Cloud",
+    "salePrice": "$427M",
+    "transformation": "Research campus → data infrastructure",
+    "sourceSheet": "dead_campus_atlas__EDGES",
+    "original": {
+      "Source": "GWU Virginia Science & Technology Campus",
+      "Target": "Amazon Data Services",
+      "Relationship": "sold to",
+      "Morphology": "Cloud",
+      "Sale_Price": "$427M",
+      "Transformation": "Research campus → data infrastructure"
+    }
+  },
+  {
+    "id": "fontbonne university--washington university--2",
+    "source": "Fontbonne University",
+    "target": "Washington University",
+    "relationship": "sold to",
+    "morphology": "Absorbed",
+    "salePrice": "$39M",
+    "transformation": "Catholic college → elite university land bank",
+    "sourceSheet": "dead_campus_atlas__EDGES",
+    "original": {
+      "Source": "Fontbonne University",
+      "Target": "Washington University",
+      "Relationship": "sold to",
+      "Morphology": "Absorbed",
+      "Sale_Price": "$39M",
+      "Transformation": "Catholic college → elite university land bank"
+    }
+  },
+  {
+    "id": "cabrini university--villanova university--3",
+    "source": "Cabrini University",
+    "target": "Villanova University",
+    "relationship": "absorbed by",
+    "morphology": "Absorbed",
+    "salePrice": "Undisclosed",
+    "transformation": "Catholic college → larger Catholic university",
+    "sourceSheet": "dead_campus_atlas__EDGES",
+    "original": {
+      "Source": "Cabrini University",
+      "Target": "Villanova University",
+      "Relationship": "absorbed by",
+      "Morphology": "Absorbed",
+      "Sale_Price": "Undisclosed",
+      "Transformation": "Catholic college → larger Catholic university"
+    }
+  },
+  {
+    "id": "notre dame college--akron children s hospital--4",
+    "source": "Notre Dame College",
+    "target": "Akron Children's Hospital",
+    "relationship": "auctioned to",
+    "morphology": "Health",
+    "salePrice": "Auction",
+    "transformation": "Catholic college → hospital system",
+    "sourceSheet": "dead_campus_atlas__EDGES",
+    "original": {
+      "Source": "Notre Dame College",
+      "Target": "Akron Children's Hospital",
+      "Relationship": "auctioned to",
+      "Morphology": "Health",
+      "Sale_Price": "Auction",
+      "Transformation": "Catholic college → hospital system"
+    }
+  },
+  {
+    "id": "holy names university--bh properties--5",
+    "source": "Holy Names University",
+    "target": "BH Properties",
+    "relationship": "sold to",
+    "morphology": "Speculative",
+    "salePrice": "~$65M",
+    "transformation": "Bay Area campus → investment holding",
+    "sourceSheet": "dead_campus_atlas__EDGES",
+    "original": {
+      "Source": "Holy Names University",
+      "Target": "BH Properties",
+      "Relationship": "sold to",
+      "Morphology": "Speculative",
+      "Sale_Price": "~$65M",
+      "Transformation": "Bay Area campus → investment holding"
+    }
+  },
+  {
+    "id": "newbury college--welltower--6",
+    "source": "Newbury College",
+    "target": "Welltower",
+    "relationship": "sold to",
+    "morphology": "Housing",
+    "salePrice": "$34M",
+    "transformation": "College → senior living/care economy",
+    "sourceSheet": "dead_campus_atlas__EDGES",
+    "original": {
+      "Source": "Newbury College",
+      "Target": "Welltower",
+      "Relationship": "sold to",
+      "Morphology": "Housing",
+      "Sale_Price": "$34M",
+      "Transformation": "College → senior living/care economy"
+    }
+  },
+  {
+    "id": "st gregory s university--hobby lobby--7",
+    "source": "St. Gregory's University",
+    "target": "Hobby Lobby",
+    "relationship": "purchased by",
+    "morphology": "Corporate",
+    "salePrice": "Undisclosed",
+    "transformation": "Religious college → corporate/private ownership",
+    "sourceSheet": "dead_campus_atlas__EDGES",
+    "original": {
+      "Source": "St. Gregory's University",
+      "Target": "Hobby Lobby",
+      "Relationship": "purchased by",
+      "Morphology": "Corporate",
+      "Sale_Price": "Undisclosed",
+      "Transformation": "Religious college → corporate/private ownership"
+    }
+  },
+  {
+    "id": "wells college--hiawatha institute--8",
+    "source": "Wells College",
+    "target": "Hiawatha Institute",
+    "relationship": "sold to",
+    "morphology": "Educational Reuse",
+    "salePrice": "$12.5M",
+    "transformation": "Liberal arts campus → Indigenous institute",
+    "sourceSheet": "dead_campus_atlas__EDGES",
+    "original": {
+      "Source": "Wells College",
+      "Target": "Hiawatha Institute",
+      "Relationship": "sold to",
+      "Morphology": "Educational Reuse",
+      "Sale_Price": "$12.5M",
+      "Transformation": "Liberal arts campus → Indigenous institute"
+    }
+  },
+  {
+    "id": "college of saint rose--albany county acphla--9",
+    "source": "College of Saint Rose",
+    "target": "Albany County / ACPHLA",
+    "relationship": "purchased by",
+    "morphology": "Parcelized",
+    "salePrice": "$35M",
+    "transformation": "Urban campus → public redevelopment authority",
+    "sourceSheet": "dead_campus_atlas__EDGES",
+    "original": {
+      "Source": "College of Saint Rose",
+      "Target": "Albany County / ACPHLA",
+      "Relationship": "purchased by",
+      "Morphology": "Parcelized",
+      "Sale_Price": "$35M",
+      "Transformation": "Urban campus → public redevelopment authority"
+    }
+  },
+  {
+    "id": "green mountain college--private ownership--10",
+    "source": "Green Mountain College",
+    "target": "Private ownership",
+    "relationship": "auctioned/sold to",
+    "morphology": "Speculative",
+    "salePrice": "Unknown",
+    "transformation": "Eco-college → speculative holding",
+    "sourceSheet": "dead_campus_atlas__EDGES",
+    "original": {
+      "Source": "Green Mountain College",
+      "Target": "Private ownership",
+      "Relationship": "auctioned/sold to",
+      "Morphology": "Speculative",
+      "Sale_Price": "Unknown",
+      "Transformation": "Eco-college → speculative holding"
+    }
+  },
+  {
+    "id": "southern vermont college--southwestern vermont health care--11",
+    "source": "Southern Vermont College",
+    "target": "Southwestern Vermont Health Care",
+    "relationship": "purchased by",
+    "morphology": "Health",
+    "salePrice": "$4.65M",
+    "transformation": "Rural campus → health/wellness redevelopment",
+    "sourceSheet": "dead_campus_atlas__EDGES",
+    "original": {
+      "Source": "Southern Vermont College",
+      "Target": "Southwestern Vermont Health Care",
+      "Relationship": "purchased by",
+      "Morphology": "Health",
+      "Sale_Price": "$4.65M",
+      "Transformation": "Rural campus → health/wellness redevelopment"
+    }
+  },
+  {
+    "id": "medaille university--buffsci--12",
+    "source": "Medaille University",
+    "target": "BuffSci",
+    "relationship": "sold to",
+    "morphology": "K12",
+    "salePrice": "~$11M",
+    "transformation": "Urban college → charter school network",
+    "sourceSheet": "dead_campus_atlas__EDGES",
+    "original": {
+      "Source": "Medaille University",
+      "Target": "BuffSci",
+      "Relationship": "sold to",
+      "Morphology": "K12",
+      "Sale_Price": "~$11M",
+      "Transformation": "Urban college → charter school network"
+    }
+  },
+  {
+    "id": "cardinal stritch university--ramirez foundation--13",
+    "source": "Cardinal Stritch University",
+    "target": "Ramirez Foundation",
+    "relationship": "sold to",
+    "morphology": "Religious/K12",
+    "salePrice": "$24M",
+    "transformation": "Catholic university → private Christian school",
+    "sourceSheet": "dead_campus_atlas__EDGES",
+    "original": {
+      "Source": "Cardinal Stritch University",
+      "Target": "Ramirez Foundation",
+      "Relationship": "sold to",
+      "Morphology": "Religious/K12",
+      "Sale_Price": "$24M",
+      "Transformation": "Catholic university → private Christian school"
+    }
+  },
+  {
+    "id": "macmurray college--multiple buyers--14",
+    "source": "MacMurray College",
+    "target": "Multiple buyers",
+    "relationship": "auctioned to",
+    "morphology": "Parcelized",
+    "salePrice": "~$1.35M",
+    "transformation": "Campus → 18 parcel liquidation",
+    "sourceSheet": "dead_campus_atlas__EDGES",
+    "original": {
+      "Source": "MacMurray College",
+      "Target": "Multiple buyers",
+      "Relationship": "auctioned to",
+      "Morphology": "Parcelized",
+      "Sale_Price": "~$1.35M",
+      "Transformation": "Campus → 18 parcel liquidation"
+    }
+  },
+  {
+    "id": "finlandia university--local groups--15",
+    "source": "Finlandia University",
+    "target": "Local groups",
+    "relationship": "distributed to",
+    "morphology": "Parcelized",
+    "salePrice": "Various",
+    "transformation": "Ethnic college → civic/nonprofit fragments",
+    "sourceSheet": "dead_campus_atlas__EDGES",
+    "original": {
+      "Source": "Finlandia University",
+      "Target": "Local groups",
+      "Relationship": "distributed to",
+      "Morphology": "Parcelized",
+      "Sale_Price": "Various",
+      "Transformation": "Ethnic college → civic/nonprofit fragments"
+    }
+  },
+  {
+    "id": "virginia intermont college--us magis--16",
+    "source": "Virginia Intermont College",
+    "target": "US Magis",
+    "relationship": "auctioned to",
+    "morphology": "Ruin",
+    "salePrice": "$3.3M",
+    "transformation": "Historic college → absentee ruin",
+    "sourceSheet": "dead_campus_atlas__EDGES",
+    "original": {
+      "Source": "Virginia Intermont College",
+      "Target": "US Magis",
+      "Relationship": "auctioned to",
+      "Morphology": "Ruin",
+      "Sale_Price": "$3.3M",
+      "Transformation": "Historic college → absentee ruin"
+    }
+  },
+  {
+    "id": "daniel webster college--xinhua education--17",
+    "source": "Daniel Webster College",
+    "target": "Xinhua Education",
+    "relationship": "auctioned to",
+    "morphology": "Speculative",
+    "salePrice": "$11.6M",
+    "transformation": "Post-ITT campus → speculative ownership",
+    "sourceSheet": "dead_campus_atlas__EDGES",
+    "original": {
+      "Source": "Daniel Webster College",
+      "Target": "Xinhua Education",
+      "Relationship": "auctioned to",
+      "Morphology": "Speculative",
+      "Sale_Price": "$11.6M",
+      "Transformation": "Post-ITT campus → speculative ownership"
+    }
+  }
+]

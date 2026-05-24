@@ -1,0 +1,74 @@
+@import "leaflet/dist/leaflet.css";
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  color-scheme: light;
+  background: #f2f0e9;
+  color: #111111;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html,
+body {
+  min-height: 100%;
+  margin: 0;
+  background:
+    linear-gradient(rgba(17, 17, 17, 0.05) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(17, 17, 17, 0.05) 1px, transparent 1px),
+    #f2f0e9;
+  background-size: 24px 24px;
+}
+
+body {
+  font-family: Inter, Arial, Helvetica, sans-serif;
+}
+
+button,
+input,
+select {
+  font: inherit;
+}
+
+.leaflet-container {
+  background: #dedbd0;
+  font-family: "IBM Plex Mono", SFMono-Regular, Consolas, monospace;
+}
+
+.leaflet-tile-pane {
+  filter: grayscale(1) contrast(0.92) brightness(1.06);
+}
+
+.leaflet-control-zoom a {
+  background: #f2f0e9;
+  border-bottom-color: #111111;
+  color: #111111;
+}
+
+.leaflet-control-attribution {
+  background: rgba(242, 240, 233, 0.8);
+  color: #111111;
+  font-size: 10px;
+}
+
+.atlas-panel {
+  border: 1px solid #111111;
+  background: rgba(242, 240, 233, 0.96);
+}
+
+.atlas-label {
+  font-family: "IBM Plex Mono", SFMono-Regular, Consolas, monospace;
+  font-size: 10px;
+  letter-spacing: 0;
+  text-transform: uppercase;
+}
+
+.scrollbar-thin {
+  scrollbar-color: #111111 #d8d5cb;
+  scrollbar-width: thin;
+}
