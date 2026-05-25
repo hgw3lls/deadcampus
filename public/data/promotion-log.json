@@ -15,5 +15,22 @@
     },
     "promoted": [],
     "failed": []
+  },
+  {
+    "runId": "promotion-2026-05-25T15:15:39.121Z",
+    "promotedAt": "2026-05-25T15:15:39.123Z",
+    "canonicalPath": "public/data/sites.json",
+    "queuePath": "public/data/queue.json",
+    "counts": {
+      "queueLoaded": 0,
+      "promotedNew": 0,
+      "promotedMerged": 0,
+      "failed": 0,
+      "canonicalBefore": 11486,
+      "canonicalAfter": 11486,
+      "queueRemaining": 0
+    },
+    "promoted": [],
+    "failed": []
   }
 ]
