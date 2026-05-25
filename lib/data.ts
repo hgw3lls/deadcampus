@@ -96,6 +96,60 @@ export type ResearchQueueRecord = {
   statusCode: StatusCode;
 };
 
+export type EvidenceGraphNode = {
+  id: string;
+  type: "campus" | "buyer" | "state" | "year" | "morphology" | "status" | "rootOpeid" | "missingEvidence" | "source" | "external";
+  label: string;
+  sublabel: string | null;
+  statusCode: StatusCode | null;
+  morphology: string | null;
+  score: number;
+  size: number;
+  sourceIds: string[];
+};
+
+export type EvidenceGraphEdge = {
+  id: string;
+  source: string;
+  target: string;
+  type:
+    | "closed_in_year"
+    | "same_root_opeid"
+    | "located_in_state"
+    | "classified_as"
+    | "status_code"
+    | "controlled_by"
+    | "missing_evidence"
+    | "evidenced_by"
+    | "explicit_network";
+  confidence: "confirmed" | "derived" | "inferred" | "missing";
+  reason: string;
+  sourceSheet: string;
+  weight: number;
+  sourceIds: string[];
+};
+
+export type EvidenceGraphCluster = {
+  id: string;
+  label: string;
+  clusterType: "state" | "buyer" | "morphology" | "status" | "research";
+  nodeIds: string[];
+};
+
+export type EvidenceGraph = {
+  generatedAt: string;
+  nodes: EvidenceGraphNode[];
+  edges: EvidenceGraphEdge[];
+  clusters: EvidenceGraphCluster[];
+  stats: {
+    nodeCount: number;
+    edgeCount: number;
+    campusCount: number;
+    buyerCount: number;
+    missingEvidenceCount: number;
+  };
+};
+
 export type SummaryData = {
   generatedAt: string;
   workbookPath: string;
@@ -200,6 +254,10 @@ export async function loadAtlasData(): Promise<AtlasData> {
   ]);
 
   return { sites, summary, nodes, edges, researchQueue };
+}
+
+export async function loadEvidenceGraph(): Promise<EvidenceGraph> {
+  return fetch(dataUrl("/data/graph.json")).then((response) => response.json() as Promise<EvidenceGraph>);
 }
 
 export function normalizeIdentity(value: string | null | undefined): string {

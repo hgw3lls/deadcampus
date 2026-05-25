@@ -208,3 +208,76 @@ select {
     0 0 0 2px #f2f0e9,
     0 0 0 4px #111111;
 }
+
+.evidence-wall {
+  background:
+    radial-gradient(circle at 22% 18%, rgba(157, 43, 43, 0.06), transparent 18%),
+    linear-gradient(rgba(17, 17, 17, 0.055) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(17, 17, 17, 0.055) 1px, transparent 1px),
+    #f2f0e9;
+  background-size:
+    auto,
+    22px 22px,
+    22px 22px;
+}
+
+.evidence-board {
+  background:
+    linear-gradient(rgba(17, 17, 17, 0.13) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(17, 17, 17, 0.13) 1px, transparent 1px),
+    linear-gradient(rgba(17, 17, 17, 0.05) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(17, 17, 17, 0.05) 1px, transparent 1px),
+    #dedbd0;
+  background-size:
+    96px 96px,
+    96px 96px,
+    24px 24px,
+    24px 24px;
+  border: 1px solid #111111;
+  box-shadow: inset 0 0 0 12px rgba(242, 240, 233, 0.58);
+}
+
+.evidence-card {
+  background:
+    linear-gradient(90deg, rgba(17, 17, 17, 0.045) 1px, transparent 1px),
+    linear-gradient(rgba(17, 17, 17, 0.035) 1px, transparent 1px),
+    rgba(242, 240, 233, 0.96);
+  background-size: 12px 12px;
+  border: 2px solid #111111;
+  color: #111111;
+  cursor: pointer;
+  padding: 8px;
+  transform: rotate(var(--pin-rotation, -0.4deg));
+  transition:
+    transform 120ms ease,
+    box-shadow 120ms ease;
+}
+
+.evidence-card:nth-of-type(3n) {
+  --pin-rotation: 0.55deg;
+}
+
+.evidence-card:nth-of-type(4n) {
+  --pin-rotation: -0.85deg;
+}
+
+.evidence-card:hover,
+.evidence-card--selected {
+  box-shadow:
+    0 0 0 2px #f2f0e9,
+    0 0 0 5px #111111;
+  transform: rotate(0deg) translateY(-1px);
+  z-index: 20;
+}
+
+.evidence-card::before {
+  background: #111111;
+  border: 1px solid #f2f0e9;
+  content: "";
+  height: 8px;
+  left: 50%;
+  position: absolute;
+  top: -5px;
+  transform: translateX(-50%);
+  width: 8px;
+}

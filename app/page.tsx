@@ -1,6 +1,7 @@
 "use client";
 
 import { useCallback, useEffect, useMemo, useState } from "react";
+import { EvidenceWall } from "@/components/EvidenceWall";
 import { FilterRail } from "@/components/FilterRail";
 import { MapPanel } from "@/components/MapPanel";
 import { OwnershipNetwork } from "@/components/OwnershipNetwork";
@@ -13,6 +14,7 @@ import {
   STATUS_COLORS,
   STATUS_LABELS,
   type AtlasData,
+  type EvidenceGraph,
   type FilterState,
   type SiteRecord,
   countBy,
@@ -20,6 +22,7 @@ import {
   formatNumber,
   getFilterOptions,
   loadAtlasData,
+  loadEvidenceGraph,
   priorityBand
 } from "@/lib/data";
 
@@ -27,7 +30,9 @@ export default function DashboardPage() {
   const [data, setData] = useState<AtlasData | null>(null);
   const [filters, setFilters] = useState<FilterState>(DEFAULT_FILTERS);
   const [selectedSite, setSelectedSite] = useState<SiteRecord | null>(null);
-  const [atlasPlate, setAtlasPlate] = useState(false);
+  const [viewMode, setViewMode] = useState<"dashboard" | "plate" | "wall">("dashboard");
+  const [evidenceGraph, setEvidenceGraph] = useState<EvidenceGraph | null>(null);
+  const [evidenceGraphError, setEvidenceGraphError] = useState<string | null>(null);
   const [error, setError] = useState<string | null>(null);
 
   useEffect(() => {
@@ -35,6 +40,13 @@ export default function DashboardPage() {
       .then(setData)
       .catch((loadError: Error) => setError(loadError.message));
   }, []);
+
+  useEffect(() => {
+    if (viewMode !== "wall" || evidenceGraph || evidenceGraphError) return;
+    loadEvidenceGraph()
+      .then(setEvidenceGraph)
+      .catch((loadError: Error) => setEvidenceGraphError(loadError.message));
+  }, [evidenceGraph, evidenceGraphError, viewMode]);
 
   const options = useMemo(() => (data ? getFilterOptions(data.sites) : getFilterOptions([])), [data]);
   const filteredSites = useMemo(() => (data ? filterSites(data.sites, filters) : []), [data, filters]);
@@ -80,16 +92,22 @@ export default function DashboardPage() {
           <HeaderMetric label="Records" value={formatNumber(data.summary.totalRecords)} />
           <HeaderMetric label="Filtered" value={formatNumber(filteredSites.length)} />
         </div>
-        <button
-          type="button"
-          onClick={() => setAtlasPlate((current) => !current)}
-          className="min-w-[160px] border border-atlas-ink bg-atlas-ink px-4 py-3 font-mono text-[11px] uppercase text-atlas-paper"
-        >
-          {atlasPlate ? "Exit plate mode" : "Atlas plate mode"}
-        </button>
+        <div className="grid min-w-[176px] border border-atlas-ink font-mono text-[11px] uppercase">
+          <ModeButton label="Dashboard" active={viewMode === "dashboard"} onClick={() => setViewMode("dashboard")} />
+          <ModeButton label="Atlas plate" active={viewMode === "plate"} onClick={() => setViewMode("plate")} />
+          <ModeButton label="Evidence wall" active={viewMode === "wall"} onClick={() => setViewMode("wall")} />
+        </div>
       </header>
 
-      {atlasPlate ? (
+      {viewMode === "wall" ? (
+        evidenceGraph ? (
+          <EvidenceWall graph={evidenceGraph} sites={data.sites} />
+        ) : (
+          <div className="atlas-panel flex min-h-[calc(100vh-154px)] items-center justify-center p-6 font-mono text-xs uppercase">
+            {evidenceGraphError ? `Evidence graph load failure: ${evidenceGraphError}` : "Loading evidence graph / derived relationship file"}
+          </div>
+        )
+      ) : viewMode === "plate" ? (
         <div className="min-h-[calc(100vh-150px)]">
           <MapPanel
             sites={filteredSites}
@@ -120,23 +138,39 @@ export default function DashboardPage() {
         </div>
       )}
 
-      <div className="mt-3 grid gap-3 xl:grid-cols-2">
-        <TimelineChart sites={data.sites} onYearRangeChange={setYearRange} />
-        <TerritorialAnalysis sites={filteredSites} phaseSheets={data.summary.phaseSheets} />
-      </div>
+      {viewMode === "dashboard" ? (
+        <>
+          <div className="mt-3 grid gap-3 xl:grid-cols-2">
+            <TimelineChart sites={data.sites} onYearRangeChange={setYearRange} />
+            <TerritorialAnalysis sites={filteredSites} phaseSheets={data.summary.phaseSheets} />
+          </div>
 
-      <div className="mt-3 grid gap-3 xl:grid-cols-[minmax(0,0.95fr)_minmax(0,1.05fr)]">
-        <ReplacementMatrix sites={filteredSites} />
-        <OwnershipNetwork nodes={data.nodes} edges={data.edges} />
-      </div>
+          <div className="mt-3 grid gap-3 xl:grid-cols-[minmax(0,0.95fr)_minmax(0,1.05fr)]">
+            <ReplacementMatrix sites={filteredSites} />
+            <OwnershipNetwork nodes={data.nodes} edges={data.edges} />
+          </div>
 
-      <div className="mt-3">
-        <ResearchQueue queue={data.researchQueue} sites={data.sites} />
-      </div>
+          <div className="mt-3">
+            <ResearchQueue queue={data.researchQueue} sites={data.sites} />
+          </div>
 
-      <StatusLegend />
+          <StatusLegend />
+        </>
+      ) : null}
       <SiteDrawer site={selectedSite} edges={data.edges} onClose={() => setSelectedSite(null)} />
     </main>
+  );
+}
+
+function ModeButton({ label, active, onClick }: { label: string; active: boolean; onClick: () => void }) {
+  return (
+    <button
+      type="button"
+      onClick={onClick}
+      className={`border-b border-atlas-ink px-3 py-2 text-left ${active ? "bg-atlas-ink text-atlas-paper" : "bg-atlas-paper text-atlas-ink"}`}
+    >
+      {label}
+    </button>
   );
 }
 

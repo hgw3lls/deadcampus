@@ -74,6 +74,60 @@ type EdgeRecord = {
   original: SourceRow;
 };
 
+type EvidenceGraphNode = {
+  id: string;
+  type: "campus" | "buyer" | "state" | "year" | "morphology" | "status" | "rootOpeid" | "missingEvidence" | "source" | "external";
+  label: string;
+  sublabel: string | null;
+  statusCode: string | null;
+  morphology: string | null;
+  score: number;
+  size: number;
+  sourceIds: string[];
+};
+
+type EvidenceGraphEdge = {
+  id: string;
+  source: string;
+  target: string;
+  type:
+    | "closed_in_year"
+    | "same_root_opeid"
+    | "located_in_state"
+    | "classified_as"
+    | "status_code"
+    | "controlled_by"
+    | "missing_evidence"
+    | "evidenced_by"
+    | "explicit_network";
+  confidence: "confirmed" | "derived" | "inferred" | "missing";
+  reason: string;
+  sourceSheet: string;
+  weight: number;
+  sourceIds: string[];
+};
+
+type EvidenceGraphCluster = {
+  id: string;
+  label: string;
+  clusterType: "state" | "buyer" | "morphology" | "status" | "research";
+  nodeIds: string[];
+};
+
+type EvidenceGraph = {
+  generatedAt: string;
+  nodes: EvidenceGraphNode[];
+  edges: EvidenceGraphEdge[];
+  clusters: EvidenceGraphCluster[];
+  stats: {
+    nodeCount: number;
+    edgeCount: number;
+    campusCount: number;
+    buyerCount: number;
+    missingEvidenceCount: number;
+  };
+};
+
 const repoRoot = process.cwd();
 const preferredWorkbook = "/mnt/data/DEAD_CAMPUS_ATLAS_MASTER_WORKBOOK.xlsx";
 const fallbackWorkbook = path.join(repoRoot, "DEAD_CAMPUS_ATLAS_MASTER_WORKBOOK.xlsx");
@@ -536,9 +590,371 @@ function parseEdges(rows: SourceRow[], sourceSheet: string): EdgeRecord[] {
     .filter(Boolean) as EdgeRecord[];
 }
 
-function writeJson(fileName: string, data: unknown): void {
+function hashId(value: string): string {
+  let hash = 2166136261;
+  for (let index = 0; index < value.length; index += 1) {
+    hash ^= value.charCodeAt(index);
+    hash = Math.imul(hash, 16777619);
+  }
+  return (hash >>> 0).toString(36);
+}
+
+function graphId(type: EvidenceGraphNode["type"], value: string): string {
+  return `${type}:${hashId(`${type}:${normalizeIdentity(value) || value}`)}`;
+}
+
+function pushUniqueLimited(values: string[], next: string, limit = 80): void {
+  if (!values.includes(next) && values.length < limit) {
+    values.push(next);
+  }
+}
+
+function buildEvidenceGraph(sites: SiteRecord[], networkNodes: NodeRecord[], networkEdges: EdgeRecord[]): EvidenceGraph {
+  const nodeMap = new Map<string, EvidenceGraphNode>();
+  const edgeMap = new Map<string, EvidenceGraphEdge>();
+  const siteNodeByName = new Map<string, string>();
+
+  const addNode = (node: EvidenceGraphNode): string => {
+    const existing = nodeMap.get(node.id);
+    if (!existing) {
+      nodeMap.set(node.id, node);
+      return node.id;
+    }
+    existing.size += node.size;
+    existing.score = Math.max(existing.score, node.score);
+    existing.statusCode = existing.statusCode ?? node.statusCode;
+    existing.morphology = existing.morphology ?? node.morphology;
+    node.sourceIds.forEach((sourceId) => pushUniqueLimited(existing.sourceIds, sourceId));
+    return existing.id;
+  };
+
+  const addEdge = (edge: Omit<EvidenceGraphEdge, "id" | "weight">): void => {
+    if (edge.source === edge.target) return;
+    const key = `${edge.type}:${edge.source}->${edge.target}:${edge.reason}`;
+    const existing = edgeMap.get(key);
+    if (!existing) {
+      edgeMap.set(key, { ...edge, id: `edge:${hashId(key)}`, weight: 1 });
+      return;
+    }
+    existing.weight += 1;
+    edge.sourceIds.forEach((sourceId) => pushUniqueLimited(existing.sourceIds, sourceId));
+  };
+
+  sites.forEach((site) => {
+    const siteId = graphId("campus", site.id);
+    siteNodeByName.set(normalizeIdentity(site.name), siteId);
+    addNode({
+      id: siteId,
+      type: "campus",
+      label: site.name,
+      sublabel: [site.city, site.state, site.closureYear].filter(Boolean).join(" / ") || null,
+      statusCode: site.statusCode,
+      morphology: site.morphology,
+      score: site.researchPriorityScore,
+      size: 1,
+      sourceIds: [site.id]
+    });
+
+    const relationSourceSheet = site.sourceSheets.join(" / ");
+
+    if (site.state) {
+      const stateId = addNode({
+        id: graphId("state", site.state),
+        type: "state",
+        label: site.state,
+        sublabel: "state retreat field",
+        statusCode: null,
+        morphology: null,
+        score: 0,
+        size: 1,
+        sourceIds: [site.id]
+      });
+      addEdge({
+        source: siteId,
+        target: stateId,
+        type: "located_in_state",
+        confidence: "derived",
+        reason: `Located in ${site.state}`,
+        sourceSheet: relationSourceSheet,
+        sourceIds: [site.id]
+      });
+    }
+
+    if (site.closureYear) {
+      const yearId = addNode({
+        id: graphId("year", String(site.closureYear)),
+        type: "year",
+        label: String(site.closureYear),
+        sublabel: "closure year",
+        statusCode: null,
+        morphology: null,
+        score: 0,
+        size: 1,
+        sourceIds: [site.id]
+      });
+      addEdge({
+        source: siteId,
+        target: yearId,
+        type: "closed_in_year",
+        confidence: "derived",
+        reason: `Closed in ${site.closureYear}`,
+        sourceSheet: relationSourceSheet,
+        sourceIds: [site.id]
+      });
+    }
+
+    if (site.morphology) {
+      const morphologyId = addNode({
+        id: graphId("morphology", site.morphology),
+        type: "morphology",
+        label: site.morphology,
+        sublabel: "morphology",
+        statusCode: site.statusCode,
+        morphology: site.morphology,
+        score: 0,
+        size: 1,
+        sourceIds: [site.id]
+      });
+      addEdge({
+        source: siteId,
+        target: morphologyId,
+        type: "classified_as",
+        confidence: "derived",
+        reason: `Classified as ${site.morphology}`,
+        sourceSheet: relationSourceSheet,
+        sourceIds: [site.id]
+      });
+    }
+
+    const statusId = addNode({
+      id: graphId("status", site.statusCode),
+      type: "status",
+      label: site.statusCode,
+      sublabel: "computed status code",
+      statusCode: site.statusCode,
+      morphology: null,
+      score: 0,
+      size: 1,
+      sourceIds: [site.id]
+    });
+    addEdge({
+      source: siteId,
+      target: statusId,
+      type: "status_code",
+      confidence: "inferred",
+      reason: `Computed status code: ${site.statusCode}`,
+      sourceSheet: "preprocessWorkbook.ts",
+      sourceIds: [site.id]
+    });
+
+    if (site.buyerController) {
+      const buyerId = addNode({
+        id: graphId("buyer", site.buyerController),
+        type: "buyer",
+        label: site.buyerController,
+        sublabel: "buyer / controller",
+        statusCode: site.statusCode,
+        morphology: site.morphology,
+        score: 0,
+        size: 1,
+        sourceIds: [site.id]
+      });
+      addEdge({
+        source: siteId,
+        target: buyerId,
+        type: "controlled_by",
+        confidence: "confirmed",
+        reason: `Buyer/controller: ${site.buyerController}`,
+        sourceSheet: relationSourceSheet,
+        sourceIds: [site.id]
+      });
+    }
+
+    if (site.rootOpeid6) {
+      const rootId = addNode({
+        id: graphId("rootOpeid", site.rootOpeid6),
+        type: "rootOpeid",
+        label: `OPEID ${site.rootOpeid6}`,
+        sublabel: "root system",
+        statusCode: null,
+        morphology: null,
+        score: 0,
+        size: 1,
+        sourceIds: [site.id]
+      });
+      addEdge({
+        source: siteId,
+        target: rootId,
+        type: "same_root_opeid",
+        confidence: "derived",
+        reason: `Same Root OPEID: ${site.rootOpeid6}`,
+        sourceSheet: relationSourceSheet,
+        sourceIds: [site.id]
+      });
+    }
+
+    if (site.sourceUrl) {
+      const sourceLabel = sourceLabelFor(site.sourceUrl);
+      const sourceId = addNode({
+        id: graphId("source", sourceLabel),
+        type: "source",
+        label: sourceLabel,
+        sublabel: "source evidence",
+        statusCode: null,
+        morphology: null,
+        score: 0,
+        size: 1,
+        sourceIds: [site.id]
+      });
+      addEdge({
+        source: siteId,
+        target: sourceId,
+        type: "evidenced_by",
+        confidence: "confirmed",
+        reason: `Source URL host: ${sourceLabel}`,
+        sourceSheet: relationSourceSheet,
+        sourceIds: [site.id]
+      });
+    }
+
+    site.missingFields.forEach((field) => {
+      const missingId = addNode({
+        id: graphId("missingEvidence", field),
+        type: "missingEvidence",
+        label: `MISSING ${field}`,
+        sublabel: "evidence gap",
+        statusCode: "ACTIVE-RISK",
+        morphology: null,
+        score: 0,
+        size: 1,
+        sourceIds: [site.id]
+      });
+      addEdge({
+        source: siteId,
+        target: missingId,
+        type: "missing_evidence",
+        confidence: "missing",
+        reason: `Missing evidence field: ${field}`,
+        sourceSheet: "research_queue.json",
+        sourceIds: [site.id]
+      });
+    });
+  });
+
+  networkNodes.forEach((node) => {
+    const normalizedName = normalizeIdentity(node.name);
+    if (siteNodeByName.has(normalizedName)) return;
+    addNode({
+      id: graphId("external", node.name),
+      type: node.nodeType === "Campus" ? "campus" : "external",
+      label: node.name,
+      sublabel: [node.nodeType, node.sectorOrState, node.networkRole].filter(Boolean).join(" / ") || null,
+      statusCode: null,
+      morphology: null,
+      score: 0,
+      size: 1,
+      sourceIds: [node.id]
+    });
+  });
+
+  networkEdges.forEach((edge) => {
+    const source = siteNodeByName.get(normalizeIdentity(edge.source)) ?? graphId("external", edge.source);
+    const target = siteNodeByName.get(normalizeIdentity(edge.target)) ?? graphId("external", edge.target);
+    if (!nodeMap.has(source)) {
+      addNode({
+        id: source,
+        type: "external",
+        label: edge.source,
+        sublabel: "external network node",
+        statusCode: null,
+        morphology: edge.morphology,
+        score: 0,
+        size: 1,
+        sourceIds: [edge.id]
+      });
+    }
+    if (!nodeMap.has(target)) {
+      addNode({
+        id: target,
+        type: "external",
+        label: edge.target,
+        sublabel: "external network node",
+        statusCode: null,
+        morphology: edge.morphology,
+        score: 0,
+        size: 1,
+        sourceIds: [edge.id]
+      });
+    }
+    addEdge({
+      source,
+      target,
+      type: "explicit_network",
+      confidence: "confirmed",
+      reason: [edge.relationship, edge.morphology, edge.transformation].filter(Boolean).join(" / ") || "Explicit ownership network edge",
+      sourceSheet: edge.sourceSheet,
+      sourceIds: [edge.id]
+    });
+  });
+
+  const graphNodes = Array.from(nodeMap.values()).sort((a, b) => b.score - a.score || b.size - a.size || a.label.localeCompare(b.label));
+  const graphEdges = Array.from(edgeMap.values()).sort((a, b) => b.weight - a.weight || a.type.localeCompare(b.type));
+
+  const topNodeIdsByType = (type: EvidenceGraphNode["type"], limit: number) =>
+    graphNodes
+      .filter((node) => node.type === type)
+      .sort((a, b) => b.size - a.size || b.score - a.score)
+      .slice(0, limit)
+      .map((node) => node.id);
+
+  const clusters: EvidenceGraphCluster[] = [
+    ...topNodeIdsByType("state", 8).map((nodeId) => ({
+      id: `cluster:state:${nodeId}`,
+      label: `State cluster: ${nodeMap.get(nodeId)?.label ?? nodeId}`,
+      clusterType: "state" as const,
+      nodeIds: [nodeId]
+    })),
+    ...topNodeIdsByType("buyer", 8).map((nodeId) => ({
+      id: `cluster:buyer:${nodeId}`,
+      label: `Controller cluster: ${nodeMap.get(nodeId)?.label ?? nodeId}`,
+      clusterType: "buyer" as const,
+      nodeIds: [nodeId]
+    })),
+    ...topNodeIdsByType("morphology", 8).map((nodeId) => ({
+      id: `cluster:morphology:${nodeId}`,
+      label: `Morphology cluster: ${nodeMap.get(nodeId)?.label ?? nodeId}`,
+      clusterType: "morphology" as const,
+      nodeIds: [nodeId]
+    }))
+  ];
+
+  return {
+    generatedAt: new Date().toISOString(),
+    nodes: graphNodes,
+    edges: graphEdges,
+    clusters,
+    stats: {
+      nodeCount: graphNodes.length,
+      edgeCount: graphEdges.length,
+      campusCount: graphNodes.filter((node) => node.type === "campus").length,
+      buyerCount: graphNodes.filter((node) => node.type === "buyer").length,
+      missingEvidenceCount: graphEdges.filter((edge) => edge.type === "missing_evidence").length
+    }
+  };
+}
+
+function sourceLabelFor(sourceUrl: string): string {
+  try {
+    const url = new URL(sourceUrl);
+    return url.hostname.replace(/^www\./, "");
+  } catch {
+    return sourceUrl.slice(0, 64);
+  }
+}
+
+function writeJson(fileName: string, data: unknown, pretty = true): void {
   fs.mkdirSync(outputDir, { recursive: true });
-  fs.writeFileSync(path.join(outputDir, fileName), `${JSON.stringify(data, null, 2)}\n`);
+  fs.writeFileSync(path.join(outputDir, fileName), `${pretty ? JSON.stringify(data, null, 2) : JSON.stringify(data)}\n`);
 }
 
 if (!fs.existsSync(workbookPath)) {
@@ -641,6 +1057,8 @@ const researchQueue = sites
   }))
   .sort((a, b) => b.researchPriorityScore - a.researchPriorityScore || a.name.localeCompare(b.name));
 
+const evidenceGraph = buildEvidenceGraph(sites, nodes, edges);
+
 const summary = {
   generatedAt: new Date().toISOString(),
   workbookPath,
@@ -674,6 +1092,7 @@ writeJson("summary.json", summary);
 writeJson("nodes.json", nodes);
 writeJson("edges.json", edges);
 writeJson("research_queue.json", researchQueue);
+writeJson("graph.json", evidenceGraph, false);
 
 console.log(
   JSON.stringify(
@@ -682,6 +1101,8 @@ console.log(
       sites: sites.length,
       nodes: nodes.length,
       edges: edges.length,
+      graphNodes: evidenceGraph.nodes.length,
+      graphEdges: evidenceGraph.edges.length,
       researchQueue: researchQueue.length,
       outputDir
     },
