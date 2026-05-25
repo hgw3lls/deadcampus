@@ -12,11 +12,12 @@ type MapPanelProps = {
   selectedSiteId: string | null;
   onSelectSite: (site: SiteRecord) => void;
   atlasPlate?: boolean;
+  fill?: boolean;
   filters?: FilterState;
   generatedAt?: string;
 };
 
-export function MapPanel({ sites, selectedSiteId, onSelectSite, atlasPlate = false, filters, generatedAt }: MapPanelProps) {
+export function MapPanel({ sites, selectedSiteId, onSelectSite, atlasPlate = false, fill = false, filters, generatedAt }: MapPanelProps) {
   const containerRef = useRef<HTMLDivElement | null>(null);
   const mapRef = useRef<import("leaflet").Map | null>(null);
   const layerRef = useRef<import("leaflet").LayerGroup | null>(null);
@@ -28,6 +29,7 @@ export function MapPanel({ sites, selectedSiteId, onSelectSite, atlasPlate = fal
     () => sites.filter((site) => site.latitude !== null && site.longitude !== null),
     [sites]
   );
+  const compactPlate = atlasPlate && fill;
 
   useEffect(() => {
     let cancelled = false;
@@ -102,17 +104,19 @@ export function MapPanel({ sites, selectedSiteId, onSelectSite, atlasPlate = fal
 
   return (
     <section
-      className={`atlas-panel relative flex min-h-[520px] flex-col overflow-hidden ${
-        atlasPlate ? "atlas-plate min-h-[calc(100vh-156px)]" : ""
+      className={`atlas-panel relative flex flex-col overflow-hidden ${
+        fill ? "h-full min-h-0" : "min-h-[520px]"
+      } ${
+        atlasPlate && !fill ? "atlas-plate min-h-[calc(100vh-156px)]" : atlasPlate ? "atlas-plate" : ""
       }`}
     >
-      <div className={`flex items-start justify-between border-b border-atlas-ink bg-atlas-paper p-3 ${atlasPlate ? "atlas-plate-header" : ""}`}>
+      <div className={`flex items-start justify-between border-b border-atlas-ink bg-atlas-paper p-3 ${atlasPlate && !fill ? "atlas-plate-header" : ""}`}>
         <div>
           <div className="atlas-label text-atlas-muted">{atlasPlate ? "Plate DC-A01 / national retreat map" : "National retreat map"}</div>
-          <h2 className={`${atlasPlate ? "text-2xl md:text-4xl" : "text-xl"} font-black uppercase leading-tight`}>
+          <h2 className={`${atlasPlate ? (compactPlate ? "text-xl md:text-2xl" : "text-2xl md:text-4xl") : "text-xl"} font-black uppercase leading-tight`}>
             Spatialized Campus Closure Record
           </h2>
-          {atlasPlate ? (
+          {atlasPlate && !compactPlate ? (
             <div className="mt-1 font-mono text-[10px] uppercase text-atlas-muted">
               Bureau of educational land afterlives / closure, transfer, parcelization, cloud, security
             </div>

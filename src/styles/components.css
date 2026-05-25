@@ -10,6 +10,17 @@
     var(--atlas-bg);
   background-size: 18px 18px;
   border: var(--atlas-border);
+  padding: 8px;
+}
+
+.atlas-section-header .atlas-title-lg {
+  font-size: 1.55rem;
+}
+
+.atlas-section-header .atlas-copy {
+  font-size: 11px;
+  line-height: 1.35;
+  margin-top: 6px;
 }
 
 .atlas-status-stamp {
@@ -25,13 +36,18 @@
 
 .atlas-nav-link {
   border-bottom: var(--atlas-border);
+  border-right: var(--atlas-border);
   color: var(--atlas-fg);
   display: block;
+  flex: 0 0 auto;
   font-family: var(--atlas-mono);
-  font-size: 11px;
-  padding: 9px 10px;
+  font-size: 10px;
+  padding: 8px 9px;
   text-decoration: none;
   text-transform: uppercase;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
 }
 
 .atlas-nav-link[aria-current="page"],
@@ -42,4 +58,10 @@
 
 .atlas-table-scroll {
   overflow-x: auto;
+}
+
+@media (min-width: 768px) {
+  .atlas-section-header .atlas-title-lg {
+    font-size: 2rem;
+  }
 }

@@ -53,7 +53,7 @@ export function AtlasExplorer({ sites }: AtlasExplorerProps) {
   const ownershipLinks = useMemo(() => buildOwnershipLinks(filteredSites), [filteredSites]);
 
   return (
-    <section id="atlas-explorer" className="atlas-explorer atlas-panel">
+    <section id="atlas-explorer" className="atlas-explorer atlas-panel atlas-explorer-console">
       <div className="grid border-b border-atlas-ink xl:grid-cols-[1fr_380px]">
         <div className="p-3">
           <div className="atlas-label text-atlas-muted">Atlas Explorer / scaffold for stronger data navigation</div>
@@ -71,8 +71,8 @@ export function AtlasExplorer({ sites }: AtlasExplorerProps) {
         </div>
       </div>
 
-      <div className="grid xl:grid-cols-[250px_minmax(0,1fr)_360px]">
-        <aside className="min-w-0 border-b border-atlas-ink p-3 xl:border-b-0 xl:border-r">
+      <div className="atlas-explorer__body grid xl:grid-cols-[250px_minmax(0,1fr)_360px]">
+        <aside className="atlas-explorer__rail min-w-0 border-b border-atlas-ink p-3 xl:border-b-0 xl:border-r">
           <div className="atlas-label text-atlas-muted">Archive tabs</div>
           <div className="mt-2 grid border border-atlas-ink font-mono text-[11px] uppercase">
             <ViewButton label="Map View" active={view === "map"} onClick={() => setView("map")} />
@@ -116,7 +116,7 @@ export function AtlasExplorer({ sites }: AtlasExplorerProps) {
           </div>
         </aside>
 
-        <div className="min-h-[560px] min-w-0 border-b border-atlas-ink p-3 xl:border-b-0">
+        <div className="atlas-explorer__viewport min-w-0 border-b border-atlas-ink p-3 xl:border-b-0">
           {view === "map" ? <ExplorerMapView sites={filteredSites} stateRows={stateRows} onSelect={setSelectedId} onFilterState={(state) => setFilters((current) => ({ ...current, state }))} /> : null}
           {view === "timeline" ? <ExplorerTimelineView decadeRows={decadeRows} onFilterDecade={(decade) => setFilters((current) => ({ ...current, decade }))} /> : null}
           {view === "matrix" ? <ExplorerMatrixView cells={matrixCells} sites={filteredSites} onSelect={setSelectedId} /> : null}
@@ -457,7 +457,7 @@ function ExplorerDossier({ site, statusRows }: { site: AtlasExplorerSite | null;
   const caption = site ? deterministicMicroCaption(`${site.id}-${site.name}`) : null;
 
   return (
-    <aside className="min-w-0 border-atlas-ink p-3 xl:border-l">
+    <aside className="atlas-explorer__dossier min-w-0 border-atlas-ink p-3 xl:border-l">
       <div className="atlas-label text-atlas-muted">E / dossier view</div>
       {site ? (
         <div className="mt-2 border border-atlas-ink">

@@ -80,7 +80,7 @@ export function EvidenceWall({ index, sites }: EvidenceWallProps) {
   const selectedSourceSites = selectedNode?.sourceIds.map((id) => siteById.get(id)).filter(Boolean) as SiteRecord[] | undefined;
 
   return (
-    <section className="atlas-panel evidence-wall min-h-[calc(100vh-154px)] overflow-hidden">
+    <section className="atlas-panel evidence-wall grid h-full min-h-0 grid-rows-[auto_minmax(0,1fr)] overflow-hidden">
       <div className="grid border-b border-atlas-ink lg:grid-cols-[1fr_420px]">
         <div className="p-4">
           <div className="atlas-label text-atlas-muted">Evidence wall / precomputed graph slices</div>
@@ -96,8 +96,8 @@ export function EvidenceWall({ index, sites }: EvidenceWallProps) {
         </div>
       </div>
 
-      <div className="grid min-h-[720px] lg:grid-cols-[280px_minmax(0,1fr)_330px]">
-        <aside className="border-b border-atlas-ink bg-atlas-paper/90 p-3 lg:border-b-0 lg:border-r">
+      <div className="grid min-h-0 lg:grid-cols-[280px_minmax(0,1fr)_330px]">
+        <aside className="scrollbar-thin min-h-0 overflow-auto border-b border-atlas-ink bg-atlas-paper/90 p-3 lg:border-b-0 lg:border-r">
           <label className="block">
             <span className="atlas-label text-atlas-muted">Focus search</span>
             <input
@@ -163,7 +163,7 @@ export function EvidenceWall({ index, sites }: EvidenceWallProps) {
           </div>
         </aside>
 
-        <div className="scrollbar-thin overflow-auto bg-atlas-soft/70 p-3">
+        <div className="scrollbar-thin min-h-0 overflow-auto bg-atlas-soft/70 p-3">
           {!graph ? (
             <div className="evidence-board flex items-center justify-center font-mono text-xs uppercase" style={{ width: boardWidth, height: boardHeight }}>
               {sliceError ? `Graph slice load failure: ${sliceError}` : `Loading graph slice: ${currentSlice?.label ?? sliceKey}`}
@@ -182,7 +182,7 @@ export function EvidenceWall({ index, sites }: EvidenceWallProps) {
           )}
         </div>
 
-        <aside className="border-t border-atlas-ink bg-atlas-paper/95 p-3 lg:border-l lg:border-t-0">
+        <aside className="scrollbar-thin min-h-0 overflow-auto border-t border-atlas-ink bg-atlas-paper/95 p-3 lg:border-l lg:border-t-0">
           <div className="atlas-label text-atlas-muted">Connection inspector</div>
           {currentSlice ? (
             <div className="mt-2 border border-atlas-ink p-2 font-mono text-[11px] uppercase leading-4">

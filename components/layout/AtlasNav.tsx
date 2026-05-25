@@ -17,8 +17,8 @@ export function AtlasNav() {
   const pathname = usePathname();
 
   return (
-    <nav aria-label="Dead Campus Atlas section index" className="border-t border-atlas-ink lg:border-l lg:border-t-0">
-      <div className="grid lg:min-w-[254px]">
+    <nav aria-label="Dead Campus Atlas section index" className="site-shell__nav">
+      <div className="site-shell__nav-grid">
         {navItems.map((item) => {
           const active = pathname === item.href;
           return (
