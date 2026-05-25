@@ -44,6 +44,10 @@ select {
   filter: grayscale(1) contrast(0.92) brightness(1.06);
 }
 
+.atlas-plate .leaflet-tile-pane {
+  filter: grayscale(1) contrast(1.18) brightness(0.98);
+}
+
 .leaflet-control-zoom a {
   background: #f2f0e9;
   border-bottom-color: #111111;
@@ -71,4 +75,136 @@ select {
 .scrollbar-thin {
   scrollbar-color: #111111 #d8d5cb;
   scrollbar-width: thin;
+}
+
+.atlas-plate {
+  background:
+    linear-gradient(rgba(17, 17, 17, 0.06) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(17, 17, 17, 0.06) 1px, transparent 1px),
+    #f2f0e9;
+  background-size: 18px 18px;
+}
+
+.atlas-plate-header {
+  min-height: 92px;
+}
+
+.atlas-plate-grid {
+  background:
+    linear-gradient(rgba(17, 17, 17, 0.18) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(17, 17, 17, 0.18) 1px, transparent 1px),
+    linear-gradient(rgba(17, 17, 17, 0.08) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(17, 17, 17, 0.08) 1px, transparent 1px);
+  background-size:
+    120px 120px,
+    120px 120px,
+    24px 24px,
+    24px 24px;
+  mix-blend-mode: multiply;
+}
+
+.atlas-marker-shell {
+  background: transparent;
+  border: 0;
+}
+
+.atlas-map-glyph {
+  --marker-color: #111111;
+  display: block;
+  height: 18px;
+  position: relative;
+  width: 18px;
+}
+
+.atlas-map-glyph--plate {
+  height: 24px;
+  width: 24px;
+}
+
+.atlas-map-glyph--legend {
+  height: 18px;
+  width: 18px;
+}
+
+.atlas-map-glyph::before,
+.atlas-map-glyph::after {
+  content: "";
+  position: absolute;
+}
+
+.atlas-map-glyph--main {
+  background: rgba(242, 240, 233, 0.95);
+  border: 2px solid var(--marker-color);
+}
+
+.atlas-map-glyph--main::before {
+  border-top: 1px solid var(--marker-color);
+  left: -4px;
+  right: -4px;
+  top: 50%;
+}
+
+.atlas-map-glyph--main::after {
+  border-left: 1px solid var(--marker-color);
+  bottom: -4px;
+  left: 50%;
+  top: -4px;
+}
+
+.atlas-map-glyph--branch {
+  background: rgba(242, 240, 233, 0.82);
+  border: 2px solid var(--marker-color);
+  border-radius: 999px;
+}
+
+.atlas-map-glyph--branch::before {
+  background: var(--marker-color);
+  border-radius: 999px;
+  height: 4px;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  width: 4px;
+}
+
+.atlas-map-glyph--peps {
+  border-left: 2px solid var(--marker-color);
+  border-top: 2px solid var(--marker-color);
+  height: 16px;
+  transform: rotate(-12deg);
+  width: 10px;
+}
+
+.atlas-map-glyph--peps::before {
+  border-bottom: 1px solid var(--marker-color);
+  left: -5px;
+  top: 8px;
+  width: 16px;
+}
+
+.atlas-map-glyph--curated {
+  background: var(--marker-color);
+  border: 1px solid #111111;
+  transform: rotate(45deg);
+}
+
+.atlas-map-glyph--curated::before {
+  border: 1px solid rgba(242, 240, 233, 0.9);
+  height: 8px;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  width: 8px;
+}
+
+.atlas-map-glyph--site {
+  background: var(--marker-color);
+  border: 1px solid #111111;
+  border-radius: 999px;
+}
+
+.atlas-map-glyph--selected {
+  box-shadow:
+    0 0 0 2px #f2f0e9,
+    0 0 0 4px #111111;
 }

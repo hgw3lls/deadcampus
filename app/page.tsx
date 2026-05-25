@@ -27,6 +27,7 @@ export default function DashboardPage() {
   const [data, setData] = useState<AtlasData | null>(null);
   const [filters, setFilters] = useState<FilterState>(DEFAULT_FILTERS);
   const [selectedSite, setSelectedSite] = useState<SiteRecord | null>(null);
+  const [atlasPlate, setAtlasPlate] = useState(false);
   const [error, setError] = useState<string | null>(null);
 
   useEffect(() => {
@@ -65,7 +66,7 @@ export default function DashboardPage() {
 
   return (
     <main className="min-h-screen p-3 text-atlas-ink">
-      <header className="atlas-panel mb-3 grid gap-3 p-3 lg:grid-cols-[1fr_auto]">
+      <header className="atlas-panel mb-3 grid gap-3 p-3 lg:grid-cols-[1fr_auto_auto]">
         <div>
           <div className="atlas-label text-atlas-muted">Dead Campus Atlas / master workbook dashboard</div>
           <h1 className="text-2xl font-black uppercase leading-none md:text-3xl">Educational Infrastructure Collapse, 1980-present</h1>
@@ -79,19 +80,45 @@ export default function DashboardPage() {
           <HeaderMetric label="Records" value={formatNumber(data.summary.totalRecords)} />
           <HeaderMetric label="Filtered" value={formatNumber(filteredSites.length)} />
         </div>
+        <button
+          type="button"
+          onClick={() => setAtlasPlate((current) => !current)}
+          className="min-w-[160px] border border-atlas-ink bg-atlas-ink px-4 py-3 font-mono text-[11px] uppercase text-atlas-paper"
+        >
+          {atlasPlate ? "Exit plate mode" : "Atlas plate mode"}
+        </button>
       </header>
 
-      <div className="grid min-h-[560px] gap-3 xl:h-[calc(100vh-150px)] xl:grid-cols-[280px_minmax(0,1fr)_330px]">
-        <FilterRail
-          filters={filters}
-          options={options}
-          summary={data.summary}
-          onChange={setFilters}
-          onReset={() => setFilters(DEFAULT_FILTERS)}
-        />
-        <MapPanel sites={filteredSites} selectedSiteId={selectedSite?.id ?? null} onSelectSite={selectSite} />
-        <StatsColumn sites={filteredSites} allSites={data.sites} filters={filters} />
-      </div>
+      {atlasPlate ? (
+        <div className="min-h-[calc(100vh-150px)]">
+          <MapPanel
+            sites={filteredSites}
+            selectedSiteId={selectedSite?.id ?? null}
+            onSelectSite={selectSite}
+            atlasPlate
+            filters={filters}
+            generatedAt={data.summary.generatedAt}
+          />
+        </div>
+      ) : (
+        <div className="grid min-h-[560px] gap-3 xl:h-[calc(100vh-150px)] xl:grid-cols-[280px_minmax(0,1fr)_330px]">
+          <FilterRail
+            filters={filters}
+            options={options}
+            summary={data.summary}
+            onChange={setFilters}
+            onReset={() => setFilters(DEFAULT_FILTERS)}
+          />
+          <MapPanel
+            sites={filteredSites}
+            selectedSiteId={selectedSite?.id ?? null}
+            onSelectSite={selectSite}
+            filters={filters}
+            generatedAt={data.summary.generatedAt}
+          />
+          <StatsColumn sites={filteredSites} allSites={data.sites} filters={filters} />
+        </div>
+      )}
 
       <div className="mt-3 grid gap-3 xl:grid-cols-2">
         <TimelineChart sites={data.sites} onYearRangeChange={setYearRange} />
