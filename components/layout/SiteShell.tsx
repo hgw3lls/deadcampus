@@ -8,15 +8,20 @@ type SiteShellProps = {
 };
 
 export function SiteShell({ children }: SiteShellProps) {
+  const assetBase = `${process.env.NEXT_PUBLIC_BASE_PATH ?? ""}/assets/terminal-education`;
+
   return (
     <div className="site-shell">
       <header className="site-shell__header">
         <div className="site-shell__brand">
-          <div className="atlas-kicker">Dead Campus Atlas / Terminal Education</div>
-          <div className="site-shell__title">Dead Campus Atlas</div>
-          <p className="site-shell__dek">
-            Forensic atlas of educational withdrawal / closure, transfer, parcelization, cloud/security conversion, and land afterlives.
-          </p>
+          <div className="site-shell__brand-copy">
+            <div className="atlas-kicker">Dead Campus Atlas / Terminal Education</div>
+            <img className="site-shell__wordmark" src={`${assetBase}/te-name.png`} alt="Terminal Education" />
+            <p className="site-shell__dek">
+              Forensic atlas of educational withdrawal / closure, transfer, parcelization, cloud/security conversion, and land afterlives.
+            </p>
+          </div>
+          <img className="site-shell__brand-art" src={`${assetBase}/te-atlas.png`} alt="" aria-hidden="true" />
         </div>
         <AtlasNav />
       </header>
@@ -24,6 +29,7 @@ export function SiteShell({ children }: SiteShellProps) {
       <footer className="site-shell__footer">
         <FragmentTicker captions={microCaptions} />
         <div className="site-shell__footer-stamp">
+          <img className="site-shell__footer-seal" src={`${assetBase}/te-seal.png`} alt="" aria-hidden="true" />
           Public archive interface / generated workbook data / GitHub Pages static export.
         </div>
       </footer>

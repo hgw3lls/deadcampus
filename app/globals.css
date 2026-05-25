@@ -6,8 +6,8 @@
 
 :root {
   color-scheme: light;
-  background: #f2f0e9;
-  color: #111111;
+  background: #f4f1e8;
+  color: #10100e;
 }
 
 * {
@@ -19,16 +19,34 @@ body {
   height: 100%;
   margin: 0;
   background:
-    linear-gradient(rgba(17, 17, 17, 0.05) 1px, transparent 1px),
-    linear-gradient(90deg, rgba(17, 17, 17, 0.05) 1px, transparent 1px),
-    #f2f0e9;
-  background-size: 24px 24px;
+    radial-gradient(circle at 1px 1px, rgba(16, 16, 14, 0.13) 1px, transparent 1.4px),
+    linear-gradient(rgba(16, 16, 14, 0.04) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(16, 16, 14, 0.035) 1px, transparent 1px),
+    #f4f1e8;
+  background-size:
+    9px 9px,
+    32px 32px,
+    32px 32px;
   overflow: hidden;
 }
 
 body {
   font-family: Inter, Arial, Helvetica, sans-serif;
   min-height: 100dvh;
+  position: relative;
+}
+
+body::before {
+  background:
+    repeating-linear-gradient(0deg, rgba(16, 16, 14, 0.026) 0 1px, transparent 1px 6px),
+    repeating-linear-gradient(90deg, rgba(16, 16, 14, 0.018) 0 1px, transparent 1px 11px);
+  content: "";
+  inset: 0;
+  mix-blend-mode: multiply;
+  opacity: 0.55;
+  pointer-events: none;
+  position: fixed;
+  z-index: 0;
 }
 
 main {
@@ -43,7 +61,7 @@ select {
 }
 
 .leaflet-container {
-  background: #dedbd0;
+  background: #ddd8cb;
   font-family: "IBM Plex Mono", SFMono-Regular, Consolas, monospace;
 }
 
@@ -56,20 +74,25 @@ select {
 }
 
 .leaflet-control-zoom a {
-  background: #f2f0e9;
-  border-bottom-color: #111111;
-  color: #111111;
+  background: #f4f1e8;
+  border-bottom-color: #10100e;
+  color: #10100e;
 }
 
 .leaflet-control-attribution {
-  background: rgba(242, 240, 233, 0.8);
-  color: #111111;
+  background: rgba(244, 241, 232, 0.82);
+  color: #10100e;
   font-size: 10px;
 }
 
 .atlas-panel {
-  border: 1px solid #111111;
-  background: rgba(242, 240, 233, 0.96);
+  border: 1.5px solid #10100e;
+  background:
+    linear-gradient(rgba(16, 16, 14, 0.032) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(16, 16, 14, 0.026) 1px, transparent 1px),
+    rgba(244, 241, 232, 0.96);
+  background-size: 22px 22px;
+  box-shadow: inset 0 0 0 1px rgba(16, 16, 14, 0.18);
 }
 
 .atlas-label {
@@ -80,15 +103,16 @@ select {
 }
 
 .scrollbar-thin {
-  scrollbar-color: #111111 #d8d5cb;
+  scrollbar-color: #10100e #ddd8cb;
   scrollbar-width: thin;
 }
 
 .atlas-plate {
   background:
-    linear-gradient(rgba(17, 17, 17, 0.06) 1px, transparent 1px),
-    linear-gradient(90deg, rgba(17, 17, 17, 0.06) 1px, transparent 1px),
-    #f2f0e9;
+    radial-gradient(circle at 1px 1px, rgba(16, 16, 14, 0.12) 1px, transparent 1.4px),
+    linear-gradient(rgba(16, 16, 14, 0.06) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(16, 16, 14, 0.06) 1px, transparent 1px),
+    #f4f1e8;
   background-size: 18px 18px;
 }
 
@@ -218,10 +242,10 @@ select {
 
 .evidence-wall {
   background:
-    radial-gradient(circle at 22% 18%, rgba(157, 43, 43, 0.06), transparent 18%),
-    linear-gradient(rgba(17, 17, 17, 0.055) 1px, transparent 1px),
-    linear-gradient(90deg, rgba(17, 17, 17, 0.055) 1px, transparent 1px),
-    #f2f0e9;
+    radial-gradient(circle at 22% 18%, rgba(157, 43, 43, 0.05), transparent 18%),
+    linear-gradient(rgba(16, 16, 14, 0.065) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(16, 16, 14, 0.055) 1px, transparent 1px),
+    #f4f1e8;
   background-size:
     auto,
     22px 22px,
@@ -234,21 +258,21 @@ select {
     linear-gradient(90deg, rgba(17, 17, 17, 0.13) 1px, transparent 1px),
     linear-gradient(rgba(17, 17, 17, 0.05) 1px, transparent 1px),
     linear-gradient(90deg, rgba(17, 17, 17, 0.05) 1px, transparent 1px),
-    #dedbd0;
+    #ddd8cb;
   background-size:
     96px 96px,
     96px 96px,
     24px 24px,
     24px 24px;
   border: 1px solid #111111;
-  box-shadow: inset 0 0 0 12px rgba(242, 240, 233, 0.58);
+  box-shadow: inset 0 0 0 12px rgba(244, 241, 232, 0.58);
 }
 
 .evidence-card {
   background:
     linear-gradient(90deg, rgba(17, 17, 17, 0.045) 1px, transparent 1px),
     linear-gradient(rgba(17, 17, 17, 0.035) 1px, transparent 1px),
-    rgba(242, 240, 233, 0.96);
+    rgba(244, 241, 232, 0.96);
   background-size: 12px 12px;
   border: 2px solid #111111;
   color: #111111;
@@ -291,10 +315,11 @@ select {
 
 .atlas-text-panel {
   background:
-    linear-gradient(90deg, rgba(17, 17, 17, 0.04) 1px, transparent 1px),
-    rgba(242, 240, 233, 0.98);
+    radial-gradient(circle at 1px 1px, rgba(16, 16, 14, 0.08) 1px, transparent 1.4px),
+    linear-gradient(90deg, rgba(16, 16, 14, 0.04) 1px, transparent 1px),
+    rgba(244, 241, 232, 0.98);
   background-size: 14px 14px;
-  border: 1px solid #111111;
+  border: 1.5px solid #10100e;
 }
 
 .atlas-text-panel--compact {
@@ -303,9 +328,9 @@ select {
 
 .intervention-layer {
   background:
-    linear-gradient(rgba(17, 17, 17, 0.055) 1px, transparent 1px),
-    linear-gradient(90deg, rgba(17, 17, 17, 0.055) 1px, transparent 1px),
-    #f2f0e9;
+    linear-gradient(rgba(16, 16, 14, 0.06) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(16, 16, 14, 0.055) 1px, transparent 1px),
+    #f4f1e8;
   background-size: 20px 20px;
 }
 
@@ -355,18 +380,48 @@ select {
 
 .atlas-explorer {
   background:
-    linear-gradient(rgba(17, 17, 17, 0.08) 1px, transparent 1px),
-    linear-gradient(90deg, rgba(17, 17, 17, 0.08) 1px, transparent 1px),
-    #f2f0e9;
+    linear-gradient(rgba(16, 16, 14, 0.09) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(16, 16, 14, 0.08) 1px, transparent 1px),
+    #f4f1e8;
   background-size: 32px 32px;
+}
+
+.atlas-explorer > .grid:first-child {
+  background: #10100e;
+  color: #f4f1e8;
+}
+
+.atlas-explorer > .grid:first-child .text-atlas-muted,
+.atlas-explorer > .grid:first-child .text-atlas-rule {
+  color: rgba(244, 241, 232, 0.72);
 }
 
 .explorer-map-field {
   background:
-    linear-gradient(rgba(17, 17, 17, 0.12) 1px, transparent 1px),
-    linear-gradient(90deg, rgba(17, 17, 17, 0.12) 1px, transparent 1px),
-    #d8d5cb;
+    linear-gradient(rgba(16, 16, 14, 0.13) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(16, 16, 14, 0.12) 1px, transparent 1px),
+    #ddd8cb;
   background-size: 28px 28px;
+}
+
+.site-shell__footer .fragment-ticker {
+  background: #10100e;
+  color: #f4f1e8;
+}
+
+.site-shell__footer .fragment-ticker::before,
+.site-shell__footer .fragment-ticker::after {
+  background: rgba(244, 241, 232, 0.48);
+}
+
+.site-shell__footer .fragment-ticker__item {
+  border-right: 1px solid rgba(244, 241, 232, 0.32);
+}
+
+button,
+input,
+select {
+  border-radius: 0;
 }
 
 .atlas-map-scan {

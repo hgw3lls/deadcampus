@@ -1,9 +1,9 @@
 :root {
-  --atlas-bg: #f2f0e9;
-  --atlas-fg: #111111;
-  --atlas-rule: #2f2f2f;
-  --atlas-soft: #d8d5cb;
-  --atlas-muted: #77746b;
+  --atlas-bg: #f4f1e8;
+  --atlas-fg: #10100e;
+  --atlas-rule: #24231f;
+  --atlas-soft: #ddd8cb;
+  --atlas-muted: #706b60;
   --atlas-red: #9d2b2b;
   --atlas-amber: #b9851f;
   --atlas-cyan: #4fb2c4;
@@ -14,4 +14,5 @@
   --atlas-border: 1px solid var(--atlas-fg);
   --atlas-mono: "IBM Plex Mono", SFMono-Regular, Consolas, "Liberation Mono", Menlo, monospace;
   --atlas-sans: Inter, Arial, Helvetica, sans-serif;
+  --atlas-serif: Georgia, "Times New Roman", Times, serif;
 }

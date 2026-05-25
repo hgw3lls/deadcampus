@@ -1,20 +1,52 @@
 .atlas-panel-system {
-  background: rgba(242, 240, 233, 0.96);
-  border: var(--atlas-border);
+  background:
+    linear-gradient(rgba(16, 16, 14, 0.03) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(16, 16, 14, 0.022) 1px, transparent 1px),
+    rgba(244, 241, 232, 0.96);
+  background-size: 18px 18px;
+  border: 1.5px solid var(--atlas-fg);
+  box-shadow: inset 0 0 0 1px rgba(16, 16, 14, 0.16);
 }
 
 .atlas-section-header {
   background:
-    linear-gradient(rgba(17, 17, 17, 0.05) 1px, transparent 1px),
-    linear-gradient(90deg, rgba(17, 17, 17, 0.05) 1px, transparent 1px),
+    radial-gradient(circle at 1px 1px, rgba(16, 16, 14, 0.1) 1px, transparent 1.4px),
+    linear-gradient(rgba(16, 16, 14, 0.058) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(16, 16, 14, 0.05) 1px, transparent 1px),
     var(--atlas-bg);
-  background-size: 18px 18px;
-  border: var(--atlas-border);
+  background-size:
+    8px 8px,
+    18px 18px,
+    18px 18px;
+  border: 1.5px solid var(--atlas-fg);
+  box-shadow: inset 0 0 0 1px rgba(16, 16, 14, 0.2);
+  overflow: hidden;
   padding: 8px;
+  position: relative;
+}
+
+.atlas-section-header > *:not(.atlas-section-header__mark) {
+  position: relative;
+  z-index: 2;
+}
+
+.atlas-section-header__mark {
+  display: none;
+  filter: grayscale(1) contrast(1.35);
+  height: 170px;
+  opacity: 0.12;
+  pointer-events: none;
+  position: absolute;
+  right: 22px;
+  top: 50%;
+  transform: translateY(-50%) rotate(-2deg);
+  width: auto;
 }
 
 .atlas-section-header .atlas-title-lg {
+  font-family: var(--atlas-serif);
   font-size: 1.55rem;
+  font-weight: 900;
 }
 
 .atlas-section-header .atlas-copy {
@@ -24,7 +56,8 @@
 }
 
 .atlas-status-stamp {
-  border: var(--atlas-border);
+  background: rgba(244, 241, 232, 0.88);
+  border: 1.5px solid var(--atlas-fg);
   display: inline-flex;
   font-family: var(--atlas-mono);
   font-size: 10px;
@@ -35,8 +68,9 @@
 }
 
 .atlas-nav-link {
-  border-bottom: var(--atlas-border);
-  border-right: var(--atlas-border);
+  background: rgba(244, 241, 232, 0.82);
+  border-bottom: 1px solid rgba(16, 16, 14, 0.8);
+  border-right: 1px solid rgba(16, 16, 14, 0.55);
   color: var(--atlas-fg);
   display: block;
   flex: 0 0 auto;
@@ -61,6 +95,10 @@
 }
 
 @media (min-width: 768px) {
+  .atlas-section-header__mark {
+    display: block;
+  }
+
   .atlas-section-header .atlas-title-lg {
     font-size: 2rem;
   }

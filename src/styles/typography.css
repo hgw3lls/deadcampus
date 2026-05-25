@@ -7,6 +7,7 @@
 }
 
 .atlas-title-xl {
+  font-family: var(--atlas-serif);
   font-size: 3rem;
   font-weight: 950;
   letter-spacing: 0;
@@ -15,6 +16,7 @@
 }
 
 .atlas-title-lg {
+  font-family: var(--atlas-serif);
   font-size: 2rem;
   font-weight: 950;
   letter-spacing: 0;

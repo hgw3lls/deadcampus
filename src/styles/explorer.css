@@ -23,8 +23,12 @@
 }
 
 .atlas-mode-frame {
-  background: rgba(242, 240, 233, 0.96);
-  border: var(--atlas-border);
+  background:
+    linear-gradient(rgba(16, 16, 14, 0.045) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(16, 16, 14, 0.035) 1px, transparent 1px),
+    rgba(244, 241, 232, 0.98);
+  background-size: 20px 20px;
+  border: 1.5px solid var(--atlas-fg);
   display: grid;
   grid-template-rows: auto minmax(0, 1fr);
   min-height: 0;
@@ -32,7 +36,9 @@
 }
 
 .atlas-mode-tabs {
-  border-bottom: var(--atlas-border);
+  background: var(--atlas-fg);
+  border-bottom: 1.5px solid var(--atlas-fg);
+  color: var(--atlas-bg);
   display: flex;
   font-family: var(--atlas-mono);
   font-size: 10px;
@@ -42,7 +48,7 @@
 }
 
 .atlas-mode-tab {
-  border-right: var(--atlas-border);
+  border-right: 1px solid rgba(244, 241, 232, 0.32);
   flex: 0 0 auto;
   padding: 8px 10px;
   text-align: left;
@@ -50,8 +56,8 @@
 }
 
 .atlas-mode-tab[data-active="true"] {
-  background: var(--atlas-fg);
-  color: var(--atlas-bg);
+  background: var(--atlas-bg);
+  color: var(--atlas-fg);
 }
 
 .atlas-mode-body {
@@ -74,6 +80,7 @@
 }
 
 .atlas-explorer-console {
+  border-width: 1.5px;
   display: grid;
   grid-template-rows: auto minmax(0, 1fr);
   height: 100%;

@@ -6,8 +6,11 @@ type SectionHeaderProps = {
 };
 
 export function SectionHeader({ accession, title, description, meta }: SectionHeaderProps) {
+  const assetBase = `${process.env.NEXT_PUBLIC_BASE_PATH ?? ""}/assets/terminal-education`;
+
   return (
     <header className="atlas-section-header p-3">
+      <img className="atlas-section-header__mark" src={`${assetBase}/te-logo.png`} alt="" aria-hidden="true" />
       <div className="grid gap-3 lg:grid-cols-[1fr_260px]">
         <div>
           <div className="atlas-kicker">{accession}</div>
