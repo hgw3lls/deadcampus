@@ -23,10 +23,15 @@ body {
     linear-gradient(90deg, rgba(17, 17, 17, 0.05) 1px, transparent 1px),
     #f2f0e9;
   background-size: 24px 24px;
+  overflow-x: clip;
 }
 
 body {
   font-family: Inter, Arial, Helvetica, sans-serif;
+}
+
+main {
+  overflow-x: clip;
 }
 
 button,
@@ -280,4 +285,112 @@ select {
   top: -5px;
   transform: translateX(-50%);
   width: 8px;
+}
+
+.atlas-text-panel {
+  background:
+    linear-gradient(90deg, rgba(17, 17, 17, 0.04) 1px, transparent 1px),
+    rgba(242, 240, 233, 0.98);
+  background-size: 14px 14px;
+  border: 1px solid #111111;
+}
+
+.atlas-text-panel--compact {
+  border: 0;
+}
+
+.intervention-layer {
+  background:
+    linear-gradient(rgba(17, 17, 17, 0.055) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(17, 17, 17, 0.055) 1px, transparent 1px),
+    #f2f0e9;
+  background-size: 20px 20px;
+}
+
+.fragment-ticker {
+  contain: paint;
+  min-height: 36px;
+  overflow: hidden;
+  position: relative;
+  white-space: nowrap;
+}
+
+.fragment-ticker::before,
+.fragment-ticker::after {
+  background: #111111;
+  content: "";
+  height: 100%;
+  position: absolute;
+  top: 0;
+  width: 1px;
+  z-index: 2;
+}
+
+.fragment-ticker::before {
+  left: 0;
+}
+
+.fragment-ticker::after {
+  right: 0;
+}
+
+.fragment-ticker__track {
+  animation: fragment-ticker 86s linear infinite;
+  display: inline-flex;
+  min-width: max-content;
+  position: absolute;
+  inset: 0 auto auto 0;
+}
+
+.fragment-ticker__item {
+  border-right: 1px solid #111111;
+  display: inline-block;
+  font-family: "IBM Plex Mono", SFMono-Regular, Consolas, monospace;
+  font-size: 11px;
+  padding: 9px 26px;
+  text-transform: uppercase;
+}
+
+.atlas-explorer {
+  background:
+    linear-gradient(rgba(17, 17, 17, 0.08) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(17, 17, 17, 0.08) 1px, transparent 1px),
+    #f2f0e9;
+  background-size: 32px 32px;
+}
+
+.explorer-map-field {
+  background:
+    linear-gradient(rgba(17, 17, 17, 0.12) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(17, 17, 17, 0.12) 1px, transparent 1px),
+    #d8d5cb;
+  background-size: 28px 28px;
+}
+
+.atlas-map-scan {
+  background:
+    linear-gradient(90deg, transparent 49.8%, rgba(157, 43, 43, 0.32) 50%, transparent 50.2%),
+    linear-gradient(transparent 49.8%, rgba(17, 17, 17, 0.18) 50%, transparent 50.2%);
+  background-size:
+    100% 100%,
+    100% 100%;
+  mix-blend-mode: multiply;
+  pointer-events: none;
+}
+
+@keyframes fragment-ticker {
+  from {
+    transform: translateX(0);
+  }
+
+  to {
+    transform: translateX(-50%);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .fragment-ticker__track {
+    animation: none;
+    transform: none;
+  }
 }

@@ -1,15 +1,13 @@
 "use client";
 
 import { useEffect, useMemo, useState } from "react";
-import type { EvidenceGraph, EvidenceGraphEdge, EvidenceGraphNode, SiteRecord } from "@/lib/data";
-import { STATUS_COLORS, formatNumber, normalizeIdentity } from "@/lib/data";
+import type { EvidenceGraph, EvidenceGraphEdge, EvidenceGraphIndex, EvidenceGraphNode, EvidenceGraphSliceKey, SiteRecord } from "@/lib/data";
+import { STATUS_COLORS, formatNumber, loadEvidenceGraphSlice, normalizeIdentity } from "@/lib/data";
 
 type EvidenceWallProps = {
-  graph: EvidenceGraph;
+  index: EvidenceGraphIndex;
   sites: SiteRecord[];
 };
-
-type WallPreset = "anomalies" | "security" | "cloud" | "parcelized" | "controllers" | "missing";
 
 type PositionedNode = EvidenceGraphNode & {
   x: number;
@@ -21,78 +19,84 @@ type PositionedNode = EvidenceGraphNode & {
 const boardWidth = 1180;
 const boardHeight = 720;
 
-const presetLabels: Array<{ key: WallPreset; label: string }> = [
-  { key: "anomalies", label: "Anomaly wall" },
-  { key: "security", label: "Security conversion" },
-  { key: "cloud", label: "Cloud infrastructure" },
-  { key: "parcelized", label: "Parcelized real estate" },
-  { key: "controllers", label: "Controller webs" },
-  { key: "missing", label: "Evidence gaps" }
-];
-
-export function EvidenceWall({ graph, sites }: EvidenceWallProps) {
+export function EvidenceWall({ index, sites }: EvidenceWallProps) {
   const [query, setQuery] = useState("");
-  const [preset, setPreset] = useState<WallPreset>("anomalies");
+  const [sliceKey, setSliceKey] = useState<EvidenceGraphSliceKey>("anomalies");
+  const [sliceCache, setSliceCache] = useState<Partial<Record<EvidenceGraphSliceKey, EvidenceGraph>>>({});
+  const [sliceError, setSliceError] = useState<string | null>(null);
   const [selectedNodeId, setSelectedNodeId] = useState<string | null>(null);
   const [selectedEdgeId, setSelectedEdgeId] = useState<string | null>(null);
+  const [pendingSelectedNodeId, setPendingSelectedNodeId] = useState<string | null>(null);
 
-  const nodesById = useMemo(() => new Map(graph.nodes.map((node) => [node.id, node])), [graph.nodes]);
+  const currentSlice = index.slices.find((slice) => slice.key === sliceKey) ?? index.slices[0];
+  const graph = currentSlice ? sliceCache[currentSlice.key] ?? null : null;
+
+  useEffect(() => {
+    if (!currentSlice || sliceCache[currentSlice.key]) return;
+    setSliceError(null);
+    loadEvidenceGraphSlice(currentSlice.file)
+      .then((sliceGraph) => {
+        setSliceCache((current) => ({ ...current, [currentSlice.key]: sliceGraph }));
+      })
+      .catch((error: Error) => setSliceError(error.message));
+  }, [currentSlice, sliceCache]);
+
+  const nodesById = useMemo(() => new Map((graph?.nodes ?? []).map((node) => [node.id, node])), [graph?.nodes]);
   const siteById = useMemo(() => new Map(sites.map((site) => [site.id, site])), [sites]);
   const edgesByNode = useMemo(() => {
     const map = new Map<string, EvidenceGraphEdge[]>();
-    graph.edges.forEach((edge) => {
+    (graph?.edges ?? []).forEach((edge) => {
       map.set(edge.source, [...(map.get(edge.source) ?? []), edge]);
       map.set(edge.target, [...(map.get(edge.target) ?? []), edge]);
     });
     return map;
-  }, [graph.edges]);
+  }, [graph?.edges]);
 
   const searchResults = useMemo(() => {
     const normalized = normalizeIdentity(query);
     if (!normalized) return [];
-    return graph.nodes
-      .filter((node) => normalizeIdentity([node.label, node.sublabel, node.type, node.morphology, node.statusCode].filter(Boolean).join(" ")).includes(normalized))
-      .slice(0, 30);
-  }, [graph.nodes, query]);
+    return index.search.filter((entry) => entry.term.includes(normalized) || normalizeIdentity(entry.label).includes(normalized)).slice(0, 30);
+  }, [index.search, query]);
 
   useEffect(() => {
+    if (!graph) return;
+    if (pendingSelectedNodeId && nodesById.has(pendingSelectedNodeId)) {
+      setSelectedNodeId(pendingSelectedNodeId);
+      setPendingSelectedNodeId(null);
+      return;
+    }
     if (selectedNodeId && nodesById.has(selectedNodeId)) return;
-    const initial = seedNodesForPreset(graph.nodes, preset)[0] ?? graph.nodes[0];
-    setSelectedNodeId(initial?.id ?? null);
-  }, [graph.nodes, nodesById, preset, selectedNodeId]);
+    setSelectedNodeId(graph.nodes[0]?.id ?? null);
+  }, [graph, nodesById, pendingSelectedNodeId, selectedNodeId]);
 
   const selectedNode = selectedNodeId ? nodesById.get(selectedNodeId) ?? null : null;
-
   const wall = useMemo(() => {
-    const seedIds = selectedNode
-      ? [selectedNode.id]
-      : seedNodesForPreset(graph.nodes, preset)
-          .slice(0, 10)
-          .map((node) => node.id);
-    return buildWallView(seedIds, graph.edges, nodesById, preset);
-  }, [graph.edges, graph.nodes, nodesById, preset, selectedNode]);
+    if (!graph) return { nodes: [], edges: [], positions: new Map<string, PositionedNode>() };
+    const seedIds = selectedNode ? [selectedNode.id] : graph.nodes.slice(0, 10).map((node) => node.id);
+    return buildWallView(seedIds, graph.edges, nodesById, sliceKey);
+  }, [graph, nodesById, selectedNode, sliceKey]);
 
   const selectedEdge = selectedEdgeId ? wall.edges.find((edge) => edge.id === selectedEdgeId) ?? null : null;
   const selectedSourceSites = selectedNode?.sourceIds.map((id) => siteById.get(id)).filter(Boolean) as SiteRecord[] | undefined;
 
   return (
     <section className="atlas-panel evidence-wall min-h-[calc(100vh-154px)] overflow-hidden">
-      <div className="grid border-b border-atlas-ink lg:grid-cols-[1fr_360px]">
+      <div className="grid border-b border-atlas-ink lg:grid-cols-[1fr_420px]">
         <div className="p-4">
-          <div className="atlas-label text-atlas-muted">Evidence wall / derived relationship graph</div>
+          <div className="atlas-label text-atlas-muted">Evidence wall / precomputed graph slices</div>
           <h2 className="mt-1 text-3xl font-black uppercase leading-none md:text-5xl">Closure Conspiracy Index</h2>
           <p className="mt-2 max-w-4xl font-mono text-[11px] uppercase leading-4">
-            Campuses, controllers, years, root OPEIDs, morphologies, status codes, source hosts, and missing-evidence fields are rendered as an investigative graph.
+            The wall now loads focused case-board slices instead of the full global graph: campuses, controllers, years, OPEIDs, morphologies, status codes, sources, and evidence gaps.
           </p>
         </div>
         <div className="grid grid-cols-3 border-t border-atlas-ink font-mono text-[10px] uppercase lg:border-l lg:border-t-0">
-          <WallMetric label="Nodes" value={formatNumber(graph.stats.nodeCount)} />
-          <WallMetric label="Edges" value={formatNumber(graph.stats.edgeCount)} />
-          <WallMetric label="Gaps" value={formatNumber(graph.stats.missingEvidenceCount)} />
+          <WallMetric label="Global nodes" value={formatNumber(index.totalStats.nodeCount)} />
+          <WallMetric label="Slice nodes" value={formatNumber(graph?.stats.nodeCount ?? currentSlice?.nodeCount ?? 0)} />
+          <WallMetric label="Slice edges" value={formatNumber(graph?.stats.edgeCount ?? currentSlice?.edgeCount ?? 0)} />
         </div>
       </div>
 
-      <div className="grid min-h-[720px] lg:grid-cols-[260px_minmax(0,1fr)_330px]">
+      <div className="grid min-h-[720px] lg:grid-cols-[280px_minmax(0,1fr)_330px]">
         <aside className="border-b border-atlas-ink bg-atlas-paper/90 p-3 lg:border-b-0 lg:border-r">
           <label className="block">
             <span className="atlas-label text-atlas-muted">Focus search</span>
@@ -105,41 +109,54 @@ export function EvidenceWall({ graph, sites }: EvidenceWallProps) {
           </label>
 
           <div className="mt-3 grid gap-1">
-            {presetLabels.map((item) => (
+            {index.slices.map((slice) => (
               <button
-                key={item.key}
+                key={slice.key}
                 type="button"
                 onClick={() => {
-                  setPreset(item.key);
+                  setSliceKey(slice.key);
                   setSelectedEdgeId(null);
-                  setSelectedNodeId(seedNodesForPreset(graph.nodes, item.key)[0]?.id ?? null);
+                  setSelectedNodeId(null);
+                  setPendingSelectedNodeId(null);
                 }}
                 className={`border border-atlas-ink px-2 py-2 text-left font-mono text-[11px] uppercase ${
-                  preset === item.key ? "bg-atlas-ink text-atlas-paper" : "bg-atlas-paper"
+                  sliceKey === slice.key ? "bg-atlas-ink text-atlas-paper" : "bg-atlas-paper"
                 }`}
               >
-                {item.label}
+                <div className="font-black">{slice.label}</div>
+                <div className="text-[10px] opacity-70">{slice.nodeCount} cards / {slice.edgeCount} threads</div>
               </button>
             ))}
           </div>
 
           <div className="mt-3 border border-atlas-ink">
-            <div className="border-b border-atlas-ink bg-atlas-soft px-2 py-1 atlas-label">Search hits</div>
-            <div className="scrollbar-thin max-h-[390px] overflow-auto divide-y divide-atlas-soft">
-              {(searchResults.length ? searchResults : seedNodesForPreset(graph.nodes, preset).slice(0, 18)).map((node) => (
+            <div className="border-b border-atlas-ink bg-atlas-soft px-2 py-1 atlas-label">Search hits / slice index</div>
+            <div className="scrollbar-thin max-h-[360px] overflow-auto divide-y divide-atlas-soft">
+              {(searchResults.length ? searchResults : (graph?.nodes ?? []).slice(0, 18).map((node) => ({
+                term: normalizeIdentity(node.label),
+                nodeId: node.id,
+                label: node.label,
+                type: node.type,
+                sliceKeys: [sliceKey]
+              }))).map((entry) => (
                 <button
-                  key={node.id}
+                  key={`${entry.nodeId}-${entry.sliceKeys.join(".")}`}
                   type="button"
                   onClick={() => {
-                    setSelectedNodeId(node.id);
+                    const targetSlice = entry.sliceKeys[0] ?? sliceKey;
+                    setSliceKey(targetSlice);
                     setSelectedEdgeId(null);
+                    setPendingSelectedNodeId(entry.nodeId);
+                    if (targetSlice === sliceKey && nodesById.has(entry.nodeId)) {
+                      setSelectedNodeId(entry.nodeId);
+                    }
                   }}
                   className={`block w-full px-2 py-2 text-left font-mono text-[11px] uppercase ${
-                    selectedNodeId === node.id ? "bg-atlas-ink text-atlas-paper" : "bg-atlas-paper"
+                    selectedNodeId === entry.nodeId ? "bg-atlas-ink text-atlas-paper" : "bg-atlas-paper"
                   }`}
                 >
-                  <div className="font-black">{node.label}</div>
-                  <div className="text-[10px] opacity-70">{node.type} / {node.size} links / score {node.score}</div>
+                  <div className="font-black">{entry.label}</div>
+                  <div className="text-[10px] opacity-70">{entry.type} / {entry.sliceKeys.join(", ")}</div>
                 </button>
               ))}
             </div>
@@ -147,78 +164,32 @@ export function EvidenceWall({ graph, sites }: EvidenceWallProps) {
         </aside>
 
         <div className="scrollbar-thin overflow-auto bg-atlas-soft/70 p-3">
-          <div className="evidence-board relative mx-auto" style={{ width: boardWidth, height: boardHeight }}>
-            <svg className="absolute inset-0 h-full w-full" viewBox={`0 0 ${boardWidth} ${boardHeight}`} aria-label="Evidence relationship lines">
-              <defs>
-                <filter id="thread-shadow" x="-20%" y="-20%" width="140%" height="140%">
-                  <feDropShadow dx="0" dy="1" stdDeviation="1.1" floodColor="#111111" floodOpacity="0.28" />
-                </filter>
-              </defs>
-              {wall.edges.map((edge) => {
-                const source = wall.positions.get(edge.source);
-                const target = wall.positions.get(edge.target);
-                if (!source || !target) return null;
-                return (
-                  <g key={edge.id}>
-                    <line
-                      x1={source.x + source.width / 2}
-                      y1={source.y + source.height / 2}
-                      x2={target.x + target.width / 2}
-                      y2={target.y + target.height / 2}
-                      stroke={edgeColor(edge)}
-                      strokeWidth={Math.min(6, 1 + edge.weight * 0.6)}
-                      strokeDasharray={edge.confidence === "missing" ? "7 6" : edge.confidence === "inferred" ? "2 5" : undefined}
-                      opacity={selectedEdgeId && selectedEdgeId !== edge.id ? 0.18 : 0.74}
-                      filter="url(#thread-shadow)"
-                      onClick={() => setSelectedEdgeId(edge.id)}
-                      className="cursor-pointer"
-                    />
-                    <circle
-                      cx={(source.x + target.x + source.width / 2 + target.width / 2) / 2}
-                      cy={(source.y + target.y + source.height / 2 + target.height / 2) / 2}
-                      r={selectedEdgeId === edge.id ? 5 : 3}
-                      fill={edgeColor(edge)}
-                      stroke="#111111"
-                    />
-                  </g>
-                );
-              })}
-            </svg>
-
-            {wall.nodes.map((node) => (
-              <button
-                key={node.id}
-                type="button"
-                onClick={() => {
-                  setSelectedNodeId(node.id);
-                  setSelectedEdgeId(null);
-                }}
-                className={`evidence-card absolute text-left ${selectedNodeId === node.id ? "evidence-card--selected" : ""}`}
-                style={{
-                  left: node.x,
-                  top: node.y,
-                  width: node.width,
-                  minHeight: node.height,
-                  borderColor: colorForNode(node)
-                }}
-              >
-                <div className="flex items-start justify-between gap-2 border-b border-atlas-ink pb-1">
-                  <span className="font-mono text-[9px] uppercase text-atlas-muted">{node.type}</span>
-                  <span className="font-mono text-[9px] uppercase">{node.size}x</span>
-                </div>
-                <div className="mt-2 font-mono text-[12px] font-black uppercase leading-4">{node.label}</div>
-                {node.sublabel ? <div className="mt-1 font-mono text-[10px] uppercase leading-3 text-atlas-muted">{node.sublabel}</div> : null}
-                <div className="mt-2 flex flex-wrap gap-1">
-                  {node.statusCode ? <Stamp label={node.statusCode} color={STATUS_COLORS[node.statusCode]} /> : null}
-                  {node.score >= 70 ? <Stamp label="HIGH PRIORITY" color="#b9851f" /> : null}
-                </div>
-              </button>
-            ))}
-          </div>
+          {!graph ? (
+            <div className="evidence-board flex items-center justify-center font-mono text-xs uppercase" style={{ width: boardWidth, height: boardHeight }}>
+              {sliceError ? `Graph slice load failure: ${sliceError}` : `Loading graph slice: ${currentSlice?.label ?? sliceKey}`}
+            </div>
+          ) : (
+            <EvidenceBoard
+              wall={wall}
+              selectedNodeId={selectedNodeId}
+              selectedEdgeId={selectedEdgeId}
+              onSelectNode={(nodeId) => {
+                setSelectedNodeId(nodeId);
+                setSelectedEdgeId(null);
+              }}
+              onSelectEdge={setSelectedEdgeId}
+            />
+          )}
         </div>
 
         <aside className="border-t border-atlas-ink bg-atlas-paper/95 p-3 lg:border-l lg:border-t-0">
           <div className="atlas-label text-atlas-muted">Connection inspector</div>
+          {currentSlice ? (
+            <div className="mt-2 border border-atlas-ink p-2 font-mono text-[11px] uppercase leading-4">
+              <div className="font-black">{currentSlice.label}</div>
+              <div className="mt-1 text-atlas-muted">{currentSlice.description}</div>
+            </div>
+          ) : null}
           {selectedEdge ? <EdgeInspector edge={selectedEdge} nodesById={nodesById} /> : null}
           {selectedNode ? <NodeInspector node={selectedNode} edges={edgesByNode.get(selectedNode.id) ?? []} sites={selectedSourceSites ?? []} /> : null}
         </aside>
@@ -227,12 +198,94 @@ export function EvidenceWall({ graph, sites }: EvidenceWallProps) {
   );
 }
 
-function buildWallView(seedIds: string[], edges: EvidenceGraphEdge[], nodesById: Map<string, EvidenceGraphNode>, preset: WallPreset) {
+function EvidenceBoard({
+  wall,
+  selectedNodeId,
+  selectedEdgeId,
+  onSelectNode,
+  onSelectEdge
+}: {
+  wall: { nodes: PositionedNode[]; edges: EvidenceGraphEdge[]; positions: Map<string, PositionedNode> };
+  selectedNodeId: string | null;
+  selectedEdgeId: string | null;
+  onSelectNode: (nodeId: string) => void;
+  onSelectEdge: (edgeId: string) => void;
+}) {
+  return (
+    <div className="evidence-board relative mx-auto" style={{ width: boardWidth, height: boardHeight }}>
+      <svg className="absolute inset-0 h-full w-full" viewBox={`0 0 ${boardWidth} ${boardHeight}`} aria-label="Evidence relationship lines">
+        <defs>
+          <filter id="thread-shadow" x="-20%" y="-20%" width="140%" height="140%">
+            <feDropShadow dx="0" dy="1" stdDeviation="1.1" floodColor="#111111" floodOpacity="0.28" />
+          </filter>
+        </defs>
+        {wall.edges.map((edge) => {
+          const source = wall.positions.get(edge.source);
+          const target = wall.positions.get(edge.target);
+          if (!source || !target) return null;
+          return (
+            <g key={edge.id}>
+              <line
+                x1={source.x + source.width / 2}
+                y1={source.y + source.height / 2}
+                x2={target.x + target.width / 2}
+                y2={target.y + target.height / 2}
+                stroke={edgeColor(edge)}
+                strokeWidth={Math.min(6, 1 + edge.weight * 0.6)}
+                strokeDasharray={edge.confidence === "missing" ? "7 6" : edge.confidence === "inferred" ? "2 5" : undefined}
+                opacity={selectedEdgeId && selectedEdgeId !== edge.id ? 0.18 : 0.74}
+                filter="url(#thread-shadow)"
+                onClick={() => onSelectEdge(edge.id)}
+                className="cursor-pointer"
+              />
+              <circle
+                cx={(source.x + target.x + source.width / 2 + target.width / 2) / 2}
+                cy={(source.y + target.y + source.height / 2 + target.height / 2) / 2}
+                r={selectedEdgeId === edge.id ? 5 : 3}
+                fill={edgeColor(edge)}
+                stroke="#111111"
+              />
+            </g>
+          );
+        })}
+      </svg>
+
+      {wall.nodes.map((node) => (
+        <button
+          key={node.id}
+          type="button"
+          onClick={() => onSelectNode(node.id)}
+          className={`evidence-card absolute text-left ${selectedNodeId === node.id ? "evidence-card--selected" : ""}`}
+          style={{
+            left: node.x,
+            top: node.y,
+            width: node.width,
+            minHeight: node.height,
+            borderColor: colorForNode(node)
+          }}
+        >
+          <div className="flex items-start justify-between gap-2 border-b border-atlas-ink pb-1">
+            <span className="font-mono text-[9px] uppercase text-atlas-muted">{node.type}</span>
+            <span className="font-mono text-[9px] uppercase">{node.size}x</span>
+          </div>
+          <div className="mt-2 font-mono text-[12px] font-black uppercase leading-4">{node.label}</div>
+          {node.sublabel ? <div className="mt-1 font-mono text-[10px] uppercase leading-3 text-atlas-muted">{node.sublabel}</div> : null}
+          <div className="mt-2 flex flex-wrap gap-1">
+            {node.statusCode ? <Stamp label={node.statusCode} color={STATUS_COLORS[node.statusCode]} /> : null}
+            {node.score >= 70 ? <Stamp label="HIGH PRIORITY" color="#b9851f" /> : null}
+          </div>
+        </button>
+      ))}
+    </div>
+  );
+}
+
+function buildWallView(seedIds: string[], edges: EvidenceGraphEdge[], nodesById: Map<string, EvidenceGraphNode>, sliceKey: EvidenceGraphSliceKey) {
   const selectedSeed = seedIds[0] ?? "";
   const nodeIds = new Set(seedIds);
   const firstDegree = edges
     .filter((edge) => seedIds.includes(edge.source) || seedIds.includes(edge.target))
-    .sort(edgeSortForPreset(preset))
+    .sort(edgeSortForSlice(sliceKey))
     .slice(0, 70);
 
   firstDegree.forEach((edge) => {
@@ -244,7 +297,7 @@ function buildWallView(seedIds: string[], edges: EvidenceGraphEdge[], nodesById:
   const secondDegree = edges
     .filter((edge) => secondDegreeSeeds.includes(edge.source) || secondDegreeSeeds.includes(edge.target))
     .filter((edge) => !firstDegree.some((first) => first.id === edge.id))
-    .sort(edgeSortForPreset(preset))
+    .sort(edgeSortForSlice(sliceKey))
     .slice(0, 45);
   secondDegree.forEach((edge) => {
     if (nodeIds.size < 72) {
@@ -270,6 +323,19 @@ function buildWallView(seedIds: string[], edges: EvidenceGraphEdge[], nodesById:
   return { nodes: positioned, edges: viewEdges, positions };
 }
 
+function edgeSortForSlice(sliceKey: EvidenceGraphSliceKey) {
+  return (a: EvidenceGraphEdge, b: EvidenceGraphEdge) => {
+    const edgeWeight = (edge: EvidenceGraphEdge) => {
+      if (sliceKey === "missing" && edge.type === "missing_evidence") return 1000 + edge.weight;
+      if (sliceKey === "controllers" && edge.type === "controlled_by") return 1000 + edge.weight;
+      if (sliceKey === "opeid_systems" && edge.type === "same_root_opeid") return 1000 + edge.weight;
+      if (edge.type === "explicit_network") return 800 + edge.weight;
+      return edge.weight;
+    };
+    return edgeWeight(b) - edgeWeight(a);
+  };
+}
+
 function positionNode(node: EvidenceGraphNode, index: number, total: number): PositionedNode {
   const width = node.type === "campus" ? 190 : node.type === "buyer" ? 180 : 150;
   const height = node.type === "campus" ? 112 : 92;
@@ -286,30 +352,6 @@ function positionNode(node: EvidenceGraphNode, index: number, total: number): Po
   const x = clamp(590 + Math.cos(angle) * radiusX - width / 2 + jitter.x, 18, boardWidth - width - 18);
   const y = clamp(360 + Math.sin(angle) * radiusY - height / 2 + jitter.y, 18, boardHeight - height - 18);
   return { ...node, x, y, width, height };
-}
-
-function seedNodesForPreset(nodes: EvidenceGraphNode[], preset: WallPreset): EvidenceGraphNode[] {
-  const filtered = nodes.filter((node) => {
-    if (preset === "security") return node.statusCode === "SECURITY" || normalizeIdentity(node.morphology).includes("security") || normalizeIdentity(node.label).includes("security");
-    if (preset === "cloud") return node.statusCode === "CLOUD" || normalizeIdentity(node.morphology).includes("cloud") || normalizeIdentity(node.label).includes("cloud");
-    if (preset === "parcelized") return node.statusCode === "PARCELIZED" || normalizeIdentity(node.morphology).includes("parcel") || normalizeIdentity(node.label).includes("parcel");
-    if (preset === "controllers") return node.type === "buyer";
-    if (preset === "missing") return node.type === "missingEvidence" || node.score >= 70;
-    return node.type === "campus" && (node.score >= 70 || ["SECURITY", "CLOUD", "PARCELIZED"].includes(node.statusCode ?? ""));
-  });
-  return filtered.sort((a, b) => b.score - a.score || b.size - a.size || a.label.localeCompare(b.label));
-}
-
-function edgeSortForPreset(preset: WallPreset) {
-  return (a: EvidenceGraphEdge, b: EvidenceGraphEdge) => {
-    const edgeWeight = (edge: EvidenceGraphEdge) => {
-      if (preset === "missing" && edge.type === "missing_evidence") return 1000 + edge.weight;
-      if (preset === "controllers" && edge.type === "controlled_by") return 1000 + edge.weight;
-      if (edge.type === "explicit_network") return 800 + edge.weight;
-      return edge.weight;
-    };
-    return edgeWeight(b) - edgeWeight(a);
-  };
 }
 
 function deterministicJitter(value: string) {

@@ -150,6 +150,28 @@ export type EvidenceGraph = {
   };
 };
 
+export type EvidenceGraphSliceKey = "anomalies" | "security" | "cloud" | "parcelized" | "controllers" | "missing" | "opeid_systems";
+
+export type EvidenceGraphIndex = {
+  generatedAt: string;
+  totalStats: EvidenceGraph["stats"];
+  slices: Array<{
+    key: EvidenceGraphSliceKey;
+    label: string;
+    file: string;
+    description: string;
+    nodeCount: number;
+    edgeCount: number;
+  }>;
+  search: Array<{
+    term: string;
+    nodeId: string;
+    label: string;
+    type: EvidenceGraphNode["type"];
+    sliceKeys: EvidenceGraphSliceKey[];
+  }>;
+};
+
 export type SummaryData = {
   generatedAt: string;
   workbookPath: string;
@@ -256,8 +278,12 @@ export async function loadAtlasData(): Promise<AtlasData> {
   return { sites, summary, nodes, edges, researchQueue };
 }
 
-export async function loadEvidenceGraph(): Promise<EvidenceGraph> {
-  return fetch(dataUrl("/data/graph.json")).then((response) => response.json() as Promise<EvidenceGraph>);
+export async function loadEvidenceGraphIndex(): Promise<EvidenceGraphIndex> {
+  return fetch(dataUrl("/data/graph_index.json")).then((response) => response.json() as Promise<EvidenceGraphIndex>);
+}
+
+export async function loadEvidenceGraphSlice(file: string): Promise<EvidenceGraph> {
+  return fetch(dataUrl(file)).then((response) => response.json() as Promise<EvidenceGraph>);
 }
 
 export function normalizeIdentity(value: string | null | undefined): string {

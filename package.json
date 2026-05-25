@@ -7,7 +7,9 @@
     "build": "next build",
     "start": "next start",
     "lint": "next lint",
-    "preprocess": "tsx scripts/preprocessWorkbook.ts"
+    "preprocess": "tsx scripts/preprocessWorkbook.ts",
+    "promote:queue": "node scripts/promoteQueue.js",
+    "validate:data": "node scripts/validateData.js"
   },
   "dependencies": {
     "leaflet": "^1.9.4",

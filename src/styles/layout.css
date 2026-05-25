@@ -1,0 +1,41 @@
+.site-shell {
+  color: var(--atlas-fg);
+  min-height: 100vh;
+}
+
+.site-shell__header {
+  background: rgba(242, 240, 233, 0.98);
+  border: var(--atlas-border);
+  margin: 12px;
+}
+
+.site-shell__main {
+  margin: 12px;
+}
+
+.site-shell__footer {
+  margin: 12px;
+}
+
+.atlas-route-grid {
+  display: grid;
+  gap: 12px;
+}
+
+.atlas-route-grid--two {
+  grid-template-columns: minmax(0, 1fr);
+}
+
+.atlas-route-grid--rail {
+  grid-template-columns: minmax(0, 1fr);
+}
+
+@media (min-width: 1024px) {
+  .atlas-route-grid--two {
+    grid-template-columns: minmax(0, 0.95fr) minmax(0, 1.05fr);
+  }
+
+  .atlas-route-grid--rail {
+    grid-template-columns: 280px minmax(0, 1fr);
+  }
+}

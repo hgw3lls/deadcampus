@@ -128,6 +128,28 @@ type EvidenceGraph = {
   };
 };
 
+type GraphSliceKey = "anomalies" | "security" | "cloud" | "parcelized" | "controllers" | "missing" | "opeid_systems";
+
+type EvidenceGraphIndex = {
+  generatedAt: string;
+  totalStats: EvidenceGraph["stats"];
+  slices: Array<{
+    key: GraphSliceKey;
+    label: string;
+    file: string;
+    description: string;
+    nodeCount: number;
+    edgeCount: number;
+  }>;
+  search: Array<{
+    term: string;
+    nodeId: string;
+    label: string;
+    type: EvidenceGraphNode["type"];
+    sliceKeys: GraphSliceKey[];
+  }>;
+};
+
 const repoRoot = process.cwd();
 const preferredWorkbook = "/mnt/data/DEAD_CAMPUS_ATLAS_MASTER_WORKBOOK.xlsx";
 const fallbackWorkbook = path.join(repoRoot, "DEAD_CAMPUS_ATLAS_MASTER_WORKBOOK.xlsx");
@@ -943,6 +965,199 @@ function buildEvidenceGraph(sites: SiteRecord[], networkNodes: NodeRecord[], net
   };
 }
 
+const sliceDefinitions: Array<{
+  key: GraphSliceKey;
+  label: string;
+  description: string;
+  seed: (node: EvidenceGraphNode) => boolean;
+  edgeBoost: (edge: EvidenceGraphEdge) => number;
+}> = [
+  {
+    key: "anomalies",
+    label: "Anomaly Wall",
+    description: "High-priority campuses and unusual security, cloud, and parcelized conversion cases.",
+    seed: (node) => node.type === "campus" && (node.score >= 70 || ["SECURITY", "CLOUD", "PARCELIZED"].includes(node.statusCode ?? "")),
+    edgeBoost: (edge) => (edge.type === "explicit_network" ? 900 : edge.type === "controlled_by" ? 700 : edge.type === "missing_evidence" ? 500 : 0)
+  },
+  {
+    key: "security",
+    label: "Security Conversion",
+    description: "Security-state reuse, federal training, policing, defense, and related controller paths.",
+    seed: (node) =>
+      node.statusCode === "SECURITY" || normalizeIdentity([node.label, node.morphology, node.sublabel].filter(Boolean).join(" ")).includes("security"),
+    edgeBoost: (edge) => (edge.type === "controlled_by" || edge.type === "explicit_network" ? 900 : edge.type === "classified_as" ? 500 : 0)
+  },
+  {
+    key: "cloud",
+    label: "Cloud Infrastructure",
+    description: "Cloud, data-center, research-campus, and technology-infrastructure conversion threads.",
+    seed: (node) =>
+      node.statusCode === "CLOUD" || /cloud|data center|amazon|infrastructure/.test(normalizeIdentity([node.label, node.morphology, node.sublabel].filter(Boolean).join(" "))),
+    edgeBoost: (edge) => (edge.type === "controlled_by" || edge.type === "explicit_network" ? 900 : edge.type === "classified_as" ? 500 : 0)
+  },
+  {
+    key: "parcelized",
+    label: "Parcelized Real Estate",
+    description: "Auction, liquidation, subdivided campus land, speculative ownership, and real-estate afterlives.",
+    seed: (node) =>
+      node.statusCode === "PARCELIZED" || /parcel|auction|real estate|speculative|liquidation/.test(normalizeIdentity([node.label, node.morphology, node.sublabel].filter(Boolean).join(" "))),
+    edgeBoost: (edge) => (edge.type === "classified_as" ? 700 : edge.type === "controlled_by" ? 600 : 0)
+  },
+  {
+    key: "controllers",
+    label: "Controller Webs",
+    description: "Buyer/controller nodes and their connected campuses, transfers, and network edges.",
+    seed: (node) => node.type === "buyer" || node.type === "external",
+    edgeBoost: (edge) => (edge.type === "controlled_by" ? 1000 : edge.type === "explicit_network" ? 900 : 0)
+  },
+  {
+    key: "missing",
+    label: "Evidence Gaps",
+    description: "Missing coordinates, sources, afterlife status, morphology, verification, and buyer/controller fields.",
+    seed: (node) => node.type === "missingEvidence" || node.score >= 70,
+    edgeBoost: (edge) => (edge.type === "missing_evidence" ? 1000 : edge.type === "evidenced_by" ? 500 : 0)
+  },
+  {
+    key: "opeid_systems",
+    label: "OPEID Systems",
+    description: "Root-OPEID systems, branch clusters, and institutional retreat chains.",
+    seed: (node) => node.type === "rootOpeid",
+    edgeBoost: (edge) => (edge.type === "same_root_opeid" ? 1000 : edge.type === "closed_in_year" ? 400 : 0)
+  }
+];
+
+function buildGraphSlices(fullGraph: EvidenceGraph): { index: EvidenceGraphIndex; slices: Array<{ key: GraphSliceKey; graph: EvidenceGraph }> } {
+  const nodesById = new Map(fullGraph.nodes.map((node) => [node.id, node]));
+  const incidentEdges = new Map<string, EvidenceGraphEdge[]>();
+  fullGraph.edges.forEach((edge) => {
+    incidentEdges.set(edge.source, [...(incidentEdges.get(edge.source) ?? []), edge]);
+    incidentEdges.set(edge.target, [...(incidentEdges.get(edge.target) ?? []), edge]);
+  });
+
+  const slices = sliceDefinitions.map((definition) => {
+    const seedNodes = fullGraph.nodes
+      .filter(definition.seed)
+      .sort((a, b) => b.score - a.score || b.size - a.size || a.label.localeCompare(b.label))
+      .slice(0, 36);
+    const graph = buildGraphSlice(fullGraph, nodesById, incidentEdges, definition, seedNodes);
+    return { key: definition.key, graph };
+  });
+
+  const sliceKeysByNode = new Map<string, Set<GraphSliceKey>>();
+  slices.forEach((slice) => {
+    slice.graph.nodes.forEach((node) => {
+      const set = sliceKeysByNode.get(node.id) ?? new Set<GraphSliceKey>();
+      set.add(slice.key);
+      sliceKeysByNode.set(node.id, set);
+    });
+  });
+
+  const search = Array.from(sliceKeysByNode.entries())
+    .map(([nodeId, sliceKeys]) => {
+      const node = nodesById.get(nodeId);
+      if (!node) return null;
+      return {
+        term: normalizeIdentity([node.label, node.sublabel, node.type, node.morphology, node.statusCode].filter(Boolean).join(" ")),
+        nodeId,
+        label: node.label,
+        type: node.type,
+        sliceKeys: Array.from(sliceKeys)
+      };
+    })
+    .filter(Boolean)
+    .sort((a, b) => a!.label.localeCompare(b!.label)) as EvidenceGraphIndex["search"];
+
+  return {
+    slices,
+    index: {
+      generatedAt: new Date().toISOString(),
+      totalStats: fullGraph.stats,
+      slices: slices.map((slice) => {
+        const definition = sliceDefinitions.find((candidate) => candidate.key === slice.key)!;
+        return {
+          key: slice.key,
+          label: definition.label,
+          file: `/data/graphs/${slice.key}.json`,
+          description: definition.description,
+          nodeCount: slice.graph.nodes.length,
+          edgeCount: slice.graph.edges.length
+        };
+      }),
+      search
+    }
+  };
+}
+
+function buildGraphSlice(
+  fullGraph: EvidenceGraph,
+  nodesById: Map<string, EvidenceGraphNode>,
+  incidentEdges: Map<string, EvidenceGraphEdge[]>,
+  definition: (typeof sliceDefinitions)[number],
+  seedNodes: EvidenceGraphNode[],
+  maxNodes = 140,
+  maxEdges = 320
+): EvidenceGraph {
+  const nodeIds = new Set<string>();
+  const edgeIds = new Set<string>();
+  const addNode = (nodeId: string) => {
+    if (nodesById.has(nodeId) && nodeIds.size < maxNodes) {
+      nodeIds.add(nodeId);
+    }
+  };
+  const addEdge = (edge: EvidenceGraphEdge) => {
+    if (edgeIds.size < maxEdges) {
+      edgeIds.add(edge.id);
+      addNode(edge.source);
+      addNode(edge.target);
+    }
+  };
+
+  seedNodes.forEach((node) => addNode(node.id));
+  seedNodes
+    .flatMap((node) => incidentEdges.get(node.id) ?? [])
+    .sort((a, b) => edgePriority(b, definition) - edgePriority(a, definition))
+    .slice(0, maxEdges)
+    .forEach(addEdge);
+
+  Array.from(nodeIds)
+    .flatMap((nodeId) => incidentEdges.get(nodeId) ?? [])
+    .sort((a, b) => edgePriority(b, definition) - edgePriority(a, definition))
+    .forEach((edge) => {
+      if (nodeIds.size < maxNodes || (nodeIds.has(edge.source) && nodeIds.has(edge.target))) {
+        addEdge(edge);
+      }
+    });
+
+  const nodes = Array.from(nodeIds)
+    .map((nodeId) => nodesById.get(nodeId))
+    .filter(Boolean)
+    .sort((a, b) => b!.score - a!.score || b!.size - a!.size || a!.label.localeCompare(b!.label)) as EvidenceGraphNode[];
+  const nodeIdSet = new Set(nodes.map((node) => node.id));
+  const edges = fullGraph.edges
+    .filter((edge) => edgeIds.has(edge.id) && nodeIdSet.has(edge.source) && nodeIdSet.has(edge.target))
+    .sort((a, b) => edgePriority(b, definition) - edgePriority(a, definition))
+    .slice(0, maxEdges);
+
+  return {
+    generatedAt: new Date().toISOString(),
+    nodes,
+    edges,
+    clusters: [],
+    stats: {
+      nodeCount: nodes.length,
+      edgeCount: edges.length,
+      campusCount: nodes.filter((node) => node.type === "campus").length,
+      buyerCount: nodes.filter((node) => node.type === "buyer").length,
+      missingEvidenceCount: edges.filter((edge) => edge.type === "missing_evidence").length
+    }
+  };
+}
+
+function edgePriority(edge: EvidenceGraphEdge, definition: (typeof sliceDefinitions)[number]): number {
+  const confidenceWeight = edge.confidence === "confirmed" ? 80 : edge.confidence === "derived" ? 45 : edge.confidence === "inferred" ? 20 : 60;
+  return definition.edgeBoost(edge) + edge.weight * 5 + confidenceWeight;
+}
+
 function sourceLabelFor(sourceUrl: string): string {
   try {
     const url = new URL(sourceUrl);
@@ -953,8 +1168,9 @@ function sourceLabelFor(sourceUrl: string): string {
 }
 
 function writeJson(fileName: string, data: unknown, pretty = true): void {
-  fs.mkdirSync(outputDir, { recursive: true });
-  fs.writeFileSync(path.join(outputDir, fileName), `${pretty ? JSON.stringify(data, null, 2) : JSON.stringify(data)}\n`);
+  const filePath = path.join(outputDir, fileName);
+  fs.mkdirSync(path.dirname(filePath), { recursive: true });
+  fs.writeFileSync(filePath, `${pretty ? JSON.stringify(data, null, 2) : JSON.stringify(data)}\n`);
 }
 
 if (!fs.existsSync(workbookPath)) {
@@ -1058,6 +1274,7 @@ const researchQueue = sites
   .sort((a, b) => b.researchPriorityScore - a.researchPriorityScore || a.name.localeCompare(b.name));
 
 const evidenceGraph = buildEvidenceGraph(sites, nodes, edges);
+const evidenceGraphSlices = buildGraphSlices(evidenceGraph);
 
 const summary = {
   generatedAt: new Date().toISOString(),
@@ -1092,7 +1309,10 @@ writeJson("summary.json", summary);
 writeJson("nodes.json", nodes);
 writeJson("edges.json", edges);
 writeJson("research_queue.json", researchQueue);
-writeJson("graph.json", evidenceGraph, false);
+writeJson("graph_index.json", evidenceGraphSlices.index, false);
+for (const slice of evidenceGraphSlices.slices) {
+  writeJson(path.join("graphs", `${slice.key}.json`), slice.graph, false);
+}
 
 console.log(
   JSON.stringify(
@@ -1103,6 +1323,7 @@ console.log(
       edges: edges.length,
       graphNodes: evidenceGraph.nodes.length,
       graphEdges: evidenceGraph.edges.length,
+      graphSlices: evidenceGraphSlices.slices.length,
       researchQueue: researchQueue.length,
       outputDir
     },

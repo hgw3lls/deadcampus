@@ -1,0 +1,37 @@
+.atlas-kicker {
+  color: var(--atlas-muted);
+  font-family: var(--atlas-mono);
+  font-size: 10px;
+  letter-spacing: 0;
+  text-transform: uppercase;
+}
+
+.atlas-title-xl {
+  font-size: clamp(2rem, 7vw, 5.4rem);
+  font-weight: 950;
+  letter-spacing: 0;
+  line-height: 0.86;
+  text-transform: uppercase;
+}
+
+.atlas-title-lg {
+  font-size: clamp(1.6rem, 4vw, 3.2rem);
+  font-weight: 950;
+  letter-spacing: 0;
+  line-height: 0.9;
+  text-transform: uppercase;
+}
+
+.atlas-copy {
+  font-family: var(--atlas-mono);
+  font-size: 12px;
+  line-height: 1.55;
+  text-transform: uppercase;
+}
+
+.atlas-poem {
+  font-family: var(--atlas-mono);
+  font-size: 13px;
+  line-height: 1.65;
+  white-space: pre-line;
+}

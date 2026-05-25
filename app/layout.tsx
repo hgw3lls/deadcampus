@@ -1,6 +1,11 @@
 import type { Metadata } from "next";
 import type { ReactNode } from "react";
 import "./globals.css";
+import "@/src/styles/tokens.css";
+import "@/src/styles/layout.css";
+import "@/src/styles/typography.css";
+import "@/src/styles/components.css";
+import "@/src/styles/explorer.css";
 
 export const metadata: Metadata = {
   title: "Dead Campus Atlas",

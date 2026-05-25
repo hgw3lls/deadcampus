@@ -1,0 +1,28 @@
+.explorer-tabs {
+  display: grid;
+  font-family: var(--atlas-mono);
+  font-size: 11px;
+  text-transform: uppercase;
+}
+
+.explorer-tab {
+  border-bottom: var(--atlas-border);
+  padding: 9px 10px;
+  text-align: left;
+}
+
+.explorer-tab[data-active="true"] {
+  background: var(--atlas-fg);
+  color: var(--atlas-bg);
+}
+
+.dossier-layout {
+  display: grid;
+  gap: 12px;
+}
+
+@media (min-width: 960px) {
+  .dossier-layout {
+    grid-template-columns: 340px minmax(0, 1fr);
+  }
+}
