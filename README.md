@@ -15,7 +15,7 @@ Forensic-poetic atlas and research dashboard for U.S. educational infrastructure
 ## Route Structure
 
 - `/` - Overview: thesis, key stats, national map preview, text intervention, route index
-- `/explorer` - Atlas Explorer: map, timeline, matrix, ownership network, state/status/table views, evidence wall
+- `/explorer` - Atlas Explorer: readable briefing, map, timeline, matrix, ownership network, state/status/table views, evidence wall
 - `/dossiers` - Searchable campus/institution dossier system
 - `/fieldwork` - Methodology, fieldwork checklist, upload placeholder, research queue
 - `/replacement-economy` - Campus afterlife categories and replacement matrix
@@ -33,6 +33,7 @@ Forensic-poetic atlas and research dashboard for U.S. educational infrastructure
 - `src/styles/` - CSS tokens, layout, typography, component, and explorer layers
 - `lib/data.ts` - existing generated JSON client loader and workbook-derived types
 - `scripts/preprocessWorkbook.ts` - workbook to JSON preprocessing
+- `scripts/generateDataBriefing.js` - canonical data to readable coverage/next-work briefing
 - `public/data/` - generated static JSON consumed by the deployed site
 - `public/data/raw/` - holding area for future raw CSV/JSON drops
 
@@ -53,6 +54,7 @@ Generated outputs:
 - `public/data/nodes.json`
 - `public/data/edges.json`
 - `public/data/research_queue.json`
+- `public/data/data_briefing.json`
 - `public/data/graph_index.json`
 - `public/data/graphs/*.json`
 
@@ -96,8 +98,9 @@ Preferred path:
 
 1. Add/update rows in `DEAD_CAMPUS_ATLAS_MASTER_WORKBOOK.xlsx`.
 2. Run `npm run preprocess`.
-3. Check `public/data/sites.json` and `public/data/research_queue.json`.
-4. Run `npm run build`.
+3. Run `npm run data:briefing`.
+4. Check `public/data/sites.json`, `public/data/research_queue.json`, and `public/data/data_briefing.json`.
+5. Run `npm run build`.
 
 For future CSV/JSON imports, place raw files in `public/data/raw/` and add an adapter in `src/lib/loadCampusData.ts` or a neighboring loader.
 
@@ -125,10 +128,17 @@ npm run promote:queue
 npm run validate:data
 ```
 
-5. Commit canonical data, queue, and log:
+5. Refresh the readable dataset briefing:
+
+```bash
+npm run data:briefing
+```
+
+6. Commit canonical data, queue, briefing, and log:
 
 - `public/data/sites.json`
 - `public/data/queue.json`
+- `public/data/data_briefing.json`
 - `public/data/promotion-log.json`
 
 Queued records can be promoted when they have:

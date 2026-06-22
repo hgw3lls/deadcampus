@@ -195,9 +195,35 @@ export type SummaryData = {
   phaseSheets: Record<string, Array<Record<string, string | number | boolean | null>>>;
 };
 
+export type DataBriefing = {
+  generatedAt: string;
+  source: {
+    canonicalPath: string;
+    summaryPath: string;
+    queuePath: string;
+    workbookFile: string;
+  };
+  totals: {
+    records: number;
+    mappedRecords: number;
+    researchQueueRecords: number;
+    yearMin: number | null;
+    yearMax: number | null;
+  };
+  coverage: Record<string, { count: number; missing: number; percent: number }>;
+  topStates: Array<{ key: string; count: number }>;
+  decadeCounts: Array<{ key: string; count: number }>;
+  statusCounts: Array<{ key: string; count: number }>;
+  sourceSheetCounts: Array<{ key: string; count: number }>;
+  researchPriorities: Array<{ key: string; count: number }>;
+  recommendedNextWork: Array<{ id: string; label: string; count: number; rationale: string }>;
+  plainLanguageSummary: string[];
+};
+
 export type AtlasData = {
   sites: SiteRecord[];
   summary: SummaryData;
+  briefing: DataBriefing;
   nodes: NodeRecord[];
   edges: EdgeRecord[];
   researchQueue: ResearchQueueRecord[];
@@ -267,15 +293,16 @@ const DATA_BASE_PATH = process.env.NEXT_PUBLIC_BASE_PATH ?? "";
 const dataUrl = (path: string) => `${DATA_BASE_PATH}${path}`;
 
 export async function loadAtlasData(): Promise<AtlasData> {
-  const [sites, summary, nodes, edges, researchQueue] = await Promise.all([
+  const [sites, summary, briefing, nodes, edges, researchQueue] = await Promise.all([
     fetch(dataUrl("/data/sites.json")).then((response) => response.json() as Promise<SiteRecord[]>),
     fetch(dataUrl("/data/summary.json")).then((response) => response.json() as Promise<SummaryData>),
+    fetch(dataUrl("/data/data_briefing.json")).then((response) => response.json() as Promise<DataBriefing>),
     fetch(dataUrl("/data/nodes.json")).then((response) => response.json() as Promise<NodeRecord[]>),
     fetch(dataUrl("/data/edges.json")).then((response) => response.json() as Promise<EdgeRecord[]>),
     fetch(dataUrl("/data/research_queue.json")).then((response) => response.json() as Promise<ResearchQueueRecord[]>)
   ]);
 
-  return { sites, summary, nodes, edges, researchQueue };
+  return { sites, summary, briefing, nodes, edges, researchQueue };
 }
 
 export async function loadEvidenceGraphIndex(): Promise<EvidenceGraphIndex> {

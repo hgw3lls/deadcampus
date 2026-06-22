@@ -3,6 +3,7 @@
 import { useEffect, useMemo, useState } from "react";
 import { AtlasExplorer } from "@/components/AtlasExplorer";
 import { DataLegend } from "@/components/DataLegend";
+import { DataBriefingPanel } from "@/components/DataBriefingPanel";
 import { EvidenceWall } from "@/components/EvidenceWall";
 import { MapPanel } from "@/components/MapPanel";
 import { OwnershipNetwork } from "@/components/OwnershipNetwork";
@@ -18,9 +19,10 @@ import { useCampusData } from "@/src/lib/useCampusData";
 import type { EvidenceGraphIndex, SiteRecord } from "@/lib/data";
 import { loadEvidenceGraphIndex } from "@/lib/data";
 
-type ExplorerWorkbenchMode = "navigator" | "map" | "chronology" | "network" | "evidence";
+type ExplorerWorkbenchMode = "briefing" | "navigator" | "map" | "chronology" | "network" | "evidence";
 
 const explorerModes: Array<{ key: ExplorerWorkbenchMode; label: string }> = [
+  { key: "briefing", label: "Briefing" },
   { key: "navigator", label: "Navigator" },
   { key: "map", label: "Map Plate" },
   { key: "chronology", label: "Timeline / Matrix" },
@@ -31,7 +33,7 @@ const explorerModes: Array<{ key: ExplorerWorkbenchMode; label: string }> = [
 export default function ExplorerRoute() {
   const { atlas, error, loading } = useCampusData();
   const [selectedSite, setSelectedSite] = useState<SiteRecord | null>(null);
-  const [mode, setMode] = useState<ExplorerWorkbenchMode>("navigator");
+  const [mode, setMode] = useState<ExplorerWorkbenchMode>("briefing");
   const [evidenceGraphIndex, setEvidenceGraphIndex] = useState<EvidenceGraphIndex | null>(null);
   const [evidenceGraphError, setEvidenceGraphError] = useState<string | null>(null);
   const mappedSites = useMemo(() => atlas?.sites.filter((site) => site.hasCoordinates) ?? [], [atlas]);
@@ -67,6 +69,8 @@ export default function ExplorerRoute() {
             </div>
 
             <div className="atlas-mode-body">
+              {mode === "briefing" ? <DataBriefingPanel briefing={atlas.briefing} /> : null}
+
               {mode === "navigator" ? <AtlasExplorer sites={atlas.sites} /> : null}
 
               {mode === "map" ? (

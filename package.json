@@ -8,6 +8,7 @@
     "start": "next start",
     "lint": "next lint",
     "preprocess": "tsx scripts/preprocessWorkbook.ts",
+    "data:briefing": "node scripts/generateDataBriefing.js",
     "promote:queue": "node scripts/promoteQueue.js",
     "validate:data": "node scripts/validateData.js"
   },

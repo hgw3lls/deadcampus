@@ -1,0 +1,220 @@
+{
+  "generatedAt": "2026-06-22T06:39:37.423Z",
+  "source": {
+    "canonicalPath": "public/data/sites.json",
+    "summaryPath": "public/data/summary.json",
+    "queuePath": "public/data/research_queue.json",
+    "workbookFile": "DEAD_CAMPUS_ATLAS_MASTER_WORKBOOK.xlsx"
+  },
+  "totals": {
+    "records": 11486,
+    "mappedRecords": 34,
+    "researchQueueRecords": 11486,
+    "yearMin": 1984,
+    "yearMax": 2026
+  },
+  "coverage": {
+    "coordinates": {
+      "count": 34,
+      "missing": 11452,
+      "percent": 0.3
+    },
+    "state": {
+      "count": 11195,
+      "missing": 291,
+      "percent": 97.5
+    },
+    "afterlife": {
+      "count": 34,
+      "missing": 11452,
+      "percent": 0.3
+    },
+    "buyerController": {
+      "count": 68,
+      "missing": 11418,
+      "percent": 0.6
+    },
+    "sourceUrl": {
+      "count": 11422,
+      "missing": 64,
+      "percent": 99.4
+    },
+    "sourceNoteOrUrl": {
+      "count": 11442,
+      "missing": 44,
+      "percent": 99.6
+    },
+    "morphology": {
+      "count": 11486,
+      "missing": 0,
+      "percent": 100
+    },
+    "verification": {
+      "count": 34,
+      "missing": 11452,
+      "percent": 0.3
+    }
+  },
+  "topStates": [
+    {
+      "key": "CA",
+      "count": 1252
+    },
+    {
+      "key": "IL",
+      "count": 850
+    },
+    {
+      "key": "TX",
+      "count": 586
+    },
+    {
+      "key": "PA",
+      "count": 537
+    },
+    {
+      "key": "IN",
+      "count": 513
+    },
+    {
+      "key": "FL",
+      "count": 505
+    },
+    {
+      "key": "NY",
+      "count": 472
+    },
+    {
+      "key": "OH",
+      "count": 447
+    },
+    {
+      "key": "MI",
+      "count": 383
+    },
+    {
+      "key": "MA",
+      "count": 344
+    },
+    {
+      "key": "MO",
+      "count": 341
+    },
+    {
+      "key": "MN",
+      "count": 324
+    }
+  ],
+  "decadeCounts": [
+    {
+      "key": "2000s",
+      "count": 3796
+    },
+    {
+      "key": "1990s",
+      "count": 3706
+    },
+    {
+      "key": "2010s",
+      "count": 3040
+    },
+    {
+      "key": "1980s",
+      "count": 892
+    },
+    {
+      "key": "2020s",
+      "count": 42
+    }
+  ],
+  "statusCounts": [
+    {
+      "key": "CLOSURE-EVENT",
+      "count": 11414
+    },
+    {
+      "key": "ASSET-TRANSFER",
+      "count": 35
+    },
+    {
+      "key": "PARCELIZED",
+      "count": 31
+    },
+    {
+      "key": "CLOUD",
+      "count": 3
+    },
+    {
+      "key": "SECURITY",
+      "count": 3
+    }
+  ],
+  "sourceSheetCounts": [
+    {
+      "key": "dead_campus_atlas__PEPS_SITE_",
+      "count": 11408
+    },
+    {
+      "key": "dead_campus_atlas__SPATIALIZE",
+      "count": 34
+    },
+    {
+      "key": "dead_campus_atlas__PHASE2_CLA",
+      "count": 20
+    },
+    {
+      "key": "dead_campus_atlas__CURATED_IC",
+      "count": 14
+    },
+    {
+      "key": "dead_campus_atlas__AFTERLIFE_",
+      "count": 10
+    }
+  ],
+  "researchPriorities": [
+    {
+      "key": "High",
+      "count": 11418
+    },
+    {
+      "key": "Medium",
+      "count": 52
+    },
+    {
+      "key": "Low",
+      "count": 16
+    }
+  ],
+  "recommendedNextWork": [
+    {
+      "id": "coordinates",
+      "label": "Spatialize high-priority records",
+      "count": 11452,
+      "rationale": "The atlas is visually map-led, but most PEPS-scale records do not yet have coordinates."
+    },
+    {
+      "id": "afterlife",
+      "label": "Resolve afterlife status",
+      "count": 11452,
+      "rationale": "Replacement economy analysis becomes stronger when reuse, buyer, controller, or ruin status is known."
+    },
+    {
+      "id": "buyer-controller",
+      "label": "Add buyer/controller chains",
+      "count": 11418,
+      "rationale": "Ownership data turns closure records into an infrastructure-transfer atlas."
+    },
+    {
+      "id": "sources",
+      "label": "Attach source URLs or notes",
+      "count": 44,
+      "rationale": "Source coverage is the difference between a poetic interface and a defensible research archive."
+    }
+  ],
+  "plainLanguageSummary": [
+    "The atlas currently contains 11,486 canonical records spanning 1984-2026.",
+    "34 records have coordinates; the rest are still staging candidates for spatialization.",
+    "34 records have afterlife or reuse fields, so replacement-economy analysis should be treated as strongest for curated cases and weakest for bulk PEPS records.",
+    "11,486 records remain in the research queue because they are missing one or more core fields."
+  ]
+}
