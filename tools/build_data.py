@@ -80,6 +80,58 @@ TYPOLOGY = {
 }
 
 
+PUBLIC_SUMMARIES = {
+    ("birmingham southern college", "AL"): "After closing in 2024, the Birmingham campus moved from private liberal arts college to federal training infrastructure, with the U.S. Coast Guard opening TRACEN Birmingham-Southern in 2026.",
+    ("green mountain college", "VT"): "Closed in 2019, the Poultney campus was bought at auction by private owner Raj Bhakta in 2020; by 2026, his redevelopment plan had stalled and the site was again being offered or repositioned.",
+    ("notre dame college", "OH"): "Notre Dame College closed in 2024. In 2026, Akron Children's Hospital emerged as the auction winner for the South Euclid campus, pointing the site toward pediatric specialty care.",
+    ("college of saint rose", "NY"): "The College of Saint Rose closed in 2024. Albany County's Pine Hills Land Authority then moved to acquire and redevelop the Albany campus as a public authority project.",
+    ("wells college", "NY"): "Wells closed in 2024. A proposed Hiawatha Institute Indigenous college reuse became disputed in 2026 after Wells said the sale would not move forward, leaving the campus status unresolved.",
+    ("fontbonne university", "MO"): "Fontbonne wound down instruction through summer 2025. Washington University acquired the 16-acre Clayton campus and leased it back during the closure runway, with long-term use still unsettled.",
+    ("cabrini university", "PA"): "Cabrini closed after the 2023-24 academic year. Villanova assumed ownership of the 112-acre Radnor property and began converting it into Villanova University Cabrini Campus.",
+    ("medaille university", "NY"): "Medaille closed in 2023. The Buffalo campus sold to Charter Schools Development Corporation for Buffalo Academy of Science Charter School, turning university buildings into a charter-school campus.",
+    ("cardinal stritch university", "WI"): "The Fox Point campus is classified here as a religious and K-12 reuse after Cardinal Stritch's 2023 closure, moving Catholic higher-education property into private school conversion.",
+    ("cazenovia college", "NY"): "After Cazenovia closed in 2023, its campus fragmented into mixed redevelopment, municipal ownership, and private reuse instead of remaining one college property.",
+    ("presentation college", "SD"): "Presentation College's Aberdeen campus is tracked as a parcelized afterlife, with municipal and other buyers dividing a former Catholic health-oriented college footprint.",
+    ("finlandia university", "MI"): "Finlandia's 2023 closure produced a civic and nonprofit fragmentation case, with pieces of the Hancock campus absorbed by various local groups.",
+    ("mount ida college", "MA"): "Mount Ida's 2018 closure converted the Newton campus into a public university asset when UMass Amherst took control.",
+    ("pine manor college", "MA"): "Pine Manor's 2020 merger folded the Brookline campus into Boston College, marking an elite institutional absorption.",
+    ("wheelock college", "MA"): "Wheelock's 2018 merger with Boston University turned a small specialized college into part of a larger urban university system.",
+    ("newbury college", "MA"): "After Newbury closed in 2019, Welltower moved the Brookline campus toward senior living, shifting educational property into housing infrastructure.",
+    ("marlboro college", "VT"): "Marlboro's 2020 closure left the Vermont campus to an arts and music reuse under Marlboro Music.",
+    ("burlington college", "VT"): "Burlington College's 2016 collapse led to property liquidation and developer or bank control, making the campus a speculative real estate case.",
+    ("marygrove college", "MI"): "Marygrove's 2019 closure produced a community educational redevelopment model led by the Marygrove Conservancy in Detroit.",
+    ("dowling college", "NY"): "Dowling's 2016 closure sent the Oakdale estate through auction and redevelopment, parcelizing a historic campus.",
+    ("urbana university", "OH"): "Urbana closed in 2020 and entered private redevelopment marketing, a speculative afterlife for a regional campus.",
+    ("atlantic union college", "MA"): "Atlantic Union's South Lancaster campus is tracked as slow parcel liquidation under religious ownership after its 2018 closure marker.",
+    ("concordia university portland", "OR"): "After Concordia University Portland closed in 2020, the University of Oregon acquired the campus for public university use.",
+    ("holy names university", "CA"): "Holy Names closed in 2023 and sold its Oakland hills campus to BH Properties, moving the site into investment ownership and leasing or redevelopment scenarios.",
+    ("marymount california university", "CA"): "After Marymount California ceased operations in 2022, UCLA acquired its Rancho Palos Verdes and San Pedro sites to expand teaching, learning, and housing capacity.",
+    ("macmurray college", "IL"): "MacMurray's 2020 closure culminated in a campus auction split into 18 tracts, a parcelized end to a 174-year college.",
+    ("becker college", "MA"): "Becker's 2021 closure produced a split municipal and housing afterlife: Leicester acquired campus properties, with some buildings later used for emergency family housing.",
+    ("college of new rochelle", "NY"): "The College of New Rochelle entered bankruptcy and auction after its 2019 closure, leaving an urban campus fragmented across buyers.",
+    ("alderson broaddus university", "WV"): "Alderson Broaddus closed in 2023 and moved through bankruptcy sale to CGP Construction and Battlers Knob, shifting the Philippi campus into private redevelopment and community use.",
+    ("daniel webster college", "NH"): "After the ITT-linked 2017 closure, Daniel Webster's Nashua campus went through auction sale to Xinhua Education, a speculative institutional reuse case.",
+    ("virginia intermont college", "VA"): "Virginia Intermont's Bristol campus is tracked as a ruin and absentee ownership case after the 2014 closure, with the physical site unresolved.",
+    ("southern vermont college", "VT"): "Southern Vermont College's 2019 closure led to health and resort redevelopment under Southwestern Vermont Health Care, repurposing the Bennington campus beyond higher education.",
+    ("st gregory s university", "OK"): "St. Gregory's 2017 closure moved the Shawnee campus into corporate ownership under Hobby Lobby, marking a private institutional acquisition.",
+    ("gwu virginia science and technology campus", "VA"): "GW's Ashburn campus was sold in 2026 to Amazon Data Services; academic programs can remain temporarily while the land enters cloud-infrastructure redevelopment pressure.",
+}
+
+
+PUBLIC_FIELD_OVERRIDES = {
+    ("gwu virginia science and technology campus", "VA"): {
+        "verification": "Non-closure asset sale",
+    },
+    ("wells college", "NY"): {
+        "afterlife": "Disputed/pending Indigenous educational reuse",
+        "reuseType": "Proposed Indigenous educational reuse",
+        "buyerController": "Hiawatha Institute (sale disputed)",
+        "verification": "Sale disputed",
+        "transformation": "Proposed Indigenous educational reuse under contested sale",
+    },
+}
+
+
 def rows_from_sheet(path: Path, sheet_name: str) -> list[dict]:
     wb = load_workbook(path, read_only=True, data_only=True)
     ws = wb[sheet_name]
@@ -134,6 +186,7 @@ def canonical_morphology(value: object) -> str:
         return ""
     fixed = raw.replace("_", " ").title()
     aliases = {
+        "Arts Reuse": "Arts reuse",
         "Educational Reuse": "Educational reuse",
         "Branch / Satellite Retreat": "BRANCH / SATELLITE RETREAT",
         "Main / Root Closure": "MAIN / ROOT CLOSURE",
@@ -190,6 +243,7 @@ def build_public_sites() -> list[dict]:
         year = clean_year(choose(row.get("Closure_Year"), p2.get("Closure_Year"), sp.get("Closure_Year")))
         name = choose(row.get("Institution"), p2.get("Institution"), sp.get("Institution"))
         morphology = canonical_morphology(choose(row.get("Morphology"), p2.get("Morphology"), sp.get("Morphology")))
+        public_summary = PUBLIC_SUMMARIES.get(key, "")
         evidence = []
         for q in queue_rows:
             evidence.append(
@@ -233,6 +287,7 @@ def build_public_sites() -> list[dict]:
                 "afterlife": choose(af.get("Afterlife"), row.get("Reuse_Type")),
                 "latitude": sp.get("Latitude") if sp.get("Latitude") not in ("", None) else None,
                 "longitude": sp.get("Longitude") if sp.get("Longitude") not in ("", None) else None,
+                "publicSummary": public_summary,
                 "evidence": evidence,
                 "sourceFiles": [
                     "_DATA/dead_campus_master_table_v1.xlsx",
@@ -243,6 +298,8 @@ def build_public_sites() -> list[dict]:
                 ],
             }
         )
+        if key in PUBLIC_FIELD_OVERRIDES:
+            sites[-1].update(PUBLIC_FIELD_OVERRIDES[key])
     return sites
 
 

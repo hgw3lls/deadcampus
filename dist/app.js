@@ -147,14 +147,14 @@
         <span class="tag" style="--tag-tone:#285f74">${site.atlasPriority}</span>
       </div>
       <h4>${site.name}</h4>
-      <p>${site.city ? `${site.city}, ` : ""}${site.state}. Closed ${site.closureYear}. ${site.transformation || site.notes}</p>
+      <p>${site.publicSummary || `${site.city ? `${site.city}, ` : ""}${site.state}. Closed ${site.closureYear}. ${site.transformation || site.notes}`}</p>
       <dl class="record-meta">
         <div><dt>Afterlife</dt><dd>${site.afterlife || site.reuseType || "Pending"}</dd></div>
         <div><dt>Controller</dt><dd>${site.buyerController || "Pending"}</dd></div>
         <div><dt>Scale</dt><dd>${site.scale || "Pending"}</dd></div>
         <div><dt>Sector</dt><dd>${site.sector || "Pending"}</dd></div>
       </dl>
-      <p>${typology[site.morphology]?.description || ""}</p>
+      <p>${site.transformation || site.notes || typology[site.morphology]?.description || ""}</p>
       <ul class="source-list">${evidence}</ul>
     `;
   }
