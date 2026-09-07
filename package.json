@@ -1,0 +1,11 @@
+{
+  "name": "dead-campus-atlas",
+  "version": "0.1.0",
+  "private": true,
+  "description": "Static public prototype for the Dead Campus Atlas archival art project.",
+  "scripts": {
+    "build:data": "python3 tools/build_data.py",
+    "validate": "python3 tools/validate_site.py",
+    "dev": "python3 -m http.server 5173 --directory dist"
+  }
+}

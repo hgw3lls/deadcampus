@@ -1,0 +1,159 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Dead Campus Atlas</title>
+    <meta
+      name="description"
+      content="An artistic archival atlas of closed college campuses and their afterlives."
+    />
+    <meta property="og:title" content="Dead Campus Atlas" />
+    <meta
+      property="og:description"
+      content="A public prototype for an artistic archive of closed campuses, land transfers, and institutional afterlives."
+    />
+    <link rel="icon" href="assets/te-seal.png" />
+    <link rel="stylesheet" href="styles.css" />
+    <script src="data/atlas-data.js"></script>
+    <script src="app.js" defer></script>
+  </head>
+  <body>
+    <div class="site-shell">
+      <header class="masthead">
+        <div class="brand-block">
+          <img class="brand-mark" src="assets/te-seal.png" alt="" />
+          <div>
+            <p class="eyebrow">Artistic archive prototype</p>
+            <h1>Dead Campus Atlas</h1>
+            <p class="dek">
+              A field guide to closed colleges, land transfers, and institutional afterlives.
+            </p>
+          </div>
+        </div>
+        <div class="masthead-art" aria-hidden="true">
+          <img src="assets/te-atlas.png" alt="" />
+        </div>
+      </header>
+
+      <main>
+        <section class="atlas-console" aria-labelledby="atlas-title">
+          <div class="console-head">
+            <div>
+              <p class="eyebrow">Public layer</p>
+              <h2 id="atlas-title">Canonical campus records</h2>
+            </div>
+            <div class="mode-tabs" role="tablist" aria-label="Atlas views">
+              <button class="tab-button is-active" type="button" data-view="archive" role="tab">
+                Archive
+              </button>
+              <button class="tab-button" type="button" data-view="abyss" role="tab">Abyss</button>
+              <button class="tab-button" type="button" data-view="method" role="tab">Method</button>
+            </div>
+          </div>
+
+          <div class="stat-strip" id="statStrip" aria-label="Atlas statistics"></div>
+
+          <section class="view-panel is-active" id="view-archive" role="tabpanel">
+            <div class="control-row" aria-label="Archive filters">
+              <label class="search-control">
+                <span>Search</span>
+                <input id="searchInput" type="search" placeholder="Campus, buyer, state" />
+              </label>
+              <label class="select-control">
+                <span>Typology</span>
+                <select id="morphologyFilter"></select>
+              </label>
+              <label class="toggle-control">
+                <input id="priorityOnly" type="checkbox" />
+                <span>Iconic only</span>
+              </label>
+            </div>
+
+            <div class="archive-grid">
+              <section class="territory-panel" aria-labelledby="territory-title">
+                <div class="panel-title-row">
+                  <div>
+                    <p class="eyebrow">Coordinates layer</p>
+                    <h3 id="territory-title">Campus afterlife field</h3>
+                  </div>
+                  <p class="count-pill" id="resultCount"></p>
+                </div>
+                <div class="map-plane" id="mapPlane" aria-label="Approximate campus map"></div>
+              </section>
+
+              <section class="record-panel" aria-labelledby="record-title">
+                <div class="panel-title-row">
+                  <div>
+                    <p class="eyebrow">Selected record</p>
+                    <h3 id="record-title">Campus dossier</h3>
+                  </div>
+                  <span class="record-number" id="recordNumber"></span>
+                </div>
+                <article id="recordDetail" class="record-detail"></article>
+              </section>
+            </div>
+
+            <section class="index-panel" aria-labelledby="index-title">
+              <div class="panel-title-row">
+                <div>
+                  <p class="eyebrow">Atlas index</p>
+                  <h3 id="index-title">One row per public campus</h3>
+                </div>
+              </div>
+              <div class="record-list" id="recordList"></div>
+            </section>
+          </section>
+
+          <section class="view-panel" id="view-abyss" role="tabpanel" hidden>
+            <div class="abyss-layout">
+              <section class="abyss-panel">
+                <p class="eyebrow">Raw federal layer</p>
+                <h3>PEPS site retreat mass</h3>
+                <p class="body-copy">
+                  The PEPS layer is not yet a public atlas. It is the underlying field of
+                  11,408 closure-site records from 1984 through 2015.
+                </p>
+                <div class="bar-stack" id="classBars"></div>
+              </section>
+              <section class="abyss-panel">
+                <p class="eyebrow">Temporal layer</p>
+                <h3>Closure strata</h3>
+                <div class="timeline" id="timeline"></div>
+              </section>
+              <section class="abyss-panel">
+                <p class="eyebrow">Geographic layer</p>
+                <h3>Top state counts</h3>
+                <div class="state-grid" id="stateGrid"></div>
+              </section>
+            </div>
+          </section>
+
+          <section class="view-panel" id="view-method" role="tabpanel" hidden>
+            <div class="method-layout">
+              <section class="method-panel">
+                <p class="eyebrow">Project architecture</p>
+                <h3>Three readable layers</h3>
+                <ol>
+                  <li>Public Atlas: canonical campus dossiers.</li>
+                  <li>Source Archive: raw PEPS, SHEEO, and manual evidence.</li>
+                  <li>Editorial Queue: unresolved records and production gaps.</li>
+                </ol>
+              </section>
+              <section class="method-panel">
+                <p class="eyebrow">Viability work</p>
+                <h3>Release bar</h3>
+                <ul id="releaseList"></ul>
+              </section>
+              <section class="method-panel">
+                <p class="eyebrow">Data audit</p>
+                <h3>Known gaps</h3>
+                <div class="audit-grid" id="auditGrid"></div>
+              </section>
+            </div>
+          </section>
+        </section>
+      </main>
+    </div>
+  </body>
+</html>

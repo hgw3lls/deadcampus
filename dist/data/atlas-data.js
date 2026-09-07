@@ -1,0 +1,2873 @@
+window.DEAD_CAMPUS_ATLAS = {
+  "generatedFrom": [
+    "dead-campus-queue-filtered.csv",
+    "_DATA/dead_campus_master_table_v1.xlsx",
+    "_DATA/dead_campus_atlas_phase2.xlsx",
+    "_DATA/dead_campus_atlas_phase3_spatialization.xlsx",
+    "_DATA/dead_campus_atlas_phase4_afterlife_forensics.xlsx",
+    "_DATA/dead_campus_phase9_peps_normalized.csv"
+  ],
+  "publicSites": [
+    {
+      "id": "birmingham-southern-college-al-2024",
+      "recordNumber": 1,
+      "name": "Birmingham–Southern College",
+      "city": "Birmingham",
+      "state": "AL",
+      "region": "South",
+      "closureYear": 2024,
+      "sector": "Private nonprofit",
+      "campusType": "Main",
+      "status": "Closed",
+      "reuseType": "Federal/security reuse",
+      "buyerController": "Coast Guard / federal training",
+      "buyerType": "Federal Government",
+      "morphology": "Security",
+      "scale": "192 acres",
+      "notes": "Federal training center reuse",
+      "verification": "Confirmed",
+      "transformation": "Liberal arts → security state",
+      "atlasPriority": "Iconic",
+      "salePrice": "$126.5M",
+      "afterlife": "Training center",
+      "latitude": 33.515,
+      "longitude": -86.853,
+      "evidence": [
+        {
+          "line": 2,
+          "sourceSheet": "dead_campus_atlas__AFTERLIFE_",
+          "verification": "",
+          "sourceUrl": "",
+          "sourceNote": "",
+          "missingFields": "coordinates; buyerController; afterlifeStatus; sourceUrl; verification; closureYear"
+        },
+        {
+          "line": 11421,
+          "sourceSheet": "dead_campus_atlas__SPATIALIZE",
+          "verification": "",
+          "sourceUrl": "",
+          "sourceNote": "",
+          "missingFields": "afterlifeStatus; sourceUrl; verification"
+        },
+        {
+          "line": 11441,
+          "sourceSheet": "dead_campus_atlas__CURATED_IC",
+          "verification": "Post-2020 manual add",
+          "sourceUrl": "",
+          "sourceNote": "Manual research layer; cite row during Phase 2 verification",
+          "missingFields": "coordinates"
+        }
+      ],
+      "sourceFiles": [
+        "_DATA/dead_campus_master_table_v1.xlsx",
+        "_DATA/dead_campus_atlas_phase2.xlsx",
+        "_DATA/dead_campus_atlas_phase3_spatialization.xlsx",
+        "_DATA/dead_campus_atlas_phase4_afterlife_forensics.xlsx",
+        "dead-campus-queue-filtered.csv"
+      ]
+    },
+    {
+      "id": "green-mountain-college-vt-2019",
+      "recordNumber": 2,
+      "name": "Green Mountain College",
+      "city": "Poultney",
+      "state": "VT",
+      "region": "New England",
+      "closureYear": 2019,
+      "sector": "Private nonprofit",
+      "campusType": "Main",
+      "status": "Closed",
+      "reuseType": "Auction / speculative reuse",
+      "buyerController": "Private ownership",
+      "buyerType": "",
+      "morphology": "Speculative",
+      "scale": "155 acres",
+      "notes": "Eco-college liquidation",
+      "verification": "Confirmed",
+      "transformation": "Eco-college liquidation",
+      "atlasPriority": "Iconic",
+      "salePrice": "",
+      "afterlife": "Auction / speculative reuse",
+      "latitude": 43.517,
+      "longitude": -73.237,
+      "evidence": [
+        {
+          "line": 11425,
+          "sourceSheet": "dead_campus_atlas__SPATIALIZE",
+          "verification": "",
+          "sourceUrl": "",
+          "sourceNote": "",
+          "missingFields": "afterlifeStatus; sourceUrl; verification"
+        },
+        {
+          "line": 11443,
+          "sourceSheet": "dead_campus_atlas__CURATED_IC",
+          "verification": "Curated from sale/auction reporting",
+          "sourceUrl": "",
+          "sourceNote": "Manual research layer; cite row during Phase 2 verification",
+          "missingFields": "coordinates"
+        }
+      ],
+      "sourceFiles": [
+        "_DATA/dead_campus_master_table_v1.xlsx",
+        "_DATA/dead_campus_atlas_phase2.xlsx",
+        "_DATA/dead_campus_atlas_phase3_spatialization.xlsx",
+        "_DATA/dead_campus_atlas_phase4_afterlife_forensics.xlsx",
+        "dead-campus-queue-filtered.csv"
+      ]
+    },
+    {
+      "id": "notre-dame-college-oh-2024",
+      "recordNumber": 3,
+      "name": "Notre Dame College",
+      "city": "South Euclid",
+      "state": "OH",
+      "region": "Rust Belt",
+      "closureYear": 2024,
+      "sector": "Private nonprofit",
+      "campusType": "Main",
+      "status": "Closed",
+      "reuseType": "Auction / institutional reuse",
+      "buyerController": "Akron Children's Hospital",
+      "buyerType": "Hospital System",
+      "morphology": "Health",
+      "scale": "~50 acres",
+      "notes": "Receivership auction",
+      "verification": "Confirmed",
+      "transformation": "Catholic campus → medical reuse",
+      "atlasPriority": "Iconic",
+      "salePrice": "Auction",
+      "afterlife": "Medical/institutional reuse",
+      "latitude": 41.52,
+      "longitude": -81.518,
+      "evidence": [
+        {
+          "line": 9,
+          "sourceSheet": "dead_campus_atlas__AFTERLIFE_",
+          "verification": "",
+          "sourceUrl": "",
+          "sourceNote": "",
+          "missingFields": "coordinates; buyerController; afterlifeStatus; sourceUrl; verification; closureYear"
+        },
+        {
+          "line": 11428,
+          "sourceSheet": "dead_campus_atlas__SPATIALIZE",
+          "verification": "",
+          "sourceUrl": "",
+          "sourceNote": "",
+          "missingFields": "afterlifeStatus; sourceUrl; verification"
+        },
+        {
+          "line": 11446,
+          "sourceSheet": "dead_campus_atlas__CURATED_IC",
+          "verification": "Post-2020 manual add",
+          "sourceUrl": "",
+          "sourceNote": "Manual research layer; cite row during Phase 2 verification",
+          "missingFields": "coordinates"
+        }
+      ],
+      "sourceFiles": [
+        "_DATA/dead_campus_master_table_v1.xlsx",
+        "_DATA/dead_campus_atlas_phase2.xlsx",
+        "_DATA/dead_campus_atlas_phase3_spatialization.xlsx",
+        "_DATA/dead_campus_atlas_phase4_afterlife_forensics.xlsx",
+        "dead-campus-queue-filtered.csv"
+      ]
+    },
+    {
+      "id": "college-of-saint-rose-ny-2024",
+      "recordNumber": 4,
+      "name": "College of Saint Rose",
+      "city": "Albany",
+      "state": "NY",
+      "region": "Northeast",
+      "closureYear": 2024,
+      "sector": "Private nonprofit",
+      "campusType": "Urban campus",
+      "status": "Closed",
+      "reuseType": "Public authority redevelopment",
+      "buyerController": "Albany County / ACPHLA",
+      "buyerType": "Public Authority",
+      "morphology": "Parcelized",
+      "scale": "48 acres",
+      "notes": "County-led redevelopment",
+      "verification": "Confirmed",
+      "transformation": "Urban redevelopment fragmentation",
+      "atlasPriority": "Iconic",
+      "salePrice": "$35M",
+      "afterlife": "County redevelopment",
+      "latitude": 42.663,
+      "longitude": -73.786,
+      "evidence": [
+        {
+          "line": 4,
+          "sourceSheet": "dead_campus_atlas__AFTERLIFE_",
+          "verification": "",
+          "sourceUrl": "",
+          "sourceNote": "",
+          "missingFields": "coordinates; buyerController; afterlifeStatus; sourceUrl; verification; closureYear"
+        },
+        {
+          "line": 4917,
+          "sourceSheet": "dead_campus_atlas__PEPS_SITE_",
+          "verification": "",
+          "sourceUrl": "https://www.ed.gov/sites/ed/files/offices/OSFAP/PEPS/docs/closedschoolsearchreq.xlsx",
+          "sourceNote": "",
+          "missingFields": "coordinates; buyerController; afterlifeStatus; verification"
+        },
+        {
+          "line": 4918,
+          "sourceSheet": "dead_campus_atlas__PEPS_SITE_",
+          "verification": "",
+          "sourceUrl": "https://www.ed.gov/sites/ed/files/offices/OSFAP/PEPS/docs/closedschoolsearchreq.xlsx",
+          "sourceNote": "",
+          "missingFields": "coordinates; buyerController; afterlifeStatus; verification"
+        },
+        {
+          "line": 11436,
+          "sourceSheet": "dead_campus_atlas__SPATIALIZE",
+          "verification": "",
+          "sourceUrl": "",
+          "sourceNote": "",
+          "missingFields": "afterlifeStatus; sourceUrl; verification"
+        },
+        {
+          "line": 11463,
+          "sourceSheet": "dead_campus_atlas__CURATED_IC",
+          "verification": "Post-2020 manual add",
+          "sourceUrl": "",
+          "sourceNote": "Manual research layer; cite row during Phase 2 verification",
+          "missingFields": "coordinates"
+        }
+      ],
+      "sourceFiles": [
+        "_DATA/dead_campus_master_table_v1.xlsx",
+        "_DATA/dead_campus_atlas_phase2.xlsx",
+        "_DATA/dead_campus_atlas_phase3_spatialization.xlsx",
+        "_DATA/dead_campus_atlas_phase4_afterlife_forensics.xlsx",
+        "dead-campus-queue-filtered.csv"
+      ]
+    },
+    {
+      "id": "wells-college-ny-2024",
+      "recordNumber": 5,
+      "name": "Wells College",
+      "city": "Aurora",
+      "state": "NY",
+      "region": "Northeast",
+      "closureYear": 2024,
+      "sector": "Private nonprofit",
+      "campusType": "Main",
+      "status": "Closed",
+      "reuseType": "Indigenous educational reuse",
+      "buyerController": "Hiawatha Institute",
+      "buyerType": "Indigenous Education",
+      "morphology": "Educational reuse",
+      "scale": "Campus estate",
+      "notes": "Mission-aligned reuse",
+      "verification": "Confirmed",
+      "transformation": "Indigenous educational reuse",
+      "atlasPriority": "Iconic",
+      "salePrice": "$12.5M",
+      "afterlife": "Educational reuse",
+      "latitude": 42.744,
+      "longitude": -76.696,
+      "evidence": [
+        {
+          "line": 11,
+          "sourceSheet": "dead_campus_atlas__AFTERLIFE_",
+          "verification": "",
+          "sourceUrl": "",
+          "sourceNote": "",
+          "missingFields": "coordinates; buyerController; afterlifeStatus; sourceUrl; verification; closureYear"
+        },
+        {
+          "line": 11431,
+          "sourceSheet": "dead_campus_atlas__SPATIALIZE",
+          "verification": "",
+          "sourceUrl": "",
+          "sourceNote": "",
+          "missingFields": "afterlifeStatus; sourceUrl; verification"
+        },
+        {
+          "line": 11447,
+          "sourceSheet": "dead_campus_atlas__CURATED_IC",
+          "verification": "Post-2020 manual add",
+          "sourceUrl": "",
+          "sourceNote": "Manual research layer; cite row during Phase 2 verification",
+          "missingFields": "coordinates"
+        }
+      ],
+      "sourceFiles": [
+        "_DATA/dead_campus_master_table_v1.xlsx",
+        "_DATA/dead_campus_atlas_phase2.xlsx",
+        "_DATA/dead_campus_atlas_phase3_spatialization.xlsx",
+        "_DATA/dead_campus_atlas_phase4_afterlife_forensics.xlsx",
+        "dead-campus-queue-filtered.csv"
+      ]
+    },
+    {
+      "id": "fontbonne-university-mo-2025",
+      "recordNumber": 6,
+      "name": "Fontbonne University",
+      "city": "Clayton",
+      "state": "MO",
+      "region": "Midwest",
+      "closureYear": 2025,
+      "sector": "Private nonprofit",
+      "campusType": "Main",
+      "status": "Closed",
+      "reuseType": "Elite university acquisition",
+      "buyerController": "Washington University",
+      "buyerType": "Elite University",
+      "morphology": "Absorbed",
+      "scale": "16 acres",
+      "notes": "Land-bank expansion",
+      "verification": "Confirmed",
+      "transformation": "Elite university expansion",
+      "atlasPriority": "Important",
+      "salePrice": "$39M",
+      "afterlife": "Land-bank expansion",
+      "latitude": 38.644,
+      "longitude": -90.33,
+      "evidence": [
+        {
+          "line": 5,
+          "sourceSheet": "dead_campus_atlas__AFTERLIFE_",
+          "verification": "",
+          "sourceUrl": "",
+          "sourceNote": "",
+          "missingFields": "coordinates; buyerController; afterlifeStatus; sourceUrl; verification; closureYear"
+        },
+        {
+          "line": 5928,
+          "sourceSheet": "dead_campus_atlas__PEPS_SITE_",
+          "verification": "",
+          "sourceUrl": "https://www.ed.gov/sites/ed/files/offices/OSFAP/PEPS/docs/closedschoolsearchreq.xlsx",
+          "sourceNote": "",
+          "missingFields": "coordinates; buyerController; afterlifeStatus; verification"
+        },
+        {
+          "line": 5929,
+          "sourceSheet": "dead_campus_atlas__PEPS_SITE_",
+          "verification": "",
+          "sourceUrl": "https://www.ed.gov/sites/ed/files/offices/OSFAP/PEPS/docs/closedschoolsearchreq.xlsx",
+          "sourceNote": "",
+          "missingFields": "coordinates; buyerController; afterlifeStatus; verification"
+        },
+        {
+          "line": 5930,
+          "sourceSheet": "dead_campus_atlas__PEPS_SITE_",
+          "verification": "",
+          "sourceUrl": "https://www.ed.gov/sites/ed/files/offices/OSFAP/PEPS/docs/closedschoolsearchreq.xlsx",
+          "sourceNote": "",
+          "missingFields": "coordinates; buyerController; afterlifeStatus; verification"
+        },
+        {
+          "line": 5931,
+          "sourceSheet": "dead_campus_atlas__PEPS_SITE_",
+          "verification": "",
+          "sourceUrl": "https://www.ed.gov/sites/ed/files/offices/OSFAP/PEPS/docs/closedschoolsearchreq.xlsx",
+          "sourceNote": "",
+          "missingFields": "coordinates; buyerController; afterlifeStatus; verification"
+        },
+        {
+          "line": 5932,
+          "sourceSheet": "dead_campus_atlas__PEPS_SITE_",
+          "verification": "",
+          "sourceUrl": "https://www.ed.gov/sites/ed/files/offices/OSFAP/PEPS/docs/closedschoolsearchreq.xlsx",
+          "sourceNote": "",
+          "missingFields": "coordinates; buyerController; afterlifeStatus; verification"
+        },
+        {
+          "line": 5933,
+          "sourceSheet": "dead_campus_atlas__PEPS_SITE_",
+          "verification": "",
+          "sourceUrl": "https://www.ed.gov/sites/ed/files/offices/OSFAP/PEPS/docs/closedschoolsearchreq.xlsx",
+          "sourceNote": "",
+          "missingFields": "coordinates; buyerController; afterlifeStatus; verification"
+        },
+        {
+          "line": 5934,
+          "sourceSheet": "dead_campus_atlas__PEPS_SITE_",
+          "verification": "",
+          "sourceUrl": "https://www.ed.gov/sites/ed/files/offices/OSFAP/PEPS/docs/closedschoolsearchreq.xlsx",
+          "sourceNote": "",
+          "missingFields": "coordinates; buyerController; afterlifeStatus; verification"
+        },
+        {
+          "line": 5935,
+          "sourceSheet": "dead_campus_atlas__PEPS_SITE_",
+          "verification": "",
+          "sourceUrl": "https://www.ed.gov/sites/ed/files/offices/OSFAP/PEPS/docs/closedschoolsearchreq.xlsx",
+          "sourceNote": "",
+          "missingFields": "coordinates; buyerController; afterlifeStatus; verification"
+        },
+        {
+          "line": 11452,
+          "sourceSheet": "dead_campus_atlas__SPATIALIZE",
+          "verification": "",
+          "sourceUrl": "",
+          "sourceNote": "",
+          "missingFields": "afterlifeStatus; sourceUrl; verification"
+        },
+        {
+          "line": 11484,
+          "sourceSheet": "dead_campus_atlas__CURATED_IC",
+          "verification": "Post-2020 manual add",
+          "sourceUrl": "",
+          "sourceNote": "Manual research layer; cite row during Phase 2 verification",
+          "missingFields": "coordinates"
+        }
+      ],
+      "sourceFiles": [
+        "_DATA/dead_campus_master_table_v1.xlsx",
+        "_DATA/dead_campus_atlas_phase2.xlsx",
+        "_DATA/dead_campus_atlas_phase3_spatialization.xlsx",
+        "_DATA/dead_campus_atlas_phase4_afterlife_forensics.xlsx",
+        "dead-campus-queue-filtered.csv"
+      ]
+    },
+    {
+      "id": "cabrini-university-pa-2024",
+      "recordNumber": 7,
+      "name": "Cabrini University",
+      "city": "Radnor",
+      "state": "PA",
+      "region": "Northeast",
+      "closureYear": 2024,
+      "sector": "Private nonprofit",
+      "campusType": "Main",
+      "status": "Closed",
+      "reuseType": "Mega-university absorption",
+      "buyerController": "Villanova University",
+      "buyerType": "Elite University",
+      "morphology": "Absorbed",
+      "scale": "112 acres",
+      "notes": "Catholic consolidation",
+      "verification": "Confirmed",
+      "transformation": "Mega-university consolidation",
+      "atlasPriority": "Iconic",
+      "salePrice": "Undisclosed",
+      "afterlife": "Campus expansion",
+      "latitude": 40.054,
+      "longitude": -75.37,
+      "evidence": [
+        {
+          "line": 3,
+          "sourceSheet": "dead_campus_atlas__AFTERLIFE_",
+          "verification": "",
+          "sourceUrl": "",
+          "sourceNote": "",
+          "missingFields": "coordinates; buyerController; afterlifeStatus; sourceUrl; verification; closureYear"
+        },
+        {
+          "line": 11422,
+          "sourceSheet": "dead_campus_atlas__SPATIALIZE",
+          "verification": "",
+          "sourceUrl": "",
+          "sourceNote": "",
+          "missingFields": "afterlifeStatus; sourceUrl; verification"
+        },
+        {
+          "line": 11442,
+          "sourceSheet": "dead_campus_atlas__CURATED_IC",
+          "verification": "Post-2020 manual add",
+          "sourceUrl": "",
+          "sourceNote": "Manual research layer; cite row during Phase 2 verification",
+          "missingFields": "coordinates"
+        }
+      ],
+      "sourceFiles": [
+        "_DATA/dead_campus_master_table_v1.xlsx",
+        "_DATA/dead_campus_atlas_phase2.xlsx",
+        "_DATA/dead_campus_atlas_phase3_spatialization.xlsx",
+        "_DATA/dead_campus_atlas_phase4_afterlife_forensics.xlsx",
+        "dead-campus-queue-filtered.csv"
+      ]
+    },
+    {
+      "id": "medaille-university-ny-2023",
+      "recordNumber": 8,
+      "name": "Medaille University",
+      "city": "Buffalo",
+      "state": "NY",
+      "region": "Rust Belt",
+      "closureYear": 2023,
+      "sector": "Private nonprofit",
+      "campusType": "Urban campus",
+      "status": "Closed",
+      "reuseType": "Charter school conversion",
+      "buyerController": "BuffSci",
+      "buyerType": "",
+      "morphology": "K12",
+      "scale": "14 acres",
+      "notes": "Educational reassignment",
+      "verification": "Confirmed",
+      "transformation": "College → charter school",
+      "atlasPriority": "Important",
+      "salePrice": "",
+      "afterlife": "Charter school conversion",
+      "latitude": 42.927,
+      "longitude": -78.858,
+      "evidence": [
+        {
+          "line": 11477,
+          "sourceSheet": "dead_campus_atlas__SPATIALIZE",
+          "verification": "",
+          "sourceUrl": "",
+          "sourceNote": "",
+          "missingFields": "afterlifeStatus; sourceUrl; verification"
+        },
+        {
+          "line": 11487,
+          "sourceSheet": "dead_campus_atlas__CURATED_IC",
+          "verification": "Post-2020 manual add",
+          "sourceUrl": "",
+          "sourceNote": "Manual research layer; cite row during Phase 2 verification",
+          "missingFields": "coordinates"
+        }
+      ],
+      "sourceFiles": [
+        "_DATA/dead_campus_master_table_v1.xlsx",
+        "_DATA/dead_campus_atlas_phase2.xlsx",
+        "_DATA/dead_campus_atlas_phase3_spatialization.xlsx",
+        "_DATA/dead_campus_atlas_phase4_afterlife_forensics.xlsx",
+        "dead-campus-queue-filtered.csv"
+      ]
+    },
+    {
+      "id": "cardinal-stritch-university-wi-2023",
+      "recordNumber": 9,
+      "name": "Cardinal Stritch University",
+      "city": "Fox Point",
+      "state": "WI",
+      "region": "Midwest",
+      "closureYear": 2023,
+      "sector": "Private nonprofit",
+      "campusType": "Main",
+      "status": "Closed",
+      "reuseType": "Private school conversion",
+      "buyerController": "Ramirez Family Foundation",
+      "buyerType": "",
+      "morphology": "Religious/K12",
+      "scale": "Large suburban campus",
+      "notes": "Catholic-to-K12 transition",
+      "verification": "Confirmed",
+      "transformation": "Catholic → private academy",
+      "atlasPriority": "Important",
+      "salePrice": "",
+      "afterlife": "Private school conversion",
+      "latitude": 43.158,
+      "longitude": -87.901,
+      "evidence": [
+        {
+          "line": 4520,
+          "sourceSheet": "dead_campus_atlas__PEPS_SITE_",
+          "verification": "",
+          "sourceUrl": "https://www.ed.gov/sites/ed/files/offices/OSFAP/PEPS/docs/closedschoolsearchreq.xlsx",
+          "sourceNote": "",
+          "missingFields": "coordinates; buyerController; afterlifeStatus; verification"
+        },
+        {
+          "line": 4521,
+          "sourceSheet": "dead_campus_atlas__PEPS_SITE_",
+          "verification": "",
+          "sourceUrl": "https://www.ed.gov/sites/ed/files/offices/OSFAP/PEPS/docs/closedschoolsearchreq.xlsx",
+          "sourceNote": "",
+          "missingFields": "coordinates; buyerController; afterlifeStatus; verification"
+        },
+        {
+          "line": 4522,
+          "sourceSheet": "dead_campus_atlas__PEPS_SITE_",
+          "verification": "",
+          "sourceUrl": "https://www.ed.gov/sites/ed/files/offices/OSFAP/PEPS/docs/closedschoolsearchreq.xlsx",
+          "sourceNote": "",
+          "missingFields": "coordinates; buyerController; afterlifeStatus; verification"
+        },
+        {
+          "line": 4523,
+          "sourceSheet": "dead_campus_atlas__PEPS_SITE_",
+          "verification": "",
+          "sourceUrl": "https://www.ed.gov/sites/ed/files/offices/OSFAP/PEPS/docs/closedschoolsearchreq.xlsx",
+          "sourceNote": "",
+          "missingFields": "coordinates; buyerController; afterlifeStatus; verification"
+        },
+        {
+          "line": 4524,
+          "sourceSheet": "dead_campus_atlas__PEPS_SITE_",
+          "verification": "",
+          "sourceUrl": "https://www.ed.gov/sites/ed/files/offices/OSFAP/PEPS/docs/closedschoolsearchreq.xlsx",
+          "sourceNote": "",
+          "missingFields": "coordinates; buyerController; afterlifeStatus; verification"
+        },
+        {
+          "line": 4525,
+          "sourceSheet": "dead_campus_atlas__PEPS_SITE_",
+          "verification": "",
+          "sourceUrl": "https://www.ed.gov/sites/ed/files/offices/OSFAP/PEPS/docs/closedschoolsearchreq.xlsx",
+          "sourceNote": "",
+          "missingFields": "coordinates; buyerController; afterlifeStatus; verification"
+        },
+        {
+          "line": 4526,
+          "sourceSheet": "dead_campus_atlas__PEPS_SITE_",
+          "verification": "",
+          "sourceUrl": "https://www.ed.gov/sites/ed/files/offices/OSFAP/PEPS/docs/closedschoolsearchreq.xlsx",
+          "sourceNote": "",
+          "missingFields": "coordinates; buyerController; afterlifeStatus; verification"
+        },
+        {
+          "line": 4527,
+          "sourceSheet": "dead_campus_atlas__PEPS_SITE_",
+          "verification": "",
+          "sourceUrl": "https://www.ed.gov/sites/ed/files/offices/OSFAP/PEPS/docs/closedschoolsearchreq.xlsx",
+          "sourceNote": "",
+          "missingFields": "coordinates; buyerController; afterlifeStatus; verification"
+        },
+        {
+          "line": 4528,
+          "sourceSheet": "dead_campus_atlas__PEPS_SITE_",
+          "verification": "",
+          "sourceUrl": "https://www.ed.gov/sites/ed/files/offices/OSFAP/PEPS/docs/closedschoolsearchreq.xlsx",
+          "sourceNote": "",
+          "missingFields": "coordinates; buyerController; afterlifeStatus; verification"
+        },
+        {
+          "line": 4529,
+          "sourceSheet": "dead_campus_atlas__PEPS_SITE_",
+          "verification": "",
+          "sourceUrl": "https://www.ed.gov/sites/ed/files/offices/OSFAP/PEPS/docs/closedschoolsearchreq.xlsx",
+          "sourceNote": "",
+          "missingFields": "coordinates; buyerController; afterlifeStatus; verification"
+        },
+        {
+          "line": 4530,
+          "sourceSheet": "dead_campus_atlas__PEPS_SITE_",
+          "verification": "",
+          "sourceUrl": "https://www.ed.gov/sites/ed/files/offices/OSFAP/PEPS/docs/closedschoolsearchreq.xlsx",
+          "sourceNote": "",
+          "missingFields": "coordinates; buyerController; afterlifeStatus; verification"
+        },
+        {
+          "line": 4531,
+          "sourceSheet": "dead_campus_atlas__PEPS_SITE_",
+          "verification": "",
+          "sourceUrl": "https://www.ed.gov/sites/ed/files/offices/OSFAP/PEPS/docs/closedschoolsearchreq.xlsx",
+          "sourceNote": "",
+          "missingFields": "coordinates; buyerController; afterlifeStatus; verification"
+        },
+        {
+          "line": 4532,
+          "sourceSheet": "dead_campus_atlas__PEPS_SITE_",
+          "verification": "",
+          "sourceUrl": "https://www.ed.gov/sites/ed/files/offices/OSFAP/PEPS/docs/closedschoolsearchreq.xlsx",
+          "sourceNote": "",
+          "missingFields": "coordinates; buyerController; afterlifeStatus; verification"
+        },
+        {
+          "line": 4533,
+          "sourceSheet": "dead_campus_atlas__PEPS_SITE_",
+          "verification": "",
+          "sourceUrl": "https://www.ed.gov/sites/ed/files/offices/OSFAP/PEPS/docs/closedschoolsearchreq.xlsx",
+          "sourceNote": "",
+          "missingFields": "coordinates; buyerController; afterlifeStatus; verification"
+        },
+        {
+          "line": 4535,
+          "sourceSheet": "dead_campus_atlas__PEPS_SITE_",
+          "verification": "",
+          "sourceUrl": "https://www.ed.gov/sites/ed/files/offices/OSFAP/PEPS/docs/closedschoolsearchreq.xlsx",
+          "sourceNote": "",
+          "missingFields": "coordinates; buyerController; afterlifeStatus; verification"
+        },
+        {
+          "line": 4536,
+          "sourceSheet": "dead_campus_atlas__PEPS_SITE_",
+          "verification": "",
+          "sourceUrl": "https://www.ed.gov/sites/ed/files/offices/OSFAP/PEPS/docs/closedschoolsearchreq.xlsx",
+          "sourceNote": "",
+          "missingFields": "coordinates; buyerController; afterlifeStatus; verification"
+        },
+        {
+          "line": 4538,
+          "sourceSheet": "dead_campus_atlas__PEPS_SITE_",
+          "verification": "",
+          "sourceUrl": "https://www.ed.gov/sites/ed/files/offices/OSFAP/PEPS/docs/closedschoolsearchreq.xlsx",
+          "sourceNote": "",
+          "missingFields": "coordinates; buyerController; afterlifeStatus; verification"
+        },
+        {
+          "line": 4539,
+          "sourceSheet": "dead_campus_atlas__PEPS_SITE_",
+          "verification": "",
+          "sourceUrl": "https://www.ed.gov/sites/ed/files/offices/OSFAP/PEPS/docs/closedschoolsearchreq.xlsx",
+          "sourceNote": "",
+          "missingFields": "coordinates; buyerController; afterlifeStatus; verification"
+        },
+        {
+          "line": 4540,
+          "sourceSheet": "dead_campus_atlas__PEPS_SITE_",
+          "verification": "",
+          "sourceUrl": "https://www.ed.gov/sites/ed/files/offices/OSFAP/PEPS/docs/closedschoolsearchreq.xlsx",
+          "sourceNote": "",
+          "missingFields": "coordinates; buyerController; afterlifeStatus; verification"
+        },
+        {
+          "line": 4541,
+          "sourceSheet": "dead_campus_atlas__PEPS_SITE_",
+          "verification": "",
+          "sourceUrl": "https://www.ed.gov/sites/ed/files/offices/OSFAP/PEPS/docs/closedschoolsearchreq.xlsx",
+          "sourceNote": "",
+          "missingFields": "coordinates; buyerController; afterlifeStatus; verification"
+        },
+        {
+          "line": 4542,
+          "sourceSheet": "dead_campus_atlas__PEPS_SITE_",
+          "verification": "",
+          "sourceUrl": "https://www.ed.gov/sites/ed/files/offices/OSFAP/PEPS/docs/closedschoolsearchreq.xlsx",
+          "sourceNote": "",
+          "missingFields": "coordinates; buyerController; afterlifeStatus; verification"
+        },
+        {
+          "line": 4543,
+          "sourceSheet": "dead_campus_atlas__PEPS_SITE_",
+          "verification": "",
+          "sourceUrl": "https://www.ed.gov/sites/ed/files/offices/OSFAP/PEPS/docs/closedschoolsearchreq.xlsx",
+          "sourceNote": "",
+          "missingFields": "coordinates; buyerController; afterlifeStatus; verification"
+        },
+        {
+          "line": 4544,
+          "sourceSheet": "dead_campus_atlas__PEPS_SITE_",
+          "verification": "",
+          "sourceUrl": "https://www.ed.gov/sites/ed/files/offices/OSFAP/PEPS/docs/closedschoolsearchreq.xlsx",
+          "sourceNote": "",
+          "missingFields": "coordinates; buyerController; afterlifeStatus; verification"
+        },
+        {
+          "line": 4545,
+          "sourceSheet": "dead_campus_atlas__PEPS_SITE_",
+          "verification": "",
+          "sourceUrl": "https://www.ed.gov/sites/ed/files/offices/OSFAP/PEPS/docs/closedschoolsearchreq.xlsx",
+          "sourceNote": "",
+          "missingFields": "coordinates; buyerController; afterlifeStatus; verification"
+        },
+        {
+          "line": 4546,
+          "sourceSheet": "dead_campus_atlas__PEPS_SITE_",
+          "verification": "",
+          "sourceUrl": "https://www.ed.gov/sites/ed/files/offices/OSFAP/PEPS/docs/closedschoolsearchreq.xlsx",
+          "sourceNote": "",
+          "missingFields": "coordinates; buyerController; afterlifeStatus; verification"
+        },
+        {
+          "line": 4547,
+          "sourceSheet": "dead_campus_atlas__PEPS_SITE_",
+          "verification": "",
+          "sourceUrl": "https://www.ed.gov/sites/ed/files/offices/OSFAP/PEPS/docs/closedschoolsearchreq.xlsx",
+          "sourceNote": "",
+          "missingFields": "coordinates; buyerController; afterlifeStatus; verification"
+        },
+        {
+          "line": 4548,
+          "sourceSheet": "dead_campus_atlas__PEPS_SITE_",
+          "verification": "",
+          "sourceUrl": "https://www.ed.gov/sites/ed/files/offices/OSFAP/PEPS/docs/closedschoolsearchreq.xlsx",
+          "sourceNote": "",
+          "missingFields": "coordinates; buyerController; afterlifeStatus; verification"
+        },
+        {
+          "line": 4549,
+          "sourceSheet": "dead_campus_atlas__PEPS_SITE_",
+          "verification": "",
+          "sourceUrl": "https://www.ed.gov/sites/ed/files/offices/OSFAP/PEPS/docs/closedschoolsearchreq.xlsx",
+          "sourceNote": "",
+          "missingFields": "coordinates; buyerController; afterlifeStatus; verification"
+        },
+        {
+          "line": 4550,
+          "sourceSheet": "dead_campus_atlas__PEPS_SITE_",
+          "verification": "",
+          "sourceUrl": "https://www.ed.gov/sites/ed/files/offices/OSFAP/PEPS/docs/closedschoolsearchreq.xlsx",
+          "sourceNote": "",
+          "missingFields": "coordinates; buyerController; afterlifeStatus; verification"
+        },
+        {
+          "line": 4551,
+          "sourceSheet": "dead_campus_atlas__PEPS_SITE_",
+          "verification": "",
+          "sourceUrl": "https://www.ed.gov/sites/ed/files/offices/OSFAP/PEPS/docs/closedschoolsearchreq.xlsx",
+          "sourceNote": "",
+          "missingFields": "coordinates; buyerController; afterlifeStatus; verification"
+        },
+        {
+          "line": 4552,
+          "sourceSheet": "dead_campus_atlas__PEPS_SITE_",
+          "verification": "",
+          "sourceUrl": "https://www.ed.gov/sites/ed/files/offices/OSFAP/PEPS/docs/closedschoolsearchreq.xlsx",
+          "sourceNote": "",
+          "missingFields": "coordinates; buyerController; afterlifeStatus; verification"
+        },
+        {
+          "line": 4553,
+          "sourceSheet": "dead_campus_atlas__PEPS_SITE_",
+          "verification": "",
+          "sourceUrl": "https://www.ed.gov/sites/ed/files/offices/OSFAP/PEPS/docs/closedschoolsearchreq.xlsx",
+          "sourceNote": "",
+          "missingFields": "coordinates; buyerController; afterlifeStatus; verification"
+        },
+        {
+          "line": 4554,
+          "sourceSheet": "dead_campus_atlas__PEPS_SITE_",
+          "verification": "",
+          "sourceUrl": "https://www.ed.gov/sites/ed/files/offices/OSFAP/PEPS/docs/closedschoolsearchreq.xlsx",
+          "sourceNote": "",
+          "missingFields": "coordinates; buyerController; afterlifeStatus; verification"
+        },
+        {
+          "line": 4555,
+          "sourceSheet": "dead_campus_atlas__PEPS_SITE_",
+          "verification": "",
+          "sourceUrl": "https://www.ed.gov/sites/ed/files/offices/OSFAP/PEPS/docs/closedschoolsearchreq.xlsx",
+          "sourceNote": "",
+          "missingFields": "coordinates; buyerController; afterlifeStatus; verification"
+        },
+        {
+          "line": 11449,
+          "sourceSheet": "dead_campus_atlas__SPATIALIZE",
+          "verification": "",
+          "sourceUrl": "",
+          "sourceNote": "",
+          "missingFields": "afterlifeStatus; sourceUrl; verification"
+        },
+        {
+          "line": 11461,
+          "sourceSheet": "dead_campus_atlas__PHASE2_CLA",
+          "verification": "Confirmed",
+          "sourceUrl": "",
+          "sourceNote": "",
+          "missingFields": "coordinates; sourceUrl"
+        }
+      ],
+      "sourceFiles": [
+        "_DATA/dead_campus_master_table_v1.xlsx",
+        "_DATA/dead_campus_atlas_phase2.xlsx",
+        "_DATA/dead_campus_atlas_phase3_spatialization.xlsx",
+        "_DATA/dead_campus_atlas_phase4_afterlife_forensics.xlsx",
+        "dead-campus-queue-filtered.csv"
+      ]
+    },
+    {
+      "id": "cazenovia-college-ny-2023",
+      "recordNumber": 10,
+      "name": "Cazenovia College",
+      "city": "Cazenovia",
+      "state": "NY",
+      "region": "Northeast",
+      "closureYear": 2023,
+      "sector": "Private nonprofit",
+      "campusType": "Main",
+      "status": "Closed",
+      "reuseType": "Mixed redevelopment",
+      "buyerController": "Matta Fresca LLC",
+      "buyerType": "",
+      "morphology": "Speculative",
+      "scale": "Campus village",
+      "notes": "Mixed-use redevelopment",
+      "verification": "Confirmed",
+      "transformation": "Mixed-use redevelopment",
+      "atlasPriority": "Important",
+      "salePrice": "",
+      "afterlife": "Mixed redevelopment",
+      "latitude": 42.93,
+      "longitude": -75.852,
+      "evidence": [
+        {
+          "line": 4650,
+          "sourceSheet": "dead_campus_atlas__PEPS_SITE_",
+          "verification": "",
+          "sourceUrl": "https://www.ed.gov/sites/ed/files/offices/OSFAP/PEPS/docs/closedschoolsearchreq.xlsx",
+          "sourceNote": "",
+          "missingFields": "coordinates; buyerController; afterlifeStatus; verification"
+        },
+        {
+          "line": 4651,
+          "sourceSheet": "dead_campus_atlas__PEPS_SITE_",
+          "verification": "",
+          "sourceUrl": "https://www.ed.gov/sites/ed/files/offices/OSFAP/PEPS/docs/closedschoolsearchreq.xlsx",
+          "sourceNote": "",
+          "missingFields": "coordinates; buyerController; afterlifeStatus; verification"
+        },
+        {
+          "line": 4652,
+          "sourceSheet": "dead_campus_atlas__PEPS_SITE_",
+          "verification": "",
+          "sourceUrl": "https://www.ed.gov/sites/ed/files/offices/OSFAP/PEPS/docs/closedschoolsearchreq.xlsx",
+          "sourceNote": "",
+          "missingFields": "coordinates; buyerController; afterlifeStatus; verification"
+        },
+        {
+          "line": 4653,
+          "sourceSheet": "dead_campus_atlas__PEPS_SITE_",
+          "verification": "",
+          "sourceUrl": "https://www.ed.gov/sites/ed/files/offices/OSFAP/PEPS/docs/closedschoolsearchreq.xlsx",
+          "sourceNote": "",
+          "missingFields": "coordinates; buyerController; afterlifeStatus; verification"
+        },
+        {
+          "line": 4654,
+          "sourceSheet": "dead_campus_atlas__PEPS_SITE_",
+          "verification": "",
+          "sourceUrl": "https://www.ed.gov/sites/ed/files/offices/OSFAP/PEPS/docs/closedschoolsearchreq.xlsx",
+          "sourceNote": "",
+          "missingFields": "coordinates; buyerController; afterlifeStatus; verification"
+        },
+        {
+          "line": 11450,
+          "sourceSheet": "dead_campus_atlas__SPATIALIZE",
+          "verification": "",
+          "sourceUrl": "",
+          "sourceNote": "",
+          "missingFields": "afterlifeStatus; sourceUrl; verification"
+        },
+        {
+          "line": 11462,
+          "sourceSheet": "dead_campus_atlas__PHASE2_CLA",
+          "verification": "Confirmed",
+          "sourceUrl": "",
+          "sourceNote": "",
+          "missingFields": "coordinates; sourceUrl"
+        }
+      ],
+      "sourceFiles": [
+        "_DATA/dead_campus_master_table_v1.xlsx",
+        "_DATA/dead_campus_atlas_phase2.xlsx",
+        "_DATA/dead_campus_atlas_phase3_spatialization.xlsx",
+        "_DATA/dead_campus_atlas_phase4_afterlife_forensics.xlsx",
+        "dead-campus-queue-filtered.csv"
+      ]
+    },
+    {
+      "id": "presentation-college-sd-2023",
+      "recordNumber": 11,
+      "name": "Presentation College",
+      "city": "Aberdeen",
+      "state": "SD",
+      "region": "Plains",
+      "closureYear": 2023,
+      "sector": "Private nonprofit",
+      "campusType": "Main",
+      "status": "Closed",
+      "reuseType": "Municipal fragmentation",
+      "buyerController": "City of Aberdeen + others",
+      "buyerType": "",
+      "morphology": "Parcelized",
+      "scale": "Athletic complex + land",
+      "notes": "Piecemeal sale",
+      "verification": "Confirmed",
+      "transformation": "Athletics/land fragmentation",
+      "atlasPriority": "Important",
+      "salePrice": "",
+      "afterlife": "Municipal fragmentation",
+      "latitude": 45.464,
+      "longitude": -98.486,
+      "evidence": [
+        {
+          "line": 11457,
+          "sourceSheet": "dead_campus_atlas__SPATIALIZE",
+          "verification": "",
+          "sourceUrl": "",
+          "sourceNote": "",
+          "missingFields": "afterlifeStatus; sourceUrl; verification"
+        },
+        {
+          "line": 11469,
+          "sourceSheet": "dead_campus_atlas__PHASE2_CLA",
+          "verification": "Confirmed",
+          "sourceUrl": "",
+          "sourceNote": "",
+          "missingFields": "coordinates; sourceUrl"
+        }
+      ],
+      "sourceFiles": [
+        "_DATA/dead_campus_master_table_v1.xlsx",
+        "_DATA/dead_campus_atlas_phase2.xlsx",
+        "_DATA/dead_campus_atlas_phase3_spatialization.xlsx",
+        "_DATA/dead_campus_atlas_phase4_afterlife_forensics.xlsx",
+        "dead-campus-queue-filtered.csv"
+      ]
+    },
+    {
+      "id": "finlandia-university-mi-2023",
+      "recordNumber": 12,
+      "name": "Finlandia University",
+      "city": "Hancock",
+      "state": "MI",
+      "region": "Rust Belt",
+      "closureYear": 2023,
+      "sector": "Private nonprofit",
+      "campusType": "Main",
+      "status": "Closed",
+      "reuseType": "Civic/nonprofit fragmentation",
+      "buyerController": "Various local groups",
+      "buyerType": "",
+      "morphology": "Parcelized",
+      "scale": "Regional campus",
+      "notes": "Ethnic college dissolution",
+      "verification": "Confirmed",
+      "transformation": "Ethnic college dissolution",
+      "atlasPriority": "Iconic",
+      "salePrice": "",
+      "afterlife": "Civic/nonprofit fragmentation",
+      "latitude": 47.126,
+      "longitude": -88.58,
+      "evidence": [
+        {
+          "line": 11424,
+          "sourceSheet": "dead_campus_atlas__SPATIALIZE",
+          "verification": "",
+          "sourceUrl": "",
+          "sourceNote": "",
+          "missingFields": "afterlifeStatus; sourceUrl; verification"
+        },
+        {
+          "line": 11433,
+          "sourceSheet": "dead_campus_atlas__PHASE2_CLA",
+          "verification": "Confirmed",
+          "sourceUrl": "",
+          "sourceNote": "",
+          "missingFields": "coordinates; sourceUrl"
+        }
+      ],
+      "sourceFiles": [
+        "_DATA/dead_campus_master_table_v1.xlsx",
+        "_DATA/dead_campus_atlas_phase2.xlsx",
+        "_DATA/dead_campus_atlas_phase3_spatialization.xlsx",
+        "_DATA/dead_campus_atlas_phase4_afterlife_forensics.xlsx",
+        "dead-campus-queue-filtered.csv"
+      ]
+    },
+    {
+      "id": "mount-ida-college-ma-2018",
+      "recordNumber": 13,
+      "name": "Mount Ida College",
+      "city": "Newton",
+      "state": "MA",
+      "region": "New England",
+      "closureYear": 2018,
+      "sector": "Private nonprofit",
+      "campusType": "Main",
+      "status": "Closed",
+      "reuseType": "Public university acquisition",
+      "buyerController": "UMass Amherst",
+      "buyerType": "",
+      "morphology": "Absorbed",
+      "scale": "Newton campus",
+      "notes": "Flagship expansion",
+      "verification": "Confirmed",
+      "transformation": "Public flagship acquisition",
+      "atlasPriority": "Important",
+      "salePrice": "",
+      "afterlife": "Public university acquisition",
+      "latitude": 42.295,
+      "longitude": -71.192,
+      "evidence": [
+        {
+          "line": 11455,
+          "sourceSheet": "dead_campus_atlas__SPATIALIZE",
+          "verification": "",
+          "sourceUrl": "",
+          "sourceNote": "",
+          "missingFields": "afterlifeStatus; sourceUrl; verification"
+        },
+        {
+          "line": 11467,
+          "sourceSheet": "dead_campus_atlas__PHASE2_CLA",
+          "verification": "Confirmed",
+          "sourceUrl": "",
+          "sourceNote": "",
+          "missingFields": "coordinates; sourceUrl"
+        }
+      ],
+      "sourceFiles": [
+        "_DATA/dead_campus_master_table_v1.xlsx",
+        "_DATA/dead_campus_atlas_phase2.xlsx",
+        "_DATA/dead_campus_atlas_phase3_spatialization.xlsx",
+        "_DATA/dead_campus_atlas_phase4_afterlife_forensics.xlsx",
+        "dead-campus-queue-filtered.csv"
+      ]
+    },
+    {
+      "id": "pine-manor-college-ma-2020",
+      "recordNumber": 14,
+      "name": "Pine Manor College",
+      "city": "Brookline",
+      "state": "MA",
+      "region": "New England",
+      "closureYear": 2020,
+      "sector": "Private nonprofit",
+      "campusType": "Main",
+      "status": "Merged",
+      "reuseType": "Elite university merger",
+      "buyerController": "Boston College",
+      "buyerType": "",
+      "morphology": "Absorbed",
+      "scale": "Brookline campus",
+      "notes": "Access-college absorption",
+      "verification": "Confirmed",
+      "transformation": "Elite merger",
+      "atlasPriority": "Important",
+      "salePrice": "",
+      "afterlife": "Elite university merger",
+      "latitude": 42.328,
+      "longitude": -71.139,
+      "evidence": [
+        {
+          "line": 11456,
+          "sourceSheet": "dead_campus_atlas__SPATIALIZE",
+          "verification": "",
+          "sourceUrl": "",
+          "sourceNote": "",
+          "missingFields": "afterlifeStatus; sourceUrl; verification"
+        },
+        {
+          "line": 11468,
+          "sourceSheet": "dead_campus_atlas__PHASE2_CLA",
+          "verification": "Confirmed",
+          "sourceUrl": "",
+          "sourceNote": "",
+          "missingFields": "coordinates; sourceUrl"
+        }
+      ],
+      "sourceFiles": [
+        "_DATA/dead_campus_master_table_v1.xlsx",
+        "_DATA/dead_campus_atlas_phase2.xlsx",
+        "_DATA/dead_campus_atlas_phase3_spatialization.xlsx",
+        "_DATA/dead_campus_atlas_phase4_afterlife_forensics.xlsx",
+        "dead-campus-queue-filtered.csv"
+      ]
+    },
+    {
+      "id": "wheelock-college-ma-2018",
+      "recordNumber": 15,
+      "name": "Wheelock College",
+      "city": "Boston",
+      "state": "MA",
+      "region": "New England",
+      "closureYear": 2018,
+      "sector": "Private nonprofit",
+      "campusType": "Urban campus",
+      "status": "Merged",
+      "reuseType": "Elite university merger",
+      "buyerController": "Boston University",
+      "buyerType": "",
+      "morphology": "Absorbed",
+      "scale": "Boston campus",
+      "notes": "Institutional consolidation",
+      "verification": "Confirmed",
+      "transformation": "Urban institutional consolidation",
+      "atlasPriority": "Important",
+      "salePrice": "",
+      "afterlife": "Elite university merger",
+      "latitude": 42.341,
+      "longitude": -71.105,
+      "evidence": [
+        {
+          "line": 11310,
+          "sourceSheet": "dead_campus_atlas__PEPS_SITE_",
+          "verification": "",
+          "sourceUrl": "https://www.ed.gov/sites/ed/files/offices/OSFAP/PEPS/docs/closedschoolsearchreq.xlsx",
+          "sourceNote": "",
+          "missingFields": "coordinates; buyerController; afterlifeStatus; verification"
+        },
+        {
+          "line": 11311,
+          "sourceSheet": "dead_campus_atlas__PEPS_SITE_",
+          "verification": "",
+          "sourceUrl": "https://www.ed.gov/sites/ed/files/offices/OSFAP/PEPS/docs/closedschoolsearchreq.xlsx",
+          "sourceNote": "",
+          "missingFields": "coordinates; buyerController; afterlifeStatus; verification"
+        },
+        {
+          "line": 11312,
+          "sourceSheet": "dead_campus_atlas__PEPS_SITE_",
+          "verification": "",
+          "sourceUrl": "https://www.ed.gov/sites/ed/files/offices/OSFAP/PEPS/docs/closedschoolsearchreq.xlsx",
+          "sourceNote": "",
+          "missingFields": "coordinates; buyerController; afterlifeStatus; verification"
+        },
+        {
+          "line": 11313,
+          "sourceSheet": "dead_campus_atlas__PEPS_SITE_",
+          "verification": "",
+          "sourceUrl": "https://www.ed.gov/sites/ed/files/offices/OSFAP/PEPS/docs/closedschoolsearchreq.xlsx",
+          "sourceNote": "",
+          "missingFields": "coordinates; buyerController; afterlifeStatus; verification"
+        },
+        {
+          "line": 11314,
+          "sourceSheet": "dead_campus_atlas__PEPS_SITE_",
+          "verification": "",
+          "sourceUrl": "https://www.ed.gov/sites/ed/files/offices/OSFAP/PEPS/docs/closedschoolsearchreq.xlsx",
+          "sourceNote": "",
+          "missingFields": "coordinates; buyerController; afterlifeStatus; verification"
+        },
+        {
+          "line": 11316,
+          "sourceSheet": "dead_campus_atlas__PEPS_SITE_",
+          "verification": "",
+          "sourceUrl": "https://www.ed.gov/sites/ed/files/offices/OSFAP/PEPS/docs/closedschoolsearchreq.xlsx",
+          "sourceNote": "",
+          "missingFields": "coordinates; buyerController; afterlifeStatus; verification"
+        },
+        {
+          "line": 11318,
+          "sourceSheet": "dead_campus_atlas__PEPS_SITE_",
+          "verification": "",
+          "sourceUrl": "https://www.ed.gov/sites/ed/files/offices/OSFAP/PEPS/docs/closedschoolsearchreq.xlsx",
+          "sourceNote": "",
+          "missingFields": "coordinates; buyerController; afterlifeStatus; verification"
+        },
+        {
+          "line": 11478,
+          "sourceSheet": "dead_campus_atlas__SPATIALIZE",
+          "verification": "",
+          "sourceUrl": "",
+          "sourceNote": "",
+          "missingFields": "afterlifeStatus; sourceUrl; verification"
+        },
+        {
+          "line": 11483,
+          "sourceSheet": "dead_campus_atlas__PHASE2_CLA",
+          "verification": "Confirmed",
+          "sourceUrl": "",
+          "sourceNote": "",
+          "missingFields": "coordinates; sourceUrl"
+        }
+      ],
+      "sourceFiles": [
+        "_DATA/dead_campus_master_table_v1.xlsx",
+        "_DATA/dead_campus_atlas_phase2.xlsx",
+        "_DATA/dead_campus_atlas_phase3_spatialization.xlsx",
+        "_DATA/dead_campus_atlas_phase4_afterlife_forensics.xlsx",
+        "dead-campus-queue-filtered.csv"
+      ]
+    },
+    {
+      "id": "newbury-college-ma-2019",
+      "recordNumber": 16,
+      "name": "Newbury College",
+      "city": "Brookline",
+      "state": "MA",
+      "region": "New England",
+      "closureYear": 2019,
+      "sector": "Private nonprofit",
+      "campusType": "Urban campus",
+      "status": "Closed",
+      "reuseType": "Senior housing conversion",
+      "buyerController": "Welltower",
+      "buyerType": "Senior Housing REIT",
+      "morphology": "Housing",
+      "scale": "Brookline campus",
+      "notes": "Education-to-care economy",
+      "verification": "Confirmed",
+      "transformation": "Education → senior housing",
+      "atlasPriority": "Iconic",
+      "salePrice": "$34M",
+      "afterlife": "Senior living conversion",
+      "latitude": 42.331,
+      "longitude": -71.121,
+      "evidence": [
+        {
+          "line": 8,
+          "sourceSheet": "dead_campus_atlas__AFTERLIFE_",
+          "verification": "",
+          "sourceUrl": "",
+          "sourceNote": "",
+          "missingFields": "coordinates; buyerController; afterlifeStatus; sourceUrl; verification; closureYear"
+        },
+        {
+          "line": 8357,
+          "sourceSheet": "dead_campus_atlas__PEPS_SITE_",
+          "verification": "",
+          "sourceUrl": "https://www.ed.gov/sites/ed/files/offices/OSFAP/PEPS/docs/closedschoolsearchreq.xlsx",
+          "sourceNote": "",
+          "missingFields": "coordinates; buyerController; afterlifeStatus; verification"
+        },
+        {
+          "line": 8358,
+          "sourceSheet": "dead_campus_atlas__PEPS_SITE_",
+          "verification": "",
+          "sourceUrl": "https://www.ed.gov/sites/ed/files/offices/OSFAP/PEPS/docs/closedschoolsearchreq.xlsx",
+          "sourceNote": "",
+          "missingFields": "coordinates; buyerController; afterlifeStatus; verification"
+        },
+        {
+          "line": 8359,
+          "sourceSheet": "dead_campus_atlas__PEPS_SITE_",
+          "verification": "",
+          "sourceUrl": "https://www.ed.gov/sites/ed/files/offices/OSFAP/PEPS/docs/closedschoolsearchreq.xlsx",
+          "sourceNote": "",
+          "missingFields": "coordinates; buyerController; afterlifeStatus; verification"
+        },
+        {
+          "line": 8360,
+          "sourceSheet": "dead_campus_atlas__PEPS_SITE_",
+          "verification": "",
+          "sourceUrl": "https://www.ed.gov/sites/ed/files/offices/OSFAP/PEPS/docs/closedschoolsearchreq.xlsx",
+          "sourceNote": "",
+          "missingFields": "coordinates; buyerController; afterlifeStatus; verification"
+        },
+        {
+          "line": 8361,
+          "sourceSheet": "dead_campus_atlas__PEPS_SITE_",
+          "verification": "",
+          "sourceUrl": "https://www.ed.gov/sites/ed/files/offices/OSFAP/PEPS/docs/closedschoolsearchreq.xlsx",
+          "sourceNote": "",
+          "missingFields": "coordinates; buyerController; afterlifeStatus; verification"
+        },
+        {
+          "line": 8362,
+          "sourceSheet": "dead_campus_atlas__PEPS_SITE_",
+          "verification": "",
+          "sourceUrl": "https://www.ed.gov/sites/ed/files/offices/OSFAP/PEPS/docs/closedschoolsearchreq.xlsx",
+          "sourceNote": "",
+          "missingFields": "coordinates; buyerController; afterlifeStatus; verification"
+        },
+        {
+          "line": 8363,
+          "sourceSheet": "dead_campus_atlas__PEPS_SITE_",
+          "verification": "",
+          "sourceUrl": "https://www.ed.gov/sites/ed/files/offices/OSFAP/PEPS/docs/closedschoolsearchreq.xlsx",
+          "sourceNote": "",
+          "missingFields": "coordinates; buyerController; afterlifeStatus; verification"
+        },
+        {
+          "line": 8364,
+          "sourceSheet": "dead_campus_atlas__PEPS_SITE_",
+          "verification": "",
+          "sourceUrl": "https://www.ed.gov/sites/ed/files/offices/OSFAP/PEPS/docs/closedschoolsearchreq.xlsx",
+          "sourceNote": "",
+          "missingFields": "coordinates; buyerController; afterlifeStatus; verification"
+        },
+        {
+          "line": 8365,
+          "sourceSheet": "dead_campus_atlas__PEPS_SITE_",
+          "verification": "",
+          "sourceUrl": "https://www.ed.gov/sites/ed/files/offices/OSFAP/PEPS/docs/closedschoolsearchreq.xlsx",
+          "sourceNote": "",
+          "missingFields": "coordinates; buyerController; afterlifeStatus; verification"
+        },
+        {
+          "line": 8366,
+          "sourceSheet": "dead_campus_atlas__PEPS_SITE_",
+          "verification": "",
+          "sourceUrl": "https://www.ed.gov/sites/ed/files/offices/OSFAP/PEPS/docs/closedschoolsearchreq.xlsx",
+          "sourceNote": "",
+          "missingFields": "coordinates; buyerController; afterlifeStatus; verification"
+        },
+        {
+          "line": 8367,
+          "sourceSheet": "dead_campus_atlas__PEPS_SITE_",
+          "verification": "",
+          "sourceUrl": "https://www.ed.gov/sites/ed/files/offices/OSFAP/PEPS/docs/closedschoolsearchreq.xlsx",
+          "sourceNote": "",
+          "missingFields": "coordinates; buyerController; afterlifeStatus; verification"
+        },
+        {
+          "line": 8368,
+          "sourceSheet": "dead_campus_atlas__PEPS_SITE_",
+          "verification": "",
+          "sourceUrl": "https://www.ed.gov/sites/ed/files/offices/OSFAP/PEPS/docs/closedschoolsearchreq.xlsx",
+          "sourceNote": "",
+          "missingFields": "coordinates; buyerController; afterlifeStatus; verification"
+        },
+        {
+          "line": 8369,
+          "sourceSheet": "dead_campus_atlas__PEPS_SITE_",
+          "verification": "",
+          "sourceUrl": "https://www.ed.gov/sites/ed/files/offices/OSFAP/PEPS/docs/closedschoolsearchreq.xlsx",
+          "sourceNote": "",
+          "missingFields": "coordinates; buyerController; afterlifeStatus; verification"
+        },
+        {
+          "line": 8370,
+          "sourceSheet": "dead_campus_atlas__PEPS_SITE_",
+          "verification": "",
+          "sourceUrl": "https://www.ed.gov/sites/ed/files/offices/OSFAP/PEPS/docs/closedschoolsearchreq.xlsx",
+          "sourceNote": "",
+          "missingFields": "coordinates; buyerController; afterlifeStatus; verification"
+        },
+        {
+          "line": 8371,
+          "sourceSheet": "dead_campus_atlas__PEPS_SITE_",
+          "verification": "",
+          "sourceUrl": "https://www.ed.gov/sites/ed/files/offices/OSFAP/PEPS/docs/closedschoolsearchreq.xlsx",
+          "sourceNote": "",
+          "missingFields": "coordinates; buyerController; afterlifeStatus; verification"
+        },
+        {
+          "line": 11438,
+          "sourceSheet": "dead_campus_atlas__SPATIALIZE",
+          "verification": "",
+          "sourceUrl": "",
+          "sourceNote": "",
+          "missingFields": "afterlifeStatus; sourceUrl; verification"
+        },
+        {
+          "line": 11439,
+          "sourceSheet": "dead_campus_atlas__PHASE2_CLA",
+          "verification": "Confirmed",
+          "sourceUrl": "",
+          "sourceNote": "",
+          "missingFields": "coordinates; sourceUrl"
+        }
+      ],
+      "sourceFiles": [
+        "_DATA/dead_campus_master_table_v1.xlsx",
+        "_DATA/dead_campus_atlas_phase2.xlsx",
+        "_DATA/dead_campus_atlas_phase3_spatialization.xlsx",
+        "_DATA/dead_campus_atlas_phase4_afterlife_forensics.xlsx",
+        "dead-campus-queue-filtered.csv"
+      ]
+    },
+    {
+      "id": "marlboro-college-vt-2020",
+      "recordNumber": 17,
+      "name": "Marlboro College",
+      "city": "Marlboro",
+      "state": "VT",
+      "region": "New England",
+      "closureYear": 2020,
+      "sector": "Private nonprofit",
+      "campusType": "Main",
+      "status": "Merged",
+      "reuseType": "Arts/music reuse",
+      "buyerController": "Marlboro Music",
+      "buyerType": "",
+      "morphology": "Arts Reuse",
+      "scale": "Rural campus",
+      "notes": "Experimental liberal arts afterlife",
+      "verification": "Confirmed",
+      "transformation": "Experimental liberal arts afterlife",
+      "atlasPriority": "Important",
+      "salePrice": "",
+      "afterlife": "Arts/music reuse",
+      "latitude": 42.84,
+      "longitude": -72.737,
+      "evidence": [
+        {
+          "line": 11453,
+          "sourceSheet": "dead_campus_atlas__SPATIALIZE",
+          "verification": "",
+          "sourceUrl": "",
+          "sourceNote": "",
+          "missingFields": "afterlifeStatus; sourceUrl; verification"
+        },
+        {
+          "line": 11466,
+          "sourceSheet": "dead_campus_atlas__PHASE2_CLA",
+          "verification": "Confirmed",
+          "sourceUrl": "",
+          "sourceNote": "",
+          "missingFields": "coordinates; sourceUrl"
+        }
+      ],
+      "sourceFiles": [
+        "_DATA/dead_campus_master_table_v1.xlsx",
+        "_DATA/dead_campus_atlas_phase2.xlsx",
+        "_DATA/dead_campus_atlas_phase3_spatialization.xlsx",
+        "_DATA/dead_campus_atlas_phase4_afterlife_forensics.xlsx",
+        "dead-campus-queue-filtered.csv"
+      ]
+    },
+    {
+      "id": "burlington-college-vt-2016",
+      "recordNumber": 18,
+      "name": "Burlington College",
+      "city": "Burlington",
+      "state": "VT",
+      "region": "New England",
+      "closureYear": 2016,
+      "sector": "Private nonprofit",
+      "campusType": "Urban campus",
+      "status": "Closed",
+      "reuseType": "Property liquidation",
+      "buyerController": "Developer/bank process",
+      "buyerType": "",
+      "morphology": "Speculative",
+      "scale": "Debt-financed property",
+      "notes": "Expansion collapse",
+      "verification": "Confirmed",
+      "transformation": "Debt-fueled collapse",
+      "atlasPriority": "Important",
+      "salePrice": "",
+      "afterlife": "Property liquidation",
+      "latitude": 44.489,
+      "longitude": -73.226,
+      "evidence": [
+        {
+          "line": 11473,
+          "sourceSheet": "dead_campus_atlas__SPATIALIZE",
+          "verification": "",
+          "sourceUrl": "",
+          "sourceNote": "",
+          "missingFields": "afterlifeStatus; sourceUrl; verification"
+        },
+        {
+          "line": 11479,
+          "sourceSheet": "dead_campus_atlas__PHASE2_CLA",
+          "verification": "Confirmed",
+          "sourceUrl": "",
+          "sourceNote": "",
+          "missingFields": "coordinates; sourceUrl"
+        }
+      ],
+      "sourceFiles": [
+        "_DATA/dead_campus_master_table_v1.xlsx",
+        "_DATA/dead_campus_atlas_phase2.xlsx",
+        "_DATA/dead_campus_atlas_phase3_spatialization.xlsx",
+        "_DATA/dead_campus_atlas_phase4_afterlife_forensics.xlsx",
+        "dead-campus-queue-filtered.csv"
+      ]
+    },
+    {
+      "id": "marygrove-college-mi-2019",
+      "recordNumber": 19,
+      "name": "Marygrove College",
+      "city": "Detroit",
+      "state": "MI",
+      "region": "Rust Belt",
+      "closureYear": 2019,
+      "sector": "Private nonprofit",
+      "campusType": "Urban campus",
+      "status": "Closed",
+      "reuseType": "Community educational redevelopment",
+      "buyerController": "Marygrove Conservancy",
+      "buyerType": "",
+      "morphology": "Educational reuse",
+      "scale": "Detroit campus",
+      "notes": "Cradle-to-career campus",
+      "verification": "Confirmed",
+      "transformation": "Community education reuse",
+      "atlasPriority": "Important",
+      "salePrice": "",
+      "afterlife": "Community educational redevelopment",
+      "latitude": 42.414,
+      "longitude": -83.155,
+      "evidence": [
+        {
+          "line": 7528,
+          "sourceSheet": "dead_campus_atlas__PEPS_SITE_",
+          "verification": "",
+          "sourceUrl": "https://www.ed.gov/sites/ed/files/offices/OSFAP/PEPS/docs/closedschoolsearchreq.xlsx",
+          "sourceNote": "",
+          "missingFields": "coordinates; buyerController; afterlifeStatus; verification"
+        },
+        {
+          "line": 7529,
+          "sourceSheet": "dead_campus_atlas__PEPS_SITE_",
+          "verification": "",
+          "sourceUrl": "https://www.ed.gov/sites/ed/files/offices/OSFAP/PEPS/docs/closedschoolsearchreq.xlsx",
+          "sourceNote": "",
+          "missingFields": "coordinates; buyerController; afterlifeStatus; verification"
+        },
+        {
+          "line": 7530,
+          "sourceSheet": "dead_campus_atlas__PEPS_SITE_",
+          "verification": "",
+          "sourceUrl": "https://www.ed.gov/sites/ed/files/offices/OSFAP/PEPS/docs/closedschoolsearchreq.xlsx",
+          "sourceNote": "",
+          "missingFields": "coordinates; buyerController; afterlifeStatus; verification"
+        },
+        {
+          "line": 7531,
+          "sourceSheet": "dead_campus_atlas__PEPS_SITE_",
+          "verification": "",
+          "sourceUrl": "https://www.ed.gov/sites/ed/files/offices/OSFAP/PEPS/docs/closedschoolsearchreq.xlsx",
+          "sourceNote": "",
+          "missingFields": "coordinates; buyerController; afterlifeStatus; verification"
+        },
+        {
+          "line": 11476,
+          "sourceSheet": "dead_campus_atlas__SPATIALIZE",
+          "verification": "",
+          "sourceUrl": "",
+          "sourceNote": "",
+          "missingFields": "afterlifeStatus; sourceUrl; verification"
+        },
+        {
+          "line": 11482,
+          "sourceSheet": "dead_campus_atlas__PHASE2_CLA",
+          "verification": "Confirmed",
+          "sourceUrl": "",
+          "sourceNote": "",
+          "missingFields": "coordinates; sourceUrl"
+        }
+      ],
+      "sourceFiles": [
+        "_DATA/dead_campus_master_table_v1.xlsx",
+        "_DATA/dead_campus_atlas_phase2.xlsx",
+        "_DATA/dead_campus_atlas_phase3_spatialization.xlsx",
+        "_DATA/dead_campus_atlas_phase4_afterlife_forensics.xlsx",
+        "dead-campus-queue-filtered.csv"
+      ]
+    },
+    {
+      "id": "dowling-college-ny-2016",
+      "recordNumber": 20,
+      "name": "Dowling College",
+      "city": "Oakdale",
+      "state": "NY",
+      "region": "Northeast",
+      "closureYear": 2016,
+      "sector": "Private nonprofit",
+      "campusType": "Main",
+      "status": "Closed",
+      "reuseType": "Auction/redevelopment",
+      "buyerController": "Various buyers",
+      "buyerType": "",
+      "morphology": "Parcelized",
+      "scale": "Historic estate campus",
+      "notes": "Long Island institutional ruin",
+      "verification": "Confirmed",
+      "transformation": "Historic estate auction",
+      "atlasPriority": "Iconic",
+      "salePrice": "",
+      "afterlife": "Auction/redevelopment",
+      "latitude": 40.744,
+      "longitude": -73.132,
+      "evidence": [
+        {
+          "line": 5527,
+          "sourceSheet": "dead_campus_atlas__PEPS_SITE_",
+          "verification": "",
+          "sourceUrl": "https://www.ed.gov/sites/ed/files/offices/OSFAP/PEPS/docs/closedschoolsearchreq.xlsx",
+          "sourceNote": "",
+          "missingFields": "coordinates; buyerController; afterlifeStatus; verification"
+        },
+        {
+          "line": 11423,
+          "sourceSheet": "dead_campus_atlas__SPATIALIZE",
+          "verification": "",
+          "sourceUrl": "",
+          "sourceNote": "",
+          "missingFields": "afterlifeStatus; sourceUrl; verification"
+        },
+        {
+          "line": 11432,
+          "sourceSheet": "dead_campus_atlas__PHASE2_CLA",
+          "verification": "Confirmed",
+          "sourceUrl": "",
+          "sourceNote": "",
+          "missingFields": "coordinates; sourceUrl"
+        }
+      ],
+      "sourceFiles": [
+        "_DATA/dead_campus_master_table_v1.xlsx",
+        "_DATA/dead_campus_atlas_phase2.xlsx",
+        "_DATA/dead_campus_atlas_phase3_spatialization.xlsx",
+        "_DATA/dead_campus_atlas_phase4_afterlife_forensics.xlsx",
+        "dead-campus-queue-filtered.csv"
+      ]
+    },
+    {
+      "id": "urbana-university-oh-2020",
+      "recordNumber": 21,
+      "name": "Urbana University",
+      "city": "Urbana",
+      "state": "OH",
+      "region": "Midwest",
+      "closureYear": 2020,
+      "sector": "Private nonprofit",
+      "campusType": "Main",
+      "status": "Closed",
+      "reuseType": "Redevelopment marketing",
+      "buyerController": "Private redevelopment",
+      "buyerType": "",
+      "morphology": "Speculative",
+      "scale": "Regional campus",
+      "notes": "Branch closure",
+      "verification": "Confirmed",
+      "transformation": "Regional campus closure",
+      "atlasPriority": "Important",
+      "salePrice": "",
+      "afterlife": "Redevelopment marketing",
+      "latitude": 40.108,
+      "longitude": -83.752,
+      "evidence": [
+        {
+          "line": 11027,
+          "sourceSheet": "dead_campus_atlas__PEPS_SITE_",
+          "verification": "",
+          "sourceUrl": "https://www.ed.gov/sites/ed/files/offices/OSFAP/PEPS/docs/closedschoolsearchreq.xlsx",
+          "sourceNote": "",
+          "missingFields": "coordinates; buyerController; afterlifeStatus; verification"
+        },
+        {
+          "line": 11028,
+          "sourceSheet": "dead_campus_atlas__PEPS_SITE_",
+          "verification": "",
+          "sourceUrl": "https://www.ed.gov/sites/ed/files/offices/OSFAP/PEPS/docs/closedschoolsearchreq.xlsx",
+          "sourceNote": "",
+          "missingFields": "coordinates; buyerController; afterlifeStatus; verification"
+        },
+        {
+          "line": 11029,
+          "sourceSheet": "dead_campus_atlas__PEPS_SITE_",
+          "verification": "",
+          "sourceUrl": "https://www.ed.gov/sites/ed/files/offices/OSFAP/PEPS/docs/closedschoolsearchreq.xlsx",
+          "sourceNote": "",
+          "missingFields": "coordinates; buyerController; afterlifeStatus; verification"
+        },
+        {
+          "line": 11030,
+          "sourceSheet": "dead_campus_atlas__PEPS_SITE_",
+          "verification": "",
+          "sourceUrl": "https://www.ed.gov/sites/ed/files/offices/OSFAP/PEPS/docs/closedschoolsearchreq.xlsx",
+          "sourceNote": "",
+          "missingFields": "coordinates; buyerController; afterlifeStatus; verification"
+        },
+        {
+          "line": 11031,
+          "sourceSheet": "dead_campus_atlas__PEPS_SITE_",
+          "verification": "",
+          "sourceUrl": "https://www.ed.gov/sites/ed/files/offices/OSFAP/PEPS/docs/closedschoolsearchreq.xlsx",
+          "sourceNote": "",
+          "missingFields": "coordinates; buyerController; afterlifeStatus; verification"
+        },
+        {
+          "line": 11032,
+          "sourceSheet": "dead_campus_atlas__PEPS_SITE_",
+          "verification": "",
+          "sourceUrl": "https://www.ed.gov/sites/ed/files/offices/OSFAP/PEPS/docs/closedschoolsearchreq.xlsx",
+          "sourceNote": "",
+          "missingFields": "coordinates; buyerController; afterlifeStatus; verification"
+        },
+        {
+          "line": 11033,
+          "sourceSheet": "dead_campus_atlas__PEPS_SITE_",
+          "verification": "",
+          "sourceUrl": "https://www.ed.gov/sites/ed/files/offices/OSFAP/PEPS/docs/closedschoolsearchreq.xlsx",
+          "sourceNote": "",
+          "missingFields": "coordinates; buyerController; afterlifeStatus; verification"
+        },
+        {
+          "line": 11034,
+          "sourceSheet": "dead_campus_atlas__PEPS_SITE_",
+          "verification": "",
+          "sourceUrl": "https://www.ed.gov/sites/ed/files/offices/OSFAP/PEPS/docs/closedschoolsearchreq.xlsx",
+          "sourceNote": "",
+          "missingFields": "coordinates; buyerController; afterlifeStatus; verification"
+        },
+        {
+          "line": 11035,
+          "sourceSheet": "dead_campus_atlas__PEPS_SITE_",
+          "verification": "",
+          "sourceUrl": "https://www.ed.gov/sites/ed/files/offices/OSFAP/PEPS/docs/closedschoolsearchreq.xlsx",
+          "sourceNote": "",
+          "missingFields": "coordinates; buyerController; afterlifeStatus; verification"
+        },
+        {
+          "line": 11036,
+          "sourceSheet": "dead_campus_atlas__PEPS_SITE_",
+          "verification": "",
+          "sourceUrl": "https://www.ed.gov/sites/ed/files/offices/OSFAP/PEPS/docs/closedschoolsearchreq.xlsx",
+          "sourceNote": "",
+          "missingFields": "coordinates; buyerController; afterlifeStatus; verification"
+        },
+        {
+          "line": 11037,
+          "sourceSheet": "dead_campus_atlas__PEPS_SITE_",
+          "verification": "",
+          "sourceUrl": "https://www.ed.gov/sites/ed/files/offices/OSFAP/PEPS/docs/closedschoolsearchreq.xlsx",
+          "sourceNote": "",
+          "missingFields": "coordinates; buyerController; afterlifeStatus; verification"
+        },
+        {
+          "line": 11038,
+          "sourceSheet": "dead_campus_atlas__PEPS_SITE_",
+          "verification": "",
+          "sourceUrl": "https://www.ed.gov/sites/ed/files/offices/OSFAP/PEPS/docs/closedschoolsearchreq.xlsx",
+          "sourceNote": "",
+          "missingFields": "coordinates; buyerController; afterlifeStatus; verification"
+        },
+        {
+          "line": 11459,
+          "sourceSheet": "dead_campus_atlas__SPATIALIZE",
+          "verification": "",
+          "sourceUrl": "",
+          "sourceNote": "",
+          "missingFields": "afterlifeStatus; sourceUrl; verification"
+        },
+        {
+          "line": 11471,
+          "sourceSheet": "dead_campus_atlas__PHASE2_CLA",
+          "verification": "Confirmed",
+          "sourceUrl": "",
+          "sourceNote": "",
+          "missingFields": "coordinates; sourceUrl"
+        }
+      ],
+      "sourceFiles": [
+        "_DATA/dead_campus_master_table_v1.xlsx",
+        "_DATA/dead_campus_atlas_phase2.xlsx",
+        "_DATA/dead_campus_atlas_phase3_spatialization.xlsx",
+        "_DATA/dead_campus_atlas_phase4_afterlife_forensics.xlsx",
+        "dead-campus-queue-filtered.csv"
+      ]
+    },
+    {
+      "id": "atlantic-union-college-ma-2018",
+      "recordNumber": 22,
+      "name": "Atlantic Union College",
+      "city": "South Lancaster",
+      "state": "MA",
+      "region": "New England",
+      "closureYear": 2018,
+      "sector": "Private nonprofit",
+      "campusType": "Main",
+      "status": "Closed",
+      "reuseType": "Parcel liquidation",
+      "buyerController": "Religious owners",
+      "buyerType": "",
+      "morphology": "Parcelized",
+      "scale": "Religious campus",
+      "notes": "Slow liquidation",
+      "verification": "Confirmed",
+      "transformation": "Slow liquidation",
+      "atlasPriority": "Important",
+      "salePrice": "",
+      "afterlife": "Parcel liquidation",
+      "latitude": 42.444,
+      "longitude": -71.688,
+      "evidence": [
+        {
+          "line": 3933,
+          "sourceSheet": "dead_campus_atlas__PEPS_SITE_",
+          "verification": "",
+          "sourceUrl": "https://www.ed.gov/sites/ed/files/offices/OSFAP/PEPS/docs/closedschoolsearchreq.xlsx",
+          "sourceNote": "",
+          "missingFields": "coordinates; buyerController; afterlifeStatus; verification"
+        },
+        {
+          "line": 11448,
+          "sourceSheet": "dead_campus_atlas__SPATIALIZE",
+          "verification": "",
+          "sourceUrl": "",
+          "sourceNote": "",
+          "missingFields": "afterlifeStatus; sourceUrl; verification"
+        },
+        {
+          "line": 11460,
+          "sourceSheet": "dead_campus_atlas__PHASE2_CLA",
+          "verification": "Confirmed",
+          "sourceUrl": "",
+          "sourceNote": "",
+          "missingFields": "coordinates; sourceUrl"
+        }
+      ],
+      "sourceFiles": [
+        "_DATA/dead_campus_master_table_v1.xlsx",
+        "_DATA/dead_campus_atlas_phase2.xlsx",
+        "_DATA/dead_campus_atlas_phase3_spatialization.xlsx",
+        "_DATA/dead_campus_atlas_phase4_afterlife_forensics.xlsx",
+        "dead-campus-queue-filtered.csv"
+      ]
+    },
+    {
+      "id": "concordia-university-portland-or-2020",
+      "recordNumber": 23,
+      "name": "Concordia University Portland",
+      "city": "Portland",
+      "state": "OR",
+      "region": "West",
+      "closureYear": 2020,
+      "sector": "Private nonprofit",
+      "campusType": "Urban campus",
+      "status": "Closed",
+      "reuseType": "Public university acquisition",
+      "buyerController": "University of Oregon",
+      "buyerType": "",
+      "morphology": "Absorbed",
+      "scale": "Portland campus",
+      "notes": "Flagship consolidation",
+      "verification": "Confirmed",
+      "transformation": "Flagship consolidation",
+      "atlasPriority": "Important",
+      "salePrice": "",
+      "afterlife": "Public university acquisition",
+      "latitude": 45.568,
+      "longitude": -122.637,
+      "evidence": [
+        {
+          "line": 11475,
+          "sourceSheet": "dead_campus_atlas__SPATIALIZE",
+          "verification": "",
+          "sourceUrl": "",
+          "sourceNote": "",
+          "missingFields": "afterlifeStatus; sourceUrl; verification"
+        },
+        {
+          "line": 11481,
+          "sourceSheet": "dead_campus_atlas__PHASE2_CLA",
+          "verification": "Confirmed",
+          "sourceUrl": "",
+          "sourceNote": "",
+          "missingFields": "coordinates; sourceUrl"
+        }
+      ],
+      "sourceFiles": [
+        "_DATA/dead_campus_master_table_v1.xlsx",
+        "_DATA/dead_campus_atlas_phase2.xlsx",
+        "_DATA/dead_campus_atlas_phase3_spatialization.xlsx",
+        "_DATA/dead_campus_atlas_phase4_afterlife_forensics.xlsx",
+        "dead-campus-queue-filtered.csv"
+      ]
+    },
+    {
+      "id": "holy-names-university-ca-2023",
+      "recordNumber": 24,
+      "name": "Holy Names University",
+      "city": "Oakland",
+      "state": "CA",
+      "region": "West",
+      "closureYear": 2023,
+      "sector": "Private nonprofit",
+      "campusType": "Main",
+      "status": "Closed",
+      "reuseType": "Investment acquisition",
+      "buyerController": "BH Properties",
+      "buyerType": "Real Estate Investment",
+      "morphology": "Speculative",
+      "scale": "58-acre campus",
+      "notes": "Bay Area land extraction",
+      "verification": "Confirmed",
+      "transformation": "Bay Area land extraction",
+      "atlasPriority": "Iconic",
+      "salePrice": "~$65M",
+      "afterlife": "Redevelopment holding",
+      "latitude": 37.802,
+      "longitude": -122.188,
+      "evidence": [
+        {
+          "line": 7,
+          "sourceSheet": "dead_campus_atlas__AFTERLIFE_",
+          "verification": "",
+          "sourceUrl": "",
+          "sourceNote": "",
+          "missingFields": "coordinates; buyerController; afterlifeStatus; sourceUrl; verification; closureYear"
+        },
+        {
+          "line": 11426,
+          "sourceSheet": "dead_campus_atlas__SPATIALIZE",
+          "verification": "",
+          "sourceUrl": "",
+          "sourceNote": "",
+          "missingFields": "afterlifeStatus; sourceUrl; verification"
+        },
+        {
+          "line": 11444,
+          "sourceSheet": "dead_campus_atlas__CURATED_IC",
+          "verification": "Post-2020 manual add",
+          "sourceUrl": "",
+          "sourceNote": "Manual research layer; cite row during Phase 2 verification",
+          "missingFields": "coordinates"
+        }
+      ],
+      "sourceFiles": [
+        "_DATA/dead_campus_master_table_v1.xlsx",
+        "_DATA/dead_campus_atlas_phase2.xlsx",
+        "_DATA/dead_campus_atlas_phase3_spatialization.xlsx",
+        "_DATA/dead_campus_atlas_phase4_afterlife_forensics.xlsx",
+        "dead-campus-queue-filtered.csv"
+      ]
+    },
+    {
+      "id": "marymount-california-university-ca-2022",
+      "recordNumber": 25,
+      "name": "Marymount California University",
+      "city": "Rancho Palos Verdes",
+      "state": "CA",
+      "region": "West",
+      "closureYear": 2022,
+      "sector": "Private nonprofit",
+      "campusType": "Main",
+      "status": "Closed",
+      "reuseType": "Public university acquisition",
+      "buyerController": "UCLA",
+      "buyerType": "",
+      "morphology": "Absorbed",
+      "scale": "Rancho Palos Verdes campus",
+      "notes": "Elite institutional expansion",
+      "verification": "Confirmed",
+      "transformation": "Elite institutional acquisition",
+      "atlasPriority": "Important",
+      "salePrice": "",
+      "afterlife": "Public university acquisition",
+      "latitude": 33.746,
+      "longitude": -118.385,
+      "evidence": [
+        {
+          "line": 11454,
+          "sourceSheet": "dead_campus_atlas__SPATIALIZE",
+          "verification": "",
+          "sourceUrl": "",
+          "sourceNote": "",
+          "missingFields": "afterlifeStatus; sourceUrl; verification"
+        },
+        {
+          "line": 11485,
+          "sourceSheet": "dead_campus_atlas__CURATED_IC",
+          "verification": "Post-2020 manual add",
+          "sourceUrl": "",
+          "sourceNote": "Manual research layer; cite row during Phase 2 verification",
+          "missingFields": "coordinates"
+        }
+      ],
+      "sourceFiles": [
+        "_DATA/dead_campus_master_table_v1.xlsx",
+        "_DATA/dead_campus_atlas_phase2.xlsx",
+        "_DATA/dead_campus_atlas_phase3_spatialization.xlsx",
+        "_DATA/dead_campus_atlas_phase4_afterlife_forensics.xlsx",
+        "dead-campus-queue-filtered.csv"
+      ]
+    },
+    {
+      "id": "macmurray-college-il-2020",
+      "recordNumber": 26,
+      "name": "MacMurray College",
+      "city": "Jacksonville",
+      "state": "IL",
+      "region": "Midwest",
+      "closureYear": 2020,
+      "sector": "Private nonprofit",
+      "campusType": "Main",
+      "status": "Closed",
+      "reuseType": "Auctioned in parcels",
+      "buyerController": "Multiple buyers",
+      "buyerType": "",
+      "morphology": "Parcelized",
+      "scale": "18 parcels",
+      "notes": "Fragmented liquidation",
+      "verification": "Confirmed",
+      "transformation": "Auctioned in 18 parcels",
+      "atlasPriority": "Iconic",
+      "salePrice": "",
+      "afterlife": "Auctioned in parcels",
+      "latitude": 39.732,
+      "longitude": -90.236,
+      "evidence": [
+        {
+          "line": 7372,
+          "sourceSheet": "dead_campus_atlas__PEPS_SITE_",
+          "verification": "",
+          "sourceUrl": "https://www.ed.gov/sites/ed/files/offices/OSFAP/PEPS/docs/closedschoolsearchreq.xlsx",
+          "sourceNote": "",
+          "missingFields": "coordinates; buyerController; afterlifeStatus; verification"
+        },
+        {
+          "line": 11427,
+          "sourceSheet": "dead_campus_atlas__SPATIALIZE",
+          "verification": "",
+          "sourceUrl": "",
+          "sourceNote": "",
+          "missingFields": "afterlifeStatus; sourceUrl; verification"
+        },
+        {
+          "line": 11445,
+          "sourceSheet": "dead_campus_atlas__CURATED_IC",
+          "verification": "Post-2020 manual add",
+          "sourceUrl": "",
+          "sourceNote": "Manual research layer; cite row during Phase 2 verification",
+          "missingFields": "coordinates"
+        }
+      ],
+      "sourceFiles": [
+        "_DATA/dead_campus_master_table_v1.xlsx",
+        "_DATA/dead_campus_atlas_phase2.xlsx",
+        "_DATA/dead_campus_atlas_phase3_spatialization.xlsx",
+        "_DATA/dead_campus_atlas_phase4_afterlife_forensics.xlsx",
+        "dead-campus-queue-filtered.csv"
+      ]
+    },
+    {
+      "id": "becker-college-ma-2021",
+      "recordNumber": 27,
+      "name": "Becker College",
+      "city": "Worcester/Leicester",
+      "state": "MA",
+      "region": "New England",
+      "closureYear": 2021,
+      "sector": "Private nonprofit",
+      "campusType": "Multiple campuses",
+      "status": "Closed",
+      "reuseType": "Municipal/emergency reuse",
+      "buyerController": "Town of Leicester + others",
+      "buyerType": "",
+      "morphology": "Housing",
+      "scale": "Worcester area",
+      "notes": "Emergency housing reuse",
+      "verification": "Confirmed",
+      "transformation": "Emergency housing reuse",
+      "atlasPriority": "Important",
+      "salePrice": "",
+      "afterlife": "Municipal/emergency reuse",
+      "latitude": 42.245,
+      "longitude": -71.909,
+      "evidence": [
+        {
+          "line": 11472,
+          "sourceSheet": "dead_campus_atlas__SPATIALIZE",
+          "verification": "",
+          "sourceUrl": "",
+          "sourceNote": "",
+          "missingFields": "afterlifeStatus; sourceUrl; verification"
+        },
+        {
+          "line": 11486,
+          "sourceSheet": "dead_campus_atlas__CURATED_IC",
+          "verification": "Post-2020 manual add",
+          "sourceUrl": "",
+          "sourceNote": "Manual research layer; cite row during Phase 2 verification",
+          "missingFields": "coordinates"
+        }
+      ],
+      "sourceFiles": [
+        "_DATA/dead_campus_master_table_v1.xlsx",
+        "_DATA/dead_campus_atlas_phase2.xlsx",
+        "_DATA/dead_campus_atlas_phase3_spatialization.xlsx",
+        "_DATA/dead_campus_atlas_phase4_afterlife_forensics.xlsx",
+        "dead-campus-queue-filtered.csv"
+      ]
+    },
+    {
+      "id": "college-of-new-rochelle-ny-2019",
+      "recordNumber": 28,
+      "name": "College of New Rochelle",
+      "city": "New Rochelle",
+      "state": "NY",
+      "region": "Northeast",
+      "closureYear": 2019,
+      "sector": "Private nonprofit",
+      "campusType": "Urban campus",
+      "status": "Closed",
+      "reuseType": "Bankruptcy / auction",
+      "buyerController": "Multiple buyers",
+      "buyerType": "",
+      "morphology": "Parcelized",
+      "scale": "Castle campus",
+      "notes": "Debt-collapse campus",
+      "verification": "Confirmed",
+      "transformation": "Debt-collapse urban campus",
+      "atlasPriority": "Important",
+      "salePrice": "",
+      "afterlife": "Bankruptcy / auction",
+      "latitude": 40.912,
+      "longitude": -73.781,
+      "evidence": [
+        {
+          "line": 11474,
+          "sourceSheet": "dead_campus_atlas__SPATIALIZE",
+          "verification": "",
+          "sourceUrl": "",
+          "sourceNote": "",
+          "missingFields": "afterlifeStatus; sourceUrl; verification"
+        },
+        {
+          "line": 11480,
+          "sourceSheet": "dead_campus_atlas__PHASE2_CLA",
+          "verification": "Confirmed",
+          "sourceUrl": "",
+          "sourceNote": "",
+          "missingFields": "coordinates; sourceUrl"
+        }
+      ],
+      "sourceFiles": [
+        "_DATA/dead_campus_master_table_v1.xlsx",
+        "_DATA/dead_campus_atlas_phase2.xlsx",
+        "_DATA/dead_campus_atlas_phase3_spatialization.xlsx",
+        "_DATA/dead_campus_atlas_phase4_afterlife_forensics.xlsx",
+        "dead-campus-queue-filtered.csv"
+      ]
+    },
+    {
+      "id": "alderson-broaddus-university-wv-2023",
+      "recordNumber": 29,
+      "name": "Alderson Broaddus University",
+      "city": "Philippi",
+      "state": "WV",
+      "region": "Appalachia",
+      "closureYear": 2023,
+      "sector": "Private nonprofit",
+      "campusType": "Main",
+      "status": "Closed",
+      "reuseType": "Construction/event reuse",
+      "buyerController": "CGP Construction",
+      "buyerType": "",
+      "morphology": "Speculative",
+      "scale": "Regional campus",
+      "notes": "Bankruptcy sale",
+      "verification": "Confirmed",
+      "transformation": "Bankruptcy sale",
+      "atlasPriority": "Iconic",
+      "salePrice": "",
+      "afterlife": "Construction/event reuse",
+      "latitude": 39.152,
+      "longitude": -80.041,
+      "evidence": [
+        {
+          "line": 11420,
+          "sourceSheet": "dead_campus_atlas__SPATIALIZE",
+          "verification": "",
+          "sourceUrl": "",
+          "sourceNote": "",
+          "missingFields": "afterlifeStatus; sourceUrl; verification"
+        },
+        {
+          "line": 11440,
+          "sourceSheet": "dead_campus_atlas__CURATED_IC",
+          "verification": "Post-2020 manual add",
+          "sourceUrl": "",
+          "sourceNote": "Manual research layer; cite row during Phase 2 verification",
+          "missingFields": "coordinates"
+        }
+      ],
+      "sourceFiles": [
+        "_DATA/dead_campus_master_table_v1.xlsx",
+        "_DATA/dead_campus_atlas_phase2.xlsx",
+        "_DATA/dead_campus_atlas_phase3_spatialization.xlsx",
+        "_DATA/dead_campus_atlas_phase4_afterlife_forensics.xlsx",
+        "dead-campus-queue-filtered.csv"
+      ]
+    },
+    {
+      "id": "daniel-webster-college-nh-2017",
+      "recordNumber": 30,
+      "name": "Daniel Webster College",
+      "city": "Nashua",
+      "state": "NH",
+      "region": "New England",
+      "closureYear": 2017,
+      "sector": "For-profit linked",
+      "campusType": "Main",
+      "status": "Closed",
+      "reuseType": "Auction sale",
+      "buyerController": "Xinhua Education",
+      "buyerType": "",
+      "morphology": "Speculative",
+      "scale": "Aviation campus",
+      "notes": "Post-ITT collapse",
+      "verification": "Confirmed",
+      "transformation": "Post-ITT collapse",
+      "atlasPriority": "Important",
+      "salePrice": "",
+      "afterlife": "Auction sale",
+      "latitude": 42.781,
+      "longitude": -71.513,
+      "evidence": [
+        {
+          "line": 5386,
+          "sourceSheet": "dead_campus_atlas__PEPS_SITE_",
+          "verification": "",
+          "sourceUrl": "https://www.ed.gov/sites/ed/files/offices/OSFAP/PEPS/docs/closedschoolsearchreq.xlsx",
+          "sourceNote": "",
+          "missingFields": "coordinates; buyerController; afterlifeStatus; verification"
+        },
+        {
+          "line": 11451,
+          "sourceSheet": "dead_campus_atlas__SPATIALIZE",
+          "verification": "",
+          "sourceUrl": "",
+          "sourceNote": "",
+          "missingFields": "afterlifeStatus; sourceUrl; verification"
+        },
+        {
+          "line": 11464,
+          "sourceSheet": "dead_campus_atlas__PHASE2_CLA",
+          "verification": "Confirmed",
+          "sourceUrl": "",
+          "sourceNote": "",
+          "missingFields": "coordinates; sourceUrl"
+        }
+      ],
+      "sourceFiles": [
+        "_DATA/dead_campus_master_table_v1.xlsx",
+        "_DATA/dead_campus_atlas_phase2.xlsx",
+        "_DATA/dead_campus_atlas_phase3_spatialization.xlsx",
+        "_DATA/dead_campus_atlas_phase4_afterlife_forensics.xlsx",
+        "dead-campus-queue-filtered.csv"
+      ]
+    },
+    {
+      "id": "virginia-intermont-college-va-2014",
+      "recordNumber": 31,
+      "name": "Virginia Intermont College",
+      "city": "Bristol",
+      "state": "VA",
+      "region": "South",
+      "closureYear": 2014,
+      "sector": "Private nonprofit",
+      "campusType": "Main",
+      "status": "Closed",
+      "reuseType": "Absentee ownership",
+      "buyerController": "US Magis",
+      "buyerType": "",
+      "morphology": "Ruin",
+      "scale": "Historic campus",
+      "notes": "Fire/deterioration",
+      "verification": "Confirmed",
+      "transformation": "Abandoned/deteriorating campus",
+      "atlasPriority": "Iconic",
+      "salePrice": "",
+      "afterlife": "Absentee ownership",
+      "latitude": 36.616,
+      "longitude": -82.163,
+      "evidence": [
+        {
+          "line": 3293,
+          "sourceSheet": "dead_campus_atlas__PEPS_SITE_",
+          "verification": "",
+          "sourceUrl": "https://www.ed.gov/sites/ed/files/offices/OSFAP/PEPS/docs/closedschoolsearchreq.xlsx",
+          "sourceNote": "",
+          "missingFields": "coordinates; buyerController; afterlifeStatus; verification"
+        },
+        {
+          "line": 11430,
+          "sourceSheet": "dead_campus_atlas__SPATIALIZE",
+          "verification": "",
+          "sourceUrl": "",
+          "sourceNote": "",
+          "missingFields": "afterlifeStatus; sourceUrl; verification"
+        },
+        {
+          "line": 11435,
+          "sourceSheet": "dead_campus_atlas__PHASE2_CLA",
+          "verification": "Confirmed",
+          "sourceUrl": "",
+          "sourceNote": "",
+          "missingFields": "coordinates; sourceUrl"
+        }
+      ],
+      "sourceFiles": [
+        "_DATA/dead_campus_master_table_v1.xlsx",
+        "_DATA/dead_campus_atlas_phase2.xlsx",
+        "_DATA/dead_campus_atlas_phase3_spatialization.xlsx",
+        "_DATA/dead_campus_atlas_phase4_afterlife_forensics.xlsx",
+        "dead-campus-queue-filtered.csv"
+      ]
+    },
+    {
+      "id": "southern-vermont-college-vt-2019",
+      "recordNumber": 32,
+      "name": "Southern Vermont College",
+      "city": "Bennington",
+      "state": "VT",
+      "region": "New England",
+      "closureYear": 2019,
+      "sector": "Private nonprofit",
+      "campusType": "Main",
+      "status": "Closed",
+      "reuseType": "Health/resort redevelopment",
+      "buyerController": "Southwestern Vermont Health Care",
+      "buyerType": "",
+      "morphology": "Health",
+      "scale": "371 acres",
+      "notes": "Wellness transition",
+      "verification": "Confirmed",
+      "transformation": "Wellness/resort transition",
+      "atlasPriority": "Iconic",
+      "salePrice": "",
+      "afterlife": "Health/resort redevelopment",
+      "latitude": 42.878,
+      "longitude": -73.215,
+      "evidence": [
+        {
+          "line": 11429,
+          "sourceSheet": "dead_campus_atlas__SPATIALIZE",
+          "verification": "",
+          "sourceUrl": "",
+          "sourceNote": "",
+          "missingFields": "afterlifeStatus; sourceUrl; verification"
+        },
+        {
+          "line": 11434,
+          "sourceSheet": "dead_campus_atlas__PHASE2_CLA",
+          "verification": "Confirmed",
+          "sourceUrl": "",
+          "sourceNote": "",
+          "missingFields": "coordinates; sourceUrl"
+        }
+      ],
+      "sourceFiles": [
+        "_DATA/dead_campus_master_table_v1.xlsx",
+        "_DATA/dead_campus_atlas_phase2.xlsx",
+        "_DATA/dead_campus_atlas_phase3_spatialization.xlsx",
+        "_DATA/dead_campus_atlas_phase4_afterlife_forensics.xlsx",
+        "dead-campus-queue-filtered.csv"
+      ]
+    },
+    {
+      "id": "st-gregory-s-university-ok-2017",
+      "recordNumber": 33,
+      "name": "St. Gregory's University",
+      "city": "Shawnee",
+      "state": "OK",
+      "region": "South",
+      "closureYear": 2017,
+      "sector": "Private nonprofit",
+      "campusType": "Main",
+      "status": "Closed",
+      "reuseType": "Corporate acquisition",
+      "buyerController": "Hobby Lobby",
+      "buyerType": "Corporate/Private",
+      "morphology": "Corporate",
+      "scale": "73 acres",
+      "notes": "Corporate/religious control",
+      "verification": "Confirmed",
+      "transformation": "Corporate acquisition",
+      "atlasPriority": "Important",
+      "salePrice": "Undisclosed",
+      "afterlife": "Private ownership",
+      "latitude": 35.361,
+      "longitude": -96.931,
+      "evidence": [
+        {
+          "line": 10,
+          "sourceSheet": "dead_campus_atlas__AFTERLIFE_",
+          "verification": "",
+          "sourceUrl": "",
+          "sourceNote": "",
+          "missingFields": "coordinates; buyerController; afterlifeStatus; sourceUrl; verification; closureYear"
+        },
+        {
+          "line": 11458,
+          "sourceSheet": "dead_campus_atlas__SPATIALIZE",
+          "verification": "",
+          "sourceUrl": "",
+          "sourceNote": "",
+          "missingFields": "afterlifeStatus; sourceUrl; verification"
+        },
+        {
+          "line": 11470,
+          "sourceSheet": "dead_campus_atlas__PHASE2_CLA",
+          "verification": "Confirmed",
+          "sourceUrl": "",
+          "sourceNote": "",
+          "missingFields": "coordinates; sourceUrl"
+        }
+      ],
+      "sourceFiles": [
+        "_DATA/dead_campus_master_table_v1.xlsx",
+        "_DATA/dead_campus_atlas_phase2.xlsx",
+        "_DATA/dead_campus_atlas_phase3_spatialization.xlsx",
+        "_DATA/dead_campus_atlas_phase4_afterlife_forensics.xlsx",
+        "dead-campus-queue-filtered.csv"
+      ]
+    },
+    {
+      "id": "gwu-virginia-science-and-technology-campus-va-2026",
+      "recordNumber": 34,
+      "name": "GWU Virginia Science & Technology Campus",
+      "city": "Ashburn",
+      "state": "VA",
+      "region": "South",
+      "closureYear": 2026,
+      "sector": "Private nonprofit",
+      "campusType": "Research campus",
+      "status": "Sold",
+      "reuseType": "Cloud infrastructure acquisition",
+      "buyerController": "Amazon Data Services",
+      "buyerType": "Amazon",
+      "morphology": "Cloud",
+      "scale": "120 acres",
+      "notes": "Campus-to-data-center logic",
+      "verification": "Confirmed",
+      "transformation": "Campus → cloud infrastructure",
+      "atlasPriority": "Iconic",
+      "salePrice": "$427M",
+      "afterlife": "Data infrastructure",
+      "latitude": 39.043,
+      "longitude": -77.489,
+      "evidence": [
+        {
+          "line": 6,
+          "sourceSheet": "dead_campus_atlas__AFTERLIFE_",
+          "verification": "",
+          "sourceUrl": "",
+          "sourceNote": "",
+          "missingFields": "coordinates; buyerController; afterlifeStatus; sourceUrl; verification; closureYear"
+        },
+        {
+          "line": 11437,
+          "sourceSheet": "dead_campus_atlas__SPATIALIZE",
+          "verification": "",
+          "sourceUrl": "",
+          "sourceNote": "",
+          "missingFields": "afterlifeStatus; sourceUrl; verification"
+        },
+        {
+          "line": 11465,
+          "sourceSheet": "dead_campus_atlas__CURATED_IC",
+          "verification": "Non-closure asset sale",
+          "sourceUrl": "",
+          "sourceNote": "Manual research layer; cite row during Phase 2 verification",
+          "missingFields": "coordinates"
+        }
+      ],
+      "sourceFiles": [
+        "_DATA/dead_campus_master_table_v1.xlsx",
+        "_DATA/dead_campus_atlas_phase2.xlsx",
+        "_DATA/dead_campus_atlas_phase3_spatialization.xlsx",
+        "_DATA/dead_campus_atlas_phase4_afterlife_forensics.xlsx",
+        "dead-campus-queue-filtered.csv"
+      ]
+    }
+  ],
+  "typology": {
+    "Absorbed": {
+      "tone": "#355c7d",
+      "description": "A closed campus taken into a larger educational system."
+    },
+    "Arts Reuse": {
+      "tone": "#4f4a45",
+      "description": ""
+    },
+    "Cloud": {
+      "tone": "#1f6875",
+      "description": "Physical campus infrastructure converted into data infrastructure."
+    },
+    "Corporate": {
+      "tone": "#574c41",
+      "description": "Campus land or infrastructure absorbed into corporate use."
+    },
+    "Educational reuse": {
+      "tone": "#4d6b3c",
+      "description": "The site remains educational under a new owner, mission, or scale."
+    },
+    "Health": {
+      "tone": "#2f6654",
+      "description": "Institutional land reused by medical, hospital, or care systems."
+    },
+    "Housing": {
+      "tone": "#7a3f61",
+      "description": "Campus property converted to residential or senior living use."
+    },
+    "K12": {
+      "tone": "#b15f28",
+      "description": "Higher education property converted to primary or secondary schooling."
+    },
+    "Parcelized": {
+      "tone": "#a44732",
+      "description": "A campus divided across buyers, agencies, or redevelopment parcels."
+    },
+    "Religious/K12": {
+      "tone": "#6f4a7b",
+      "description": "A mixed religious and school reuse of former college land."
+    },
+    "Ruin": {
+      "tone": "#5c5650",
+      "description": "The site remains abandoned, decayed, or unresolved."
+    },
+    "Security": {
+      "tone": "#4b4f37",
+      "description": "Educational land converted to state, training, or security use."
+    },
+    "Speculative": {
+      "tone": "#8a6f2d",
+      "description": "Land held, marketed, auctioned, or repositioned as real estate."
+    }
+  },
+  "abyss": {
+    "totalRecords": 11408,
+    "sourceUrl": "https://www.ed.gov/sites/ed/files/offices/OSFAP/PEPS/docs/closedschoolsearchreq.xlsx",
+    "yearRange": [
+      1984,
+      2015
+    ],
+    "siteTypeCounts": [
+      {
+        "label": "Branch/Satellite",
+        "count": 7957
+      },
+      {
+        "label": "Main/Root",
+        "count": 3451
+      }
+    ],
+    "classCounts": [
+      {
+        "label": "BRANCH / SATELLITE RETREAT",
+        "count": 7286
+      },
+      {
+        "label": "MAIN / ROOT CLOSURE",
+        "count": 3155
+      },
+      {
+        "label": "DISTRIBUTED SITE / ANNEX",
+        "count": 834
+      },
+      {
+        "label": "FOR-PROFIT SYSTEM COLLAPSE",
+        "count": 133
+      }
+    ],
+    "stateCounts": [
+      {
+        "label": "CA",
+        "count": 1247
+      },
+      {
+        "label": "IL",
+        "count": 848
+      },
+      {
+        "label": "TX",
+        "count": 586
+      },
+      {
+        "label": "PA",
+        "count": 534
+      },
+      {
+        "label": "IN",
+        "count": 513
+      },
+      {
+        "label": "FL",
+        "count": 505
+      },
+      {
+        "label": "NY",
+        "count": 458
+      },
+      {
+        "label": "OH",
+        "count": 442
+      },
+      {
+        "label": "MI",
+        "count": 379
+      },
+      {
+        "label": "MO",
+        "count": 338
+      },
+      {
+        "label": "MA",
+        "count": 331
+      },
+      {
+        "label": "MN",
+        "count": 324
+      },
+      {
+        "label": "Foreign/unknown",
+        "count": 291
+      },
+      {
+        "label": "TN",
+        "count": 287
+      },
+      {
+        "label": "WI",
+        "count": 279
+      },
+      {
+        "label": "GA",
+        "count": 266
+      },
+      {
+        "label": "AZ",
+        "count": 261
+      },
+      {
+        "label": "NJ",
+        "count": 255
+      },
+      {
+        "label": "CO",
+        "count": 220
+      },
+      {
+        "label": "VA",
+        "count": 208
+      }
+    ],
+    "timeline": [
+      {
+        "label": "1984",
+        "count": 1
+      },
+      {
+        "label": "1985",
+        "count": 1
+      },
+      {
+        "label": "1986",
+        "count": 91
+      },
+      {
+        "label": "1987",
+        "count": 154
+      },
+      {
+        "label": "1988",
+        "count": 250
+      },
+      {
+        "label": "1989",
+        "count": 395
+      },
+      {
+        "label": "1990",
+        "count": 620
+      },
+      {
+        "label": "1991",
+        "count": 575
+      },
+      {
+        "label": "1992",
+        "count": 420
+      },
+      {
+        "label": "1993",
+        "count": 356
+      },
+      {
+        "label": "1994",
+        "count": 380
+      },
+      {
+        "label": "1995",
+        "count": 440
+      },
+      {
+        "label": "1996",
+        "count": 232
+      },
+      {
+        "label": "1997",
+        "count": 240
+      },
+      {
+        "label": "1998",
+        "count": 215
+      },
+      {
+        "label": "1999",
+        "count": 228
+      },
+      {
+        "label": "2000",
+        "count": 326
+      },
+      {
+        "label": "2001",
+        "count": 384
+      },
+      {
+        "label": "2002",
+        "count": 275
+      },
+      {
+        "label": "2003",
+        "count": 406
+      },
+      {
+        "label": "2004",
+        "count": 341
+      },
+      {
+        "label": "2005",
+        "count": 318
+      },
+      {
+        "label": "2006",
+        "count": 361
+      },
+      {
+        "label": "2007",
+        "count": 448
+      },
+      {
+        "label": "2008",
+        "count": 461
+      },
+      {
+        "label": "2009",
+        "count": 476
+      },
+      {
+        "label": "2010",
+        "count": 606
+      },
+      {
+        "label": "2011",
+        "count": 388
+      },
+      {
+        "label": "2012",
+        "count": 855
+      },
+      {
+        "label": "2013",
+        "count": 566
+      },
+      {
+        "label": "2014",
+        "count": 421
+      },
+      {
+        "label": "2015",
+        "count": 178
+      }
+    ],
+    "missing": {
+      "state": 291,
+      "morphology": 11408,
+      "afterlifeStatus": 11408
+    }
+  },
+  "queueAudit": {
+    "totalQueueRows": 11486,
+    "blankCounts": {
+      "closureYear": 10,
+      "state": 291,
+      "city": 44,
+      "sourceUrl": 64,
+      "verification": 11452,
+      "buyerController": 11418,
+      "afterlifeStatus": 11452
+    },
+    "nonUrlSourceUrlRows": 14,
+    "nonPepsRows": 78,
+    "nonPepsDuplicateGroups": 34,
+    "nonPepsDuplicateRows": 78,
+    "statusCounts": [
+      {
+        "label": "CLOSURE-EVENT",
+        "count": 11414
+      },
+      {
+        "label": "ASSET-TRANSFER",
+        "count": 35
+      },
+      {
+        "label": "PARCELIZED",
+        "count": 31
+      },
+      {
+        "label": "SECURITY",
+        "count": 3
+      },
+      {
+        "label": "CLOUD",
+        "count": 3
+      }
+    ]
+  }
+};
