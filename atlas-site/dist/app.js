@@ -220,6 +220,10 @@
     $("#federalSearch").placeholder = `Search ${formatNumber(data.abyss.totalRecords)} records…`;
   }
 
+  // When the atlas is served at /atlas/ beside the dashboard, link back to it. A standalone
+  // copy has no dashboard to return to, so the link stays hidden.
+  const DASHBOARD_URL = window.location.pathname.endsWith("/atlas/") ? "../" : null;
+
   function renderFooter() {
     const freshness = (data.sourceFreshness || {}).fsaClosedSchoolSearch || {};
     const bar = data.releaseBar || {};
@@ -234,6 +238,7 @@
         text: `Curated layer: ${sites.length} campus records; ${bar.releaseReady || 0} clear every release gate. Raw rows stay raw; interpretation is marked as reading.`,
       }),
       element("p", { text: "Terminal Education · Division of Institutional Withdrawal · Sector T.E-09 · private proof." }),
+      DASHBOARD_URL ? element("p", {}, [element("a", { text: "Back to the Dead Campus Atlas dashboard", attrs: { href: DASHBOARD_URL } })]) : null,
     ]);
   }
 
@@ -1602,6 +1607,8 @@
     // Honest hint about wheel behaviour.
     const hint = document.querySelector("#fig1-title .hint");
     if (hint) hint.textContent = "· drag · ctrl/⌘ + scroll, or focus the map, to zoom · click a zone";
+    const dashboardLink = $("#dashboardLink");
+    if (dashboardLink && DASHBOARD_URL) dashboardLink.hidden = false;
     renderHero();
     renderFooter();
     buildMap();

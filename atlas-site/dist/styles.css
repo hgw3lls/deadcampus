@@ -353,6 +353,11 @@ button {
   border-bottom-color: var(--blue);
 }
 
+.offices a.offices-external {
+  border-left: 1px solid var(--soft-line);
+  padding-left: 26px;
+}
+
 .sector-stamp {
   display: grid;
   border: 2px solid var(--ink);
@@ -1886,6 +1891,10 @@ button {
   }
   .offices.is-open {
     display: flex;
+  }
+  .offices a.offices-external {
+    border-left: 0;
+    padding-left: 0;
   }
   .offices a {
     padding: 10px 0;
