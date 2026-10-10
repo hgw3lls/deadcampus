@@ -20,6 +20,8 @@
     "exits:merge": "python3 tools/merge_afterlife_census.py --prefix exits",
     "recheck:draw": "python3 tools/draw_recheck.py --skip-rechecked",
     "recheck:merge": "python3 tools/merge_rechecks.py",
+    "process:draw": "python3 tools/draw_closure_process.py",
+    "process:merge": "python3 tools/merge_closure_process.py",
     "refresh": "python3 tools/update_atlas.py",
     "update": "python3 tools/update_atlas.py",
     "update:local": "python3 tools/update_atlas.py --local",

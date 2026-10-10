@@ -95,6 +95,9 @@ COLUMNS: list[tuple[str, str, str]] = [
     ("limbo_days", "curated", "Days from closure to first completed transfer (curated only)."),
     ("editorial_note", "curated", "Editorial note where a source cuts against the classification (curated only)."),
     ("source_urls", "curated", "Curated source URLs, separated by ' | ' (curated only)."),
+    ("process_source", "process", "SHEEO, or Atlas coding where this project applied the SHEEO scheme to a for-profit exit the file does not cover."),
+    ("process_event", "process", "closure, consolidation, merger, still-operating, or unresolved. SHEEO rows are all closures."),
+    ("process_confidence", "process", "Confidence of an Atlas coding: high, medium, or low. Empty for SHEEO rows."),
     ("closure_announced", "process", "Date the closure was announced, from the SHEEO closed-college file."),
     ("lead_time_days", "process", "Days from announcement to closure. Empty where the announcement date is unknown or falls after the closure."),
     ("abrupt_closure", "process", "SHEEO coding: 1 abrupt, 0 orderly. Empty where not coded."),
@@ -189,6 +192,9 @@ def _process(entry: dict | None, federal_date: str | None = None) -> dict:
     if entry.get("closed") and federal_date and entry["closed"] != federal_date:
         differs = entry["closed"]
     return {
+        "process_source": entry.get("source") or "SHEEO",
+        "process_event": entry.get("event") or "closure",
+        "process_confidence": entry.get("confidence"),
         "closure_announced": entry.get("announced"),
         "lead_time_days": entry.get("leadDays"),
         "abrupt_closure": None if entry.get("abrupt") is None else int(bool(entry["abrupt"])),
@@ -250,6 +256,7 @@ def build_records(
     transfer_types: set[str],
     zone_of,
     sheeo: dict[str, dict] | None = None,
+    process_only: dict[int, dict] | None = None,
 ) -> list[dict]:
     """Return every record, institutions first and then sites.
 
@@ -376,6 +383,33 @@ def build_records(
         })
         if unitid:
             unit_to_record[int(unitid)] = key
+
+    # 4b. Institutions coded for closure process that have no federal site: the IPEDS record is
+    # their only anchor, so they enter as institution rows of their own.
+    for unitid, coded in sorted((process_only or {}).items()):
+        if unitid in unit_to_record:
+            continue
+        srow = spine.get(unitid)
+        lat, lon = _coords(srow)
+        rid = f"coded-{unitid}"
+        unit_to_record[unitid] = rid
+        evidence = [e.get("url") for e in coded.get("evidence") or [] if e.get("url")]
+        entry = {
+            "source": "Atlas coding", "event": coded.get("event"), "confidence": coded.get("confidence"),
+            "announced": coded.get("announced"), "closed": coded.get("closed"), "leadDays": None,
+            "abrupt": coded.get("abrupt"), "teachOut": "n/a (abrupt)" if coded.get("teachOut") == "n/a" else coded.get("teachOut"),
+            "merger": None if coded.get("merger") is None else coded.get("merger") != "none",
+            "mergerNote": coded.get("mergerNote"), "records": coded.get("records"), "note": coded.get("notes"),
+            "sources": evidence[:6], "accreditors": [],
+        }
+        rows.append({
+            "record_id": rid, "kind": "institution", "layer": "coded", "name": (srow or {}).get("name") or coded.get("name"),
+            "city": (srow or {}).get("city"), "state": (srow or {}).get("state"), "latitude": lat, "longitude": lon,
+            "coordinate_source": "ipeds" if lat is not None else "", "unitid": unitid, "coding_tier": "closure-process",
+            "closure_date": coded.get("closed"), "evidence_count": len(evidence), "evidence_urls": _pipe(evidence),
+            "confidence": coded.get("confidence"), "coding_notes": coded.get("notes"),
+            **_ipeds_row(srow), **_process(entry),
+        })
 
     # 5. Rollups onto every institution, then the site rows.
     by_parent: dict[str, list[dict]] = defaultdict(list)

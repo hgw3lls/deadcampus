@@ -347,6 +347,21 @@
       "description": "Curated source URLs, separated by ' | ' (curated only)."
     },
     {
+      "name": "process_source",
+      "group": "process",
+      "description": "SHEEO, or Atlas coding where this project applied the SHEEO scheme to a for-profit exit the file does not cover."
+    },
+    {
+      "name": "process_event",
+      "group": "process",
+      "description": "closure, consolidation, merger, still-operating, or unresolved. SHEEO rows are all closures."
+    },
+    {
+      "name": "process_confidence",
+      "group": "process",
+      "description": "Confidence of an Atlas coding: high, medium, or low. Empty for SHEEO rows."
+    },
+    {
       "name": "closure_announced",
       "group": "process",
       "description": "Date the closure was announced, from the SHEEO closed-college file."

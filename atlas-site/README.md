@@ -79,6 +79,8 @@ npm run refresh:fsa:local
 
 `_DATA/dead_campus_phase1_source_files/sheeo_closed_college_context_cleaned.csv` (SHEEO, 748 closures) is joined to federal sites by OPEID in `tools/build_data.py`. The federal table shows each matched site as abrupt or orderly with notice and teach-out, and filters on it; case files show it for curated and extended campuses; the Readings panel tests "closures arrive without warning". The full text, notes, and source URLs are in the dataset CSV (`DATASET.md`).
 
+SHEEO did not code every closure. `npm run process:draw` frames the for-profit degree-granting exits it left out (876 for 2010-2025, all coded), batching chain events once and independents twelve at a time; reviewers write `closureproc_NN_result.json`, and `npm run process:merge` validates them into `curation/closure-process-forprofit.json`. The build places each institution's coding on its main federal site, so the table and filter treat it like a SHEEO row, marked `src: atlas`.
+
 ## Stable ids, corrections, and rechecks
 
 Federal site ids come from `_DATA/fsa_site_ids.csv`, not from row order, so a weekly refresh never moves an id. After `npm run update`, `npm run geocode:peps` geocodes only the new sites. `curation/federal-corrections.json` holds individual fixes to federal rows (a mistyped state, a wrong geocode) and the build refuses to publish a new state mismatch silently.

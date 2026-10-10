@@ -1045,6 +1045,91 @@ def sheeo_for_site(record: dict, sheeo: dict[str, dict]) -> dict | None:
     return compact
 
 
+CLOSURE_PROCESS_FORPROFIT = Path(__file__).resolve().parents[1] / "curation" / "closure-process-forprofit.json"
+TEACH_OUT_LABEL = {"n/a": "n/a (abrupt)"}
+
+
+def load_atlas_process() -> dict[int, dict]:
+    """For-profit exits coded with the SHEEO scheme by this project (tools/merge_closure_process.py)."""
+    if not CLOSURE_PROCESS_FORPROFIT.exists():
+        return {}
+    payload = json.loads(CLOSURE_PROCESS_FORPROFIT.read_text(encoding="utf-8"))
+    return {int(unitid): record for unitid, record in payload.get("records", {}).items()}
+
+
+def attach_atlas_process(federal_records: list[dict], atlas: dict[int, dict], sheeo: dict[str, dict]) -> tuple[dict[str, dict], list[int]]:
+    """Place each atlas-coded institution on its main federal site and return full entries by OPEID.
+
+    The institution is the unit of coding, so the values sit on its main site (or its earliest
+    site) and roll up from there, the same way SHEEO's site-grain rows roll up to an institution.
+    Returns (entries including SHEEO's, UNITIDs of coded institutions with no federal site).
+    """
+    entries = dict(sheeo)
+    by_unit: dict[int, list[dict]] = defaultdict(list)
+    for record in federal_records:
+        if record.get("ipedsUnitid"):
+            by_unit[int(record["ipedsUnitid"])].append(record)
+    unplaced: list[int] = []
+    for unitid, coded in atlas.items():
+        sites = by_unit.get(unitid, [])
+        if not sites:
+            unplaced.append(unitid)
+            continue
+        main = [s for s in sites if s.get("siteType") == "Main/Root"]
+        site = (main or sorted(sites, key=lambda s: s.get("closureYear") or 9999))[0]
+        if site.get("sheeo"):
+            continue  # SHEEO already coded this site
+        closed = _sheeo_date(coded.get("closed") or "") or _sheeo_date(site.get("closureDate") or "")
+        announced = _sheeo_date(coded.get("announced") or "")
+        lead = (closed - announced).days if closed and announced and (closed - announced).days >= 0 else None
+        merger = coded.get("merger")
+        evidence = coded.get("evidence") or []
+        compact: dict = {"src": "atlas", "event": coded["event"]}
+        if coded.get("announced"):
+            compact["announced"] = coded["announced"]
+        if lead is not None:
+            compact["leadDays"] = lead
+        if coded.get("abrupt") is not None:
+            compact["abrupt"] = coded["abrupt"]
+        if coded.get("teachOut"):
+            compact["teachOut"] = TEACH_OUT_LABEL.get(coded["teachOut"], coded["teachOut"])
+        if coded.get("records") and coded["records"] != "unknown":
+            compact["records"] = coded["records"]
+        if merger in ("attempted", "executed"):
+            compact["merged"] = merger
+        site["sheeo"] = compact
+        entries[site["opeid"]] = {
+            "opeid": site["opeid"], "name": coded.get("name"), "sector": "Private for-profit",
+            "closed": closed.isoformat() if closed else None,
+            "announced": coded.get("announced"), "leadDays": lead, "announcedAfterClosure": False,
+            "abrupt": coded.get("abrupt"), "teachOut": TEACH_OUT_LABEL.get(coded.get("teachOut") or "", coded.get("teachOut") or ""),
+            "merger": None if merger is None else merger != "none", "mergerNote": coded.get("mergerNote") or "",
+            "pepsMerge": None, "pepsMergeDate": None, "records": coded.get("records"),
+            "recordsNote": coded.get("recordsNote") or "", "accreditors": [],
+            "note": coded.get("notes") or "", "sources": [e["url"] for e in evidence if e.get("url")][:6],
+            "source": "Atlas coding", "event": coded["event"], "confidence": coded.get("confidence"),
+        }
+    return entries, unplaced
+
+
+def build_atlas_process_summary(atlas: dict[int, dict], unplaced: list[int]) -> dict:
+    if not atlas:
+        return {}
+    closures = [r for r in atlas.values() if r["event"] == "closure"]
+    flagged = [r for r in closures if r.get("abrupt") is not None]
+    abrupt = [r for r in flagged if r["abrupt"]]
+    return {
+        "coded": len(atlas),
+        "unplaced": len(unplaced),
+        "events": dict(Counter(r["event"] for r in atlas.values())),
+        "closures": len(closures),
+        "withAbruptFlag": len(flagged),
+        "abrupt": len(abrupt),
+        "abruptSharePct": round(100 * len(abrupt) / len(flagged)) if flagged else 0,
+        "confidence": dict(Counter(r.get("confidence") for r in atlas.values())),
+    }
+
+
 def build_sheeo_summary(sheeo: dict[str, dict], federal_records: list[dict]) -> dict:
     """How closures happened, from the SHEEO file: abrupt versus orderly, notice given, teach-outs."""
     if not sheeo:
@@ -1649,6 +1734,7 @@ def build_readings(sites: list[dict], queue_audit: dict, afterlife: dict | None 
         sectors = {g["label"]: g for g in sheeo_summary["bySector"]}
         notice = sheeo_summary["notice"]
         fp, np_, pub = sectors["Private for-profit"], sectors["Private nonprofit"], sectors["Public"]
+        atlas = sheeo_summary.get("atlas") or {}
         status = "supported" if share >= 50 else "mixed" if share >= 25 else "unsupported"
         readings.append(
             {
@@ -1659,6 +1745,11 @@ def build_readings(sites: list[dict], queue_audit: dict, afterlife: dict | None 
                     f"{sheeo_summary['abrupt']} of {total} ({share}%) were abrupt. By sector: for-profit {fp['sharePct']}% of {fp['n']}, "
                     f"nonprofit {np_['sharePct']}% of {np_['n']}, public {pub['sharePct']}% of {pub['n']}. "
                     f"Among the {notice['n']} with a dated announcement, the median notice was {notice['medianDays']} days and {notice['under30']} gave under 30."
+                    + (
+                        f" The atlas applied the same scheme to {atlas['coded']} more for-profit exits: {atlas['closures']} were closures, "
+                        f"{atlas['abrupt']} of {atlas['withAbruptFlag']} coded ones abrupt ({atlas['abruptSharePct']}%); the rest were consolidations, mergers, or not closures."
+                        if atlas.get("coded") else ""
+                    )
                 ),
                 "counter": (
                     "Orderly means a teach-out or notice existed, not that students were unharmed. The file covers about "
@@ -1713,6 +1804,11 @@ def main() -> None:
     exits_summary = build_census_summary(sites, ("closed", "dropped", "combined"))
     sheeo = load_sheeo()
     sheeo_summary = build_sheeo_summary(sheeo, federal_records)
+    atlas_process = load_atlas_process()
+    process_entries, atlas_unplaced = attach_atlas_process(federal_records, atlas_process, sheeo)
+    atlas_summary = build_atlas_process_summary(atlas_process, atlas_unplaced)
+    if sheeo_summary:
+        sheeo_summary["atlas"] = atlas_summary
     federal_by_unit: dict[int, list[dict]] = defaultdict(list)
     for record in federal_records:
         if record.get("ipedsUnitid"):
@@ -1733,7 +1829,8 @@ def main() -> None:
         spine,
         TRANSFER_TYPES,
         lambda morphology, buyer: MORPHOLOGY_ZONE.get(morphology or "", "") or BUYER_ZONE.get(buyer or "", ""),
-        sheeo,
+        process_entries,
+        {u: atlas_process[u] for u in atlas_unplaced},
     )
     dataset_summary = atlas_dataset.summarize(record_rows)
     dataset_problems = atlas_dataset.validate_records(

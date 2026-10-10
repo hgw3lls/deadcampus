@@ -1,6 +1,6 @@
 # The atlas as one dataset
 
-`dist/data/atlas-records.csv` holds everything the atlas knows in a single table: 30,979 records, 85 columns. The column guide is `dist/data/atlas-records.schema.json`. Both are rebuilt by `npm run build:data` and checked by `npm run validate`.
+`dist/data/atlas-records.csv` holds everything the atlas knows in a single table: 31,134 records, 88 columns. The column guide is `dist/data/atlas-records.schema.json`. Both are rebuilt by `npm run build:data` and checked by `npm run validate`.
 
 The curated campuses, the extended records, and the federal closure sites used to live in three files with three ids. They are now rows of one table with one id space.
 
@@ -10,7 +10,7 @@ The layers describe different things, so the table keeps the difference visible 
 
 | `kind` | One row is | Rows |
 | --- | --- | --- |
-| `institution` | A college, or a curated campus | 7,966 |
+| `institution` | A college, or a curated campus | 8,121 |
 | `site` | One federal closure record: a main campus, branch, annex, or extension | 23,013 |
 
 A site row carries `parent_id`, the `record_id` of its institution. An institution row carries rollups of its sites (`federal_sites`, `federal_main_sites`, `federal_branch_sites`, first and last closure year). Count institutions or sites by filtering on `kind`. Never count the whole table as one kind of thing.
@@ -23,7 +23,7 @@ The `layer` column says how much is known about an institution. A site is always
 | --- | --- | --- |
 | `curated` | 34 | Written for visitors, every claim sourced, reviewed. Full verification and event sequences. |
 | `extended` | 222 | Campus closed. Coded from public pages with an evidence URL per claim. Drawn on the map as extended records. |
-| `coded` | 174 | Coded, but not drawn: still operating, merged with the campus continuing, not a closure, unresolved, or a duplicate of a curated campus. |
+| `coded` | 329 | Coded, but not drawn: still operating, merged with the campus continuing, not a closure, unresolved, or a duplicate of a curated campus. Also 155 for-profit exits coded for closure process that have no federal site row (`coding_tier` is `closure-process`, with no `outcome`). |
 | `federal` | 7,536 | Known only from the federal closure file and the IPEDS directory. No fate coded. |
 
 Federal sites by institution layer: 21,790 under federal-only institutions, 692 under extended, 480 under curated, 51 under coded. Institutions with no federal site row are mostly coded ones that closed before the federal file's coverage or reported under a parent.
@@ -55,7 +55,9 @@ Identity, place, keys, federal, ipeds, rollup, fate, curated, trajectory. A colu
 
 ## Closure process
 
-Thirteen columns (`closure_announced`, `lead_time_days`, `abrupt_closure`, `teach_out`, `merger_attempt`, `merger_note`, `peps_merge`, `records_custody`, `accreditors`, `sheeo_note`, `sheeo_sources`, `sheeo_date_differs`, `sheeo_sites`) come from the SHEEO closed-college file. It has 748 rows, one per OPEID, which is the grain of a federal closure site, so the values sit on site rows. An institution row carries its main site's values if the main site is in the file, otherwise its earliest closing site's, and `sheeo_sites` counts how many of its sites are in the file. 604 institutions have values. `lead_time_days` is empty where the announcement date is unknown or falls after the closure (20 rows). `sheeo_note` keeps the researchers' wording, including their working remarks.
+Sixteen columns (`process_source`, `process_event`, `process_confidence`, `closure_announced`, `lead_time_days`, `abrupt_closure`, `teach_out`, `merger_attempt`, `merger_note`, `peps_merge`, `records_custody`, `accreditors`, `sheeo_note`, `sheeo_sources`, `sheeo_date_differs`, `sheeo_sites`) come from the SHEEO closed-college file and, where SHEEO has no row, from this project's coding of for-profit exits with the same scheme (`process_source` says which). SHEEO has 748 rows, one per OPEID, which is the grain of a federal closure site, so the values sit on site rows. An institution row carries its main site's values if the main site is in the file, otherwise its earliest closing site's, and `sheeo_sites` counts how many of its sites are in the file. 604 institutions have values. `lead_time_days` is empty where the announcement date is unknown or falls after the closure (20 rows). `sheeo_note` keeps the researchers' wording, including their working remarks.
+
+The atlas-coded rows (`process_source` = Atlas coding) are for-profit degree-granting institutions that left IPEDS from 2010 to 2025 and have no OPEID in the SHEEO file. The coding unit there is the institution, so its values sit on the main federal site and roll up to the institution row. `process_event` records what the exit was: closure, consolidation (a unit folded into another of the same company), merger, still-operating, or unresolved. `abrupt_closure` is set only for a closure. All 876 institutions in that frame are coded: 536 closures, 172 consolidations, 141 unresolved, 16 still operating, and 11 mergers. 383 are low confidence, and 158 of the closures have no abrupt or orderly code because no source was found.
 
 ## Stable site ids
 
@@ -70,7 +72,7 @@ The federal file is sorted newest first, so a site's row number changes every we
 
 - It is not a count of closed campuses. Federal rows are closure *sites* and include branches of institutions that still operate. Use `outcome` on institution rows for campus fate.
 - Federal-only institutions have no fate. An empty `outcome` means not coded, not "no change".
-- Coordinates come from three sources, named in `coordinate_source`: curated, the IPEDS directory, or the Census batch geocoder. 17,308 of 23,013 sites and 7,537 of 7,966 institutions have one. The Census geocoder matched 17,309; one match was withheld because it placed a Florida site in North Carolina.
+- Coordinates come from three sources, named in `coordinate_source`: curated, the IPEDS directory, or the Census batch geocoder. 17,308 of 23,013 sites and 7,692 of 8,121 institutions have one. The Census geocoder matched 17,309; one match was withheld because it placed a Florida site in North Carolina.
 - Trajectory columns exist for the curated and extended records, because enrollment and finance were pulled only for them.
 
 ## Use

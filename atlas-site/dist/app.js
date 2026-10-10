@@ -1075,22 +1075,33 @@
 
   // How a closure happened, from the SHEEO closed-college file: abrupt or orderly, notice, teach-out.
   const PROCESS_ALL = "All closures";
+  const EVENT_LABEL = {
+    consolidation: "Consolidated into another unit",
+    merger: "Merged or acquired",
+    "still-operating": "Still operating",
+    unresolved: "Not resolved",
+  };
   function processText(process) {
     if (!process) return "";
     const parts = [];
+    if (process.event && process.event !== "closure" && EVENT_LABEL[process.event]) parts.push(EVENT_LABEL[process.event]);
     if (process.abrupt === true) parts.push("Abrupt");
     else if (process.abrupt === false) parts.push("Orderly");
     if (process.leadDays != null) parts.push(process.leadDays === 0 ? "announced the day it closed" : `${formatNumber(process.leadDays)} days notice`);
     if (process.teachOut === "yes") parts.push("teach-out plan");
     else if (process.teachOut === "no") parts.push("no teach-out");
-    if (process.merged) parts.push(process.merged === "attempted" ? "merger attempted" : String(process.merged).toLowerCase());
+    if (process.merged && process.event !== "merger") {
+      const merged = String(process.merged).toLowerCase();
+      parts.push(merged === "attempted" ? "merger attempted" : merged === "executed" ? "merger executed" : merged);
+    }
     return parts.join(" · ");
   }
   const processKind = (record) => {
-    if (!record.sheeo) return "Not in SHEEO file";
+    if (!record.sheeo) return "Not coded";
     if (record.sheeo.abrupt === true) return "Abrupt";
     if (record.sheeo.abrupt === false) return "Orderly";
-    return "In SHEEO file";
+    if (record.sheeo.event && record.sheeo.event !== "closure") return "Not a closure";
+    return "Coded";
   };
   const fateText = (record) => (record.ipedsStatus === "combined" && record.successor ? `Combined into ${record.successor}` : fateOf(record));
 
@@ -1110,7 +1121,7 @@
       if (state.federalFate !== "All fates" && fateOf(record) !== state.federalFate) return false;
       if (state.federalProcess !== PROCESS_ALL) {
         const kind = processKind(record);
-        if (state.federalProcess === "In SHEEO file" ? !record.sheeo : kind !== state.federalProcess) return false;
+        if (state.federalProcess === "Coded" ? !record.sheeo : kind !== state.federalProcess) return false;
       }
       return true;
     });
@@ -1128,7 +1139,7 @@
     fill($("#federalYear"), "All years", years);
     fill($("#federalSiteType"), "All types", types);
     fill($("#federalFate"), "All fates", [...Object.values(FATE_LABEL), NOT_IN_IPEDS]);
-    fill($("#federalProcess"), PROCESS_ALL, ["Abrupt", "Orderly", "In SHEEO file", "Not in SHEEO file"]);
+    fill($("#federalProcess"), PROCESS_ALL, ["Abrupt", "Orderly", "Not a closure", "Coded", "Not coded"]);
   }
 
   function renderFederalTable() {

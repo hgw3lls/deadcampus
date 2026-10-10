@@ -17,13 +17,13 @@
     2025
   ],
   "dataset": {
-    "records": 30979,
-    "institutions": 7966,
+    "records": 31134,
+    "institutions": 8121,
     "sites": 23013,
     "institutionsByLayer": {
       "curated": 34,
       "extended": 222,
-      "coded": 174,
+      "coded": 329,
       "federal": 7536
     },
     "sitesByInstitutionLayer": {
@@ -34,10 +34,10 @@
     },
     "institutionsWithFate": 430,
     "institutionsWithFederalSites": 7796,
-    "columns": 85,
+    "columns": 88,
     "file": "data/atlas-records.csv",
     "schema": "data/atlas-records.schema.json",
-    "bytes": 11908394
+    "bytes": 13914000
   },
   "sheeo": {
     "source": "SHEEO Closed College Context (N=748)",
@@ -104,7 +104,27 @@
       2018,
       2016,
       2017
-    ]
+    ],
+    "atlas": {
+      "coded": 876,
+      "unplaced": 155,
+      "events": {
+        "unresolved": 141,
+        "consolidation": 172,
+        "closure": 536,
+        "still-operating": 16,
+        "merger": 11
+      },
+      "closures": 536,
+      "withAbruptFlag": 378,
+      "abrupt": 196,
+      "abruptSharePct": 52,
+      "confidence": {
+        "low": 383,
+        "medium": 316,
+        "high": 177
+      }
+    }
   },
   "federalAudit": {
     "corrections": 4,
@@ -41247,7 +41267,7 @@
       "id": "abrupt-closure",
       "claim": "Closures arrive without warning, and the students are left.",
       "test": "Share of 740 closures in the SHEEO closed-college file that researchers coded abrupt rather than orderly. Supported at 50% or more; mixed at 25% or more; unsupported below.",
-      "evidence": "190 of 740 (26%) were abrupt. By sector: for-profit 37% of 476, nonprofit 7% of 195, public 0% of 68. Among the 460 with a dated announcement, the median notice was 128 days and 145 gave under 30.",
+      "evidence": "190 of 740 (26%) were abrupt. By sector: for-profit 37% of 476, nonprofit 7% of 195, public 0% of 68. Among the 460 with a dated announcement, the median notice was 128 days and 145 gave under 30. The atlas applied the same scheme to 876 more for-profit exits: 536 were closures, 196 of 378 coded ones abrupt (52%); the rest were consolidations, mergers, or not closures.",
       "counter": "Orderly means a teach-out or notice existed, not that students were unharmed. The file covers about 2004 to 2020 and is mostly for-profit (476 of 740), so the nonprofit and public figures rest on 195 and 68 closures.",
       "status": "mixed"
     }

@@ -210,8 +210,12 @@ def check_sheeo(payload: dict, report: Report) -> None:
         report.error(f"{info.get('rows', 0) - info.get('matchedToFederal', 0)} SHEEO rows match no federal site by OPEID")
     federal = load_js_payload(FEDERAL_DATA, "DEAD_CAMPUS_FEDERAL_RECORDS", "Federal data file", report) or []
     attached = sum(1 for r in federal if r.get("sheeo") is not None)
-    if attached != info.get("rows"):
-        report.error(f"{attached} federal sites carry SHEEO fields but the file has {info.get('rows')} rows")
+    atlas = (info.get("atlas") or {}).get("coded", 0) - (info.get("atlas") or {}).get("unplaced", 0)
+    placed_by_atlas = sum(1 for r in federal if (r.get("sheeo") or {}).get("src") == "atlas")
+    if attached - placed_by_atlas != info.get("rows"):
+        report.error(f"{attached - placed_by_atlas} federal sites carry SHEEO fields but the file has {info.get('rows')} rows")
+    if placed_by_atlas > atlas:
+        report.error(f"{placed_by_atlas} sites carry atlas-coded closure process for {atlas} placed institutions")
     if info.get("abrupt", 0) + info.get("orderly", 0) != info.get("withAbruptFlag"):
         report.error("SHEEO abrupt and orderly counts do not add to the coded total")
     for record in federal:
