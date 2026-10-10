@@ -3,248 +3,306 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>Dead Campus Atlas</title>
+    <title>Dead Campus Atlas · Terminal Education</title>
     <meta
       name="description"
-      content="An artistic archival atlas of closed college campuses and their afterlives."
+      content="Division of Institutional Withdrawal, Office of Campus Retreat. An archival atlas of closed college campuses, their buyers, and what the land became."
     />
-    <meta property="og:title" content="Dead Campus Atlas" />
+    <meta property="og:title" content="Dead Campus Atlas · Terminal Education" />
     <meta
       property="og:description"
-      content="A public prototype for an artistic archive of closed campuses, land transfers, and institutional afterlives."
+      content="Administrating the collapse of higher education. 34 curated campus records over a federal closed-school layer."
     />
-    <link rel="icon" href="assets/te-seal.png" />
-    <link rel="stylesheet" href="styles.css" />
-    <script src="data/atlas-data.js"></script>
-    <script src="app.js" defer></script>
+    <link rel="icon" href="assets/te-logo.png" />
+    <link rel="preload" href="fonts/old-standard-tt-400.woff2" as="font" type="font/woff2" crossorigin />
+    <link rel="preload" href="fonts/barlow-condensed-600.woff2" as="font" type="font/woff2" crossorigin />
+    <link rel="stylesheet" href="styles.css?v=d42f819a05" />
+    <script src="data/atlas-data.js?v=fa3597ea4d"></script>
+    <script src="app.js?v=3c76a8af3a" defer></script>
   </head>
   <body>
-    <div class="site-shell">
-      <header class="masthead">
-        <div class="brand-block">
-          <img class="brand-mark" src="assets/te-seal.png" alt="" />
-          <div>
-            <p class="eyebrow">Artistic archive prototype</p>
-            <h1>Dead Campus Atlas</h1>
-            <p class="dek">
-              A field guide to closed colleges, land transfers, and institutional afterlives.
-            </p>
-          </div>
-        </div>
-        <div class="masthead-art" aria-hidden="true">
-          <img src="assets/te-atlas.png" alt="" />
-        </div>
+    <a class="skip-link" href="#atlas">Skip to the map</a>
+    <div class="grain" aria-hidden="true"></div>
+
+    <div class="sheet">
+      <header class="topbar" id="top">
+        <a class="brand" href="#view/atlas" aria-label="Terminal Education, Division of Institutional Withdrawal">
+          <img class="brand-mark" src="assets/te-logo.png" alt="" />
+          <span class="brand-text">
+            Terminal Education
+            <span class="brand-sub">Division of Institutional Withdrawal</span>
+          </span>
+        </a>
+        <nav class="offices" id="offices" aria-label="Offices">
+          <a href="#view/atlas" data-section="atlas">Atlas</a>
+          <a href="#view/records" data-section="records">Records</a>
+          <a href="#view/abyss" data-section="abyss">Abyss</a>
+          <a href="#view/queue" data-section="queue">Queue</a>
+          <a href="#view/timeline" data-section="timeline">Timeline</a>
+          <a href="#view/method" data-section="method">Method</a>
+        </nav>
+        <button
+          class="sector-stamp"
+          id="menuToggle"
+          type="button"
+          aria-expanded="false"
+          aria-controls="offices"
+        >
+          <span>SECTOR</span><span>T.E-09</span><span class="stamp-menu" aria-hidden="true">≡</span>
+        </button>
       </header>
 
       <main>
-        <section class="atlas-console" aria-labelledby="atlas-title">
-          <div class="console-head">
-            <div>
-              <p class="eyebrow">Public layer</p>
-              <h2 id="atlas-title">Canonical campus records</h2>
+        <!-- Hero ------------------------------------------------------- -->
+        <section class="hero" aria-labelledby="hero-title">
+          <img class="hero-seal" src="assets/te-seal.png" alt="Terminal Education seal" />
+          <div class="hero-copy">
+            <p class="eyebrow">Office of Campus Retreat · Dead Campus Atlas</p>
+            <h1 id="hero-title">Administrating the collapse of higher education.</h1>
+            <p class="axis-rule" aria-label="Campus to cloud">
+              <span>Campus</span><span class="rule" aria-hidden="true"></span><span class="rule-end">Cloud →</span>
+            </p>
+            <dl class="hero-stats" id="heroStats"></dl>
+          </div>
+          <img class="hero-figure" src="assets/te-atlas.png" alt="Atlas figure, kneeling" />
+        </section>
+
+        <!-- Territory map + index ------------------------------------- -->
+        <section class="board" id="atlas" aria-labelledby="fig1-title">
+          <div class="board-map">
+            <div class="board-head">
+              <h2 class="label-lg" id="fig1-title">
+                Fig. 01 — Territory <span class="hint">· drag, scroll to zoom, click a zone</span>
+              </h2>
+              <div class="seg" role="group" aria-label="Map layer">
+                <button type="button" id="modeCurated" aria-pressed="true">Curated · <span id="modeCuratedCount">34</span></button>
+                <button type="button" id="modeAbyss" aria-pressed="false">Abyss · state retreat</button>
+              </div>
             </div>
-            <div class="mode-tabs" role="tablist" aria-label="Atlas views">
-              <button
-                class="tab-button is-active"
-                id="tab-archive"
-                type="button"
-                data-view="archive"
-                role="tab"
-                aria-controls="view-archive"
-                aria-selected="true"
+
+            <div class="map-frame" id="mapFrame">
+              <div
+                class="map-viewport"
+                id="mapViewport"
+                tabindex="0"
+                role="application"
+                aria-label="Territory map. Arrow keys pan, plus and minus zoom, zero fits the whole map."
               >
-                Archive
-              </button>
-              <button
-                class="tab-button"
-                id="tab-abyss"
-                type="button"
-                data-view="abyss"
-                role="tab"
-                aria-controls="view-abyss"
-                aria-selected="false"
-                tabindex="-1"
-              >
-                Abyss
-              </button>
-              <button
-                class="tab-button"
-                id="tab-method"
-                type="button"
-                data-view="method"
-                role="tab"
-                aria-controls="view-method"
-                aria-selected="false"
-                tabindex="-1"
-              >
-                Method
-              </button>
+                <div class="map-world" id="mapWorld">
+                  <div class="territory">
+                    <span class="territory-label">Territory · lon −125 → −64 · lat 25 → 50</span>
+                    <span class="territory-corner">CAMPUS</span>
+                    <canvas class="haze-canvas" id="hazeCanvas" aria-hidden="true"></canvas>
+                  </div>
+                  <p class="zone-caption" id="zoneCaption">Replacement economy → CLOUD</p>
+                  <svg class="flows" id="flows" width="2000" height="880" aria-hidden="true"></svg>
+                  <div id="bubbleLayer"></div>
+                  <div id="zoneLayer"></div>
+                  <div id="nodeLayer"></div>
+                </div>
+              </div>
+
+              <div class="map-panel" id="mapPanel">
+                <button class="panel-head" id="panelToggle" type="button" aria-expanded="true" aria-controls="panelBody">
+                  <span>Jump to view</span><span id="panelIcon" aria-hidden="true">▾</span>
+                </button>
+                <div id="panelBody">
+                  <ul class="jump-list" id="jumpList"></ul>
+                  <p class="panel-sub">Layers</p>
+                  <ul class="layer-list" id="layerList"></ul>
+                </div>
+              </div>
+
+              <div class="map-zoom" role="group" aria-label="Zoom">
+                <button type="button" id="zoomIn" aria-label="Zoom in">+</button>
+                <button type="button" id="zoomOut" aria-label="Zoom out">−</button>
+                <button type="button" id="zoomFit" class="fit">FIT</button>
+              </div>
+
+              <div class="minimap" id="minimap" aria-hidden="true">
+                <div class="minimap-world" id="minimapWorld"></div>
+                <div class="minimap-view" id="minimapView"></div>
+                <span class="minimap-zoom" id="minimapZoom">100%</span>
+              </div>
+
+              <aside class="map-drawer" id="mapDrawer" hidden aria-label="Selected campus">
+                <div class="drawer-head">
+                  <b>Case file</b>
+                  <button type="button" id="drawerClose" aria-label="Close case file">✕</button>
+                </div>
+                <div class="drawer-body" id="drawerBody"></div>
+              </aside>
             </div>
+
+            <p class="map-status" id="mapStatus" role="status" aria-live="polite"></p>
+            <ol class="axis" id="axisStrip" aria-label="Ruin to cloud axis"></ol>
           </div>
 
-          <div class="stat-strip" id="statStrip" aria-label="Atlas statistics"></div>
-
-          <section
-            class="view-panel is-active"
-            id="view-archive"
-            role="tabpanel"
-            aria-labelledby="tab-archive"
-          >
-            <div class="control-row" aria-label="Archive filters">
-              <label class="search-control">
-                <span>Search</span>
-                <input id="searchInput" type="search" placeholder="Campus, buyer, state" />
-              </label>
-              <label class="select-control">
-                <span>Typology</span>
-                <select id="morphologyFilter"></select>
-              </label>
-              <label class="toggle-control">
-                <input id="priorityOnly" type="checkbox" />
-                <span>Iconic only</span>
-              </label>
+          <aside class="board-index" aria-labelledby="index-title">
+            <h2 class="label-lg" id="index-title">Index of records</h2>
+            <div class="seg seg-block" id="scopeSeg" role="group" aria-label="Record set">
+              <button type="button" data-scope="curated" aria-pressed="true">Curated · <span id="scopeCuratedN">34</span></button>
+              <button type="button" data-scope="extended" aria-pressed="false">Extended · <span id="scopeExtendedN">0</span></button>
+              <button type="button" data-scope="all" aria-pressed="false">All</button>
             </div>
+            <p class="note" id="scopeNote"></p>
+            <label class="index-search">
+              <span class="visually-hidden">Search the index</span>
+              <input id="searchInput" type="search" placeholder="Campus, buyer, state" autocomplete="off" />
+            </label>
+            <p class="index-count" id="resultCount" aria-live="polite"></p>
+            <ul class="index-list" id="recordList"></ul>
+          </aside>
+        </section>
 
-            <div class="archive-grid">
-              <section class="territory-panel" aria-labelledby="territory-title">
-                <div class="panel-title-row">
-                  <div>
-                    <p class="eyebrow">Coordinates layer</p>
-                    <h3 id="territory-title">Campus afterlife field</h3>
-                  </div>
-                  <p class="count-pill" id="resultCount"></p>
-                </div>
-                <div class="map-plane" id="mapPlane" aria-label="Interactive campus coordinate map"></div>
-              </section>
+        <!-- Case file -------------------------------------------------- -->
+        <section class="casefile" id="records" aria-labelledby="case-name">
+          <article class="case-main" id="caseMain"></article>
+          <aside class="case-side" aria-label="Form properties">
+            <h3 class="label-lg">Form properties</h3>
+            <dl class="props" id="caseProps"></dl>
+            <div class="hazard" aria-hidden="true"></div>
+            <p class="cite" id="caseCite"></p>
+          </aside>
+        </section>
 
-              <section class="record-panel" aria-labelledby="record-title">
-                <div class="panel-title-row">
-                  <div>
-                    <p class="eyebrow">Selected record</p>
-                    <h3 id="record-title">Campus dossier</h3>
-                  </div>
-                  <span class="record-number" id="recordNumber"></span>
-                </div>
-                <article id="recordDetail" class="record-detail"></article>
-              </section>
-            </div>
+        <!-- Abyss ------------------------------------------------------ -->
+        <section class="abyss" id="abyss" aria-labelledby="abyss-title">
+          <div class="abyss-left">
+            <img class="grid-mark" src="assets/te-grid.png" alt="" />
+            <h2 class="label-lg" id="abyss-title">The Abyss · PEPS / FSA layer</h2>
+            <p class="prose">
+              Raw federal closed-school rows, kept raw. Every Title IV site that closed, branch and
+              annex included, from the Weekly Closed School Search File. Not curated.
+            </p>
+            <label class="abyss-search">
+              <span class="visually-hidden">Search federal records</span>
+              <input id="federalSearch" type="search" placeholder="Search the federal records…" autocomplete="off" />
+            </label>
+            <p class="abyss-source" id="abyssSource"></p>
+          </div>
+          <div class="abyss-right">
+            <h3 class="label-lg">Fig. 02 — Closure sites by state, top ten</h3>
+            <ol class="bubbles" id="stateBubbles"></ol>
+            <p class="note" id="bubbleNote">
+              Bubble area is proportional to the number of federal closure sites in the state. Counts,
+              not rates: they track where for-profit and cosmetology schools clustered.
+            </p>
+          </div>
+        </section>
 
-            <section class="index-panel" aria-labelledby="index-title">
-              <div class="panel-title-row">
-                <div>
-                  <p class="eyebrow">Atlas index</p>
-                  <h3 id="index-title">One row per public campus</h3>
-                </div>
-              </div>
-              <div class="record-list" id="recordList"></div>
-            </section>
-          </section>
+        <section class="retreat" id="retreat" aria-labelledby="retreat-title">
+          <div class="retreat-head">
+            <h2 class="label-lg" id="retreat-title">Fig. 03 — Closure sites over time</h2>
+            <p class="count-pill" id="retreatCount" aria-live="polite"></p>
+          </div>
+          <p class="prose small">
+            Each mark is a Title IV closure site placed by the Census Bureau geocoder. Dark squares are
+            main campuses, pale squares branches and annexes, blue marks closed in the selected year,
+            rings the curated campuses. Alaska, Hawaii, and Puerto Rico sit in insets. The table below
+            lists every record.
+          </p>
+          <div class="retreat-controls">
+            <button type="button" id="retreatPlay" class="btn" aria-pressed="false">Play</button>
+            <label class="retreat-range">
+              <span>Closed through</span>
+              <input id="retreatRange" type="range" min="1984" max="2026" value="2026" />
+              <output id="retreatYear" for="retreatRange">2026</output>
+            </label>
+            <label class="check">
+              <input id="retreatBranches" type="checkbox" checked />
+              <span>Branches and annexes</span>
+            </label>
+          </div>
+          <div class="retreat-stage">
+            <canvas id="retreatCanvas" class="retreat-canvas" role="img" aria-label="Map of closure sites, not yet loaded"></canvas>
+            <p class="retreat-readout" id="retreatReadout">Move across the map to identify a site.</p>
+          </div>
+          <p class="federal-status" id="federalStatus" role="status" aria-live="polite" hidden></p>
+        </section>
 
-          <section
-            class="view-panel"
-            id="view-abyss"
-            role="tabpanel"
-            aria-labelledby="tab-abyss"
-            hidden
-          >
-            <div class="abyss-layout">
-              <section class="abyss-panel">
-                <p class="eyebrow">Raw federal layer</p>
-                <h3>PEPS site retreat mass</h3>
-                <p class="body-copy">
-                  The PEPS layer is the live federal field behind the curated atlas: closure-site
-                  records refreshed from the FSA Weekly Closed School Search File.
-                </p>
-                <div class="bar-stack" id="classBars"></div>
-              </section>
-              <section class="abyss-panel">
-                <p class="eyebrow">Temporal layer</p>
-                <h3>Closure strata</h3>
-                <div class="timeline" id="timeline"></div>
-              </section>
-              <section class="abyss-panel">
-                <p class="eyebrow">Geographic layer</p>
-                <h3>Top state counts</h3>
-                <div class="state-grid" id="stateGrid"></div>
-              </section>
-            </div>
+        <section class="federal" id="federal" aria-labelledby="federal-title">
+          <div class="federal-head">
+            <h2 class="label-lg" id="federal-title">Closed school detail records</h2>
+            <p class="count-pill" id="federalResultCount"></p>
+          </div>
+          <div class="federal-controls" aria-label="Federal record filters">
+            <label>
+              <span>State</span>
+              <select id="federalState"></select>
+            </label>
+            <label>
+              <span>Year</span>
+              <select id="federalYear"></select>
+            </label>
+            <label>
+              <span>Type</span>
+              <select id="federalSiteType"></select>
+            </label>
+            <label>
+              <span>IPEDS fate</span>
+              <select id="federalFate"></select>
+            </label>
+            <label>
+              <span>Closure process</span>
+              <select id="federalProcess"></select>
+            </label>
+          </div>
+          <div class="table-scroll">
+            <table class="federal-table">
+              <thead>
+                <tr>
+                  <th scope="col">School</th>
+                  <th scope="col">Place</th>
+                  <th scope="col">Closed</th>
+                  <th scope="col">OPEID</th>
+                  <th scope="col">Type</th>
+                  <th scope="col">IPEDS fate · closure process</th>
+                </tr>
+              </thead>
+              <tbody id="federalTableBody"></tbody>
+            </table>
+          </div>
+          <div class="federal-pager" id="federalPager"></div>
+        </section>
 
-            <section class="federal-panel" aria-labelledby="federal-title">
-              <div class="panel-title-row">
-                <div>
-                  <p class="eyebrow">Federal layer</p>
-                  <h3 id="federal-title">Closed school detail records</h3>
-                </div>
-                <p class="count-pill" id="federalResultCount"></p>
-              </div>
-              <p class="federal-status" id="federalStatus" role="status" aria-live="polite" hidden></p>
-              <div class="federal-controls" aria-label="Federal record filters">
-                <label class="search-control">
-                  <span>Search</span>
-                  <input id="federalSearch" type="search" placeholder="School, city, OPEID" />
-                </label>
-                <label class="select-control">
-                  <span>State</span>
-                  <select id="federalState"></select>
-                </label>
-                <label class="select-control">
-                  <span>Year</span>
-                  <select id="federalYear"></select>
-                </label>
-                <label class="select-control">
-                  <span>Type</span>
-                  <select id="federalSiteType"></select>
-                </label>
-              </div>
-              <div class="table-scroll">
-                <table class="federal-table">
-                  <thead>
-                    <tr>
-                      <th scope="col">School</th>
-                      <th scope="col">Place</th>
-                      <th scope="col">Closed</th>
-                      <th scope="col">OPEID</th>
-                      <th scope="col">Type</th>
-                    </tr>
-                  </thead>
-                  <tbody id="federalTableBody"></tbody>
-                </table>
-              </div>
-              <div class="federal-pager" id="federalPager"></div>
-            </section>
-          </section>
+        <!-- Queue / Exhibit A / Method -------------------------------- -->
+        <section class="triptych" aria-label="Queue, timeline, method">
+          <div class="tri-col" id="queue">
+            <h2 class="label-lg" id="queue-title">Queue · <span id="queueCount">0</span></h2>
+            <p class="note" id="queueLead"></p>
+            <ul class="queue-list" id="queueList"></ul>
+          </div>
+          <div class="tri-col" id="timeline">
+            <h2 class="label-lg">Exhibit A · Closures by decade</h2>
+            <ol class="decade-bars" id="decadeBars"></ol>
+            <p class="note" id="decadeNote"></p>
+          </div>
+          <div class="tri-col" id="method">
+            <h2 class="label-lg">Method · one dataset</h2>
+            <p class="prose small" id="datasetLead"></p>
+            <ol class="layers" id="datasetLayers"></ol>
+            <p class="note" id="datasetNote"></p>
+            <p class="dataset-links" id="datasetLinks"></p>
+          </div>
+        </section>
 
-          <section
-            class="view-panel"
-            id="view-method"
-            role="tabpanel"
-            aria-labelledby="tab-method"
-            hidden
-          >
-            <div class="method-layout">
-              <section class="method-panel">
-                <p class="eyebrow">Project architecture</p>
-                <h3>Three readable layers</h3>
-                <ol>
-                  <li>Public Atlas: canonical campus dossiers.</li>
-                  <li>Source Archive: raw PEPS, SHEEO, and manual evidence.</li>
-                  <li>Editorial Queue: unresolved records and production gaps.</li>
-                </ol>
-              </section>
-              <section class="method-panel">
-                <p class="eyebrow">Viability work</p>
-                <h3>Release bar</h3>
-                <ul id="releaseList"></ul>
-              </section>
-              <section class="method-panel">
-                <p class="eyebrow">Data audit</p>
-                <h3>Known gaps</h3>
-                <div class="audit-grid" id="auditGrid"></div>
-              </section>
-            </div>
-          </section>
+        <!-- Readings --------------------------------------------------- -->
+        <section class="readings-band" id="readings" aria-labelledby="readings-title">
+          <div class="readings-head">
+            <h2 class="label-lg" id="readings-title">Readings · theses under test</h2>
+            <p class="prose small">
+              Each claim from the project's research questions, with the test it implies, what the
+              data shows today, and what cuts against it. <em>Evidence</em> is computed from the
+              records; the reading is the claim.
+            </p>
+          </div>
+          <div class="readings" id="readingsList"></div>
+          <div class="release" id="releaseBar"></div>
         </section>
       </main>
+
+      <footer class="foot" id="foot"></footer>
     </div>
   </body>
 </html>
