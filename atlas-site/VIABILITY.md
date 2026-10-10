@@ -38,7 +38,7 @@ Ordered so that each step unblocks the ones after it. Reviewed 2026-10-09 agains
 - Event sequences. Each public site carries dated status-code events with sources; ten have month-dated transfer sequences, and the build derives time in limbo.
 - Replacement matrix. Every public site carries `originalSystem`, `buyerSector`, and `replacementSystem` from controlled lists; morphology is derived from the replacement system and the validator checks the vocabulary.
 - Page weight. The eager data file is 246 KB (was 1.2 MB). The extended records are a lazy 563 KB bundle, and every asset URL carries a content digest.
-- Closure process extended to for-profit exits. All 876 for-profit degree-granting exits SHEEO did not code are coded with its scheme: 536 closures, 172 consolidations, 141 unresolved, 16 still operating, 11 mergers. See `NARRATIVES.md` 3.16.
+- Closure process extended to for-profit exits. All 876 for-profit degree-granting exits SHEEO did not code are coded with its scheme: 625 closures, 193 consolidations, 34 still operating, 16 mergers, 8 unresolved. A second pass on the first pass's 141 unresolved resolved 133 using archived school sites and regulator notices. See `NARRATIVES.md` 3.16.
 - Closure process wired in. The SHEEO closed-college file (748 closures) is joined to federal sites by OPEID: abrupt versus orderly, notice, teach-out, mergers, in the dataset, the federal table, case files, and a Readings test. See `NARRATIVES.md` 3.15.
 - Stable site ids and a refresh that does not break them. `_DATA/fsa_site_ids.csv` is append-only; the 2026-10-04 FSA report added 51 sites without moving one id, and geocoding sends only new sites.
 - IPEDS 2025 pulled and the census frame extended to 2010-2025: 27 new exits coded, 190 closed and 427 exits in all, each coded.
@@ -64,7 +64,7 @@ Ordered so that each step unblocks the ones after it. Reviewed 2026-10-09 agains
 2. Review the evidence-row verification states. 136 of 170 rows are `Pending`; decide which should be `Confirmed` or `Manual add` and record that in the queue CSV.
 3. Restructure the 34 summaries into three parts per campus: closure, transfer, afterlife. Edit `summary` in the curation file.
 4. Decide whether the first public release is the 34 or grows to 50. Growing means adding rows to the master table and curation entries for each, then raising `MINIMUM_PUBLIC_SITES` in `build_data.py`.
-5. Resolve the 141 unresolved and 158 uncoded-abruptness for-profit closures. State regulator closed-school lists (IBHE, BPPE, SCHEV, Florida CIE, TWC) refused automated readers; reading them in a browser session is the way in.
+5. Firm up the 45 low-confidence second-pass resolutions and the 218 closures with no abrupt or orderly code, with regulator closed-school lists (IBHE, BPPE, SCHEV, TWC) read in a browser session, and resolve the last 8 unresolved.
 6. Look up county assessor and recorder records for the 124 coded campuses whose fate is unknown and the addresses reviewers named in the recheck notes. This is the step the web-search budget prevented.
 7. Revisit the four curated classifications marked provisional in their editorial notes (Wells, Alderson Broaddus, Southern Vermont, Green Mountain) when their sales or openings resolve.
 8. Add image evidence or archival media per campus: a `media` field in the curation file, an assets folder convention, and a validator rule first, then collection.

@@ -82,7 +82,13 @@ def check(group: dict) -> list[str]:
 
 def main() -> None:
     frame = {int(r["unitid"]): r for r in csv.DictReader(FRAME.open(encoding="utf-8"))}
-    results = sorted(BATCH_DIR.glob("closureproc_*_result.json"))
+    # A resolve file is a second pass over institutions an earlier batch left unresolved. It is
+    # read after the first-pass batches and replaces their record for the same UNITID, which is
+    # kept under "resolvedFrom" so the history is not lost.
+    results = sorted(
+        BATCH_DIR.glob("closureproc_*_result.json"),
+        key=lambda p: (p.name.startswith("closureproc_resolve_"), p.name),
+    )
     if not results:
         raise SystemExit("No closure-process result files found")
     accepted: dict[int, dict] = {}
@@ -102,14 +108,16 @@ def main() -> None:
             unknown = [u for u in unitids if u not in frame]
             if unknown:
                 problems.append(f"unitids not in the frame: {unknown[:3]}")
+            override = path.name.startswith("closureproc_resolve_")
             repeated = [u for u in unitids if u in accepted]
-            if repeated:
+            if repeated and not override:
                 problems.append(f"unitids already coded: {repeated[:3]}")
             if problems:
                 rejected.append((path.name, f"group {number} ({len(unitids)} institutions)", problems))
                 continue
             for unitid in unitids:
                 row = frame[unitid]
+                earlier = accepted.get(unitid)
                 accepted[unitid] = {
                     **{k: group.get(k) for k in KEEP},
                     "name": row["name"],
@@ -118,6 +126,10 @@ def main() -> None:
                     "exitYear": int(row["exit_year"]),
                     "groupSize": len(unitids),
                     "batch": row["batch"],
+                    **(
+                        {"resolvedFrom": {"event": earlier["event"], "confidence": earlier["confidence"], "notes": earlier["notes"], "pass": path.name}}
+                        if earlier and override else {}
+                    ),
                 }
     missing = [u for u in frame if u not in accepted]
     payload = {
