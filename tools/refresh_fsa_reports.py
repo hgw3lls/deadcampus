@@ -19,6 +19,8 @@ from datetime import datetime, timezone, timedelta
 from pathlib import Path
 from xml.etree import ElementTree
 
+import fsa_ids
+
 
 ROOT = Path(__file__).resolve().parents[2]
 DATA_ROOT = ROOT / "_DATA"
@@ -72,6 +74,7 @@ NORMALIZED_FIELDS = BASE_FIELDS + [
     "ATLAS_CITY",
     "ATLAS_ADDRESS",
     "ATLAS_PRELIMINARY_CLASS",
+    "ATLAS_RECORD_ID",
 ]
 
 NS = {
@@ -628,6 +631,17 @@ def main() -> None:
     finally:
         temp_path.unlink(missing_ok=True)
 
+    # Row order changes every week (newest first), so ids come from the registry, not the row number.
+    registry = fsa_ids.load()
+    if not registry:
+        raise SystemExit("No _DATA/fsa_site_ids.csv; run `python3 tools/fsa_ids.py --bootstrap` once before refreshing.")
+    known_ids = set(registry.values())
+    for row, record_id in zip(rows, fsa_ids.assign(rows, registry)):
+        row["ATLAS_RECORD_ID"] = record_id
+    present_ids = {row["ATLAS_RECORD_ID"] for row in rows}
+    new_sites = len(present_ids - known_ids)
+    vanished = len(known_ids - present_ids)
+
     validate_report_freshness(
         metadata,
         discovery,
@@ -651,6 +665,8 @@ def main() -> None:
         return
 
     freshness = write_outputs(workbook_bytes, source_url, rows, metadata, discovery)
+    fsa_ids.save(registry)
+    print(f"Site ids: {new_sites:,} new, {vanished:,} no longer in the report (ids retired, not reused)")
     print(json.dumps({"dryRun": False, **summary, "freshnessFile": str(FRESHNESS_JSON)}, indent=2))
     print(f"Wrote {RAW_WORKBOOK}")
     print(f"Wrote {CLEAN_CSV}")
