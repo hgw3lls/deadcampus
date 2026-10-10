@@ -1,0 +1,5 @@
+__pycache__/
+*.py[cod]
+
+# The repository root ignores dist for the Next.js build; this project ships its static site from dist.
+!dist

@@ -1,0 +1,445 @@
+{
+  "name": "Dead Campus Atlas records",
+  "description": "Curated campuses, coded institutions, and federal closure sites as one table with two levels (kind = institution | site).",
+  "primaryKey": "record_id",
+  "foreignKeys": [
+    {
+      "column": "parent_id",
+      "references": "record_id",
+      "when": "kind = site"
+    }
+  ],
+  "layers": {
+    "curated": "Hand-written, reviewed campus records.",
+    "extended": "Institutions whose campus closed, coded from public pages with evidence URLs.",
+    "coded": "Institutions coded but not drawn: still operating, merged with the campus continuing, not a closure, or unresolved.",
+    "federal": "Federal closure sites, and institutions known only from them."
+  },
+  "columns": [
+    {
+      "name": "record_id",
+      "group": "identity",
+      "description": "Stable id. Curated and extended records keep their page ids; sites use fsa-NNNNN; others use ipeds-<unitid>, opeid-<root>, or coded-<unitid>."
+    },
+    {
+      "name": "kind",
+      "group": "identity",
+      "description": "institution or site."
+    },
+    {
+      "name": "parent_id",
+      "group": "identity",
+      "description": "For a site, the record_id of its institution. Empty for institutions."
+    },
+    {
+      "name": "layer",
+      "group": "identity",
+      "description": "Richest layer an institution belongs to: curated, extended, coded, or federal. A site is always federal."
+    },
+    {
+      "name": "institution_layer",
+      "group": "identity",
+      "description": "For a site, the layer of its institution, so sites can be filtered without a join."
+    },
+    {
+      "name": "name",
+      "group": "identity",
+      "description": "Institution or site name."
+    },
+    {
+      "name": "city",
+      "group": "place",
+      "description": "City."
+    },
+    {
+      "name": "state",
+      "group": "place",
+      "description": "State or territory code."
+    },
+    {
+      "name": "state_reported",
+      "group": "place",
+      "description": "State as written in the federal file, where curation/federal-corrections.json changed it."
+    },
+    {
+      "name": "country",
+      "group": "place",
+      "description": "Country, where the federal file records a foreign location. Empty for U.S. records."
+    },
+    {
+      "name": "zip",
+      "group": "place",
+      "description": "ZIP code (sites)."
+    },
+    {
+      "name": "address",
+      "group": "place",
+      "description": "Street address (sites)."
+    },
+    {
+      "name": "latitude",
+      "group": "place",
+      "description": "Latitude. Sites: Census batch geocoder. Institutions: curated coordinates or IPEDS."
+    },
+    {
+      "name": "longitude",
+      "group": "place",
+      "description": "Longitude."
+    },
+    {
+      "name": "coordinate_source",
+      "group": "place",
+      "description": "census-geocoder, ipeds, or curated."
+    },
+    {
+      "name": "unitid",
+      "group": "keys",
+      "description": "IPEDS UNITID."
+    },
+    {
+      "name": "opeid",
+      "group": "keys",
+      "description": "8-digit OPEID of the site."
+    },
+    {
+      "name": "root_opeid",
+      "group": "keys",
+      "description": "6-digit root OPEID, the institution-level federal key."
+    },
+    {
+      "name": "branch_suffix",
+      "group": "keys",
+      "description": "Two-digit OPEID branch suffix (sites)."
+    },
+    {
+      "name": "site_type",
+      "group": "federal",
+      "description": "Main/Root or Branch/Satellite (sites)."
+    },
+    {
+      "name": "federal_classification",
+      "group": "federal",
+      "description": "Atlas preliminary class from the federal file (sites)."
+    },
+    {
+      "name": "federal_source_url",
+      "group": "federal",
+      "description": "Source page of the federal report (sites)."
+    },
+    {
+      "name": "ipeds_match",
+      "group": "federal",
+      "description": "How a site was joined to IPEDS: opeid, root, location, or empty."
+    },
+    {
+      "name": "control",
+      "group": "ipeds",
+      "description": "Sector: Public, Private nonprofit, Private for-profit."
+    },
+    {
+      "name": "degree_granting",
+      "group": "ipeds",
+      "description": "1 if degree-granting."
+    },
+    {
+      "name": "ipeds_status",
+      "group": "ipeds",
+      "description": "active, closed, combined, dropped, or empty when not in IPEDS 2000-2024."
+    },
+    {
+      "name": "ipeds_first_year",
+      "group": "ipeds",
+      "description": "First year in the IPEDS directory."
+    },
+    {
+      "name": "ipeds_last_year",
+      "group": "ipeds",
+      "description": "Last year in the IPEDS directory."
+    },
+    {
+      "name": "successor_name",
+      "group": "ipeds",
+      "description": "For a combined institution, the institution it was combined into."
+    },
+    {
+      "name": "federal_sites",
+      "group": "rollup",
+      "description": "Institution: number of federal closure sites."
+    },
+    {
+      "name": "federal_main_sites",
+      "group": "rollup",
+      "description": "Institution: main/root sites."
+    },
+    {
+      "name": "federal_branch_sites",
+      "group": "rollup",
+      "description": "Institution: branch and annex sites."
+    },
+    {
+      "name": "federal_first_closure_year",
+      "group": "rollup",
+      "description": "Institution: earliest federal closure year."
+    },
+    {
+      "name": "federal_last_closure_year",
+      "group": "rollup",
+      "description": "Institution: latest federal closure year."
+    },
+    {
+      "name": "coding_tier",
+      "group": "fate",
+      "description": "curated, sample, or census: how the fate was established."
+    },
+    {
+      "name": "outcome",
+      "group": "fate",
+      "description": "closed-campus-reused, closed-campus-unknown, merged-campus-continues, merged-campus-closed, still-operating, not-a-closure, unresolved."
+    },
+    {
+      "name": "closure_date",
+      "group": "fate",
+      "description": "Closure date. Sites: federal report. Institutions: coded or curated."
+    },
+    {
+      "name": "closure_year",
+      "group": "fate",
+      "description": "Closure year."
+    },
+    {
+      "name": "transfer_date",
+      "group": "fate",
+      "description": "Date the campus changed hands, where established."
+    },
+    {
+      "name": "campus_fate",
+      "group": "fate",
+      "description": "One sentence on what happened to the campus."
+    },
+    {
+      "name": "buyer_name",
+      "group": "fate",
+      "description": "Who holds or operates the campus now."
+    },
+    {
+      "name": "buyer_sector",
+      "group": "fate",
+      "description": "Controlled vocabulary of buyer sectors."
+    },
+    {
+      "name": "replacement_system",
+      "group": "fate",
+      "description": "Controlled vocabulary of replacement systems."
+    },
+    {
+      "name": "original_system",
+      "group": "fate",
+      "description": "Controlled vocabulary of original systems."
+    },
+    {
+      "name": "morphology",
+      "group": "fate",
+      "description": "Morphology class, derived from the replacement system."
+    },
+    {
+      "name": "zone",
+      "group": "fate",
+      "description": "Replacement zone on the territory map."
+    },
+    {
+      "name": "confidence",
+      "group": "fate",
+      "description": "high, medium, or low."
+    },
+    {
+      "name": "coding_notes",
+      "group": "fate",
+      "description": "Caveats from the coder."
+    },
+    {
+      "name": "evidence_count",
+      "group": "fate",
+      "description": "Number of evidence pages."
+    },
+    {
+      "name": "evidence_urls",
+      "group": "fate",
+      "description": "Evidence page URLs, separated by ' | '."
+    },
+    {
+      "name": "rechecked_on",
+      "group": "fate",
+      "description": "Date of the second-pass check, where one was done."
+    },
+    {
+      "name": "recheck_verdict",
+      "group": "fate",
+      "description": "confirmed (first coding stands), revised (fields changed), or unresolved."
+    },
+    {
+      "name": "recheck_changed",
+      "group": "fate",
+      "description": "Fields the second pass changed, separated by ' | '."
+    },
+    {
+      "name": "recheck_note",
+      "group": "fate",
+      "description": "What the second pass checked and found."
+    },
+    {
+      "name": "duplicate_of",
+      "group": "fate",
+      "description": "record_id of a curated record sharing this institution's campus."
+    },
+    {
+      "name": "summary",
+      "group": "curated",
+      "description": "Visitor-facing summary (curated only)."
+    },
+    {
+      "name": "verification",
+      "group": "curated",
+      "description": "Verification state from the controlled vocabulary (curated only)."
+    },
+    {
+      "name": "atlas_priority",
+      "group": "curated",
+      "description": "Iconic or Important (curated only)."
+    },
+    {
+      "name": "scale",
+      "group": "curated",
+      "description": "Scale, e.g. acreage (curated only)."
+    },
+    {
+      "name": "buyer_type",
+      "group": "curated",
+      "description": "Buyer type (curated only)."
+    },
+    {
+      "name": "sale_price",
+      "group": "curated",
+      "description": "Reported sale price (curated only)."
+    },
+    {
+      "name": "transformation",
+      "group": "curated",
+      "description": "Interpretive transformation line (curated only)."
+    },
+    {
+      "name": "events",
+      "group": "curated",
+      "description": "Dated status events: 'date TYPE: label', separated by ' | ' (curated only)."
+    },
+    {
+      "name": "limbo_days",
+      "group": "curated",
+      "description": "Days from closure to first completed transfer (curated only)."
+    },
+    {
+      "name": "editorial_note",
+      "group": "curated",
+      "description": "Editorial note where a source cuts against the classification (curated only)."
+    },
+    {
+      "name": "source_urls",
+      "group": "curated",
+      "description": "Curated source URLs, separated by ' | ' (curated only)."
+    },
+    {
+      "name": "closure_announced",
+      "group": "process",
+      "description": "Date the closure was announced, from the SHEEO closed-college file."
+    },
+    {
+      "name": "lead_time_days",
+      "group": "process",
+      "description": "Days from announcement to closure. Empty where the announcement date is unknown or falls after the closure."
+    },
+    {
+      "name": "abrupt_closure",
+      "group": "process",
+      "description": "SHEEO coding: 1 abrupt, 0 orderly. Empty where not coded."
+    },
+    {
+      "name": "teach_out",
+      "group": "process",
+      "description": "Teach-out plan in place: yes, no, unclear, or n/a (abrupt)."
+    },
+    {
+      "name": "merger_attempt",
+      "group": "process",
+      "description": "1 if SHEEO records an attempted or executed merger, 0 if it records none."
+    },
+    {
+      "name": "merger_note",
+      "group": "process",
+      "description": "SHEEO text on the merger or acquisition, as written."
+    },
+    {
+      "name": "peps_merge",
+      "group": "process",
+      "description": "Merge or consolidation designation in the federal file."
+    },
+    {
+      "name": "records_custody",
+      "group": "process",
+      "description": "Where student records went, from SHEEO: yes, no, or other."
+    },
+    {
+      "name": "accreditors",
+      "group": "process",
+      "description": "Accrediting agencies in the federal file, separated by ' | '."
+    },
+    {
+      "name": "sheeo_note",
+      "group": "process",
+      "description": "Researcher note from the SHEEO file, as written. Researcher names and working remarks are left in."
+    },
+    {
+      "name": "sheeo_sources",
+      "group": "process",
+      "description": "Source URLs listed in the SHEEO file, separated by ' | '."
+    },
+    {
+      "name": "sheeo_date_differs",
+      "group": "process",
+      "description": "SHEEO closed date, where it differs from the federal closed date."
+    },
+    {
+      "name": "sheeo_sites",
+      "group": "process",
+      "description": "Institution: number of its federal sites that appear in the SHEEO file."
+    },
+    {
+      "name": "peak_year",
+      "group": "trajectory",
+      "description": "Year of peak fall enrollment."
+    },
+    {
+      "name": "peak_enrollment",
+      "group": "trajectory",
+      "description": "Peak fall enrollment."
+    },
+    {
+      "name": "last_enrollment_year",
+      "group": "trajectory",
+      "description": "Last year enrollment was reported."
+    },
+    {
+      "name": "last_enrollment",
+      "group": "trajectory",
+      "description": "Enrollment in the last reported year."
+    },
+    {
+      "name": "decline_pct",
+      "group": "trajectory",
+      "description": "Percent decline from peak to last reported year."
+    },
+    {
+      "name": "deficit_years_of_last_five",
+      "group": "trajectory",
+      "description": "Years in the last five reported with expenses above revenue."
+    }
+  ]
+}
