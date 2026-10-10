@@ -29,6 +29,9 @@ PROJECT_DIR = Path(__file__).resolve().parents[1]
 DATA_ROOT = PROJECT_DIR.parent / "_DATA"
 CURATION = PROJECT_DIR / "curation" / "public-sites.json"
 OUT_CSV = DATA_ROOT / "ipeds_trajectories.csv"
+PROBE_STATE = DATA_ROOT / "ipeds_trajectories_probe.json"
+# Large, long-lived institutions: if the portal has published a year, these report in it.
+PROBE_UNITS = "110635,166027,190150,243744,110662"
 BASE = "https://educationdata.urban.org/api/v1/college-university/ipeds"
 USER_AGENT = "DeadCampusAtlas/0.1 (archival research; python urllib)"
 
@@ -86,12 +89,68 @@ def clean_number(value: object) -> str:
     return str(int(number)) if number.is_integer() else str(number)
 
 
+def probe_portal(years: range) -> dict[str, dict[str, int]]:
+    """How many rows the portal serves per year for a handful of institutions that always report.
+
+    A year the portal has not published returns an error or no rows, so this says what is
+    available without paying for the full pull.
+    """
+    found: dict[str, dict[str, int]] = {}
+    for year in years:
+        counts = {}
+        for kind, url in (
+            ("enrollment", f"{BASE}/fall-enrollment/{year}/99/?unitid={PROBE_UNITS}&race=99&sex=99&ftpt=99"),
+            ("finance", f"{BASE}/finance/{year}/?unitid={PROBE_UNITS}"),
+        ):
+            request = urllib.request.Request(url, headers={"User-Agent": USER_AGENT, "Accept": "application/json"})
+            try:
+                with urllib.request.urlopen(request, timeout=60) as response:
+                    counts[kind] = int(json.loads(response.read().decode("utf-8")).get("count") or 0)
+            except (urllib.error.URLError, TimeoutError, ValueError):
+                counts[kind] = 0
+            time.sleep(0.3)
+        found[str(year)] = counts
+    return found
+
+
+def newer_than_last_pull(found: dict[str, dict[str, int]]) -> list[str]:
+    """Year/kind pairs where the portal now serves more rows than when the file was last built."""
+    try:
+        seen = json.loads(PROBE_STATE.read_text(encoding="utf-8"))
+    except (OSError, ValueError):
+        return ["no record of a previous pull"]
+    return [
+        f"{year} {kind}: {count} (was {seen.get(year, {}).get(kind, 0)})"
+        for year, counts in found.items()
+        for kind, count in counts.items()
+        if count > seen.get(year, {}).get(kind, 0)
+    ]
+
+
 def main() -> None:
     parser = argparse.ArgumentParser(description="Pull IPEDS enrollment and finance history for public atlas sites.")
     parser.add_argument("--start", type=int, default=DEFAULT_START)
     parser.add_argument("--end", type=int, default=DEFAULT_END)
     parser.add_argument("--pause", type=float, default=0.5)
+    parser.add_argument(
+        "--if-newer",
+        action="store_true",
+        help="probe the portal first and pull (through the newest year it serves) only if it has data the last pull did not",
+    )
     args = parser.parse_args()
+
+    probed: dict[str, dict[str, int]] = {}
+    if args.if_newer:
+        probed = probe_portal(range(DEFAULT_END - 1, DEFAULT_END + 4))
+        news = newer_than_last_pull(probed)
+        summary = ", ".join(f"{y}: enrollment {c['enrollment']}, finance {c['finance']}" for y, c in probed.items())
+        print(f"Portal probe ({len(PROBE_UNITS.split(','))} institutions): {summary}", file=sys.stderr)
+        if not news:
+            print("Nothing newer than the last pull; the trajectories file is unchanged.", file=sys.stderr)
+            return
+        print("Newer data: " + "; ".join(news), file=sys.stderr)
+        served = [int(y) for y, c in probed.items() if c["enrollment"] or c["finance"]]
+        args.end = max([args.end, *served])
 
     sites = json.loads(CURATION.read_text(encoding="utf-8"))["sites"]
     unitid_to_site = {}
@@ -140,6 +199,10 @@ def main() -> None:
         writer.writeheader()
         for row in ordered:
             writer.writerow({field: row.get(field, "") for field in OUT_FIELDS})
+
+    if not probed:
+        probed = probe_portal(range(DEFAULT_END - 1, DEFAULT_END + 4))
+    PROBE_STATE.write_text(json.dumps(probed, indent=1) + "\n", encoding="utf-8")
 
     covered = {row["siteId"] for row in ordered}
     print(f"\nWrote {OUT_CSV}: {len(ordered)} site-years for {len(covered)} of {len(unitid_to_site)} sites")

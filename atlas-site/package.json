@@ -10,6 +10,7 @@
     "pull:ipeds": "python3 tools/pull_ipeds_directory.py",
     "match:ipeds": "python3 tools/match_ipeds.py",
     "pull:ipeds:trajectories": "python3 tools/pull_ipeds_trajectories.py",
+    "pull:ipeds:trajectories:if-newer": "python3 tools/pull_ipeds_trajectories.py --if-newer",
     "pull:ipeds:affiliation": "python3 tools/pull_ipeds_affiliation.py",
     "geocode:peps": "python3 tools/geocode_peps.py",
     "sample:draw": "python3 tools/draw_afterlife_sample.py",

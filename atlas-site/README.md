@@ -105,7 +105,7 @@ This matches the public atlas sites to spine rows by name and state and writes t
 npm run pull:ipeds:trajectories
 ```
 
-This pulls fall enrollment and finance (revenue, expenses, net tuition, net position, long-term debt, endowment) for every public site with a UNITID and for every extended-layer institution (255 sites in all), 2000 to 2024, into `_DATA/ipeds_trajectories.csv`. The build folds it into each site as `trajectory` and `trajectorySummary`, and the dossier shows the decline curve.
+This pulls fall enrollment and finance (revenue, expenses, net tuition, net position, long-term debt, endowment) for every public site with a UNITID and for every extended-layer institution (255 sites in all), 2000 to 2024, into `_DATA/ipeds_trajectories.csv`. The build folds it into each site as `trajectory` and `trajectorySummary`, and the dossier shows the decline curve. The Urban portal publishes a year late, so `npm run pull:ipeds:trajectories:if-newer` probes it first (a few always-reporting institutions, recorded in `_DATA/ipeds_trajectories_probe.json`) and pulls only when it serves rows the last pull did not, including finance for a year whose enrollment arrived earlier.
 
 ```bash
 npm run pull:ipeds:affiliation
