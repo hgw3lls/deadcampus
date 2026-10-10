@@ -1,0 +1,217 @@
+{
+  "$comment": "Editorial layer for the public atlas. Keyed by permanent campus id (slug + state). Edit this file, not build_data.py. 'sourceUrls' are curated citations added on top of queue evidence URLs; 'overrides' replace generated fields; 'summary' is visitor-facing text.",
+  "sites": {
+    "birmingham-southern-college-al": {
+      "name": "Birmingham–Southern College",
+      "summary": "After closing in 2024, the Birmingham campus moved from private liberal arts college to federal training infrastructure, with the U.S. Coast Guard opening TRACEN Birmingham-Southern in 2026.",
+      "sourceUrls": [],
+      "overrides": {}
+    },
+    "green-mountain-college-vt": {
+      "name": "Green Mountain College",
+      "summary": "Closed in 2019, the Poultney campus was bought at auction by private owner Raj Bhakta in 2020; by 2026, his redevelopment plan had stalled and the site was again being offered or repositioned.",
+      "sourceUrls": [],
+      "overrides": {}
+    },
+    "notre-dame-college-oh": {
+      "name": "Notre Dame College",
+      "summary": "Notre Dame College closed in 2024. In 2026, Akron Children's Hospital emerged as the auction winner for the South Euclid campus, pointing the site toward pediatric specialty care.",
+      "sourceUrls": [],
+      "overrides": {}
+    },
+    "college-of-saint-rose-ny": {
+      "name": "College of Saint Rose",
+      "summary": "The College of Saint Rose closed in 2024. Albany County's Pine Hills Land Authority then moved to acquire and redevelop the Albany campus as a public authority project.",
+      "sourceUrls": [],
+      "overrides": {}
+    },
+    "wells-college-ny": {
+      "name": "Wells College",
+      "summary": "Wells closed in 2024. A proposed Hiawatha Institute Indigenous college reuse became disputed in 2026 after Wells said the sale would not move forward, leaving the campus status unresolved.",
+      "sourceUrls": [],
+      "overrides": {
+        "afterlife": "Disputed/pending Indigenous educational reuse",
+        "reuseType": "Proposed Indigenous educational reuse",
+        "buyerController": "Hiawatha Institute (sale disputed)",
+        "verification": "Sale disputed",
+        "transformation": "Proposed Indigenous educational reuse under contested sale"
+      }
+    },
+    "fontbonne-university-mo": {
+      "name": "Fontbonne University",
+      "summary": "Fontbonne wound down instruction through summer 2025. Washington University acquired the 16-acre Clayton campus and leased it back during the closure runway, with long-term use still unsettled.",
+      "sourceUrls": [],
+      "overrides": {}
+    },
+    "cabrini-university-pa": {
+      "name": "Cabrini University",
+      "summary": "Cabrini closed after the 2023-24 academic year. Villanova assumed ownership of the 112-acre Radnor property and began converting it into Villanova University Cabrini Campus.",
+      "sourceUrls": [],
+      "overrides": {}
+    },
+    "medaille-university-ny": {
+      "name": "Medaille University",
+      "summary": "Medaille closed in 2023. The Buffalo campus sold to Charter Schools Development Corporation for Buffalo Academy of Science Charter School, turning university buildings into a charter-school campus.",
+      "sourceUrls": [],
+      "overrides": {}
+    },
+    "cardinal-stritch-university-wi": {
+      "name": "Cardinal Stritch University",
+      "summary": "The Fox Point campus is classified here as a religious and K-12 reuse after Cardinal Stritch's 2023 closure, moving Catholic higher-education property into private school conversion.",
+      "sourceUrls": [],
+      "overrides": {}
+    },
+    "cazenovia-college-ny": {
+      "name": "Cazenovia College",
+      "summary": "After Cazenovia closed in 2023, its campus fragmented into mixed redevelopment, municipal ownership, and private reuse instead of remaining one college property.",
+      "sourceUrls": [],
+      "overrides": {}
+    },
+    "presentation-college-sd": {
+      "name": "Presentation College",
+      "summary": "Presentation College's Aberdeen campus is tracked as a parcelized afterlife, with municipal and other buyers dividing a former Catholic health-oriented college footprint.",
+      "sourceUrls": [],
+      "overrides": {}
+    },
+    "finlandia-university-mi": {
+      "name": "Finlandia University",
+      "summary": "Finlandia's 2023 closure produced a civic and nonprofit fragmentation case, with pieces of the Hancock campus absorbed by various local groups.",
+      "sourceUrls": [],
+      "overrides": {}
+    },
+    "mount-ida-college-ma": {
+      "name": "Mount Ida College",
+      "summary": "Mount Ida's 2018 closure converted the Newton campus into a public university asset when UMass Amherst took control.",
+      "sourceUrls": [],
+      "overrides": {}
+    },
+    "pine-manor-college-ma": {
+      "name": "Pine Manor College",
+      "summary": "Pine Manor's 2020 merger folded the Brookline campus into Boston College, marking an elite institutional absorption.",
+      "sourceUrls": [],
+      "overrides": {}
+    },
+    "wheelock-college-ma": {
+      "name": "Wheelock College",
+      "summary": "Wheelock's 2018 merger with Boston University turned a small specialized college into part of a larger urban university system.",
+      "sourceUrls": [],
+      "overrides": {}
+    },
+    "newbury-college-ma": {
+      "name": "Newbury College",
+      "summary": "After Newbury closed in 2019, Welltower moved the Brookline campus toward senior living, shifting educational property into housing infrastructure.",
+      "sourceUrls": [],
+      "overrides": {}
+    },
+    "marlboro-college-vt": {
+      "name": "Marlboro College",
+      "summary": "Marlboro's 2020 closure left the Vermont campus to an arts and music reuse under Marlboro Music.",
+      "sourceUrls": [],
+      "overrides": {}
+    },
+    "burlington-college-vt": {
+      "name": "Burlington College",
+      "summary": "Burlington College's 2016 collapse led to property liquidation and developer or bank control, making the campus a speculative real estate case.",
+      "sourceUrls": [],
+      "overrides": {}
+    },
+    "marygrove-college-mi": {
+      "name": "Marygrove College",
+      "summary": "Marygrove's 2019 closure produced a community educational redevelopment model led by the Marygrove Conservancy in Detroit.",
+      "sourceUrls": [],
+      "overrides": {}
+    },
+    "dowling-college-ny": {
+      "name": "Dowling College",
+      "summary": "Dowling's 2016 closure sent the Oakdale estate through auction and redevelopment, parcelizing a historic campus.",
+      "sourceUrls": [],
+      "overrides": {}
+    },
+    "urbana-university-oh": {
+      "name": "Urbana University",
+      "summary": "Urbana closed in 2020 and entered private redevelopment marketing, a speculative afterlife for a regional campus.",
+      "sourceUrls": [],
+      "overrides": {}
+    },
+    "atlantic-union-college-ma": {
+      "name": "Atlantic Union College",
+      "summary": "Atlantic Union's South Lancaster campus is tracked as slow parcel liquidation under religious ownership after its 2018 closure marker.",
+      "sourceUrls": [],
+      "overrides": {}
+    },
+    "concordia-university-portland-or": {
+      "name": "Concordia University Portland",
+      "summary": "After Concordia University Portland closed in 2020, the University of Oregon acquired the campus for public university use.",
+      "sourceUrls": [],
+      "overrides": {}
+    },
+    "holy-names-university-ca": {
+      "name": "Holy Names University",
+      "summary": "Holy Names closed in 2023 and sold its Oakland hills campus to BH Properties, moving the site into investment ownership and leasing or redevelopment scenarios.",
+      "sourceUrls": [],
+      "overrides": {}
+    },
+    "marymount-california-university-ca": {
+      "name": "Marymount California University",
+      "summary": "After Marymount California ceased operations in 2022, UCLA acquired its Rancho Palos Verdes and San Pedro sites to expand teaching, learning, and housing capacity.",
+      "sourceUrls": [],
+      "overrides": {}
+    },
+    "macmurray-college-il": {
+      "name": "MacMurray College",
+      "summary": "MacMurray's 2020 closure culminated in a campus auction split into 18 tracts, a parcelized end to a 174-year college.",
+      "sourceUrls": [],
+      "overrides": {}
+    },
+    "becker-college-ma": {
+      "name": "Becker College",
+      "summary": "Becker's 2021 closure produced a split municipal and housing afterlife: Leicester acquired campus properties, with some buildings later used for emergency family housing.",
+      "sourceUrls": [],
+      "overrides": {}
+    },
+    "college-of-new-rochelle-ny": {
+      "name": "College of New Rochelle",
+      "summary": "The College of New Rochelle entered bankruptcy and auction after its 2019 closure, leaving an urban campus fragmented across buyers.",
+      "sourceUrls": [],
+      "overrides": {}
+    },
+    "alderson-broaddus-university-wv": {
+      "name": "Alderson Broaddus University",
+      "summary": "Alderson Broaddus closed in 2023 and moved through bankruptcy sale to CGP Construction and Battlers Knob, shifting the Philippi campus into private redevelopment and community use.",
+      "sourceUrls": [],
+      "overrides": {}
+    },
+    "daniel-webster-college-nh": {
+      "name": "Daniel Webster College",
+      "summary": "After the ITT-linked 2017 closure, Daniel Webster's Nashua campus went through auction sale to Xinhua Education, a speculative institutional reuse case.",
+      "sourceUrls": [],
+      "overrides": {}
+    },
+    "virginia-intermont-college-va": {
+      "name": "Virginia Intermont College",
+      "summary": "Virginia Intermont's Bristol campus is tracked as a ruin and absentee ownership case after the 2014 closure, with the physical site unresolved.",
+      "sourceUrls": [],
+      "overrides": {}
+    },
+    "southern-vermont-college-vt": {
+      "name": "Southern Vermont College",
+      "summary": "Southern Vermont College's 2019 closure led to health and resort redevelopment under Southwestern Vermont Health Care, repurposing the Bennington campus beyond higher education.",
+      "sourceUrls": [],
+      "overrides": {}
+    },
+    "st-gregory-s-university-ok": {
+      "name": "St. Gregory's University",
+      "summary": "St. Gregory's 2017 closure moved the Shawnee campus into corporate ownership under Hobby Lobby, marking a private institutional acquisition.",
+      "sourceUrls": [],
+      "overrides": {}
+    },
+    "gwu-virginia-science-and-technology-campus-va": {
+      "name": "GWU Virginia Science & Technology Campus",
+      "summary": "GW's Ashburn campus was sold in 2026 to Amazon Data Services; academic programs can remain temporarily while the land enters cloud-infrastructure redevelopment pressure.",
+      "sourceUrls": [],
+      "overrides": {
+        "verification": "Non-closure asset sale"
+      }
+    }
+  }
+}

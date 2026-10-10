@@ -284,6 +284,7 @@ h3 {
 .territory-panel,
 .record-panel,
 .index-panel,
+.federal-panel,
 .abyss-panel,
 .method-panel {
   border: 1px solid var(--line);
@@ -319,9 +320,20 @@ h3 {
   position: relative;
   min-height: 520px;
   overflow: hidden;
+  touch-action: none;
+  user-select: none;
   background:
     linear-gradient(rgba(255, 250, 240, 0.58), rgba(255, 250, 240, 0.64)),
     url("assets/phase10-map.png") center / cover;
+}
+
+.map-plane.is-map-ready {
+  background: #d9e1d8;
+  cursor: grab;
+}
+
+.map-plane.is-dragging {
+  cursor: grabbing;
 }
 
 .map-plane::before,
@@ -338,7 +350,71 @@ h3 {
   border-color: rgba(164, 71, 50, 0.18);
 }
 
-.site-pin {
+.map-plane.is-map-ready::before,
+.map-plane.is-map-ready::after {
+  display: none;
+}
+
+.map-viewport,
+.map-stage,
+.map-image,
+.map-marker-layer {
+  position: absolute;
+  inset: 0;
+}
+
+.map-viewport {
+  overflow: hidden;
+}
+
+.map-stage {
+  transform-origin: 0 0;
+  will-change: transform;
+}
+
+.map-image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  pointer-events: none;
+}
+
+.map-marker-layer {
+  z-index: 2;
+}
+
+.map-controls {
+  position: absolute;
+  top: 12px;
+  right: 12px;
+  z-index: 8;
+  display: flex;
+  border: 1px solid var(--line);
+  box-shadow: 0 8px 20px rgba(24, 22, 18, 0.18);
+}
+
+.map-controls button {
+  min-width: 40px;
+  min-height: 38px;
+  padding: 0 10px;
+  color: var(--ink);
+  background: var(--white);
+  border: 0;
+  border-right: 1px solid var(--line);
+  font-weight: 900;
+}
+
+.map-controls button:last-child {
+  border-right: 0;
+}
+
+.map-controls button:focus-visible,
+.map-marker:focus-visible {
+  outline: 3px solid #e5a14f;
+  outline-offset: 2px;
+}
+
+.map-marker {
   position: absolute;
   width: 18px;
   height: 18px;
@@ -349,7 +425,7 @@ h3 {
   box-shadow: 0 0 0 4px rgba(255, 250, 240, 0.72);
 }
 
-.site-pin.is-active {
+.map-marker.is-active {
   width: 26px;
   height: 26px;
   z-index: 5;
@@ -440,6 +516,25 @@ h3 {
   font-size: 0.86rem;
 }
 
+.empty-state {
+  padding: 18px;
+  color: var(--muted);
+  border: 1px dashed var(--soft-line);
+  background: rgba(223, 214, 194, 0.35);
+}
+
+.empty-state h4 {
+  margin: 0 0 8px;
+  color: var(--ink);
+  font-size: 1rem;
+  line-height: 1.2;
+}
+
+.empty-state p {
+  margin: 0;
+  line-height: 1.48;
+}
+
 .index-panel {
   margin-top: 18px;
 }
@@ -448,6 +543,14 @@ h3 {
   display: grid;
   grid-template-columns: repeat(3, minmax(0, 1fr));
   gap: 0;
+}
+
+.empty-state-list {
+  grid-column: 1 / -1;
+  min-height: 116px;
+  display: grid;
+  align-content: center;
+  margin: 14px;
 }
 
 .record-button {
@@ -569,6 +672,117 @@ h3 {
   font-size: 1.3rem;
 }
 
+.federal-panel {
+  margin-top: 18px;
+}
+
+.federal-controls {
+  display: grid;
+  grid-template-columns: minmax(240px, 1fr) minmax(120px, 180px) minmax(120px, 180px) minmax(160px, 220px);
+  gap: 12px;
+  align-items: end;
+  padding: 16px;
+  border-bottom: 1px solid var(--line);
+  background: rgba(223, 214, 194, 0.3);
+}
+
+.table-scroll {
+  overflow-x: auto;
+}
+
+.federal-table {
+  width: 100%;
+  min-width: 880px;
+  border-collapse: collapse;
+  background: var(--white);
+}
+
+.federal-table th,
+.federal-table td {
+  padding: 12px 14px;
+  border-bottom: 1px solid var(--soft-line);
+  text-align: left;
+  vertical-align: top;
+}
+
+.federal-table th {
+  color: var(--white);
+  background: var(--charcoal);
+  font-size: 0.74rem;
+  font-weight: 900;
+  text-transform: uppercase;
+}
+
+.federal-table td {
+  color: var(--ink);
+  font-size: 0.86rem;
+  line-height: 1.35;
+}
+
+.federal-table .federal-empty {
+  padding: 28px 14px;
+  color: var(--muted);
+  text-align: center;
+}
+
+.federal-school {
+  display: grid;
+  gap: 4px;
+  min-width: 0;
+}
+
+.federal-school strong {
+  line-height: 1.2;
+}
+
+.federal-school span,
+.federal-muted {
+  color: var(--muted);
+  font-size: 0.78rem;
+}
+
+.federal-pager {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  min-height: 62px;
+  padding: 12px 16px;
+  border-top: 1px solid var(--line);
+  background: var(--paper);
+}
+
+.federal-pager span {
+  color: var(--muted);
+  font-size: 0.82rem;
+  font-weight: 800;
+}
+
+.pager-buttons {
+  display: inline-flex;
+  border: 1px solid var(--line);
+}
+
+.pager-buttons button {
+  min-height: 38px;
+  padding: 0 12px;
+  color: var(--ink);
+  background: var(--white);
+  border: 0;
+  border-right: 1px solid var(--line);
+  font-weight: 900;
+}
+
+.pager-buttons button:last-child {
+  border-right: 0;
+}
+
+.pager-buttons button:disabled {
+  color: var(--muted);
+  cursor: not-allowed;
+  opacity: 0.5;
+}
+
 .method-panel ol,
 .method-panel ul {
   margin: 18px 0 0;
@@ -655,6 +869,7 @@ h3 {
   }
 
   .control-row,
+  .federal-controls,
   .record-meta,
   .record-list,
   .state-grid {
@@ -674,4 +889,88 @@ h3 {
   .timeline {
     grid-template-columns: repeat(4, minmax(0, 1fr));
   }
+
+  .federal-pager {
+    align-items: stretch;
+    flex-direction: column;
+  }
+
+  .pager-buttons {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+/* Citation line, release gaps, federal loading state */
+.record-cite {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.35rem 0.75rem;
+  align-items: baseline;
+  margin-top: 1rem;
+  padding-top: 0.75rem;
+  border-top: 1px solid var(--paper-deep);
+  font-size: 0.8rem;
+}
+
+.record-cite span {
+  color: var(--muted);
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  font-size: 0.68rem;
+}
+
+.record-cite a {
+  color: var(--ink);
+  word-break: break-all;
+}
+
+.gap-list {
+  list-style: none;
+  padding: 0;
+  margin: 0.75rem 0 0;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.4rem;
+}
+
+.gap-list li {
+  font-size: 0.72rem;
+  padding: 0.2rem 0.55rem;
+  border: 1px dashed #a44732;
+  color: #a44732;
+  border-radius: 999px;
+}
+
+.federal-status {
+  margin: 0 0 0.75rem;
+  font-size: 0.85rem;
+  color: var(--muted);
+}
+
+#releaseList li {
+  display: flex;
+  justify-content: space-between;
+  gap: 1rem;
+}
+
+#releaseList .release-total {
+  display: block;
+  font-weight: 600;
+  color: var(--ink);
+}
+
+#releaseList .release-count {
+  white-space: nowrap;
+  font-size: 0.75rem;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+}
+
+#releaseList .is-open .release-count {
+  color: #a44732;
+}
+
+#releaseList .is-met .release-count {
+  color: #4d6b3c;
 }

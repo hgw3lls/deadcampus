@@ -5,23 +5,26 @@ from __future__ import annotations
 
 import csv
 import json
+import posixpath
 import re
+import zipfile
 from collections import Counter, defaultdict
 from pathlib import Path
-
-try:
-    from openpyxl import load_workbook
-except ImportError as exc:
-    raise SystemExit(
-        "openpyxl is required to rebuild atlas data. Use the Codex bundled Python "
-        "runtime or install openpyxl in your local Python environment."
-    ) from exc
+from xml.etree import ElementTree
 
 
 ROOT = Path(__file__).resolve().parents[2]
 DATA_DIR = Path(__file__).resolve().parents[1] / "dist" / "data"
 OUT_JS = DATA_DIR / "atlas-data.js"
 OUT_JSON = DATA_DIR / "canonical-atlas.json"
+OUT_FEDERAL_JS = DATA_DIR / "federal-records.js"
+SOURCE_FRESHNESS = ROOT / "_DATA" / "source_freshness.json"
+
+NS = {
+    "main": "http://schemas.openxmlformats.org/spreadsheetml/2006/main",
+    "office_rel": "http://schemas.openxmlformats.org/officeDocument/2006/relationships",
+    "pkg_rel": "http://schemas.openxmlformats.org/package/2006/relationships",
+}
 
 
 TYPOLOGY = {
@@ -80,62 +83,140 @@ TYPOLOGY = {
 }
 
 
-PUBLIC_SUMMARIES = {
-    ("birmingham southern college", "AL"): "After closing in 2024, the Birmingham campus moved from private liberal arts college to federal training infrastructure, with the U.S. Coast Guard opening TRACEN Birmingham-Southern in 2026.",
-    ("green mountain college", "VT"): "Closed in 2019, the Poultney campus was bought at auction by private owner Raj Bhakta in 2020; by 2026, his redevelopment plan had stalled and the site was again being offered or repositioned.",
-    ("notre dame college", "OH"): "Notre Dame College closed in 2024. In 2026, Akron Children's Hospital emerged as the auction winner for the South Euclid campus, pointing the site toward pediatric specialty care.",
-    ("college of saint rose", "NY"): "The College of Saint Rose closed in 2024. Albany County's Pine Hills Land Authority then moved to acquire and redevelop the Albany campus as a public authority project.",
-    ("wells college", "NY"): "Wells closed in 2024. A proposed Hiawatha Institute Indigenous college reuse became disputed in 2026 after Wells said the sale would not move forward, leaving the campus status unresolved.",
-    ("fontbonne university", "MO"): "Fontbonne wound down instruction through summer 2025. Washington University acquired the 16-acre Clayton campus and leased it back during the closure runway, with long-term use still unsettled.",
-    ("cabrini university", "PA"): "Cabrini closed after the 2023-24 academic year. Villanova assumed ownership of the 112-acre Radnor property and began converting it into Villanova University Cabrini Campus.",
-    ("medaille university", "NY"): "Medaille closed in 2023. The Buffalo campus sold to Charter Schools Development Corporation for Buffalo Academy of Science Charter School, turning university buildings into a charter-school campus.",
-    ("cardinal stritch university", "WI"): "The Fox Point campus is classified here as a religious and K-12 reuse after Cardinal Stritch's 2023 closure, moving Catholic higher-education property into private school conversion.",
-    ("cazenovia college", "NY"): "After Cazenovia closed in 2023, its campus fragmented into mixed redevelopment, municipal ownership, and private reuse instead of remaining one college property.",
-    ("presentation college", "SD"): "Presentation College's Aberdeen campus is tracked as a parcelized afterlife, with municipal and other buyers dividing a former Catholic health-oriented college footprint.",
-    ("finlandia university", "MI"): "Finlandia's 2023 closure produced a civic and nonprofit fragmentation case, with pieces of the Hancock campus absorbed by various local groups.",
-    ("mount ida college", "MA"): "Mount Ida's 2018 closure converted the Newton campus into a public university asset when UMass Amherst took control.",
-    ("pine manor college", "MA"): "Pine Manor's 2020 merger folded the Brookline campus into Boston College, marking an elite institutional absorption.",
-    ("wheelock college", "MA"): "Wheelock's 2018 merger with Boston University turned a small specialized college into part of a larger urban university system.",
-    ("newbury college", "MA"): "After Newbury closed in 2019, Welltower moved the Brookline campus toward senior living, shifting educational property into housing infrastructure.",
-    ("marlboro college", "VT"): "Marlboro's 2020 closure left the Vermont campus to an arts and music reuse under Marlboro Music.",
-    ("burlington college", "VT"): "Burlington College's 2016 collapse led to property liquidation and developer or bank control, making the campus a speculative real estate case.",
-    ("marygrove college", "MI"): "Marygrove's 2019 closure produced a community educational redevelopment model led by the Marygrove Conservancy in Detroit.",
-    ("dowling college", "NY"): "Dowling's 2016 closure sent the Oakdale estate through auction and redevelopment, parcelizing a historic campus.",
-    ("urbana university", "OH"): "Urbana closed in 2020 and entered private redevelopment marketing, a speculative afterlife for a regional campus.",
-    ("atlantic union college", "MA"): "Atlantic Union's South Lancaster campus is tracked as slow parcel liquidation under religious ownership after its 2018 closure marker.",
-    ("concordia university portland", "OR"): "After Concordia University Portland closed in 2020, the University of Oregon acquired the campus for public university use.",
-    ("holy names university", "CA"): "Holy Names closed in 2023 and sold its Oakland hills campus to BH Properties, moving the site into investment ownership and leasing or redevelopment scenarios.",
-    ("marymount california university", "CA"): "After Marymount California ceased operations in 2022, UCLA acquired its Rancho Palos Verdes and San Pedro sites to expand teaching, learning, and housing capacity.",
-    ("macmurray college", "IL"): "MacMurray's 2020 closure culminated in a campus auction split into 18 tracts, a parcelized end to a 174-year college.",
-    ("becker college", "MA"): "Becker's 2021 closure produced a split municipal and housing afterlife: Leicester acquired campus properties, with some buildings later used for emergency family housing.",
-    ("college of new rochelle", "NY"): "The College of New Rochelle entered bankruptcy and auction after its 2019 closure, leaving an urban campus fragmented across buyers.",
-    ("alderson broaddus university", "WV"): "Alderson Broaddus closed in 2023 and moved through bankruptcy sale to CGP Construction and Battlers Knob, shifting the Philippi campus into private redevelopment and community use.",
-    ("daniel webster college", "NH"): "After the ITT-linked 2017 closure, Daniel Webster's Nashua campus went through auction sale to Xinhua Education, a speculative institutional reuse case.",
-    ("virginia intermont college", "VA"): "Virginia Intermont's Bristol campus is tracked as a ruin and absentee ownership case after the 2014 closure, with the physical site unresolved.",
-    ("southern vermont college", "VT"): "Southern Vermont College's 2019 closure led to health and resort redevelopment under Southwestern Vermont Health Care, repurposing the Bennington campus beyond higher education.",
-    ("st gregory s university", "OK"): "St. Gregory's 2017 closure moved the Shawnee campus into corporate ownership under Hobby Lobby, marking a private institutional acquisition.",
-    ("gwu virginia science and technology campus", "VA"): "GW's Ashburn campus was sold in 2026 to Amazon Data Services; academic programs can remain temporarily while the land enters cloud-infrastructure redevelopment pressure.",
+CURATION_FILE = Path(__file__).resolve().parents[1] / "curation" / "public-sites.json"
+MINIMUM_PUBLIC_SITES = 34
+
+# Controlled vocabulary for verification states. Keys are canonical labels;
+# values are the raw spellings found in the archive that map onto them.
+VERIFICATION_VOCABULARY = {
+    "Confirmed": ["confirmed"],
+    "Disputed": ["sale disputed", "disputed"],
+    "Manual add": ["post-2020 manual add", "manual add", "manual"],
+    "Curated": ["curated from sale/auction reporting", "curated"],
+    "Non-closure sale": ["non-closure asset sale", "non-closure sale"],
+    "Pending": ["", "pending", "unverified"],
+}
+VERIFICATION_ALIASES = {
+    alias: label for label, aliases in VERIFICATION_VOCABULARY.items() for alias in aliases
 }
 
+# Fields every public site must satisfy before release. Each gate names the
+# field it checks so the validator and the page can report the same gaps.
+RELEASE_GATES = ["coordinates", "closureYear", "morphology", "sourceUrl", "verification", "summary"]
 
-PUBLIC_FIELD_OVERRIDES = {
-    ("gwu virginia science and technology campus", "VA"): {
-        "verification": "Non-closure asset sale",
-    },
-    ("wells college", "NY"): {
-        "afterlife": "Disputed/pending Indigenous educational reuse",
-        "reuseType": "Proposed Indigenous educational reuse",
-        "buyerController": "Hiawatha Institute (sale disputed)",
-        "verification": "Sale disputed",
-        "transformation": "Proposed Indigenous educational reuse under contested sale",
-    },
-}
+
+def load_curation() -> dict:
+    if not CURATION_FILE.exists():
+        return {}
+    payload = json.loads(CURATION_FILE.read_text(encoding="utf-8"))
+    return payload.get("sites", {})
+
+
+def canonical_verification(value: object) -> str:
+    text = clean_text(value).lower()
+    if text in VERIFICATION_ALIASES:
+        return VERIFICATION_ALIASES[text]
+    return clean_text(value)
+
+
+def site_id(name: str, state: str) -> str:
+    """Permanent public id: name slug plus state. Never embeds mutable fields."""
+    return f"{slug(name)}-{state.lower()}"
+
+
+def release_gaps(site: dict) -> list[str]:
+    gaps = []
+    if site.get("latitude") is None or site.get("longitude") is None:
+        gaps.append("coordinates")
+    if not site.get("closureYear"):
+        gaps.append("closureYear")
+    if site.get("morphology") not in TYPOLOGY:
+        gaps.append("morphology")
+    if not site.get("sourceUrls"):
+        gaps.append("sourceUrl")
+    if site.get("verification") not in VERIFICATION_VOCABULARY or site.get("verification") == "Pending":
+        gaps.append("verification")
+    if not site.get("publicSummary"):
+        gaps.append("summary")
+    return gaps
+
+
+def column_index(cell_reference: str) -> int:
+    letters = re.sub(r"[^A-Z]", "", cell_reference.upper())
+    value = 0
+    for letter in letters:
+        value = value * 26 + ord(letter) - ord("A") + 1
+    return value - 1
+
+
+def workbook_sheet_path(workbook: zipfile.ZipFile, sheet_name: str, path: Path) -> str:
+    workbook_root = ElementTree.fromstring(workbook.read("xl/workbook.xml"))
+    rels_root = ElementTree.fromstring(workbook.read("xl/_rels/workbook.xml.rels"))
+    rels = {
+        rel.attrib["Id"]: rel.attrib["Target"]
+        for rel in rels_root.findall("pkg_rel:Relationship", NS)
+    }
+
+    for sheet in workbook_root.findall("main:sheets/main:sheet", NS):
+        if sheet.attrib.get("name") != sheet_name:
+            continue
+        rel_id = sheet.attrib[f"{{{NS['office_rel']}}}id"]
+        target = rels[rel_id]
+        if target.startswith("/"):
+            return target.lstrip("/")
+        return posixpath.normpath(posixpath.join("xl", target))
+    raise SystemExit(f"Missing sheet {sheet_name!r} in {path}")
+
+
+def shared_strings(workbook: zipfile.ZipFile) -> list[str]:
+    try:
+        root = ElementTree.fromstring(workbook.read("xl/sharedStrings.xml"))
+    except KeyError:
+        return []
+    output = []
+    for item in root.findall("main:si", NS):
+        output.append("".join(text.text or "" for text in item.findall(".//main:t", NS)))
+    return output
+
+
+def cell_value(cell: ElementTree.Element, strings: list[str]) -> object:
+    cell_type = cell.attrib.get("t")
+    if cell_type == "inlineStr":
+        return "".join(text.text or "" for text in cell.findall(".//main:t", NS))
+
+    value = cell.find("main:v", NS)
+    if value is None or value.text is None:
+        return ""
+
+    if cell_type == "s":
+        return strings[int(value.text)]
+    if cell_type == "b":
+        return value.text == "1"
+    if cell_type in {"str", "e"}:
+        return value.text
+
+    try:
+        number = float(value.text)
+    except ValueError:
+        return value.text
+    return int(number) if number.is_integer() else number
 
 
 def rows_from_sheet(path: Path, sheet_name: str) -> list[dict]:
-    wb = load_workbook(path, read_only=True, data_only=True)
-    ws = wb[sheet_name]
-    rows = list(ws.iter_rows(values_only=True))
+    with zipfile.ZipFile(path) as workbook:
+        strings = shared_strings(workbook)
+        sheet_root = ElementTree.fromstring(workbook.read(workbook_sheet_path(workbook, sheet_name, path)))
+
+    rows = []
+    for row in sheet_root.findall(".//main:sheetData/main:row", NS):
+        values: list[object] = []
+        for cell in row.findall("main:c", NS):
+            index = column_index(cell.attrib.get("r", "A"))
+            while len(values) <= index:
+                values.append("")
+            values[index] = cell_value(cell, strings)
+        rows.append(values)
+
     headers = [str(value).strip() if value is not None else "" for value in rows[0]]
     output = []
     for row in rows[1:]:
@@ -222,6 +303,7 @@ def build_public_sites() -> list[dict]:
         "AFTERLIFE_FORENSICS",
     )
     queue = csv_rows(ROOT / "dead-campus-queue-filtered.csv")
+    curation = load_curation()
 
     phase2_by_key = {(norm(r.get("Institution")), clean_text(r.get("State")).upper()): r for r in phase2}
     spatial_by_key = {(norm(r.get("Institution")), clean_text(r.get("State")).upper()): r for r in spatial}
@@ -233,6 +315,7 @@ def build_public_sites() -> list[dict]:
         queue_by_key[(norm(row.get("name")), clean_text(row.get("state")).upper())].append(row)
 
     sites = []
+    seen_ids: set[str] = set()
     for index, row in enumerate(master, start=1):
         state = clean_text(row.get("State")).upper()
         key = (norm(row.get("Institution")), state)
@@ -243,72 +326,105 @@ def build_public_sites() -> list[dict]:
         year = clean_year(choose(row.get("Closure_Year"), p2.get("Closure_Year"), sp.get("Closure_Year")))
         name = choose(row.get("Institution"), p2.get("Institution"), sp.get("Institution"))
         morphology = canonical_morphology(choose(row.get("Morphology"), p2.get("Morphology"), sp.get("Morphology")))
-        public_summary = PUBLIC_SUMMARIES.get(key, "")
+        public_id = site_id(name, state)
+        if public_id in seen_ids:
+            raise SystemExit(f"Duplicate public site id: {public_id}")
+        seen_ids.add(public_id)
+        curated = curation.get(public_id, {})
+
         evidence = []
         for q in queue_rows:
+            raw_verification = clean_text(q.get("verification"))
             evidence.append(
                 {
                     "line": q.get("_line"),
                     "sourceSheet": clean_text(q.get("sourceSheet")),
-                    "verification": clean_text(q.get("verification")),
+                    "verification": canonical_verification(raw_verification),
+                    "verificationNote": raw_verification,
                     "sourceUrl": clean_text(q.get("sourceUrl")) if is_url(q.get("sourceUrl")) else "",
                     "sourceNote": "" if is_url(q.get("sourceUrl")) else clean_text(q.get("sourceUrl")),
                     "missingFields": clean_text(q.get("missingFields")),
                 }
             )
+        source_urls: list[str] = []
+        for url in [*curated.get("sourceUrls", []), *(e["sourceUrl"] for e in evidence)]:
+            if is_url(url) and url not in source_urls:
+                source_urls.append(url)
 
-        sites.append(
-            {
-                "id": f"{slug(name)}-{state.lower()}-{year or 'undated'}",
-                "recordNumber": index,
-                "name": name,
-                "city": choose(sp.get("City")),
-                "state": state,
-                "region": choose(sp.get("Region"), p2.get("Region")),
-                "closureYear": year,
-                "sector": choose(row.get("Sector"), sp.get("Sector"), p2.get("Sector")),
-                "campusType": choose(row.get("Campus_Type"), sp.get("Campus_Type"), p2.get("Campus_Type")),
-                "status": choose(row.get("Status")),
-                "reuseType": choose(row.get("Reuse_Type"), af.get("Afterlife")),
-                "buyerController": choose(
-                    row.get("Buyer_or_Controller"),
-                    sp.get("Buyer_or_Controller"),
-                    p2.get("Buyer_or_Controller"),
-                    af.get("Buyer"),
-                ),
-                "buyerType": choose(af.get("Buyer_Type")),
-                "morphology": morphology,
-                "scale": choose(row.get("Scale")),
-                "notes": choose(row.get("Notes")),
-                "verification": choose(row.get("Verification"), "Confirmed"),
-                "transformation": choose(sp.get("Transformation"), p2.get("Transformation"), af.get("Transformation_Logic")),
-                "atlasPriority": choose(sp.get("Atlas_Priority"), p2.get("Atlas_Priority"), af.get("Atlas_Importance")),
-                "salePrice": choose(af.get("Sale_Price")),
-                "afterlife": choose(af.get("Afterlife"), row.get("Reuse_Type")),
-                "latitude": sp.get("Latitude") if sp.get("Latitude") not in ("", None) else None,
-                "longitude": sp.get("Longitude") if sp.get("Longitude") not in ("", None) else None,
-                "publicSummary": public_summary,
-                "evidence": evidence,
-                "sourceFiles": [
-                    "_DATA/dead_campus_master_table_v1.xlsx",
-                    "_DATA/dead_campus_atlas_phase2.xlsx",
-                    "_DATA/dead_campus_atlas_phase3_spatialization.xlsx",
-                    "_DATA/dead_campus_atlas_phase4_afterlife_forensics.xlsx",
-                    "dead-campus-queue-filtered.csv",
-                ],
-            }
-        )
-        if key in PUBLIC_FIELD_OVERRIDES:
-            sites[-1].update(PUBLIC_FIELD_OVERRIDES[key])
+        site = {
+            "id": public_id,
+            "recordNumber": index,
+            "name": name,
+            "city": choose(sp.get("City")),
+            "state": state,
+            "region": choose(sp.get("Region"), p2.get("Region")),
+            "closureYear": year,
+            "sector": choose(row.get("Sector"), sp.get("Sector"), p2.get("Sector")),
+            "campusType": choose(row.get("Campus_Type"), sp.get("Campus_Type"), p2.get("Campus_Type")),
+            "status": choose(row.get("Status")),
+            "reuseType": choose(row.get("Reuse_Type"), af.get("Afterlife")),
+            "buyerController": choose(
+                row.get("Buyer_or_Controller"),
+                sp.get("Buyer_or_Controller"),
+                p2.get("Buyer_or_Controller"),
+                af.get("Buyer"),
+            ),
+            "buyerType": choose(af.get("Buyer_Type")),
+            "morphology": morphology,
+            "scale": choose(row.get("Scale")),
+            "notes": choose(row.get("Notes")),
+            "verification": canonical_verification(choose(row.get("Verification"), "Confirmed")),
+            "transformation": choose(sp.get("Transformation"), p2.get("Transformation"), af.get("Transformation_Logic")),
+            "atlasPriority": choose(sp.get("Atlas_Priority"), p2.get("Atlas_Priority"), af.get("Atlas_Importance")),
+            "salePrice": choose(af.get("Sale_Price")),
+            "afterlife": choose(af.get("Afterlife"), row.get("Reuse_Type")),
+            "latitude": sp.get("Latitude") if sp.get("Latitude") not in ("", None) else None,
+            "longitude": sp.get("Longitude") if sp.get("Longitude") not in ("", None) else None,
+            "publicSummary": clean_text(curated.get("summary")),
+            "sourceUrls": source_urls,
+            "evidence": evidence,
+            "sourceFiles": [
+                "_DATA/dead_campus_master_table_v1.xlsx",
+                "_DATA/dead_campus_atlas_phase2.xlsx",
+                "_DATA/dead_campus_atlas_phase3_spatialization.xlsx",
+                "_DATA/dead_campus_atlas_phase4_afterlife_forensics.xlsx",
+                "dead-campus-queue-filtered.csv",
+                "atlas-site/curation/public-sites.json",
+            ],
+        }
+        overrides = dict(curated.get("overrides", {}))
+        if "verification" in overrides:
+            overrides["verification"] = canonical_verification(overrides["verification"])
+        site.update(overrides)
+        site["releaseGaps"] = release_gaps(site)
+        site["releaseReady"] = not site["releaseGaps"]
+        sites.append(site)
     return sites
 
 
-def build_abyss_summary() -> dict:
+def build_release_bar(sites: list[dict]) -> dict:
+    gap_counts = {gate: sum(1 for site in sites if gate in site["releaseGaps"]) for gate in RELEASE_GATES}
+    return {
+        "gates": RELEASE_GATES,
+        "publicSites": len(sites),
+        "minimumPublicSites": MINIMUM_PUBLIC_SITES,
+        "releaseReady": sum(1 for site in sites if site["releaseReady"]),
+        "gapCounts": gap_counts,
+        "sitesWithGaps": [
+            {"id": site["id"], "name": site["name"], "gaps": site["releaseGaps"]}
+            for site in sites
+            if site["releaseGaps"]
+        ],
+    }
+
+
+def build_abyss_summary(source_freshness: dict) -> dict:
     rows = csv_rows(ROOT / "_DATA" / "dead_campus_phase9_peps_normalized.csv")
     class_counts = Counter(clean_text(r.get("ATLAS_PRELIMINARY_CLASS")) or "Unclassified" for r in rows)
     site_type_counts = Counter(clean_text(r.get("ATLAS_SITE_TYPE")) or "Unclassified" for r in rows)
     state_counts = Counter(clean_text(r.get("ATLAS_STATE")) or "Foreign/unknown" for r in rows)
     year_counts = Counter(str(clean_year(r.get("ATLAS_CLOSURE_YEAR")) or "Unknown") for r in rows)
+    federal_source = source_freshness.get("fsaClosedSchoolSearch", {})
 
     def ordered_counts(counter: Counter, numeric: bool = False) -> list[dict]:
         if numeric:
@@ -319,7 +435,7 @@ def build_abyss_summary() -> dict:
 
     return {
         "totalRecords": len(rows),
-        "sourceUrl": "https://www.ed.gov/sites/ed/files/offices/OSFAP/PEPS/docs/closedschoolsearchreq.xlsx",
+        "sourceUrl": federal_source.get("sourceUrl") or "https://fsapartners.ed.gov/additional-resources/reports/weekly-closed-school-search-file",
         "yearRange": [
             min(clean_year(r.get("ATLAS_CLOSURE_YEAR")) for r in rows if clean_year(r.get("ATLAS_CLOSURE_YEAR"))),
             max(clean_year(r.get("ATLAS_CLOSURE_YEAR")) for r in rows if clean_year(r.get("ATLAS_CLOSURE_YEAR"))),
@@ -334,6 +450,33 @@ def build_abyss_summary() -> dict:
             "afterlifeStatus": sum(1 for r in rows if not clean_text(r.get("Afterlife_Status"))),
         },
     }
+
+
+def build_federal_records() -> list[dict]:
+    rows = csv_rows(ROOT / "_DATA" / "dead_campus_phase9_peps_normalized.csv")
+    records = []
+    for index, row in enumerate(rows, start=1):
+        records.append(
+            {
+                "id": f"fsa-{index:05d}",
+                "opeid": clean_text(row.get("ATLAS_OPEID_RAW") or row.get("OPEID_8")),
+                "rootOpeid": clean_text(row.get("ATLAS_OPEID_ROOT") or row.get("Root_OPEID_6")),
+                "branchSuffix": clean_text(row.get("ATLAS_BRANCH_SUFFIX") or row.get("Branch_Suffix")),
+                "name": clean_text(row.get("ATLAS_INSTITUTION_NAME") or row.get("School_Name")),
+                "location": clean_text(row.get("Location")),
+                "address": clean_text(row.get("ATLAS_ADDRESS") or row.get("Address")),
+                "city": clean_text(row.get("ATLAS_CITY") or row.get("City")),
+                "state": clean_text(row.get("ATLAS_STATE") or row.get("State")),
+                "zip": clean_text(row.get("Zip_Code")),
+                "country": clean_text(row.get("Country_Foreign")),
+                "closureDate": clean_text(row.get("Closed_Date")),
+                "closureYear": clean_year(row.get("ATLAS_CLOSURE_YEAR") or row.get("Closed_Year")),
+                "siteType": clean_text(row.get("ATLAS_SITE_TYPE")),
+                "classification": clean_text(row.get("ATLAS_PRELIMINARY_CLASS")),
+                "sourceUrl": clean_text(row.get("Source_URL")),
+            }
+        )
+    return records
 
 
 def build_queue_audit() -> dict:
@@ -372,9 +515,17 @@ def build_queue_audit() -> dict:
     }
 
 
+def load_source_freshness() -> dict:
+    if not SOURCE_FRESHNESS.exists():
+        return {}
+    return json.loads(SOURCE_FRESHNESS.read_text(encoding="utf-8"))
+
+
 def main() -> None:
     sites = build_public_sites()
     morphologies = sorted({site["morphology"] for site in sites if site["morphology"]})
+    source_freshness = load_source_freshness()
+    federal_records = build_federal_records()
     payload = {
         "generatedFrom": [
             "dead-campus-queue-filtered.csv",
@@ -383,11 +534,17 @@ def main() -> None:
             "_DATA/dead_campus_atlas_phase3_spatialization.xlsx",
             "_DATA/dead_campus_atlas_phase4_afterlife_forensics.xlsx",
             "_DATA/dead_campus_phase9_peps_normalized.csv",
+            "_DATA/source_freshness.json",
+            "atlas-site/curation/public-sites.json",
         ],
+        "federalRecordCount": len(federal_records),
         "publicSites": sites,
         "typology": {key: TYPOLOGY.get(key, {"tone": "#4f4a45", "description": ""}) for key in morphologies},
-        "abyss": build_abyss_summary(),
+        "verificationVocabulary": list(VERIFICATION_VOCABULARY),
+        "releaseBar": build_release_bar(sites),
+        "abyss": build_abyss_summary(source_freshness),
         "queueAudit": build_queue_audit(),
+        "sourceFreshness": source_freshness,
     }
     OUT_JS.parent.mkdir(parents=True, exist_ok=True)
     OUT_JSON.write_text(json.dumps(payload, ensure_ascii=False, indent=2) + "\n", encoding="utf-8")
@@ -397,8 +554,20 @@ def main() -> None:
         + ";\n",
         encoding="utf-8",
     )
+    OUT_FEDERAL_JS.write_text(
+        "window.DEAD_CAMPUS_FEDERAL_RECORDS = "
+        + json.dumps(federal_records, ensure_ascii=False, separators=(",", ":"))
+        + ";\n",
+        encoding="utf-8",
+    )
+    bar = payload["releaseBar"]
     print(f"Wrote {OUT_JSON}")
+    print(f"Public sites: {bar['publicSites']} ({bar['releaseReady']} release-ready)")
+    for gate, count in bar["gapCounts"].items():
+        if count:
+            print(f"  gap {gate}: {count}")
     print(f"Wrote {OUT_JS}")
+    print(f"Wrote {OUT_FEDERAL_JS}")
 
 
 if __name__ == "__main__":

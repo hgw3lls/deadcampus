@@ -44,17 +44,52 @@
               <h2 id="atlas-title">Canonical campus records</h2>
             </div>
             <div class="mode-tabs" role="tablist" aria-label="Atlas views">
-              <button class="tab-button is-active" type="button" data-view="archive" role="tab">
+              <button
+                class="tab-button is-active"
+                id="tab-archive"
+                type="button"
+                data-view="archive"
+                role="tab"
+                aria-controls="view-archive"
+                aria-selected="true"
+              >
                 Archive
               </button>
-              <button class="tab-button" type="button" data-view="abyss" role="tab">Abyss</button>
-              <button class="tab-button" type="button" data-view="method" role="tab">Method</button>
+              <button
+                class="tab-button"
+                id="tab-abyss"
+                type="button"
+                data-view="abyss"
+                role="tab"
+                aria-controls="view-abyss"
+                aria-selected="false"
+                tabindex="-1"
+              >
+                Abyss
+              </button>
+              <button
+                class="tab-button"
+                id="tab-method"
+                type="button"
+                data-view="method"
+                role="tab"
+                aria-controls="view-method"
+                aria-selected="false"
+                tabindex="-1"
+              >
+                Method
+              </button>
             </div>
           </div>
 
           <div class="stat-strip" id="statStrip" aria-label="Atlas statistics"></div>
 
-          <section class="view-panel is-active" id="view-archive" role="tabpanel">
+          <section
+            class="view-panel is-active"
+            id="view-archive"
+            role="tabpanel"
+            aria-labelledby="tab-archive"
+          >
             <div class="control-row" aria-label="Archive filters">
               <label class="search-control">
                 <span>Search</span>
@@ -79,7 +114,7 @@
                   </div>
                   <p class="count-pill" id="resultCount"></p>
                 </div>
-                <div class="map-plane" id="mapPlane" aria-label="Approximate campus map"></div>
+                <div class="map-plane" id="mapPlane" aria-label="Interactive campus coordinate map"></div>
               </section>
 
               <section class="record-panel" aria-labelledby="record-title">
@@ -105,14 +140,20 @@
             </section>
           </section>
 
-          <section class="view-panel" id="view-abyss" role="tabpanel" hidden>
+          <section
+            class="view-panel"
+            id="view-abyss"
+            role="tabpanel"
+            aria-labelledby="tab-abyss"
+            hidden
+          >
             <div class="abyss-layout">
               <section class="abyss-panel">
                 <p class="eyebrow">Raw federal layer</p>
                 <h3>PEPS site retreat mass</h3>
                 <p class="body-copy">
-                  The PEPS layer is not yet a public atlas. It is the underlying field of
-                  11,408 closure-site records from 1984 through 2015.
+                  The PEPS layer is the live federal field behind the curated atlas: closure-site
+                  records refreshed from the FSA Weekly Closed School Search File.
                 </p>
                 <div class="bar-stack" id="classBars"></div>
               </section>
@@ -127,9 +168,59 @@
                 <div class="state-grid" id="stateGrid"></div>
               </section>
             </div>
+
+            <section class="federal-panel" aria-labelledby="federal-title">
+              <div class="panel-title-row">
+                <div>
+                  <p class="eyebrow">Federal layer</p>
+                  <h3 id="federal-title">Closed school detail records</h3>
+                </div>
+                <p class="count-pill" id="federalResultCount"></p>
+              </div>
+              <p class="federal-status" id="federalStatus" role="status" aria-live="polite" hidden></p>
+              <div class="federal-controls" aria-label="Federal record filters">
+                <label class="search-control">
+                  <span>Search</span>
+                  <input id="federalSearch" type="search" placeholder="School, city, OPEID" />
+                </label>
+                <label class="select-control">
+                  <span>State</span>
+                  <select id="federalState"></select>
+                </label>
+                <label class="select-control">
+                  <span>Year</span>
+                  <select id="federalYear"></select>
+                </label>
+                <label class="select-control">
+                  <span>Type</span>
+                  <select id="federalSiteType"></select>
+                </label>
+              </div>
+              <div class="table-scroll">
+                <table class="federal-table">
+                  <thead>
+                    <tr>
+                      <th scope="col">School</th>
+                      <th scope="col">Place</th>
+                      <th scope="col">Closed</th>
+                      <th scope="col">OPEID</th>
+                      <th scope="col">Type</th>
+                    </tr>
+                  </thead>
+                  <tbody id="federalTableBody"></tbody>
+                </table>
+              </div>
+              <div class="federal-pager" id="federalPager"></div>
+            </section>
           </section>
 
-          <section class="view-panel" id="view-method" role="tabpanel" hidden>
+          <section
+            class="view-panel"
+            id="view-method"
+            role="tabpanel"
+            aria-labelledby="tab-method"
+            hidden
+          >
             <div class="method-layout">
               <section class="method-panel">
                 <p class="eyebrow">Project architecture</p>

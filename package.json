@@ -4,8 +4,14 @@
   "private": true,
   "description": "Static public prototype for the Dead Campus Atlas archival art project.",
   "scripts": {
+    "refresh:fsa": "python3 tools/refresh_fsa_reports.py",
+    "refresh:fsa:local": "python3 tools/refresh_fsa_reports.py --use-local",
+    "refresh": "python3 tools/update_atlas.py",
+    "update": "python3 tools/update_atlas.py",
+    "update:local": "python3 tools/update_atlas.py --local",
     "build:data": "python3 tools/build_data.py",
     "validate": "python3 tools/validate_site.py",
+    "validate:release": "python3 tools/validate_site.py --release",
     "dev": "python3 -m http.server 5173 --directory dist"
   }
 }
