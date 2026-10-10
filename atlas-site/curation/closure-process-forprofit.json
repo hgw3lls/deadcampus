@@ -617,18 +617,27 @@
    "batch": "26"
   },
   "116040": {
-   "event": "unresolved",
+   "event": "closure",
    "announced": null,
-   "closed": null,
+   "closed": "2012-12-31",
    "abrupt": null,
-   "teachOut": null,
+   "teachOut": "unclear",
    "merger": null,
-   "mergerNote": null,
-   "records": null,
-   "recordsNote": null,
-   "confidence": "low",
-   "notes": "UNRESOLVED. IPEDS shows status closed, close date 12/31/2012, last year 2013. Method 1 tried: no school website listed in IPEDS; located lacollegeinternational.com (archived 2007-2011, an ACICS-accredited 'LA College' with online business programs, site 'Powered by CUnetCorp.com'; last real capture 2011-01-31). From 2013 the domain only 301-redirects to collegeinfo.com (domain squatter), and lacollegeinternational.org expired 12/28/2015 (PowerSites parked page); lacollege.edu/.org are unrelated (Louisiana College, parked). A dead domain is not evidence. The archived page does not itself show the 3200 Wilshire address, so identity of the domain is only inferred from the name. Methods 2-3 (address and name+closure searches, one WebSearch) and method 4 (BPPE enforcement/closure documents surfaced by search) returned no LA College International item; the BPPE closed-school index was not reachable and per-school guesses were not found in Wayback. No evidence of merger or continuation either. Leads for a human: BPPE institution-code lookup, ACICS 2012 actions, Dept of Education closed-school list (studentaid.gov data center, JS-rendered, not readable by curl).",
-   "evidence": [],
+   "mergerNote": "",
+   "records": "unknown",
+   "recordsNote": "",
+   "confidence": "medium",
+   "notes": "The federal closed-school file lists LA College International, 3200 Wilshire Blvd #400, Los Angeles (OPEID 02312400) closed 2013-01-01; IPEDS gives 2012-12-31. The school had been 'Institute of Computer Technology' at the same address until 2013 in IPEDS. No closure notice, teach-out, or records custodian was found; California's BPPE holds records of closed schools but no entry for this one was read.",
+   "evidence": [
+    {
+     "url": "https://fsapartners.ed.gov/additional-resources/reports/weekly-closed-school-search-file",
+     "claim": "FSA Closed School Search snapshot (2026-10-10), fsa-10427: LA COLLEGE INTERNATIONAL, OPEID 02312400, 3200 Wilshire Boulevard #400, closed date 2013-01-01. (FSA Weekly Closed School Search File, the federal report that the atlas stores locally.)"
+    },
+    {
+     "url": "https://educationdata.urban.org/api/v1/college-university/ipeds/directory/2013/?unitid=116040",
+     "claim": "IPEDS directory 2013 record for LA College International, 3200 Wilshire Blvd #400, Los Angeles CA 90010, status closed."
+    }
+   ],
    "name": "LA College International",
    "chain": "LA College International",
    "ipedsStatus": "closed",
@@ -638,8 +647,8 @@
    "resolvedFrom": {
     "event": "unresolved",
     "confidence": "low",
-    "notes": "No source found. No Wikipedia article and not located in the BPPE closed-school index page fetched; BPPE per-school URL guesses returned 404. IPEDS has a close date of 12/31/2012 and last year 2013, and a directory lists ACICS accreditation (not usable as evidence). Closure mechanics (announcement, teach-out, records) are unknown. Check BPPE and the ACICS action notices.",
-    "pass": "closureproc_resolve_06_result.json"
+    "notes": "UNRESOLVED. IPEDS shows status closed, close date 12/31/2012, last year 2013. Method 1 tried: no school website listed in IPEDS; located lacollegeinternational.com (archived 2007-2011, an ACICS-accredited 'LA College' with online business programs, site 'Powered by CUnetCorp.com'; last real capture 2011-01-31). From 2013 the domain only 301-redirects to collegeinfo.com (domain squatter), and lacollegeinternational.org expired 12/28/2015 (PowerSites parked page); lacollege.edu/.org are unrelated (Louisiana College, parked). A dead domain is not evidence. The archived page does not itself show the 3200 Wilshire address, so identity of the domain is only inferred from the name. Methods 2-3 (address and name+closure searches, one WebSearch) and method 4 (BPPE enforcement/closure documents surfaced by search) returned no LA College International item; the BPPE closed-school index was not reachable and per-school guesses were not found in Wayback. No evidence of merger or continuation either. Leads for a human: BPPE institution-code lookup, ACICS 2012 actions, Dept of Education closed-school list (studentaid.gov data center, JS-rendered, not readable by curl).",
+    "pass": "closureproc_resolve_17_result.json"
    }
   },
   "116466": {
@@ -5177,33 +5186,29 @@
    "batch": "01"
   },
   "207625": {
-   "event": "unresolved",
+   "event": "consolidation",
    "announced": null,
-   "closed": null,
+   "closed": "2018-07-13",
    "abrupt": null,
-   "teachOut": "unclear",
-   "merger": "none",
-   "mergerNote": null,
-   "records": "yes",
-   "recordsNote": "Ancora Education told News 9 (Jan 2023) that prior Platt College OKC students can obtain transcripts through parchment.com; the article does not name this campus.",
-   "confidence": "low",
-   "notes": "Methods 1 and 3 tried. The campus (OKC Central, 309 S Ann Arbor Ave; the 'Ann Arbor' suffix is its street) was listed with programs (dental/medical assisting, surgical tech, practical nursing not enrolling) on plattcolleges.edu through captures of 2018-04-10; captures from 2018-08-31 onward list only Tulsa, Moore, Lawton and Oklahoma City-North, so it ended between Apr and Aug 2018 (IPEDS 2018-07-13). Same owner (Ancora Education) kept the North campus; no capture between 2018-04-10 and 2018-08-31 and no notice found, so whether students were moved to OKC-North (consolidation) or the campus was closed cannot be told. One WebSearch spent on this member returned only generic listings.",
+   "teachOut": null,
+   "merger": null,
+   "mergerNote": "",
+   "records": null,
+   "recordsNote": "",
+   "confidence": "medium",
+   "notes": "Platt College's Oklahoma City 'Central' campus at 309 S Ann Arbor (this unit, OPEID 02306801) closed on 2018-07-13 per the FSA closed-school file, while the company kept operating: the school's own site listed 'Oklahoma City Central' and 'Oklahoma City North' in December 2017 and only 'Oklahoma City - North' (plus Tulsa, Moore, Lawton) in December 2018. The unit was folded into the surviving Oklahoma City campus of the same company, which itself closed later (FSA lists Miller-Motte College Platt College - OKC - Memorial, 2727 W Memorial, closed 2021-11-22). No notice to students and no records custodian was found, so abrupt/teach-out are left unset.",
    "evidence": [
     {
-     "url": "https://web.archive.org/web/20180410023154/https://plattcolleges.edu/",
-     "claim": "2018-04-10 homepage lists campuses Tulsa, Lawton, Moore, Oklahoma City Central, Oklahoma City North."
+     "url": "https://web.archive.org/web/20171224034039id_/http://plattcolleges.edu/",
+     "claim": "Platt College site, 2017-12-24 capture: lists campuses 'Oklahoma City Central' (309 S Ann Arbor, Oklahoma City, OK 73128) and 'Oklahoma City North'."
     },
     {
-     "url": "https://web.archive.org/web/20180831012432/https://plattcolleges.edu/",
-     "claim": "2018-08-31 homepage lists only Tulsa, Moore, Lawton, Oklahoma City - North."
+     "url": "https://web.archive.org/web/20181223162707id_/https://plattcolleges.edu/",
+     "claim": "Platt College site, 2018-12-23 capture: campus list reads Tulsa, Moore, Lawton, 'Oklahoma City - North'; the Central/Ann Arbor campus is gone."
     },
     {
-     "url": "https://web.archive.org/web/20180201153656/http://plattcolleges.edu:80/campuses/central-okc",
-     "claim": "Feb 2018 Central campus page: 309 S. Ann Arbor, OKC; dental assisting, medical assisting, surgical technologist; practical nursing not enrolling."
-    },
-    {
-     "url": "https://news9.com/story/63d342b4a4f2047c00600816/okc-platt-college-graduate-receives-school-transcript-four-years-after-graduating",
-     "claim": "Ancora says prior Platt College students may obtain transcripts at parchment.com."
+     "url": "https://fsapartners.ed.gov/additional-resources/reports/weekly-closed-school-search-file",
+     "claim": "FSA Closed School Search snapshot (2026-10-10), fsa-04708: PLATT COLLEGE - OKC - ANN ARBOR, OPEID 02306801, 309 South Ann Arbor, closed date 2018-07-13; fsa-02062: MILLER-MOTTE COLLEGE PLATT COLLEGE - OKC - MEMORIAL, OPEID 02306804, closed 2021-11-22. (FSA Weekly Closed School Search File, the federal report that the atlas stores locally.)"
     }
    ],
    "name": "Platt College-OKC-Ann Arbor",
@@ -5215,8 +5220,8 @@
    "resolvedFrom": {
     "event": "unresolved",
     "confidence": "low",
-    "notes": "Platt College-OKC-Ann Arbor (IPEDS close 07/13/2018). Could not establish ownership (the 'Ann Arbor' suffix is unexplained) or whether students moved to Platt College Tulsa, the ACCSC main campus for Ancora's branches. Timing coincides with the 2018 Ancora reorganization but no source ties it to it.",
-    "pass": "closureproc_resolve_14_result.json"
+    "notes": "Methods 1 and 3 tried. The campus (OKC Central, 309 S Ann Arbor Ave; the 'Ann Arbor' suffix is its street) was listed with programs (dental/medical assisting, surgical tech, practical nursing not enrolling) on plattcolleges.edu through captures of 2018-04-10; captures from 2018-08-31 onward list only Tulsa, Moore, Lawton and Oklahoma City-North, so it ended between Apr and Aug 2018 (IPEDS 2018-07-13). Same owner (Ancora Education) kept the North campus; no capture between 2018-04-10 and 2018-08-31 and no notice found, so whether students were moved to OKC-North (consolidation) or the campus was closed cannot be told. One WebSearch spent on this member returned only generic listings.",
+    "pass": "closureproc_resolve_17_result.json"
    }
   },
   "208965": {
@@ -6829,23 +6834,19 @@
    "abrupt": null,
    "teachOut": null,
    "merger": null,
-   "mergerNote": null,
+   "mergerNote": "",
    "records": null,
-   "recordsNote": null,
+   "recordsNote": "",
    "confidence": "low",
-   "notes": "Educational Technical College (EDUTEC) Bayamon, Calle Santa Cruz #28, was still presented as a live campus on its own site on 2022-05-18 (Bayamon and Coamo recintos with staff contacts, ACCSC and Consejo General de Educacion accreditation/authorization, COVID HEERF reports through Dec 2020, 'Copyright 2021'). All three EDUTEC IPEDS units still existing in 2021 (Bayamon 240985, Coamo 448707, Lares 494834) drop together after 2021, i.e. company-level non-reporting, and edutecpr.com is a domain-parking page by May 2024 (no captures between May 2022 and May 2024). Not on the FSA closed-school list (only San Sebastian, closed 2019-01-10, and an earlier site appear) and not on the ACCSC voluntary withdrawal/closure list (covers Mar 2022 to Nov 2024), so there is no document showing a closure, consolidation or continued operation. Most likely a company-wide closure or exit from Title IV/IPEDS after spring 2022 but that is inference. Methods tried: archived own site 2019-2024, local FSA list, ACCSC closure list (archived Dec 2024) and public notices, one WebSearch (directory aggregators only). A human should check ACCSC's accredited-school directory and Consejo General de Educacion licensing for EDUTEC Bayamon/Coamo.",
+   "notes": "Methods tried: the school's own site (live and listing both Bayamon and Coamo campuses on 2022-05-18; parked-domain page by 2024-05; Wayback), the FSA closed-school file (other EDUTEC locations appear, San Sebastian 2019 and Piñero Ave 2015, but not Bayamon, Coamo, or Lares), DAPIP mirror (no status), ACCSC directory (page not retrievable), and web searches in English and Spanish (no closure notice or news). The three EDUTEC units that existed in 2021 all left IPEDS together after 2021, which suggests the company stopped reporting or ceased, but nothing read establishes which. Needs the Puerto Rico Consejo de Educación or ACCSC action history.",
    "evidence": [
     {
-     "url": "https://web.archive.org/web/20220518060418/http://edutecpr.com/recintos",
-     "claim": "EDUTEC site 2022-05-18 still lists Bayamon (Calle Santa Cruz #28) and Coamo campuses with contacts."
+     "url": "https://web.archive.org/web/20220518070939id_/http://edutecpr.com/",
+     "claim": "EDUTEC site, 2022-05-18 capture: presents Bayamon and Coamo campuses with contacts, ACCSC accreditation, copyright 2021."
     },
     {
-     "url": "https://web.archive.org/web/20240511121533/http://ww25.edutecpr.com/",
-     "claim": "By 2024-05-11 edutecpr.com redirects to a ww25 parking host (no school content)."
-    },
-    {
-     "url": "https://web.archive.org/web/20241208060928/https://www.accsc.org/actions-and-announcements/voluntary-withdrawals-school-closures/",
-     "claim": "ACCSC voluntary withdrawal/closure list (Mar 2022 to Nov 2024) has no Educational Technical College entry."
+     "url": "https://web.archive.org/web/20250328093824id_/https://www.edutecpr.com/",
+     "claim": "edutecpr.com capture of 2025-03-28 is a parked-domain advertising page, not a school site."
     }
    ],
    "name": "Educational Technical College-Recinto de Bayamon",
@@ -6857,8 +6858,8 @@
    "resolvedFrom": {
     "event": "unresolved",
     "confidence": "low",
-    "notes": "No source found for Educational Technical College-Recinto de Bayamon (dropped from IPEDS after 2021; no IPEDS close date). Could be a campus closure or consolidation into another ETC recinto. Wikipedia's list of Puerto Rico colleges has no entry for Educational Technical College.",
-    "pass": "closureproc_resolve_11_result.json"
+    "notes": "Educational Technical College (EDUTEC) Bayamon, Calle Santa Cruz #28, was still presented as a live campus on its own site on 2022-05-18 (Bayamon and Coamo recintos with staff contacts, ACCSC and Consejo General de Educacion accreditation/authorization, COVID HEERF reports through Dec 2020, 'Copyright 2021'). All three EDUTEC IPEDS units still existing in 2021 (Bayamon 240985, Coamo 448707, Lares 494834) drop together after 2021, i.e. company-level non-reporting, and edutecpr.com is a domain-parking page by May 2024 (no captures between May 2022 and May 2024). Not on the FSA closed-school list (only San Sebastian, closed 2019-01-10, and an earlier site appear) and not on the ACCSC voluntary withdrawal/closure list (covers Mar 2022 to Nov 2024), so there is no document showing a closure, consolidation or continued operation. Most likely a company-wide closure or exit from Title IV/IPEDS after spring 2022 but that is inference. Methods tried: archived own site 2019-2024, local FSA list, ACCSC closure list (archived Dec 2024) and public notices, one WebSearch (directory aggregators only). A human should check ACCSC's accredited-school directory and Consejo General de Educacion licensing for EDUTEC Bayamon/Coamo.",
+    "pass": "closureproc_resolve_17_result.json"
    }
   },
   "242422": {
@@ -8866,18 +8867,27 @@
    "batch": "01"
   },
   "379889": {
-   "event": "unresolved",
+   "event": "still-operating",
    "announced": null,
    "closed": null,
    "abrupt": null,
    "teachOut": null,
    "merger": null,
-   "mergerNote": null,
+   "mergerNote": "",
    "records": null,
-   "recordsNote": null,
-   "confidence": "low",
-   "notes": "Unresolved. IPEDS lists 8713 Katy Fwy, Houston 77024, phone 713-464-0771, no website, last reported 2010, status 'dropped' (not 'closed'). Method 1: no website known; Wayback checks of guessed domains found only unrelated sites (ioceantech.com is an Indian software firm; iot.edu not retrievable). Methods 2 and 3: web searches on the name, the address and the phone number returned nothing for this institution (only India's NIOT and Houston's Ocean Corporation, an unrelated diving school at Rockley Rd). Method 4: not on the THECB closed-institution/DiplomaSender list as fetched. Search allowance exhausted. A human could try Texas Workforce Commission Career Schools and Colleges records or a Harris County assumed-name/Texas SOS lookup for 'Institute of Ocean Technology'.",
-   "evidence": [],
+   "recordsNote": "",
+   "confidence": "medium",
+   "notes": "This unit was DiveTech Inc in IPEDS 2000-2010 (8713 Katy Fwy, Houston, no OPEID, so never a Title IV school) and 'Institute of Ocean Technology' in its last year. Divetech Inc still operates in Houston as a dive center (now 5325 Cornish St) and its own site says the Department of Education recognizes it as a post-secondary school of SCUBA, the status that put it in IPEDS. The exit in 2011 is therefore a reporting change for a school with no federal aid participation, not a closure. The link rests on the name history and that claim; the address and phone changed, and no page equates the trade name 'Institute of Ocean Technology' with the dive center.",
+   "evidence": [
+    {
+     "url": "https://educationdata.urban.org/api/v1/college-university/ipeds/directory/2010/?unitid=379889",
+     "claim": "IPEDS directory 2010 record: Institute of Ocean Technology, 8713 Katy Fwy, Houston TX 77024, phone 713-464-0771, OPEID -2; earlier directory years list the same unit as DIVETECH INC."
+    },
+    {
+     "url": "https://divetechhouston.com/",
+     "claim": "Divetech Houston's own site (read 2026-10-10): SSI/PADI scuba training with 2026 class listings, 'Department of Education recognizes as a post-secondary school of SCUBA'."
+    }
+   ],
    "name": "Institute of Ocean Technology",
    "chain": "Institute of Ocean Technology",
    "ipedsStatus": "dropped",
@@ -8887,8 +8897,8 @@
    "resolvedFrom": {
     "event": "unresolved",
     "confidence": "low",
-    "notes": "No source found. IPEDS status 'dropped', last reported 2010 (exit 2011). Wikipedia searches return only India's National Institute of Ocean Technology (unrelated).",
-    "pass": "closureproc_resolve_05_result.json"
+    "notes": "Unresolved. IPEDS lists 8713 Katy Fwy, Houston 77024, phone 713-464-0771, no website, last reported 2010, status 'dropped' (not 'closed'). Method 1: no website known; Wayback checks of guessed domains found only unrelated sites (ioceantech.com is an Indian software firm; iot.edu not retrievable). Methods 2 and 3: web searches on the name, the address and the phone number returned nothing for this institution (only India's NIOT and Houston's Ocean Corporation, an unrelated diving school at Rockley Rd). Method 4: not on the THECB closed-institution/DiplomaSender list as fetched. Search allowance exhausted. A human could try Texas Workforce Commission Career Schools and Colleges records or a Harris County assumed-name/Texas SOS lookup for 'Institute of Ocean Technology'.",
+    "pass": "closureproc_resolve_17_result.json"
    }
   },
   "380465": {
@@ -10357,18 +10367,27 @@
    "batch": "39"
   },
   "412003": {
-   "event": "unresolved",
+   "event": "closure",
    "announced": null,
-   "closed": null,
+   "closed": "2017-06",
    "abrupt": null,
-   "teachOut": null,
+   "teachOut": "unclear",
    "merger": null,
-   "mergerNote": null,
-   "records": null,
-   "recordsNote": null,
-   "confidence": "low",
-   "notes": "Could not establish how the National Institute of Massotherapy (3681 Manchester Rd, Akron OH 44319; 330-867-1996; a sister location existed in Independence OH) ended. IPEDS lists it closed 2017-06-09, but that alone is not a source. Methods tried: (1) the IPEDS website field is blank, so I guessed domains (nationalinstituteofmassotherapy.com/.org, nimassage.com, nimassotherapy.com, massotherapy.com, nim-akron.com, nationalinstitute.edu) in the Wayback availability API: no captures; (3) one web search by name and street: only DAPIP-derived and massage-directory listings with no status. Human check: Ohio State Board of Career Colleges and Schools closed-school records, Ohio State Medical Board (massage school approval), or a search for the Independence OH unit's website.",
-   "evidence": [],
+   "mergerNote": "",
+   "records": "unknown",
+   "recordsNote": "",
+   "confidence": "medium",
+   "notes": "The federal closed-school file lists National Institute of Massotherapy, 3681 Manchester Road, Akron (OPEID 03468400) closed 2017-06-30 (IPEDS: 2017-06-09); an earlier Brecksville location (OPEID 03468401, 5700 Brecksville Rd) closed 2013-06-30, so the school was shrinking before it ended. The Ohio Medical Board's 2023 approved massage-therapy program list does not include it. No closure notice, teach-out, or records custodian was found.",
+   "evidence": [
+    {
+     "url": "https://fsapartners.ed.gov/additional-resources/reports/weekly-closed-school-search-file",
+     "claim": "FSA Closed School Search snapshot (2026-10-10), fsa-05842: NATIONAL INSTITUTE OF MASSOTHERAPY, OPEID 03468400, 3681 Manchester Road, closed date 2017-06-30; fsa-09935: same school, OPEID 03468401, 5700 Brecksville Rd, closed 2013-06-30. (FSA Weekly Closed School Search File, the federal report that the atlas stores locally.)"
+    },
+    {
+     "url": "https://educationdata.urban.org/api/v1/college-university/ipeds/directory/2017/?unitid=412003",
+     "claim": "IPEDS directory 2017 record for National Institute of Massotherapy, 3681 Manchester Rd, Akron OH 44319, status closed."
+    }
+   ],
    "name": "National Institute of Massotherapy",
    "chain": "National Institute of Massotherapy",
    "ipedsStatus": "closed",
@@ -10378,8 +10397,8 @@
    "resolvedFrom": {
     "event": "unresolved",
     "confidence": "low",
-    "notes": "No source found for National Institute of Massotherapy (Akron, OH). IPEDS shows closed 06/09/2017. Ohio closed-school pages tried returned 404. Human check: Ohio State Board of Career Colleges and Schools / Ohio Dept of Higher Education closed-school records.",
-    "pass": "closureproc_resolve_08_result.json"
+    "notes": "Could not establish how the National Institute of Massotherapy (3681 Manchester Rd, Akron OH 44319; 330-867-1996; a sister location existed in Independence OH) ended. IPEDS lists it closed 2017-06-09, but that alone is not a source. Methods tried: (1) the IPEDS website field is blank, so I guessed domains (nationalinstituteofmassotherapy.com/.org, nimassage.com, nimassotherapy.com, massotherapy.com, nim-akron.com, nationalinstitute.edu) in the Wayback availability API: no captures; (3) one web search by name and street: only DAPIP-derived and massage-directory listings with no status. Human check: Ohio State Board of Career Colleges and Schools closed-school records, Ohio State Medical Board (massage school approval), or a search for the Independence OH unit's website.",
+    "pass": "closureproc_resolve_17_result.json"
    }
   },
   "413644": {
@@ -13043,18 +13062,27 @@
    "batch": "15"
   },
   "438294": {
-   "event": "unresolved",
+   "event": "closure",
    "announced": null,
-   "closed": null,
+   "closed": "2015-05-21",
    "abrupt": null,
-   "teachOut": null,
+   "teachOut": "unclear",
    "merger": null,
-   "mergerNote": null,
-   "records": null,
-   "recordsNote": null,
-   "confidence": "low",
-   "notes": "Could not establish whether the Bradenton campus of Florida College of Natural Health closed, or was folded into the company's other campuses (Maitland, Pompano Beach; a search summary reported the school as part of Steiner Education Group Schools). IPEDS lists the unit closed 2015-05-21 while the school continued elsewhere, so 'consolidation' (or a reporting change) is plausible but unproven. Methods tried: 1 (archive availability API showed no snapshots for fcnh.com / floridanaturalhealth.com, and web.archive.org itself was unreachable; fcnh.com did not resolve; floridanaturalhealth.com is now a for-sale domain); 2/3 (one search: no closure coverage); 4 (Florida Board of Massage Therapy closed-programs list found, but it is a 2014 file and does not list FCNH; FL DOE CIE pages return 403). A human should check the Florida Board of Massage Therapy approved-program list and ACCSC notices for Bradenton.",
-   "evidence": [],
+   "mergerNote": "",
+   "records": "unknown",
+   "recordsNote": "",
+   "confidence": "medium",
+   "notes": "The federal closed-school file lists the location at 616 67th Street Circle East (the address this IPEDS unit reported as Bradenton) as 'Florida College of Natural Health - Sarasota', OPEID 03008603, closed 2015-05-21, the same date IPEDS gives. The campus left the chain: sister campuses at Pompano Beach and Maitland continued under the name (later Cortiva Institute) and appear in IPEDS 2016, Bradenton does not. The Cortiva closed-campuses list read does not mention Bradenton, so no notice, teach-out, or records custodian was found; how the closing was announced is unknown.",
+   "evidence": [
+    {
+     "url": "https://fsapartners.ed.gov/additional-resources/reports/weekly-closed-school-search-file",
+     "claim": "FSA Closed School Search snapshot (2026-10-10), fsa-08165: FLORIDA COLLEGE OF NATURAL HEALTH - SARASOTA, OPEID 03008603, 616 67th Street Circle East, closed date 2015-05-21. (FSA Weekly Closed School Search File, the federal report that the atlas stores locally.)"
+    },
+    {
+     "url": "https://educationdata.urban.org/api/v1/college-university/ipeds/directory/2015/?unitid=438294",
+     "claim": "IPEDS directory 2015 record for Florida College of Natural Health-Bradenton, 616 67th Street Circle East, Bradenton FL 34208; unit absent from the 2016 directory while Pompano Beach (387925) and Maitland (438285) remain."
+    }
+   ],
    "name": "Florida College of Natural Health-Bradenton",
    "chain": "Florida College of Natural Health",
    "ipedsStatus": "closed",
@@ -13064,8 +13092,8 @@
    "resolvedFrom": {
     "event": "unresolved",
     "confidence": "low",
-    "notes": "No closure source found. IPEDS shows closed 05/21/2015. Florida College of Natural Health's other campuses (Maitland, Pompano Beach) appear on a June 2015 Florida Health Dept list while Bradenton does not, which suggests the Bradenton campus closed by then, but the school was still operating elsewhere and no source on timing, teach-out or records was read. A 2015 class-action suit by foreign massage therapists alleges mishandled enrollment records, unrelated to the Bradenton closure.",
-    "pass": "closureproc_resolve_02_result.json"
+    "notes": "Could not establish whether the Bradenton campus of Florida College of Natural Health closed, or was folded into the company's other campuses (Maitland, Pompano Beach; a search summary reported the school as part of Steiner Education Group Schools). IPEDS lists the unit closed 2015-05-21 while the school continued elsewhere, so 'consolidation' (or a reporting change) is plausible but unproven. Methods tried: 1 (archive availability API showed no snapshots for fcnh.com / floridanaturalhealth.com, and web.archive.org itself was unreachable; fcnh.com did not resolve; floridanaturalhealth.com is now a for-sale domain); 2/3 (one search: no closure coverage); 4 (Florida Board of Massage Therapy closed-programs list found, but it is a 2014 file and does not list FCNH; FL DOE CIE pages return 403). A human should check the Florida Board of Massage Therapy approved-program list and ACCSC notices for Bradenton.",
+    "pass": "closureproc_resolve_17_result.json"
    }
   },
   "438382": {
@@ -14773,18 +14801,27 @@
    }
   },
   "441654": {
-   "event": "unresolved",
+   "event": "closure",
    "announced": null,
-   "closed": null,
+   "closed": "2009-12-31",
    "abrupt": null,
-   "teachOut": null,
+   "teachOut": "unclear",
    "merger": null,
-   "mergerNote": null,
-   "records": null,
-   "recordsNote": null,
-   "confidence": "low",
-   "notes": "Could not establish what happened to Tri-State College, North Lima OH (9159 Market St Ste 26; 330-629-9998). Methods tried: (1) Wayback availability API for tristatecollege.edu, www.tristatecollege.edu, .com, .net, .org and variants: no capture of the .edu; the .com and .net captures (2011) are unrelated domain-squatter/blog pages; tristate.edu is Trine University (Indiana), not this school. (3) One web search with name, address and phone: only an empty Unigo directory entry for the same address; Trine University (formerly Tri-State College, Indiana) and Tri-State Bible College (South Point OH) are unrelated. Possible relation to Tri-State Educational Systems (owner of Ohio Business College) was not supported by any source. Human check: Ohio State Board of Career Colleges and Schools / Ohio Dept of Higher Education closed or lapsed-registration list, or Ohio Secretary of State business filings.",
-   "evidence": [],
+   "mergerNote": "",
+   "records": "unknown",
+   "recordsNote": "",
+   "confidence": "medium",
+   "notes": "The federal closed-school file lists Tri-State College, 9159 Market Street, North Lima, OH (OPEID 03578300) closed 2009-12-31, matching the unit's last IPEDS year (2009). IPEDS listed the same address as Tri-State Institute of Massotherapy in 2002-2009 before the name changed to Tri-State College. No closure notice, teach-out, or records custodian was found; the 2023 Ohio Medical Board approved-program list does not include it.",
+   "evidence": [
+    {
+     "url": "https://fsapartners.ed.gov/additional-resources/reports/weekly-closed-school-search-file",
+     "claim": "FSA Closed School Search snapshot (2026-10-10), fsa-13018: TRI-STATE COLLEGE, OPEID 03578300, 9159 Market Street, closed date 2009-12-31. (FSA Weekly Closed School Search File, the federal report that the atlas stores locally.)"
+    },
+    {
+     "url": "https://educationdata.urban.org/api/v1/college-university/ipeds/directory/2009/?unitid=441654",
+     "claim": "IPEDS directory 2009 record for Tri-State College, 9159 Market St Ste 26, North Lima OH 44452, phone 330-629-9998, website www.tristatecollege.edu."
+    }
+   ],
    "name": "Tri-State College",
    "chain": "Tri",
    "ipedsStatus": "dropped",
@@ -14794,8 +14831,8 @@
    "resolvedFrom": {
     "event": "unresolved",
     "confidence": "low",
-    "notes": "No source found (no Wikipedia article; Ohio State Board of Career Colleges and Schools list not reachable). IPEDS status 'dropped', last reported 2009.",
-    "pass": "closureproc_resolve_08_result.json"
+    "notes": "Could not establish what happened to Tri-State College, North Lima OH (9159 Market St Ste 26; 330-629-9998). Methods tried: (1) Wayback availability API for tristatecollege.edu, www.tristatecollege.edu, .com, .net, .org and variants: no capture of the .edu; the .com and .net captures (2011) are unrelated domain-squatter/blog pages; tristate.edu is Trine University (Indiana), not this school. (3) One web search with name, address and phone: only an empty Unigo directory entry for the same address; Trine University (formerly Tri-State College, Indiana) and Tri-State Bible College (South Point OH) are unrelated. Possible relation to Tri-State Educational Systems (owner of Ohio Business College) was not supported by any source. Human check: Ohio State Board of Career Colleges and Schools / Ohio Dept of Higher Education closed or lapsed-registration list, or Ohio Secretary of State business filings.",
+    "pass": "closureproc_resolve_17_result.json"
    }
   },
   "441955": {
@@ -28230,29 +28267,29 @@
    "batch": "08"
   },
   "481997": {
-   "event": "unresolved",
-   "announced": null,
-   "closed": null,
-   "abrupt": null,
-   "teachOut": null,
-   "merger": null,
-   "mergerNote": null,
-   "records": null,
-   "recordsNote": null,
-   "confidence": "low",
-   "notes": "UNRESOLVED after methods 1 (archived site) and partial 2/3 (web search allowance exhausted before this member). What the archive does establish: this unit was a Vatterott College operation, 'Vatterott College Personal Fitness & Nutrition Center of St. Louis' (personal-trainer diploma, nutrition classes, gym memberships), with its own microsite at vatterott.edu/fitness (first captured 2012-10, promotional home page still live 2013-12-16, and personal-training / request-information pages still captured 2015-05-11, with no closure notice on any of them). On the main Vatterott site the 'St. Louis, MO - Personal Fitness Center' entry (option value 178) is already wrapped in an HTML comment in the campus selector in captures of 2013-08-16, 2014-01-09 and 2016-08-12, i.e. it was withdrawn from the campus list by Aug 2013. That fits IPEDS reporting it only in 2013, but cannot distinguish a quiet closure from folding into Vatterott's other St. Louis campuses (the Personal Fitness Trainer program still appears in Vatterott's disclosure folder in 2016). The parent company itself ended all instruction in Dec 2018 (separate event). A human should check the Missouri DHEWD / Vatterott St. Louis campus records or an address search for 9200 Olive Blvd, Olivette.",
+   "event": "closure",
+   "announced": "2018-12-17",
+   "closed": "2018-12-17",
+   "abrupt": true,
+   "teachOut": "unclear",
+   "merger": "none",
+   "mergerNote": "A sale of most Vatterott campuses to Education Corporation of America fell through before the closure.",
+   "records": "unknown",
+   "recordsNote": "Vatterott officials said they were working to store students' permanent records; no custodian was named in the report read.",
+   "confidence": "medium",
+   "notes": "This IPEDS unit was a Vatterott College location (website vatterott.edu, reported 2013 only; a Personal Fitness Trainer Diploma added in fall 2012 at 9200 Olive Blvd, St. Louis) that left IPEDS in 2014 as a reporting change. The federal closed-school file lists the location as 'Vatterott College - Personal Fitness and Nutrition Center' closed 2018-12-17, the date Vatterott Educational Centers shut all 15 campuses at once after the Education Department restricted its federal aid. So the real closure is the 2018 chain shutdown, not the 2014 IPEDS exit. Whether this small location was still instructing in December 2018 rests on the FSA row alone.",
    "evidence": [
     {
-     "url": "https://web.archive.org/web/20131216223629/http://www.vatterott.edu/fitness/",
-     "claim": "Vatterott-branded 'Personal Fitness & Nutrition Center of St. Louis' microsite still presented as new and active in Dec 2013; no closure notice."
+     "url": "https://fsapartners.ed.gov/additional-resources/reports/weekly-closed-school-search-file",
+     "claim": "FSA Closed School Search snapshot (2026-10-10), fsa-04251: VATTEROTT COLLEGE - PERSONAL FITNESS AND NUTRITION CENTER, OPEID 02599715, 9200 Olive Boulevard, closed date 2018-12-17 (the same date as the other Vatterott locations, e.g. fsa-04250, fsa-04253). (FSA Weekly Closed School Search File, the federal report that the atlas stores locally.)"
     },
     {
-     "url": "https://web.archive.org/web/20150511204453/http://www.vatterott.edu:80/fitness/personal-training.asp",
-     "claim": "Microsite page still captured in May 2015 with unchanged marketing text and no closure notice (stale page, not evidence of operation)."
+     "url": "https://www.stlamerican.com/career-center/employment-news/vatterott-adds-personal-fitness-trainer-program/",
+     "claim": "St. Louis American, 2012-09-27: Vatterott College is adding a Personal Fitness Trainer Diploma program taught at 9200 Olive Blvd in St. Louis."
     },
     {
-     "url": "https://web.archive.org/web/20140109075733/http://www.vatterott.edu/",
-     "claim": "Vatterott main-site campus selector: the 'St. Louis, MO - Personal Fitness Center' option is commented out of the HTML."
+     "url": "https://www.kbia.org/post/vatterott-college-system-closes-all-15-campuses",
+     "claim": "KBIA/AP, 2018-12-18: Vatterott College suddenly closed all 15 campuses; a letter to students cited the Department of Education's limits on its federal aid; officials were working to store permanent records and find schools to accept credits."
     }
    ],
    "name": "Personal Fitness & Nutrition Center",
@@ -28264,8 +28301,8 @@
    "resolvedFrom": {
     "event": "unresolved",
     "confidence": "low",
-    "notes": "Personal Fitness & Nutrition Center, Olivette MO. Missouri DHEWD closed-schools page has no per-school list. No source found that establishes what happened; searches of Wikipedia, regulator/accreditor pages and general web search returned nothing usable (state regulator sites were unreachable, bot-blocked, or had no per-school list). IPEDS status/close date is not used as evidence. Fields left null.",
-    "pass": "closureproc_resolve_12_result.json"
+    "notes": "UNRESOLVED after methods 1 (archived site) and partial 2/3 (web search allowance exhausted before this member). What the archive does establish: this unit was a Vatterott College operation, 'Vatterott College Personal Fitness & Nutrition Center of St. Louis' (personal-trainer diploma, nutrition classes, gym memberships), with its own microsite at vatterott.edu/fitness (first captured 2012-10, promotional home page still live 2013-12-16, and personal-training / request-information pages still captured 2015-05-11, with no closure notice on any of them). On the main Vatterott site the 'St. Louis, MO - Personal Fitness Center' entry (option value 178) is already wrapped in an HTML comment in the campus selector in captures of 2013-08-16, 2014-01-09 and 2016-08-12, i.e. it was withdrawn from the campus list by Aug 2013. That fits IPEDS reporting it only in 2013, but cannot distinguish a quiet closure from folding into Vatterott's other St. Louis campuses (the Personal Fitness Trainer program still appears in Vatterott's disclosure folder in 2016). The parent company itself ended all instruction in Dec 2018 (separate event). A human should check the Missouri DHEWD / Vatterott St. Louis campus records or an address search for 9200 Olive Blvd, Olivette.",
+    "pass": "closureproc_resolve_17_result.json"
    }
   },
   "482024": {
