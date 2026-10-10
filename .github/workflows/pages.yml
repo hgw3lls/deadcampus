@@ -41,6 +41,13 @@ jobs:
         env:
           GITHUB_PAGES: "true"
 
+      - name: Add the static atlas at /atlas/
+        run: |
+          test -f atlas-site/dist/index.html
+          test ! -e out/atlas
+          mkdir -p out/atlas
+          cp -R atlas-site/dist/. out/atlas/
+
       - name: Preserve Next.js asset directory
         run: touch out/.nojekyll
 
