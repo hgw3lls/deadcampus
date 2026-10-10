@@ -135,7 +135,7 @@ The census goes beyond the 34 curated campuses. `census:draw` lists every privat
 
 The same two steps (`npm run exits:draw`, `npm run exits:merge`) cover the other half of the population: the 149 institutions IPEDS records as dropped or combined that were neither curated nor sampled. With them, all 399 private nonprofit degree-granting institutions that left IPEDS in 2010-2024 are coded, so "what share of exits were real closures" is an exact count.
 
-The page shows these as the **extended layer**: every coded institution whose campus closed (210 at the last build), placed by its IPEDS coordinates, as small hollow squares on the map, switchable in the index between Curated, Extended, and All. Extended records are labelled as coded from public sources, not curated or edited, and carry their confidence and coding notes. Run `npm run pull:ipeds:trajectories` after a merge so they get decline curves.
+The page shows these as the **extended layer**: every coded institution whose campus closed (222 at the last build), placed by its IPEDS coordinates, as small hollow squares on the map, switchable in the index between Curated, Extended, and All. Extended records are labelled as coded from public sources, not curated or edited, and carry their confidence and coding notes. Run `npm run pull:ipeds:trajectories` after a merge so they get decline curves.
 
 Each public site also carries a `matrix` in the curation file: `originalSystem`, `buyerSector`, and `replacementSystem`, each from a controlled list in `tools/build_data.py`. Morphology is derived from the replacement system, so it cannot drift from the matrix. An optional `editorialNote` records where a source cuts against the recorded classification.
 
