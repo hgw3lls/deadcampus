@@ -1,0 +1,21 @@
+{
+  "_about": "Corrections to individual federal closure sites, keyed by stable site id (tools/fsa_ids.py). The federal file is never edited; the build applies these on top and keeps the reported value. Each entry needs a reason.",
+  "records": {
+    "fsa-18915": {
+      "state": "CA",
+      "reason": "Federal file gives state CO for Colton, 92324. The Census geocoder matched 1090 E Washington St, Colton, CA 92324 exactly on ZIP; Colton, CA is the address."
+    },
+    "fsa-19543": {
+      "state": "IN",
+      "reason": "Federal file gives state ND, ZIP 00000, for 5920 Castleway W Dr, Indianapolis. Matched to Indianapolis, IN 46250."
+    },
+    "fsa-22084": {
+      "state": "CA",
+      "reason": "Federal file gives state AL for 6562 Stanford Avenue, Garden Grove, ZIP 92645. Matched to Garden Grove, CA."
+    },
+    "fsa-16119": {
+      "dropCoordinates": true,
+      "reason": "Site is in Sanford, FL (ZIP 32772, University of Florida - Seminole CC). The Census geocoder matched a Weldon Ln address in Sanford, NC (27330), so its coordinates are wrong and are withheld."
+    }
+  }
+}
