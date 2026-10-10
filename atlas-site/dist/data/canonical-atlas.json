@@ -37,7 +37,7 @@
     "columns": 88,
     "file": "data/atlas-records.csv",
     "schema": "data/atlas-records.schema.json",
-    "bytes": 14112443
+    "bytes": 14112545
   },
   "sheeo": {
     "source": "SHEEO Closed College Context (N=748)",
@@ -12981,8 +12981,77 @@
         "status": "dropped",
         "lastYear": 2010
       },
-      "trajectorySummary": {},
-      "trajectory": []
+      "trajectorySummary": {
+        "peakYear": 2002,
+        "peakEnrollment": 533,
+        "lastYear": 2009,
+        "lastEnrollment": 177,
+        "declinePct": 67,
+        "deficitYearsOfLastFive": 1,
+        "financeYearsOfLastFive": 5
+      },
+      "trajectory": [
+        {
+          "year": 2000,
+          "enrollment": 344,
+          "revenue": 2168292,
+          "expenses": 2564939
+        },
+        {
+          "year": 2001,
+          "enrollment": 344,
+          "revenue": 2402686,
+          "expenses": 2517522
+        },
+        {
+          "year": 2002,
+          "enrollment": 533,
+          "revenue": 2402686,
+          "expenses": 2517522
+        },
+        {
+          "year": 2003,
+          "enrollment": 281,
+          "revenue": 2402686,
+          "expenses": 2517522
+        },
+        {
+          "year": 2004,
+          "enrollment": 281,
+          "revenue": 2424361,
+          "expenses": 2149493
+        },
+        {
+          "year": 2005,
+          "enrollment": 279,
+          "revenue": 2195735,
+          "expenses": 2148282
+        },
+        {
+          "year": 2006,
+          "enrollment": 273,
+          "revenue": 2175245,
+          "expenses": 2152630
+        },
+        {
+          "year": 2007,
+          "enrollment": 160,
+          "revenue": 2175245,
+          "expenses": 2152630
+        },
+        {
+          "year": 2008,
+          "enrollment": 155,
+          "revenue": 2056563,
+          "expenses": 2153023
+        },
+        {
+          "year": 2009,
+          "enrollment": 177,
+          "revenue": null,
+          "expenses": null
+        }
+      ]
     },
     {
       "id": "southern-catholic-college-ga",
@@ -15556,8 +15625,89 @@
         "status": "closed",
         "lastYear": 2015
       },
-      "trajectorySummary": {},
-      "trajectory": [],
+      "trajectorySummary": {
+        "peakYear": 2003,
+        "peakEnrollment": 121,
+        "lastYear": 2013,
+        "lastEnrollment": 81,
+        "declinePct": 33,
+        "deficitYearsOfLastFive": 5,
+        "financeYearsOfLastFive": 5
+      },
+      "trajectory": [
+        {
+          "year": 2002,
+          "enrollment": 7,
+          "revenue": 572480,
+          "expenses": 1102526
+        },
+        {
+          "year": 2003,
+          "enrollment": 121,
+          "revenue": 789787,
+          "expenses": 1388890
+        },
+        {
+          "year": 2004,
+          "enrollment": 109,
+          "revenue": 623360,
+          "expenses": 1384029
+        },
+        {
+          "year": 2005,
+          "enrollment": 113,
+          "revenue": 953750,
+          "expenses": 1409363
+        },
+        {
+          "year": 2006,
+          "enrollment": 100,
+          "revenue": 1070023,
+          "expenses": 1400173
+        },
+        {
+          "year": 2007,
+          "enrollment": 90,
+          "revenue": 819081,
+          "expenses": 1384279
+        },
+        {
+          "year": 2008,
+          "enrollment": 115,
+          "revenue": 1074512,
+          "expenses": 1829546
+        },
+        {
+          "year": 2009,
+          "enrollment": 101,
+          "revenue": 942400,
+          "expenses": 1652174
+        },
+        {
+          "year": 2010,
+          "enrollment": 89,
+          "revenue": 737338,
+          "expenses": 1012642
+        },
+        {
+          "year": 2011,
+          "enrollment": 65,
+          "revenue": 581238,
+          "expenses": 1294014
+        },
+        {
+          "year": 2012,
+          "enrollment": 77,
+          "revenue": 826581,
+          "expenses": 941781
+        },
+        {
+          "year": 2013,
+          "enrollment": 81,
+          "revenue": 408221,
+          "expenses": 823525
+        }
+      ],
       "closureProcess": {
         "abrupt": false,
         "records": "yes",
@@ -23759,8 +23909,89 @@
         "status": "dropped",
         "lastYear": 2016
       },
-      "trajectorySummary": {},
-      "trajectory": []
+      "trajectorySummary": {
+        "peakYear": 2014,
+        "peakEnrollment": 193,
+        "lastYear": 2015,
+        "lastEnrollment": 175,
+        "declinePct": 9,
+        "deficitYearsOfLastFive": 1,
+        "financeYearsOfLastFive": 5
+      },
+      "trajectory": [
+        {
+          "year": 2004,
+          "enrollment": 69,
+          "revenue": 780990,
+          "expenses": 740164
+        },
+        {
+          "year": 2005,
+          "enrollment": 71,
+          "revenue": 595487,
+          "expenses": 626131
+        },
+        {
+          "year": 2006,
+          "enrollment": 74,
+          "revenue": 579479,
+          "expenses": 588601
+        },
+        {
+          "year": 2007,
+          "enrollment": 80,
+          "revenue": 513762,
+          "expenses": 513126
+        },
+        {
+          "year": 2008,
+          "enrollment": 72,
+          "revenue": 617801,
+          "expenses": 555761
+        },
+        {
+          "year": 2009,
+          "enrollment": 62,
+          "revenue": 435985,
+          "expenses": 529886
+        },
+        {
+          "year": 2010,
+          "enrollment": 69,
+          "revenue": 529686,
+          "expenses": 539397
+        },
+        {
+          "year": 2011,
+          "enrollment": 119,
+          "revenue": 794232,
+          "expenses": 604586
+        },
+        {
+          "year": 2012,
+          "enrollment": 125,
+          "revenue": 1089638,
+          "expenses": 705040
+        },
+        {
+          "year": 2013,
+          "enrollment": 186,
+          "revenue": 1912553,
+          "expenses": 808439
+        },
+        {
+          "year": 2014,
+          "enrollment": 193,
+          "revenue": 1955634,
+          "expenses": 842242
+        },
+        {
+          "year": 2015,
+          "enrollment": 175,
+          "revenue": null,
+          "expenses": null
+        }
+      ]
     },
     {
       "id": "ottawa-university-jeffersonville-in",
@@ -29107,8 +29338,89 @@
         "status": "closed",
         "lastYear": 2019
       },
-      "trajectorySummary": {},
-      "trajectory": []
+      "trajectorySummary": {
+        "peakYear": 2015,
+        "peakEnrollment": 1151,
+        "lastYear": 2018,
+        "lastEnrollment": 554,
+        "declinePct": 52,
+        "deficitYearsOfLastFive": 0,
+        "financeYearsOfLastFive": 5
+      },
+      "trajectory": [
+        {
+          "year": 2007,
+          "enrollment": 120,
+          "revenue": 688535,
+          "expenses": 509063
+        },
+        {
+          "year": 2008,
+          "enrollment": 171,
+          "revenue": 1079501,
+          "expenses": 862479
+        },
+        {
+          "year": 2009,
+          "enrollment": 245,
+          "revenue": 1674061,
+          "expenses": 1110410
+        },
+        {
+          "year": 2010,
+          "enrollment": 492,
+          "revenue": 3047039,
+          "expenses": 1807937
+        },
+        {
+          "year": 2011,
+          "enrollment": 658,
+          "revenue": 3830020,
+          "expenses": 2169232
+        },
+        {
+          "year": 2012,
+          "enrollment": 873,
+          "revenue": 4298445,
+          "expenses": 2895127
+        },
+        {
+          "year": 2013,
+          "enrollment": 767,
+          "revenue": 4410386,
+          "expenses": 3026387
+        },
+        {
+          "year": 2014,
+          "enrollment": 770,
+          "revenue": 5470526,
+          "expenses": 3534918
+        },
+        {
+          "year": 2015,
+          "enrollment": 1151,
+          "revenue": 5694170,
+          "expenses": 4107908
+        },
+        {
+          "year": 2016,
+          "enrollment": 976,
+          "revenue": 5398493,
+          "expenses": 4251982
+        },
+        {
+          "year": 2017,
+          "enrollment": 824,
+          "revenue": 4461175,
+          "expenses": 4399621
+        },
+        {
+          "year": 2018,
+          "enrollment": 554,
+          "revenue": null,
+          "expenses": null
+        }
+      ]
     },
     {
       "id": "baker-college-center-for-graduate-studies-mi",
@@ -31438,8 +31750,89 @@
         "status": "combined",
         "lastYear": 2020
       },
-      "trajectorySummary": {},
-      "trajectory": [],
+      "trajectorySummary": {
+        "peakYear": 2004,
+        "peakEnrollment": 5520,
+        "lastYear": 2019,
+        "lastEnrollment": 1693,
+        "declinePct": 69,
+        "deficitYearsOfLastFive": 5,
+        "financeYearsOfLastFive": 5
+      },
+      "trajectory": [
+        {
+          "year": 2008,
+          "enrollment": 4590,
+          "revenue": 81568032,
+          "expenses": 87326800
+        },
+        {
+          "year": 2009,
+          "enrollment": 4619,
+          "revenue": 99303288,
+          "expenses": 90336008
+        },
+        {
+          "year": 2010,
+          "enrollment": 4558,
+          "revenue": 104153688,
+          "expenses": 96827416
+        },
+        {
+          "year": 2011,
+          "enrollment": 4218,
+          "revenue": 83905632,
+          "expenses": 94152096
+        },
+        {
+          "year": 2012,
+          "enrollment": 3802,
+          "revenue": 81284872,
+          "expenses": 86023432
+        },
+        {
+          "year": 2013,
+          "enrollment": 3233,
+          "revenue": 82449696,
+          "expenses": 81158208
+        },
+        {
+          "year": 2014,
+          "enrollment": 3205,
+          "revenue": 63484604,
+          "expenses": 73736704
+        },
+        {
+          "year": 2015,
+          "enrollment": 3056,
+          "revenue": 62339712,
+          "expenses": 73965656
+        },
+        {
+          "year": 2016,
+          "enrollment": 2703,
+          "revenue": 58970984,
+          "expenses": 74920496
+        },
+        {
+          "year": 2017,
+          "enrollment": 2307,
+          "revenue": 48079668,
+          "expenses": 60109392
+        },
+        {
+          "year": 2018,
+          "enrollment": 1934,
+          "revenue": 44372380,
+          "expenses": 59014308
+        },
+        {
+          "year": 2019,
+          "enrollment": 1693,
+          "revenue": null,
+          "expenses": null
+        }
+      ],
       "closureProcess": {
         "abrupt": false,
         "teachOut": "yes",
@@ -34706,8 +35099,89 @@
         "status": "closed",
         "lastYear": 2022
       },
-      "trajectorySummary": {},
-      "trajectory": []
+      "trajectorySummary": {
+        "peakYear": 2021,
+        "peakEnrollment": 180,
+        "lastYear": 2021,
+        "lastEnrollment": 180,
+        "declinePct": 0,
+        "deficitYearsOfLastFive": 3,
+        "financeYearsOfLastFive": 5
+      },
+      "trajectory": [
+        {
+          "year": 2010,
+          "enrollment": 153,
+          "revenue": 2460216,
+          "expenses": 2239085
+        },
+        {
+          "year": 2011,
+          "enrollment": 125,
+          "revenue": 1926565,
+          "expenses": 2202884
+        },
+        {
+          "year": 2012,
+          "enrollment": 123,
+          "revenue": 2100164,
+          "expenses": 2237143
+        },
+        {
+          "year": 2013,
+          "enrollment": 113,
+          "revenue": 2310906,
+          "expenses": 2184258
+        },
+        {
+          "year": 2014,
+          "enrollment": 123,
+          "revenue": 1942559,
+          "expenses": 2178499
+        },
+        {
+          "year": 2015,
+          "enrollment": 124,
+          "revenue": 2662069,
+          "expenses": 2215546
+        },
+        {
+          "year": 2016,
+          "enrollment": 120,
+          "revenue": 2008465,
+          "expenses": 2268309
+        },
+        {
+          "year": 2017,
+          "enrollment": 111,
+          "revenue": 1892588,
+          "expenses": 2208210
+        },
+        {
+          "year": 2018,
+          "enrollment": 151,
+          "revenue": 1869340,
+          "expenses": 2315746
+        },
+        {
+          "year": 2019,
+          "enrollment": 161,
+          "revenue": 2588443,
+          "expenses": 2289264
+        },
+        {
+          "year": 2020,
+          "enrollment": 179,
+          "revenue": 2565591,
+          "expenses": 1937127
+        },
+        {
+          "year": 2021,
+          "enrollment": 180,
+          "revenue": null,
+          "expenses": null
+        }
+      ]
     },
     {
       "id": "lincoln-college-il",

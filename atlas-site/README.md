@@ -105,7 +105,7 @@ This matches the public atlas sites to spine rows by name and state and writes t
 npm run pull:ipeds:trajectories
 ```
 
-This pulls fall enrollment and finance (revenue, expenses, net tuition, net position, long-term debt, endowment) for every public site with a UNITID, 2000 to 2024, into `_DATA/ipeds_trajectories.csv`. The build folds it into each site as `trajectory` and `trajectorySummary`, and the dossier shows the decline curve.
+This pulls fall enrollment and finance (revenue, expenses, net tuition, net position, long-term debt, endowment) for every public site with a UNITID and for every extended-layer institution (255 sites in all), 2000 to 2024, into `_DATA/ipeds_trajectories.csv`. The build folds it into each site as `trajectory` and `trajectorySummary`, and the dossier shows the decline curve.
 
 ```bash
 npm run pull:ipeds:affiliation

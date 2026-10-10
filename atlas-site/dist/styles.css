@@ -1571,6 +1571,32 @@ button {
   text-transform: uppercase;
 }
 
+.federal-table th .sort-button {
+  display: inline-flex;
+  align-items: baseline;
+  gap: 6px;
+  padding: 0;
+  border: 0;
+  background: none;
+  color: inherit;
+  font: inherit;
+  letter-spacing: inherit;
+  text-align: left;
+  text-transform: inherit;
+  cursor: pointer;
+}
+
+.federal-table th .sort-button:hover,
+.federal-table th .sort-button:focus-visible {
+  text-decoration: underline;
+}
+
+.federal-table th .sort-mark {
+  display: inline-block;
+  min-width: 1em;
+  font-size: 10px;
+}
+
 .federal-table td {
   padding: 7px 10px;
   border-bottom: 1px solid var(--faint-line);

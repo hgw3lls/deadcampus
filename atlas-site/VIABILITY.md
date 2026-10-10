@@ -34,7 +34,7 @@ Ordered so that each step unblocks the ones after it. Reviewed 2026-10-09 agains
 - Citation URLs. `#campus/<id>` opens a dossier and is shown on each record; `#view/<tab>` opens a tab.
 - Federal table loads on demand when the Abyss tab opens instead of blocking first paint.
 - IPEDS spine. `npm run pull:ipeds` stacks the 2000-2024 directory files into `_DATA/ipeds_directory_spine.csv` with closed, combined, and dropped status per institution; `npm run match:ipeds` links 33 of the 34 public sites to UNITIDs and the GWU branch to its parent. `DATA_SOURCES.md` records what the spine shows.
-- IPEDS trajectories. `npm run pull:ipeds:trajectories` pulls enrollment and finance 2000-2024 for the matched sites; the dossier shows peak and final enrollment and deficit years.
+- IPEDS trajectories. `npm run pull:ipeds:trajectories` pulls enrollment and finance 2000-2024 for the 33 matched curated sites and all 222 extended records (4,199 site-years); the dossier shows peak and final enrollment and deficit years. The portal has no 2025 enrollment or finance yet (2024 itself holds only 8 enrollment rows), so the series ends at 2024.
 - Event sequences. Each public site carries dated status-code events with sources; ten have month-dated transfer sequences, and the build derives time in limbo.
 - Replacement matrix. Every public site carries `originalSystem`, `buyerSector`, and `replacementSystem` from controlled lists; morphology is derived from the replacement system and the validator checks the vocabulary.
 - Page weight. The eager data file is 246 KB (was 1.2 MB). The extended records are a lazy 563 KB bundle, and every asset URL carries a content digest.

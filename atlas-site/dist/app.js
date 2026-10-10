@@ -176,6 +176,7 @@
     federalSiteType: "All types",
     federalFate: "All fates",
     federalProcess: "All closures",
+    federalSort: null,
     federalPage: 1,
     federalPageSize: 50,
     federalStatus: "idle",
@@ -1127,6 +1128,63 @@
     });
   }
 
+  // Table columns that can be sorted: each key maps a record to a comparable value. A record
+  // with no value sorts last in either direction, so empty cells never crowd the top.
+  const closedKey = (record) => {
+    const match = /^(\d{1,2})\/(\d{1,2})\/(\d{4})$/.exec(record.closureDate || "");
+    if (match) return Number(match[3]) * 10000 + Number(match[1]) * 100 + Number(match[2]);
+    return record.closureYear ? Number(record.closureYear) * 10000 : null;
+  };
+  const SORTERS = {
+    school: (r) => (r.name || "").toLowerCase() || null,
+    place: (r) => [r.state || "~", r.city || ""].join(" ").toLowerCase().trim() || null,
+    closed: closedKey,
+    opeid: (r) => r.opeid || null,
+    type: (r) => (r.siteType || "Unclassified").toLowerCase(),
+    fate: (r) => `${fateOf(r)} ${processText(r.sheeo)}`.toLowerCase(),
+  };
+  function sortFederal(records) {
+    const sort = state.federalSort;
+    if (!sort || !SORTERS[sort.key]) return records;
+    const keyOf = SORTERS[sort.key];
+    const sign = sort.dir === "desc" ? -1 : 1;
+    const keyed = records.map((record, index) => ({ record, index, key: keyOf(record) }));
+    keyed.sort((a, b) => {
+      const aEmpty = a.key === null || a.key === "";
+      const bEmpty = b.key === null || b.key === "";
+      if (aEmpty || bEmpty) return aEmpty === bEmpty ? a.index - b.index : aEmpty ? 1 : -1;
+      if (a.key === b.key) return a.index - b.index;
+      return (a.key < b.key ? -1 : 1) * sign;
+    });
+    return keyed.map((item) => item.record);
+  }
+  // Clicking a header cycles ascending, descending, and back to the file's own order.
+  function setFederalSort(key) {
+    const current = state.federalSort;
+    if (!current || current.key !== key) state.federalSort = { key, dir: "asc" };
+    else if (current.dir === "asc") state.federalSort = { key, dir: "desc" };
+    else state.federalSort = null;
+    state.federalPage = 1;
+    renderFederalTable();
+  }
+  function renderFederalHeaders() {
+    document.querySelectorAll(".federal-table th[data-sort]").forEach((th) => {
+      const key = th.dataset.sort;
+      let button = th.querySelector("button.sort-button");
+      if (!button) {
+        button = element("button", { className: "sort-button", text: th.textContent.trim(), attrs: { type: "button" } });
+        button.appendChild(element("span", { className: "sort-mark", attrs: { "aria-hidden": "true" } }));
+        button.addEventListener("click", () => setFederalSort(key));
+        clear(th);
+        th.appendChild(button);
+      }
+      const active = state.federalSort && state.federalSort.key === key ? state.federalSort.dir : null;
+      th.setAttribute("aria-sort", active === "asc" ? "ascending" : active === "desc" ? "descending" : "none");
+      button.querySelector(".sort-mark").textContent = active === "asc" ? "▲" : active === "desc" ? "▼" : "";
+      button.title = active === "asc" ? "Sorted ascending; click for descending" : active === "desc" ? "Sorted descending; click to clear" : "Click to sort";
+    });
+  }
+
   function renderFederalFilters() {
     const fill = (select, first, values) => {
       clear(select);
@@ -1143,7 +1201,8 @@
   }
 
   function renderFederalTable() {
-    const records = filteredFederal();
+    renderFederalHeaders();
+    const records = sortFederal(filteredFederal());
     const totalPages = Math.max(1, Math.ceil(records.length / state.federalPageSize));
     state.federalPage = clamp(state.federalPage, 1, totalPages);
     $("#federalResultCount").textContent = `${formatNumber(records.length)} shown`;
