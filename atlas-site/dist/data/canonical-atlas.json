@@ -37,7 +37,7 @@
     "columns": 88,
     "file": "data/atlas-records.csv",
     "schema": "data/atlas-records.schema.json",
-    "bytes": 14127399
+    "bytes": 14127697
   },
   "sheeo": {
     "source": "SHEEO Closed College Context (N=748)",
@@ -1675,7 +1675,7 @@
         "buyerSector": "Indigenous education",
         "replacementSystem": "Educational reuse"
       },
-      "editorialNote": "No buyer holds title and no reuse has occurred. The buyer sector and replacement system record the proposed Hiawatha Institute reuse, so this classification is provisional until the sale is resolved. Some sources give the Hiawatha bid as $12.3M.",
+      "editorialNote": "No buyer holds title and no reuse has occurred; the 2026 village tax roll still lists Wells College. The buyer sector and replacement system record the Hiawatha Institute bid that collapsed in June 2026 (some sources give $12.3M), while a conditional November 2026 Warshauer agreement proposes senior living. The classification is provisional until a sale is resolved.",
       "events": [
         {
           "date": "2024-06-30",
@@ -7780,7 +7780,7 @@
         "buyerSector": "Private owner / developer",
         "replacementSystem": "Speculative land"
       },
-      "editorialNote": "Who owns the campus is not established. A 2022 report named a Braxton Miller-led group and Franklin University said the sale was not final; no deed or closing was found. The buyer sector is therefore a classification of the reported group, not of a confirmed owner.",
+      "editorialNote": "County records name Urbana Investment Group LLC as owner through a December 7, 2022 sale of 29 parcels, so the sale did close, and the main parcel is flagged for foreclosure. Who stands behind the LLC is not established here: the Braxton Miller link is reported, not documented, so the buyer sector classifies the reported group, not a verified principal.",
       "events": [
         {
           "date": "2014",
@@ -11220,7 +11220,7 @@
         "buyerSector": "Hospital / health system",
         "replacementSystem": "Health / care system"
       },
-      "editorialNote": "The matrix records the health system that holds title. A resort sale was agreed in 2023 and had not been reported as closed in July 2024, so the replacement system may change.",
+      "editorialNote": "The matrix records the health-system entity that holds title: Vermont's Act 250 agenda lists SVHC Realty as landowner as of November 2026. A resort sale was agreed in 2023 and has still not been reported closed, so the replacement system may change if it does.",
       "events": [
         {
           "date": "2019",

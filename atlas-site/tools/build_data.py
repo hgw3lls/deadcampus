@@ -1413,6 +1413,14 @@ def build_readings(sites: list[dict], queue_audit: dict, afterlife: dict | None 
     catholic = load_json(CATHOLIC_TEST)
     readings: list[dict] = []
 
+    # Curated-record tallies, computed so the prose below cannot drift from the records.
+    _buyers = Counter((s.get("matrix") or {}).get("buyerSector") for s in sites)
+    curated_n = len(sites)
+    curated_universities = sum(_buyers[k] for k in ("Elite / private university", "Public university", "Other private college or university"))
+    curated_private_capital = sum(_buyers[k] for k in ("Private owner / developer", "Real estate capital"))
+    curated_hospitals = _buyers["Hospital / health system"]
+    curated_phrase = f"Of the {curated_n} curated campuses, universities took {curated_universities}, private owners and real-estate capital {curated_private_capital}, hospital systems {curated_hospitals}."
+
     summaries = [s["trajectorySummary"] for s in sites if s.get("trajectorySummary")]
     if summaries:
         declines = sorted(s["declinePct"] for s in summaries if s.get("declinePct") is not None)
@@ -1635,11 +1643,11 @@ def build_readings(sites: list[dict], queue_audit: dict, afterlife: dict | None 
                 reading["evidence"] = (
                     f"Sample, {n_transfer} closed campuses with an identified buyer: {top}. "
                     f"A further {afterlife['mergersCampusContinues']} institutions merged and the campus continued. "
-                    f"Of the 34 curated campuses, universities took 7, private owners and real-estate capital 7, hospital systems 2."
+                    + curated_phrase
                 )
                 reading["counter"] = (
                     f"Identified buyers skew toward campuses with press coverage, and {round(100 * outcomes.get('closed-campus-unknown', {'count': 0})['count'] / max(1, closed['count']))}% of the sample's confirmed closures have no buyer found. "
-                    "The 34 curated campuses are chosen for interest, not sampled, so their counts are not rates."
+                    f"The {curated_n} curated campuses are chosen for interest, not sampled, so their counts are not rates."
                 )
                 reading["status"] = "mixed"
             hospital = next((s for s in sectors if s["label"] == "Hospital / health system"), None)
@@ -1649,7 +1657,7 @@ def build_readings(sites: list[dict], queue_audit: dict, afterlife: dict | None 
             if "hospital-replacement" in by_id:
                 reading = by_id["hospital-replacement"]
                 reading["test"] = "Share of closed campuses with an identified buyer whose buyer is a hospital or health system, from the coded sample. Supported if the interval's lower bound is 15% or more; mixed if the estimate is 5% or more; unsupported below."
-                reading["evidence"] = f"{count} of {n_transfer} identified buyers ({pct}%, 95% interval {low}-{high}%); two of the 34 curated campuses went to hospital systems."
+                reading["evidence"] = f"{count} of {n_transfer} identified buyers ({pct}%, 95% interval {low}-{high}%); {curated_hospitals} of the {curated_n} curated campuses went to hospital systems."
                 reading["counter"] = (
                     f"The interval cannot rule out a rate as high as {high}%. "
                     "Identified buyers skew toward campuses with press coverage, and no hospital-acquisition layer has been compared against the federal closure sites."
@@ -1701,7 +1709,7 @@ def build_readings(sites: list[dict], queue_audit: dict, afterlife: dict | None 
                 else f"{sectors[0]['label']} take the most closed campuses, {sectors[0]['sharePct']}% of identified buyers."
             )
             reading["test"] = f"Buyer sector of every closed private nonprofit college in {FRAME_LABEL} with an identified holder of the campus, across the full census and the curated records."
-            reading["evidence"] = f"Census of {pop} closures, {census['knownBuyers']} with an identified buyer: {top}. Across the 34 curated campuses, universities took 7, private owners and real-estate capital 7, hospital systems 2."
+            reading["evidence"] = f"Census of {pop} closures, {census['knownBuyers']} with an identified buyer: {top}. Across the {curated_n} curated campuses, universities took {curated_universities}, private owners and real-estate capital {curated_private_capital}, hospital systems {curated_hospitals}."
             reading["counter"] = "Identified buyers skew toward campuses with press coverage, and most closures have no buyer found, so the shares describe the documented minority."
             reading["status"] = "mixed"
         if census.get("complete") and "exit-is-not-death" in by_id:
