@@ -37,7 +37,7 @@
     "columns": 88,
     "file": "data/atlas-records.csv",
     "schema": "data/atlas-records.schema.json",
-    "bytes": 14128115
+    "bytes": 14128582
   },
   "sheeo": {
     "source": "SHEEO Closed College Context (N=748)",
@@ -11890,6 +11890,7 @@
         "buyerSector": "Cloud / platform capital",
         "replacementSystem": "Cloud infrastructure"
       },
+      "editorialNote": "Provisional classification. The sale to Amazon Data Services is documented and GW continues to operate on the campus, so this is recorded as not a closure. The replacement label 'Cloud infrastructure' records the buyer's business, not an operating reuse of the site: a data-center plan is not an operating use, and Loudoun County's October 2026 preliminary agreement points the land toward housing and mixed use. The label may change if that agreement is finalized.",
       "events": [
         {
           "date": "2026-02",
