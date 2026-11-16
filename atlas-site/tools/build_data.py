@@ -806,7 +806,8 @@ def build_public_sites() -> list[dict]:
         if curated.get("editorialNote"):
             site["editorialNote"] = clean_text(curated["editorialNote"])
         site["events"] = sorted(curated.get("events", []), key=lambda e: clean_text(e.get("date")))
-        site["limboDays"] = limbo_days(site["events"])
+        # A merger or a sale of a continuing institution's campus is not a wait for a buyer after a closure.
+        site["limboDays"] = None if site.get("outcome") in ("merged-campus-continues", "not-a-closure") else limbo_days(site["events"])
         site["ipeds"] = curated.get("ipeds") or {}
         site["trajectory"] = trajectories.get(public_id, [])
         site["trajectorySummary"] = trajectory_summary(site["trajectory"])
@@ -1518,7 +1519,7 @@ def build_readings(sites: list[dict], queue_audit: dict, afterlife: dict | None 
                 "claim": "Ruin is a duration, not a type. The gap between closure and transfer is where speculation happens.",
                 "test": "Days from the closure event to the first completed ownership change, where both are dated to the month.",
                 "evidence": f"{len(limbo)} campuses are dated closely enough: the median wait for a buyer is {median_months} months, the longest is {longest['name']} at {round(longest['limboDays'] / 30.4)} months, and {len(pre_sold)} closed a sale before the college shut.",
-                "counter": f"{len(sites) - len(limbo)} campuses still have year-only dates, and the fifteen measured are the ones with press coverage, which skews toward quick, visible sales.",
+                "counter": f"{len(sites) - len(limbo)} campuses still have year-only dates, and the {len(limbo)} measured are the ones with press coverage, which skews toward quick, visible sales.",
                 "status": "mixed",
             }
         )

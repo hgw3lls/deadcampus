@@ -37,7 +37,7 @@
     "columns": 88,
     "file": "data/atlas-records.csv",
     "schema": "data/atlas-records.schema.json",
-    "bytes": 14128116
+    "bytes": 14128115
   },
   "sheeo": {
     "source": "SHEEO Closed College Context (N=748)",
@@ -5695,7 +5695,7 @@
           "sourceUrl": "https://www.bu.edu/community/files/2019/12/Fenway-Campus-IMP-Update-11-25-19-lr1-003-1.pdf"
         }
       ],
-      "limboDays": 0,
+      "limboDays": null,
       "ipeds": {
         "unitid": 168290,
         "opeid": "00222800",
@@ -41795,8 +41795,8 @@
       "id": "time-in-limbo",
       "claim": "Ruin is a duration, not a type. The gap between closure and transfer is where speculation happens.",
       "test": "Days from the closure event to the first completed ownership change, where both are dated to the month.",
-      "evidence": "17 campuses are dated closely enough: the median wait for a buyer is 7 months, the longest is Virginia Intermont College at 31 months, and 1 closed a sale before the college shut.",
-      "counter": "17 campuses still have year-only dates, and the fifteen measured are the ones with press coverage, which skews toward quick, visible sales.",
+      "evidence": "16 campuses are dated closely enough: the median wait for a buyer is 7 months, the longest is Virginia Intermont College at 31 months, and 1 closed a sale before the college shut.",
+      "counter": "18 campuses still have year-only dates, and the 16 measured are the ones with press coverage, which skews toward quick, visible sales.",
       "status": "mixed"
     },
     {
