@@ -401,12 +401,12 @@ def build_census_summary(curated: list[dict], statuses: tuple[str, ...] = ("clos
         if unitid and int(unitid) in population:
             done = any(e.get("type") in TRANSFER_TYPES and e.get("ownershipChange", True) is not False for e in site.get("events", []))
             coded[int(unitid)] = {
-                "outcome": "closed-campus-reused" if done else "closed-campus-unknown",
+                "outcome": site["outcome"],
                 "buyerSector": (site.get("matrix") or {}).get("buyerSector") if done else None,
                 "tier": "curated",
             }
     outcomes = Counter(v["outcome"] for v in coded.values())
-    transfers = [v for v in coded.values() if v["outcome"] in ("closed-campus-reused", "merged-campus-closed") and v.get("buyerSector")]
+    transfers = [v for v in coded.values() if (v["outcome"] in ("closed-campus-reused", "merged-campus-closed") or v["tier"] == "curated") and v.get("buyerSector")]
     sectors = Counter(v["buyerSector"] for v in transfers)
     return {
         "population": len(population),
@@ -779,6 +779,8 @@ def build_public_sites() -> list[dict]:
             "latitude": sp.get("Latitude") if sp.get("Latitude") not in ("", None) else None,
             "longitude": sp.get("Longitude") if sp.get("Longitude") not in ("", None) else None,
             "publicSummary": clean_text(curated.get("summary")),
+            "outcome": clean_text(curated.get("outcome")),
+            "outcomeBasis": clean_text(curated.get("outcomeBasis")),
             "sourceUrls": source_urls,
             "evidence": evidence,
             "sourceFiles": [

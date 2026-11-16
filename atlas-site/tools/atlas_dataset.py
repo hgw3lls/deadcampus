@@ -300,7 +300,8 @@ def build_records(
         row["closure_date"] = closure["date"] if closure else ""
         done = next((e for e in events if e.get("type") in transfer_types and e.get("ownershipChange", True) is not False), None)
         row["transfer_date"] = done["date"] if done else ""
-        row["outcome"] = "closed-campus-reused" if done else "closed-campus-unknown"
+        row["outcome"] = site["outcome"]
+        row["coding_notes"] = site.get("outcomeBasis") or ""
         rows.append(row)
 
     # 2. Extended institutions (campus closed, coded).

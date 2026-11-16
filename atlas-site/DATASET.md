@@ -51,7 +51,7 @@ Curated and extended ids are the same ids as the page's `#campus/<id>` URLs.
 
 Identity, place, keys, federal, ipeds, rollup, fate, curated, trajectory. A column is empty where it does not apply. Curated-only columns (summary, verification, events, sale price, editorial note) are empty for every other layer, on purpose: those claims have only been reviewed for the 34.
 
-`outcome` uses the same vocabulary everywhere (`closed-campus-reused`, `closed-campus-unknown`, `merged-campus-continues`, `merged-campus-closed`, `still-operating`, `not-a-closure`, `unresolved`). For curated rows it is derived from the dated events: reused if a completed ownership transfer is recorded, otherwise unknown. `coding_tier` says how the fate was established: `curated`, `sample` (the seeded random sample), or `census`.
+`outcome` uses the same vocabulary everywhere (`closed-campus-reused`, `closed-campus-unknown`, `merged-campus-continues`, `merged-campus-closed`, `still-operating`, `not-a-closure`, `unresolved`). For curated rows it is a reviewed value stored in `curation/public-sites.json` (`outcome`, with the reason in `outcomeBasis`, exported as `coding_notes`): `closed-campus-reused` only when an operating use is documented, `closed-campus-unknown` when it is not, `merged-campus-continues` when the institution merged and the campus carries on, `not-a-closure` when the institution continues. It is not inferred from transfer events; an ownership transfer alone does not establish reuse. `coding_tier` says how the fate was established: `curated`, `sample` (the seeded random sample), or `census`.
 
 ## Closure process
 

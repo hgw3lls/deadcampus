@@ -37,7 +37,7 @@
     "columns": 88,
     "file": "data/atlas-records.csv",
     "schema": "data/atlas-records.schema.json",
-    "bytes": 14112545
+    "bytes": 14117238
   },
   "sheeo": {
     "source": "SHEEO Closed College Context (N=748)",
@@ -156,6 +156,8 @@
       "latitude": 33.515,
       "longitude": -86.853,
       "publicSummary": "Birmingham-Southern closed in 2024. A 2024 purchase agreement with Miles College lapsed, and in 2026 the U.S. Coast Guard bought the 192-acre campus and opened TRACEN Birmingham-Southern, whose first class graduated in September 2026.",
+      "outcome": "closed-campus-reused",
+      "outcomeBasis": "Reviewed against the research workbook (checked 2026-11-14/15): Coast Guard leadership training operating after April 2026 sale",
       "sourceUrls": [
         "https://www.wbhm.org/local-news/2026-03-06/mixed-reactions-greet-news-the-coast-guard-is-buying-bsc-campus",
         "https://www.stripes.com/branches/coast_guard/2026-09-06/tracen-birmingham-southern-graduates-first-class-22772570.html",
@@ -536,6 +538,8 @@
       "latitude": 43.517,
       "longitude": -73.237,
       "publicSummary": "Green Mountain closed in 2019. Raj Bhakta bought the Poultney campus at auction in 2020 for $4.55M, and his redevelopment plan stalled. In October 2026 he sold it for $6M to Florida evangelist Tommie Zito, who plans a Christ-centered Z University with classes by fall 2027.",
+      "outcome": "closed-campus-unknown",
+      "outcomeBasis": "Reviewed against the research workbook (checked 2026-11-14/15): sale reported October 2026; new college operations not established",
       "sourceUrls": [
         "https://www.sevendaysvt.com/news/florida-preacher-closes-on-former-green-mountain-college-campus/",
         "https://www.wcax.com/2026/10/05/florida-evangelist-closes-sale-former-green-mountain-college-campus/",
@@ -846,6 +850,8 @@
       "latitude": 41.52,
       "longitude": -81.518,
       "publicSummary": "Notre Dame College closed in 2024. Akron Children's Hospital won the May 2026 receivership auction with an $8M bid, a federal judge approved the sale on May 28, and it closed June 29. The hospital then resold the former Regina High School building to a yeshiva for $2.2M.",
+      "outcome": "closed-campus-unknown",
+      "outcomeBasis": "Reviewed against the research workbook (checked 2026-11-14/15): receiver transfer and ground lease documented; no operating replacement school or healthcare facility verified",
       "sourceUrls": [
         "https://www.ideastream.org/economy/2026-05-08/akron-childrens-is-the-top-bidder-for-the-former-notre-dame-college-campus",
         "https://www.clevelandjewishnews.com/news/local_news/yeshiva-derech-hatorah-akron-children-s-discuss-regina-purchase/article_6c2fa021-af17-43a6-b911-08bc00cd0858.html"
@@ -1215,6 +1221,8 @@
       "latitude": 42.663,
       "longitude": -73.786,
       "publicSummary": "The College of Saint Rose closed in 2024. The Albany County Pine Hills Land Authority bought the 26.5-acre campus for $35M in March 2025 and since late 2025 has sold or agreed to sell buildings to Albany County, UAlbany, Hudson Valley Community College, and a private buyer, with a developer solicitation open for the northeast corner.",
+      "outcome": "closed-campus-reused",
+      "outcomeBasis": "Reviewed against the research workbook (checked 2026-11-14/15): partial: some county operations; other reuses described, dispositions ongoing",
       "sourceUrls": [
         "https://spectrumlocalnews.com/nys/capital-region/news/2026/07/17/mccoy-defends-county-s-role-in-remaking-former-college-of-saint-rose-campus",
         "https://spectrumlocalnews.com/nys/capital-region/news/2026/06/09/albany-county-legislature-approves-purchase-of-3-more-former-saint-rose-properties",
@@ -1604,6 +1612,8 @@
       "latitude": 42.744,
       "longitude": -76.696,
       "publicSummary": "Wells closed in 2024. The board accepted a $12.5M bid from the Hiawatha Institute for Indigenous Knowledge, then in June 2026 said the sale would not proceed; Hiawatha sued to preserve it. In September 2026 a judge approved selling the college's collections, and no buyer holds the 127-acre campus.",
+      "outcome": "closed-campus-unknown",
+      "outcomeBasis": "Reviewed against the research workbook (checked 2026-11-14/15): sale unresolved; no replacement operating use verified",
       "sourceUrls": [
         "https://cnycentral.com/news/local/hiawatha-institutes-123m-bid-to-purchase-defunct-wells-college-falls-through",
         "https://www.fingerlakes1.com/2026/06/29/lawsuit-targets-wells-campus-sale/",
@@ -1979,6 +1989,8 @@
       "latitude": 38.644,
       "longitude": -90.33,
       "publicSummary": "Fontbonne wound down instruction through summer 2025. Washington University bought the 16-acre Clayton campus for $39M, closing in June 2024, and leased it back during the closure. WashU said in December 2025 it had no plan for the site, and Clayton Schools was negotiating a temporary bridge campus there as of October 2026.",
+      "outcome": "closed-campus-unknown",
+      "outcomeBasis": "Reviewed against the research workbook (checked 2026-11-14/15): WashU acquisition reported; no replacement teaching operation established",
       "sourceUrls": [
         "https://spectrumlocalnews.com/mo/st-louis/STLPartners/2025/12/18/washu-has-no-plan-for-fontbonne-campus-yet",
         "https://www.stlmag.com/news/clayton-schools-fontbonne-campus/",
@@ -2434,6 +2446,8 @@
       "latitude": 40.054,
       "longitude": -75.37,
       "publicSummary": "Cabrini closed after the 2023-24 academic year and Villanova took ownership of the 112-acre Radnor campus. It opened in August 2026 as the Villanova University Cabrini Campus, with about 900 students in residence.",
+      "outcome": "closed-campus-reused",
+      "outcomeBasis": "Reviewed against the research workbook (checked 2026-11-14/15): Villanova owns and operates the campus since June 2024",
       "sourceUrls": [
         "https://www.villanova.edu/university/media/press-releases/2024/ownership.html",
         "https://www.villanova.edu/university/media/press-releases/2026/cabrini.html"
@@ -2805,6 +2819,8 @@
       "latitude": 42.927,
       "longitude": -78.858,
       "publicSummary": "Medaille closed in 2023. Charter School Development Corporation bought the nearly 14-acre Buffalo campus in 2024 for about $9.9M, and the Buffalo Academy of Science charter school now operates a high school there, with some dormitories still vacant.",
+      "outcome": "closed-campus-reused",
+      "outcomeBasis": "Reviewed against the research workbook (checked 2026-11-14/15): BuffSci high school and middle school operating; deed chain unverified",
       "sourceUrls": [
         "https://spectrumlocalnews.com/nys/buffalo/news/2026/08/28/medaille-university-repurposed-into-buffsci",
         "https://www.cbre.com/press-releases/cbre-upstate-ny-brokers-sale-of-former-medaille-university-campus"
@@ -3143,6 +3159,8 @@
       "latitude": 43.158,
       "longitude": -87.901,
       "publicSummary": "Cardinal Stritch closed in 2023 and the Ramirez Family Foundation bought the Fox Point campus for $24M for St. Augustine Preparatory Academy. Most buildings were demolished from 2023, and St. Augustine Prep North opened on the site in fall 2026 with about 330 students.",
+      "outcome": "closed-campus-reused",
+      "outcomeBasis": "Reviewed against the research workbook (checked 2026-11-14/15): Aug Prep North K-12 school operating; present deed unchecked",
       "sourceUrls": [
         "https://biztimes.com/aug-prep-breaks-ground-on-100-million-north-campus",
         "https://www.tmj4.com/news/local-news/in-your-community/milwaukee-county/330-students-make-history-on-first-day-at-st-augustine-prep-north",
@@ -3801,6 +3819,8 @@
       "latitude": 42.93,
       "longitude": -75.852,
       "publicSummary": "After Cazenovia closed in 2023, a New York State Police academy used the campus until early 2025. An investor group bought the whole campus for $9.5M in December 2025 and resold parts to Madison County and the Town of Cazenovia.",
+      "outcome": "closed-campus-unknown",
+      "outcomeBasis": "Reviewed against the research workbook (checked 2026-11-14/15): transfers completed; municipal use planned, current occupancy unverified",
       "sourceUrls": [
         "https://cnysignal.com/cazenovia-college-campus-9fresh-redevelopment-2026/"
       ],
@@ -4184,6 +4204,8 @@
       "latitude": 45.464,
       "longitude": -98.486,
       "publicSummary": "Presentation College closed in October 2023. The Presentation Sisters and the City of Aberdeen agreed in November 2023 that the city would take the dome, Strode Center, soccer field, and an undeveloped parcel, and the council approved a $1.75M purchase in February 2024. The Sisters announced in April 2025 that they would remove the Motherhouse for a green space.",
+      "outcome": "closed-campus-reused",
+      "outcomeBasis": "Reviewed against the research workbook (checked 2026-11-14/15): City of Aberdeen recreation at the Dome and Strode Center",
       "sourceUrls": [
         "https://aberdeeninsider.com/city-approves-1-75m-purchase-of-former-presentation-campus-properties/",
         "https://www.sdpb.org/education/2023-11-08/presentation-sisters-and-aberdeen-seal-deal-to-preserve-campus",
@@ -4530,6 +4552,8 @@
       "latitude": 47.126,
       "longitude": -88.58,
       "publicSummary": "Finlandia closed in 2023 and its 27 buildings entered state receivership. The city of Hancock bought five parcels, including three halls for $30,000 in total, and private investors bought others at a December 2023 auction. Hancock is designing a conversion of two halls into 47 housing units.",
+      "outcome": "closed-campus-reused",
+      "outcomeBasis": "Reviewed against the research workbook (checked 2026-11-14/15): divided campus: heritage, community and commercial uses retained; MTEC accelerator documented",
       "sourceUrls": [
         "https://www.uppermichiganssource.com/2023/11/09/receiver-orders-auction-finlandia-university-real-estate/",
         "https://www.mininggazette.com/news/local-news/2023/10/hancock-to-decide-on-purchase-of-former-finlandia-buildings/",
@@ -4883,6 +4907,8 @@
       "latitude": 42.295,
       "longitude": -71.192,
       "publicSummary": "Mount Ida closed in 2018 and UMass Amherst bought its Newton campus for $75M. The campus was renamed the Charles River Campus of UMass Amherst in January 2026.",
+      "outcome": "closed-campus-reused",
+      "outcomeBasis": "Reviewed against the research workbook (checked 2026-11-14/15): UMass Amherst veterinary technology campus operating",
       "sourceUrls": [
         "https://www.umass.edu/news/article/mount-ida-college-reaches-agreement-umass",
         "https://www.wgbh.org/news/education-news/2018-05-18/umass-closes-deal-to-acquire-mount-ida-in-newton",
@@ -5187,6 +5213,8 @@
       "latitude": 42.328,
       "longitude": -71.139,
       "publicSummary": "Pine Manor merged into Boston College in 2020 and operated as the Pine Manor Institute for Student Success until 2024. In July 2024 the Brookline campus opened as Messina College, a Boston College residential two-year college for first-generation students.",
+      "outcome": "merged-campus-continues",
+      "outcomeBasis": "Reviewed against the research workbook (checked 2026-11-14/15): integrated into Boston College 2020; Messina College operates on the campus",
       "sourceUrls": [
         "https://www.wbur.org/news/2020/05/13/pine-manor-acquisition",
         "https://en.wikipedia.org/wiki/Messina_College",
@@ -5516,6 +5544,8 @@
       "latitude": 42.341,
       "longitude": -71.105,
       "publicSummary": "Wheelock merged into Boston University on June 1, 2018, becoming the BU Wheelock College of Education & Human Development. This is a merger, not a campus closure or sale: BU retained the Fenway campus.",
+      "outcome": "merged-campus-continues",
+      "outcomeBasis": "Reviewed against the research workbook (checked 2026-11-14/15): merged into Boston University 2018; campus continues as BU residences and academic space",
       "sourceUrls": [
         "https://en.wikipedia.org/wiki/Wheelock_College"
       ],
@@ -5860,6 +5890,8 @@
       "latitude": 42.331,
       "longitude": -71.121,
       "publicSummary": "After Newbury closed in 2019, Welltower bought the Brookline campus for $34M. The town of Brookline authorized buying about 4 acres of it in 2020, and Kisco Senior Living is developing the rest as The Newbury of Brookline, a 159-unit senior community.",
+      "outcome": "closed-campus-reused",
+      "outcomeBasis": "Reviewed against the research workbook (checked 2026-11-14/15): divided campus: Kisco-operated senior living; west parcel owned by Brookline",
       "sourceUrls": [
         "https://bankerandtradesman.com/brookline-backs-purchase-of-newbury-college-site",
         "https://rebusinessonline.com/kisco-senior-living-to-develop-159-unit-complex-in-boston/"
@@ -6318,6 +6350,8 @@
       "latitude": 42.84,
       "longitude": -72.737,
       "publicSummary": "Marlboro College closed in 2020 and sold its Potash Hill campus to the nonprofit Democracy Builders. In 2021 Marlboro Music, the festival that had summered there since 1951, bought the campus for $2.74 million, leaving the site to arts and music reuse.",
+      "outcome": "closed-campus-reused",
+      "outcomeBasis": "Reviewed against the research workbook (checked 2026-11-14/15): Marlboro Music operates the Potash Hill campus",
       "sourceUrls": [
         "https://vtdigger.org/2021/09/28/marlboro-campus-sale-to-music-school-is-finalized/",
         "https://en.wikipedia.org/wiki/Marlboro_College"
@@ -6619,6 +6653,8 @@
       "latitude": 44.489,
       "longitude": -73.226,
       "publicSummary": "Burlington College sold about 27 lakefront acres to developer Eric Farrell in 2015 and closed in 2016. People's United Bank bought the six-acre building parcel at a July 2017 foreclosure auction for $3.1M. The land is now the Cambrian Rise housing development, with more than 500 homes built and a cap of 1,050 units.",
+      "outcome": "closed-campus-reused",
+      "outcomeBasis": "Reviewed against the research workbook (checked 2026-11-14/15): housing and commercial space documented by operator; several parcels, current title incomplete",
       "sourceUrls": [
         "https://www.sevendaysvt.com/news/burlington-college-sells-much-of-its-land-2515540/",
         "https://vtdigger.org/2017/08/24/defunct-burlington-college-still-owes-bank-730000-says-judge/",
@@ -6896,6 +6932,8 @@
       "latitude": 42.414,
       "longitude": -83.155,
       "publicSummary": "Marygrove ended its undergraduate program in 2017 and closed in 2019. The Marygrove Conservancy stewards the Detroit campus, where an early education center, a K-12 school, and a University of Michigan program now operate, and the Kresge Foundation announced in 2025 that its headquarters will be built there.",
+      "outcome": "closed-campus-reused",
+      "outcomeBasis": "Reviewed against the research workbook (checked 2026-11-14/15): early education, school partnerships and community uses; deed holder unconfirmed",
       "sourceUrls": [
         "https://kresge.org/news-views/28-5m-kresge-guarantee-supports-build-out-of-final-phase-of-transformation-on-marygrove-campus/",
         "https://kresge.org/HQ"
@@ -7253,6 +7291,8 @@
       "latitude": 40.744,
       "longitude": -73.132,
       "publicSummary": "Dowling closed in 2016. The 25-acre Oakdale estate was sold whole in 2017 to Princeton Education Center LLC for about $26.5M and has stayed vacant and tax-delinquent, relisted for sale in 2021 and again in April 2026. Dowling's separate 105-acre Shirley campus sold to Triple Five for $14M in 2018 and to Hampshire Venture Partners in 2025.",
+      "outcome": "closed-campus-unknown",
+      "outcomeBasis": "Reviewed against the research workbook (checked 2026-11-14/15): no permanent new operating use verified; resale unverified",
       "sourceUrls": [
         "https://greaterlongisland.com/former-dowling-college-property-in-oakdale-is-on-the-market-again-asking-price-is-25m/",
         "https://www.fireislandnews.com/history/dowling-campus-to-be-used-for-police-training-but-still-faces-an-uncertain-future/",
@@ -7562,6 +7602,8 @@
       "latitude": 40.108,
       "longitude": -83.752,
       "publicSummary": "Urbana University closed in 2020 and its 115-acre campus was listed for sale by CBRE in 2021. A group including Braxton Miller reported buying it in 2022 for an athlete-development institute, though Franklin University said the sale was not final; as of January 2026 the site was privately owned and unused.",
+      "outcome": "closed-campus-unknown",
+      "outcomeBasis": "Reviewed against the research workbook (checked 2026-11-14/15): parcel sale recorded; current occupancy unverified, main parcel flagged in foreclosure",
       "sourceUrls": [
         "https://rejournals.com/cbre-selling-22-building-former-university-campus-in-ohio/",
         "https://www.whio.com/news/local/former-site-urbana-university-campus-purchased/NRRZ6GAXHBFIJOUUYWZXW2Q36I",
@@ -7985,6 +8027,8 @@
       "latitude": 42.444,
       "longitude": -71.688,
       "publicSummary": "Atlantic Union closed in 2018. Some buildings were sold off from 2019, but the Atlantic Union Conference of the Seventh-day Adventist Church still held the 135-acre campus and was seeking buyers in November 2024. A developer presented a concept of about 300 housing units to the Lancaster Select Board in April 2026.",
+      "outcome": "closed-campus-reused",
+      "outcomeBasis": "Reviewed against the research workbook (checked 2026-11-14/15): partial: some South Lancaster Academy educational use; remainder not freshly verified",
       "sourceUrls": [
         "https://newslinklive.com/2024/11/23/atlantic-union-college-campus-awaits-buyer-after-years-of-vacancy/"
       ],
@@ -8228,6 +8272,8 @@
       "latitude": 45.568,
       "longitude": -122.637,
       "publicSummary": "After Concordia University Portland closed in 2020, the University of Oregon bought the campus for $60.5M. It opened as UO Portland in 2025 and is home to the Ballmer Institute for Children's Behavioral Health.",
+      "outcome": "closed-campus-reused",
+      "outcomeBasis": "Reviewed against the research workbook (checked 2026-11-14/15): University of Oregon Portland campus operating since 2022",
       "sourceUrls": [
         "https://oregonbusiness.com/19602-uo-officially-buys-concordia-university-s-portland-campus/",
         "https://portlandtribune.com/?p=2115",
@@ -8537,6 +8583,8 @@
       "latitude": 37.802,
       "longitude": -122.188,
       "publicSummary": "Holy Names closed in 2023 and sold its Oakland hills campus to BH Properties for about $65M. Leasing the campus to educational users did not succeed, and BH Properties and its advisor filed plans in 2026 for 165 single-family homes; no approvals had been reported as of August 2026.",
+      "outcome": "closed-campus-unknown",
+      "outcomeBasis": "Reviewed against the research workbook (checked 2026-11-14/15): acquisition reported; redevelopment application filed; no operating use established",
       "sourceUrls": [
         "https://sfyimby.com/2026/08/new-zoning-permits-filed-for-holy-names-campus-redevelopment-in-oakland.html",
         "https://www.yahoo.com/news/articles/exclusive-former-bay-area-university-130000665.html",
@@ -8885,6 +8933,8 @@
       "latitude": 33.746,
       "longitude": -118.385,
       "publicSummary": "After Marymount California ceased operations in 2022, UCLA bought its Rancho Palos Verdes and San Pedro sites for $80M; escrow closed in January 2023. UCLA Extension classes and student programs were under way at the South Bay sites by summer 2024.",
+      "outcome": "closed-campus-reused",
+      "outcomeBasis": "Reviewed against the research workbook (checked 2026-11-14/15): UCLA teaching, leadership programs and retreats since 2023",
       "sourceUrls": [
         "https://chancellor.ucla.edu/quarterly-updates/summer-2024-update",
         "https://newsroom.ucla.edu/releases/ucla-expands-with-new-sites-in-south-bay"
@@ -9220,6 +9270,8 @@
       "latitude": 39.732,
       "longitude": -90.236,
       "publicSummary": "MacMurray's 2020 closure culminated in a campus auction split into 18 tracts, a parcelized end to a 174-year college.",
+      "outcome": "closed-campus-reused",
+      "outcomeBasis": "Reviewed against the research workbook (checked 2026-11-14/15): divided campus: events/sports and reported apartments; MacMurray Hall occupancy unresolved",
       "sourceUrls": [
         "https://en.wikipedia.org/wiki/MacMurray_College",
         "https://www.myjournalcourier.com/insider/article/Auction-brings-finality-to-MacMurray-College-15723571.php"
@@ -9530,6 +9582,8 @@
       "latitude": 42.245,
       "longitude": -71.909,
       "publicSummary": "Becker closed in 2021 and its campuses were divided. The town of Leicester took ownership of the Leicester campus in December 2021, and in 2023 three former dorms became an emergency family shelter run under a lease with the town. The Worcester campus buyer is not established here.",
+      "outcome": "closed-campus-reused",
+      "outcomeBasis": "Reviewed against the research workbook (checked 2026-11-14/15): divided campus: Leicester school and WPI uses retained; other parcels unresolved",
       "sourceUrls": [
         "https://spectrumnewsnecn.com/necn/central-western-ma/news/2023/07/05/former-becker-college-buildings-to-be-used-as-emergency-housing-for-families",
         "https://spectrumnewsnecn.com/necn/central-western-ma/news/2023/07/14/families-set-to-move-into-temporary-emergency-housing-at-former-becker-college-campus",
@@ -9856,6 +9910,8 @@
       "latitude": 40.912,
       "longitude": -73.781,
       "publicSummary": "The College of New Rochelle closed in 2019 and filed for bankruptcy. The whole 15.6-acre campus was sold intact for $32M to the Trustees of the Masonic Hall & Asylum Fund; a redevelopment proposal missed its September 2025 target and the campus is largely unused.",
+      "outcome": "closed-campus-unknown",
+      "outcomeBasis": "Reviewed against the research workbook (checked 2026-11-14/15): Masonic purchase documented; no new permanent use verified",
       "sourceUrls": [
         "https://westfaironline.com/real-estate/college-of-new-rochelle-acquired-by-masons-for-32-million/",
         "https://news.bloomberglaw.com/bankruptcy-law/new-rochelles-campus-sale-to-cover-over-a-third-of-its-debt",
@@ -10165,6 +10221,8 @@
       "latitude": 39.152,
       "longitude": -80.041,
       "publicSummary": "Alderson Broaddus closed in 2023. Craig Phillips, owner of CGP Construction, bought the 170-acre Philippi campus through his entity Battlers Knob LLC for $5M. West Virginia Wesleyan College has since announced allied-health programs there, including LPN-to-BSN clinicals and a physician assistant program targeted for 2028.",
+      "outcome": "closed-campus-reused",
+      "outcomeBasis": "Reviewed against the research workbook (checked 2026-11-14/15): events and local enterprises documented 2024; 2026 educational delivery unconfirmed",
       "sourceUrls": [
         "https://www.wvwc.edu/news/west-virginia-wesleyan-college-announces-plans-for-educational-offerings-at-battlers-knob-in-philippi/",
         "https://www.wvwc.edu/news/wvwc-announces-launch-of-pa-program-to-fill-critical-need-in-rural-healthcare/",
@@ -10512,6 +10570,8 @@
       "latitude": 42.781,
       "longitude": -71.513,
       "publicSummary": "Daniel Webster closed after the ITT collapse; sources date the closure between 2016 and May 2017. Sui Liu won the 2017 bankruptcy auction with an $11.6M bid and the property is held by Xinhua Education Consulting Services. The aviation facilities went separately to Southern New Hampshire University for about $400,000. Nashua sought state money to buy the campus in 2026.",
+      "outcome": "closed-campus-unknown",
+      "outcomeBasis": "Reviewed against the research workbook (checked 2026-11-14/15): main portion reported unused; aviation use not refreshed",
       "sourceUrls": [
         "https://www.nhbr.com/more-chinese-owned-property-in-nashua-comes-into-focus/",
         "https://www.nashuatelegraph.com/news/local-news/2018/07/17/a-puzzling-purchase-sold-college-campus-remains-virtually-untouched/",
@@ -10805,6 +10865,8 @@
       "latitude": 36.616,
       "longitude": -82.163,
       "publicSummary": "Virginia Intermont closed in 2014 and its 37-acre Bristol campus was sold at auction in 2016 for $3.3M to U.S. Magis, a China-based company. A December 2024 fire destroyed the four oldest buildings. In 2025 the city petitioned to seize the property for back taxes, withdrew after about $605,000 was paid, and the owner is pursuing state certification for a new school; no redevelopment had begun by December 2025.",
+      "outcome": "closed-campus-unknown",
+      "outcomeBasis": "Reviewed against the research workbook (checked 2026-11-14/15): fire-damaged and deteriorating; no replacement college opening verified",
       "sourceUrls": [
         "https://cardinalnews.org/2025/12/22/then-now-a-year-after-a-fire-destroyed-a-former-college-campus-in-bristol-the-owner-and-the-city-are-still-at-odds-over-whats-next-for-the-property/",
         "https://cardinalnews.org/2025/07/25/owner-of-virginia-intermont-property-in-bristol-still-plans-to-open-a-business-college-at-the-site-attorney-says/"
@@ -11085,6 +11147,8 @@
       "latitude": 42.878,
       "longitude": -73.215,
       "publicSummary": "Southern Vermont closed in 2019. Southwestern Vermont Health Care won the bankruptcy auction for the 371-acre campus at $4.65M and closed in December 2020, using it for a COVID clinic. In March 2023 it agreed to sell to Alfred Weissman Real Estate for a planned resort, a sale not reported as closed as of July 2024.",
+      "outcome": "closed-campus-unknown",
+      "outcomeBasis": "Reviewed against the research workbook (checked 2026-11-14/15): public trail access documented; building occupancy unverified, later developer closing unverified",
       "sourceUrls": [
         "https://vtdigger.org/2020/12/11/health-care-group-wins-bid-for-svc-campus/",
         "https://www.benningtonbanner.com/local-news/svc-campus-sale-now-official/article_03c2f8a6-4b8a-11eb-8e3a-0f10436d39ce.html",
@@ -11407,6 +11471,8 @@
       "latitude": 35.361,
       "longitude": -96.931,
       "publicSummary": "St. Gregory's closed in 2017. Hobby Lobby bought the Shawnee campus for $8M in 2018 and leased it to Oklahoma Baptist University, then donated it to OBU in December 2019. In June 2024 OBU exchanged it back to St. Gregory's Abbey, which is considering redevelopment.",
+      "outcome": "closed-campus-unknown",
+      "outcomeBasis": "Reviewed against the research workbook (checked 2026-11-14/15): 2024 exchange to St. Gregory's Abbey documented; current use of transferred buildings not established",
       "sourceUrls": [
         "https://ktul.com/news/local/8-million-sale-of-st-gregorys-to-hobby-lobby-finalized",
         "https://www.highereddive.com/news/hobby-lobby-is-buying-a-college-campus-whats-next/540529/",
@@ -11717,6 +11783,8 @@
       "latitude": 39.043,
       "longitude": -77.489,
       "publicSummary": "GW's Ashburn campus was sold in 2026 to Amazon Data Services; academic programs can remain temporarily while the land enters cloud-infrastructure redevelopment pressure.",
+      "outcome": "not-a-closure",
+      "outcomeBasis": "Reviewed against the research workbook (checked 2026-11-14/15): GW continues operating; the property sale is not a university closure",
       "sourceUrls": [
         "https://gwtoday.gwu.edu/gw-leaders-discuss-sale-virginia-science-and-technology-campus"
       ],
@@ -41406,10 +41474,10 @@
       "curated": 21
     },
     "outcomes": {
-      "closed-campus-unknown": 93,
+      "closed-campus-unknown": 98,
       "unresolved": 5,
-      "closed-campus-reused": 69,
-      "merged-campus-continues": 9,
+      "closed-campus-reused": 63,
+      "merged-campus-continues": 10,
       "still-operating": 3,
       "merged-campus-closed": 7,
       "not-a-closure": 4
@@ -41509,12 +41577,12 @@
     },
     "outcomes": {
       "merged-campus-closed": 35,
-      "merged-campus-continues": 34,
-      "closed-campus-unknown": 124,
+      "merged-campus-continues": 36,
+      "closed-campus-unknown": 132,
       "still-operating": 76,
       "not-a-closure": 34,
       "unresolved": 29,
-      "closed-campus-reused": 95
+      "closed-campus-reused": 85
     },
     "knownBuyers": 107,
     "buyerSectors": [
@@ -41605,16 +41673,16 @@
       "id": "afterlife-unrecorded",
       "claim": "The afterlife of a closed college is mostly unrecorded.",
       "test": "Every private nonprofit degree-granting institution IPEDS records as closed in 2010-2025 (190; census complete), each coded for what happened to its campus from public sources.",
-      "evidence": "Of 190 coded closures, a new holder or user of the campus was found for 76 (40%); for 93 (49%) the closure is documented but the campus fate was not found. Still operating or not a closure: 7; merged with the campus continuing: 9.",
+      "evidence": "Of 190 coded closures, a new holder or user of the campus was found for 70 (37%); for 98 (52%) the closure is documented but the campus fate was not found. Still operating or not a closure: 7; merged with the campus continuing: 10.",
       "counter": "Absence of a source is not absence of an afterlife: small campuses get little press, and the search was limited to what public pages state. The count is a floor on what is knowable, not a measure of what happened.",
-      "status": "mixed"
+      "status": "supported"
     },
     {
       "id": "exit-is-not-death",
       "claim": "Leaving IPEDS means a campus died.",
       "test": "Every private nonprofit degree-granting institution that left IPEDS in 2010-2025 (427, the full population, not a sample), each coded for what happened to its campus. Supported at 75% or more confirmed campus closures; mixed at 40% or more; unsupported below.",
-      "evidence": "254 of 427 (59%) were confirmed campus closures; 34 merged and the campus continues; 110 are still operating or were never closures; 29 could not be resolved.",
-      "counter": "41% of exits were not campus closures, so counting every IPEDS exit of a private nonprofit degree-granting institution as a closure overstates closures by about 68%. The population is nonprofits only; for-profit and non-degree exits, which make up most of the federal layer, were not coded.",
+      "evidence": "252 of 427 (59%) were confirmed campus closures; 36 merged and the campus continues; 110 are still operating or were never closures; 29 could not be resolved.",
+      "counter": "41% of exits were not campus closures, so counting every IPEDS exit of a private nonprofit degree-granting institution as a closure overstates closures by about 69%. The population is nonprofits only; for-profit and non-degree exits, which make up most of the federal layer, were not coded.",
       "status": "mixed"
     },
     {

@@ -1,5 +1,9 @@
 # Curated record changelog
 
+## 2026-11-15: reviewed campus outcome
+
+Each of the 34 records now carries an explicit `outcome` and `outcomeBasis`. The builder used to label every curated campus closed and chose reused versus unknown from whether a transfer event existed, which conflated mergers, property sales and operating reuse. Values come from the research workbook's checked fields: 18 closed-campus-reused (an operating use is documented), 13 closed-campus-unknown (transfer or plan documented, operating use not), 2 merged-campus-continues (Wheelock, Pine Manor), 1 not-a-closure (GW Ashburn). Site headline recomputed: 252 of 427 (59%) confirmed closures, 36 merged with the campus continuing. Four values are provisional because the workbook still treats them as open: Wells, Alderson Broaddus, Southern Vermont, Green Mountain.
+
 Edits to `public-sites.json` from the 2026-10-10 fact-check. Each campus was checked against its cited sources and public sources by an independent reviewer; sources for each change are the event and source URLs on the record.
 
 Principles: a claim was changed only when a page the reviewer read supported the change. Where sources conflict, the record says so. Classifications that no longer match the facts were changed and explained in the record's editorial note.

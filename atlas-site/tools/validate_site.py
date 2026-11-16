@@ -266,6 +266,8 @@ def check_dataset(payload: dict, report: Report) -> None:
         report.error("Dataset extended rows do not match the extended bundle")
     vocabulary = set(payload.get("sampleOutcomes", []))
     for row in institutions:
+        if row["layer"] == "curated" and not row["outcome"]:
+            report.error(f"{row['record_id']}: curated record has no reviewed outcome")
         if row["outcome"] and row["outcome"] not in vocabulary:
             report.error(f"{row['record_id']}: outcome {row['outcome']!r} not in vocabulary")
             break
