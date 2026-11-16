@@ -129,6 +129,10 @@
     "closed-campus-reused": "Campus reused",
     "closed-campus-unknown": "Campus fate not found",
     "merged-campus-closed": "Merged; campus closed",
+    "merged-campus-continues": "Merged; campus continues",
+    "still-operating": "Still operating",
+    "not-a-closure": "Not a closure",
+    "unresolved": "Unresolved",
   };
   const shortName = (site) => site.name.split(" ").slice(0, 2).join(" ");
 
@@ -683,9 +687,16 @@
       : pending
         ? `Not completed · ${eventDateLabel(pending.date)} · ${pending.label}`
         : "No completed transfer on record.";
-    const afterlife = [site.matrix && site.matrix.replacementSystem ? site.matrix.replacementSystem : site.afterlife, site.buyerController]
+    const holder = [site.matrix && site.matrix.replacementSystem ? site.matrix.replacementSystem : site.afterlife, site.buyerController]
       .filter(Boolean)
       .join(" · ");
+    // The reviewed outcome leads, so a recorded holder or plan is never read as an established reuse.
+    const afterlife =
+      site.outcome === "closed-campus-unknown"
+        ? `No operating reuse documented${holder ? ` · recorded: ${holder}` : ""}`
+        : site.outcome === "merged-campus-continues" || site.outcome === "not-a-closure"
+          ? `${OUTCOME_LABEL[site.outcome]}${holder ? ` · ${holder}` : ""}`
+          : holder;
     return { closureText, transferText, afterlife };
   }
 

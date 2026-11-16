@@ -155,8 +155,9 @@
         {
           "date": "2026-05-07",
           "type": "ASSET-TRANSFER",
-          "label": "Akron Children's Hospital wins the South Euclid campus at auction",
-          "sourceUrl": "https://www.cleveland19.com/2026/05/07/akron-childrens-hospital-wins-former-notre-dame-college-property-auction/"
+          "label": "Akron Children's Hospital wins the South Euclid campus at auction; title had not yet passed",
+          "sourceUrl": "https://www.cleveland19.com/2026/05/07/akron-childrens-hospital-wins-former-notre-dame-college-property-auction/",
+          "ownershipChange": false
         },
         {
           "date": "2026-05-28",
@@ -169,7 +170,8 @@
           "date": "2026-06-29",
           "type": "ASSET-TRANSFER",
           "label": "Local reporting says Akron Children's completes the purchase of the campus",
-          "sourceUrl": "https://www.clevelandjewishnews.com/news/local_news/yeshiva-derech-hatorah-akron-children-s-discuss-regina-purchase/article_6c2fa021-af17-43a6-b911-08bc00cd0858.html"
+          "sourceUrl": "https://www.clevelandjewishnews.com/news/local_news/yeshiva-derech-hatorah-akron-children-s-discuss-regina-purchase/article_6c2fa021-af17-43a6-b911-08bc00cd0858.html",
+          "ownershipChange": false
         },
         {
           "date": "2026-07-31",
@@ -649,7 +651,8 @@
           "date": "2023-11",
           "type": "ASSET-TRANSFER",
           "label": "Presentation Sisters and City of Aberdeen agree the city will manage the dome, Strode Center, soccer field, and an undeveloped parcel",
-          "sourceUrl": "https://www.sdpb.org/education/2023-11-08/presentation-sisters-and-aberdeen-seal-deal-to-preserve-campus"
+          "sourceUrl": "https://www.sdpb.org/education/2023-11-08/presentation-sisters-and-aberdeen-seal-deal-to-preserve-campus",
+          "ownershipChange": false
         },
         {
           "date": "2024-02-05",
@@ -707,7 +710,8 @@
           "date": "2023-10",
           "type": "PARCELIZED",
           "label": "Hancock council votes 7-0 to buy Wargelin, Nikander, and Mannerheim halls from the receiver for $30,000 total",
-          "sourceUrl": "https://www.mininggazette.com/news/local-news/2023/10/hancock-approves-finlandia-building-purchases/"
+          "sourceUrl": "https://www.mininggazette.com/news/local-news/2023/10/hancock-approves-finlandia-building-purchases/",
+          "ownershipChange": false
         },
         {
           "date": "2023-12-07",
@@ -764,7 +768,8 @@
           "date": "2018-04-06",
           "type": "ASSET-TRANSFER",
           "label": "UMass Amherst announces it will acquire the 74-acre Newton campus and assume Mount Ida's debt",
-          "sourceUrl": "https://www.umass.edu/news/article/mount-ida-college-reaches-agreement-umass"
+          "sourceUrl": "https://www.umass.edu/news/article/mount-ida-college-reaches-agreement-umass",
+          "ownershipChange": false
         },
         {
           "date": "2018-05",
@@ -876,6 +881,12 @@
           "type": "CLOSURE-EVENT",
           "label": "Merger with Boston University takes effect; the campus becomes BU's Fenway Campus",
           "sourceUrl": "https://www.wbur.org/news/2017/10/11/wheelock-to-merge"
+        },
+        {
+          "date": "2018-06-01",
+          "type": "ASSET-TRANSFER",
+          "label": "Boston University assumes Wheelock's property as the merger takes effect",
+          "sourceUrl": "https://www.bu.edu/community/files/2019/12/Fenway-Campus-IMP-Update-11-25-19-lr1-003-1.pdf"
         }
       ],
       "matrix": {
@@ -1194,7 +1205,7 @@
         "https://hoodline.com/2026/10/champaign-county-sues-over-428k-in-back-taxes-on-empty-urbana-university-campus/"
       ],
       "overrides": {
-        "buyerController": "Braxton Miller Foundation / Pro Development Institute group (reported 2022; closing not confirmed)",
+        "buyerController": "Urbana Investment Group LLC (county owner of record since December 2022; a group including Braxton Miller was reported as involved)",
         "scale": "115 acres, 22 buildings"
       },
       "ipeds": {
@@ -1209,7 +1220,7 @@
       "events": [
         {
           "date": "2014",
-          "type": "ASSET-TRANSFER",
+          "type": "ACTIVE-RISK",
           "label": "Franklin University buys Urbana and runs it as a branch campus",
           "sourceUrl": "https://en.wikipedia.org/wiki/Urbana_University"
         },
@@ -1239,6 +1250,12 @@
           "label": "Governor proposes the campus as a Coast Guard training site; the mayor says it is privately owned",
           "sourceUrl": "https://www.whio.com/news/local/state-wants-convert-shuttered-local-university-us-coast-guard-training-site/BQWCR4YHBVDT3B73GK66TBSM2Q",
           "ownershipChange": false
+        },
+        {
+          "date": "2022-12-07",
+          "type": "ASSET-TRANSFER",
+          "label": "County records show Franklin University deeding 29 parcels to Urbana Investment Group LLC for $8.5M in total",
+          "sourceUrl": "https://auditor.co.champaign.oh.us/Parcel?Parcel=K48-25-00-01-05-002-00"
         }
       ],
       "matrix": {
@@ -1588,7 +1605,8 @@
           "date": "2019-11-25",
           "type": "ASSET-TRANSFER",
           "label": "Bankruptcy court approves the $32M sale of the 15.6-acre campus to the Trustees of the Masonic Hall & Asylum Fund",
-          "sourceUrl": "https://westfaironline.com/real-estate/college-of-new-rochelle-acquired-by-masons-for-32-million/"
+          "sourceUrl": "https://westfaironline.com/real-estate/college-of-new-rochelle-acquired-by-masons-for-32-million/",
+          "ownershipChange": false
         },
         {
           "date": "2025-09",
@@ -1596,6 +1614,12 @@
           "label": "Masons miss their September 2025 target to present a redevelopment plan to the city; no new timeline",
           "sourceUrl": "https://talkofthesound.com/2025/09/19/masons-proposal-for-former-college-of-new-rochelle-campus-delayed/",
           "ownershipChange": false
+        },
+        {
+          "date": "2020-01",
+          "type": "ASSET-TRANSFER",
+          "label": "The Masonic owner's own account dates its purchase of the campus to January 2020",
+          "sourceUrl": "https://masonichomeny.org/wp-content/uploads/2022/03/ESM_Spring_2022_Final.pdf"
         }
       ],
       "matrix": {
@@ -1821,7 +1845,8 @@
           "date": "2020-12-11",
           "type": "ASSET-TRANSFER",
           "label": "Southwestern Vermont Health Care wins the bankruptcy auction for the campus at $4.65M",
-          "sourceUrl": "https://vtdigger.org/2020/12/11/health-care-group-wins-bid-for-svc-campus/"
+          "sourceUrl": "https://vtdigger.org/2020/12/11/health-care-group-wins-bid-for-svc-campus/",
+          "ownershipChange": false
         },
         {
           "date": "2020-12-30",
@@ -1887,7 +1912,8 @@
           "date": "2018-10-25",
           "type": "ASSET-TRANSFER",
           "label": "Hobby Lobby agrees to pay $8M for the campus, subject to court approval",
-          "sourceUrl": "https://www.highereddive.com/news/hobby-lobby-is-buying-a-college-campus-whats-next/540529/"
+          "sourceUrl": "https://www.highereddive.com/news/hobby-lobby-is-buying-a-college-campus-whats-next/540529/",
+          "ownershipChange": false
         },
         {
           "date": "2018-12-04",

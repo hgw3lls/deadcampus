@@ -37,7 +37,7 @@
     "columns": 88,
     "file": "data/atlas-records.csv",
     "schema": "data/atlas-records.schema.json",
-    "bytes": 14127697
+    "bytes": 14128116
   },
   "sheeo": {
     "source": "SHEEO Closed College Context (N=748)",
@@ -912,8 +912,9 @@
         {
           "date": "2026-05-07",
           "type": "ASSET-TRANSFER",
-          "label": "Akron Children's Hospital wins the South Euclid campus at auction",
-          "sourceUrl": "https://www.cleveland19.com/2026/05/07/akron-childrens-hospital-wins-former-notre-dame-college-property-auction/"
+          "label": "Akron Children's Hospital wins the South Euclid campus at auction; title had not yet passed",
+          "sourceUrl": "https://www.cleveland19.com/2026/05/07/akron-childrens-hospital-wins-former-notre-dame-college-property-auction/",
+          "ownershipChange": false
         },
         {
           "date": "2026-05-28",
@@ -926,7 +927,8 @@
           "date": "2026-06-29",
           "type": "ASSET-TRANSFER",
           "label": "Local reporting says Akron Children's completes the purchase of the campus",
-          "sourceUrl": "https://www.clevelandjewishnews.com/news/local_news/yeshiva-derech-hatorah-akron-children-s-discuss-regina-purchase/article_6c2fa021-af17-43a6-b911-08bc00cd0858.html"
+          "sourceUrl": "https://www.clevelandjewishnews.com/news/local_news/yeshiva-derech-hatorah-akron-children-s-discuss-regina-purchase/article_6c2fa021-af17-43a6-b911-08bc00cd0858.html",
+          "ownershipChange": false
         },
         {
           "date": "2026-07-10",
@@ -942,7 +944,7 @@
           "ownershipChange": false
         }
       ],
-      "limboDays": 735,
+      "limboDays": 799,
       "ipeds": {
         "unitid": 204468,
         "opeid": "00308500",
@@ -4279,7 +4281,8 @@
           "date": "2023-11",
           "type": "ASSET-TRANSFER",
           "label": "Presentation Sisters and City of Aberdeen agree the city will manage the dome, Strode Center, soccer field, and an undeveloped parcel",
-          "sourceUrl": "https://www.sdpb.org/education/2023-11-08/presentation-sisters-and-aberdeen-seal-deal-to-preserve-campus"
+          "sourceUrl": "https://www.sdpb.org/education/2023-11-08/presentation-sisters-and-aberdeen-seal-deal-to-preserve-campus",
+          "ownershipChange": false
         },
         {
           "date": "2024-02-05",
@@ -4295,7 +4298,7 @@
           "ownershipChange": false
         }
       ],
-      "limboDays": 1,
+      "limboDays": 97,
       "ipeds": {
         "unitid": 219295,
         "opeid": "00346700",
@@ -4628,7 +4631,8 @@
           "date": "2023-10",
           "type": "PARCELIZED",
           "label": "Hancock council votes 7-0 to buy Wargelin, Nikander, and Mannerheim halls from the receiver for $30,000 total",
-          "sourceUrl": "https://www.mininggazette.com/news/local-news/2023/10/hancock-approves-finlandia-building-purchases/"
+          "sourceUrl": "https://www.mininggazette.com/news/local-news/2023/10/hancock-approves-finlandia-building-purchases/",
+          "ownershipChange": false
         },
         {
           "date": "2023-12-07",
@@ -4975,7 +4979,8 @@
           "date": "2018-04-06",
           "type": "ASSET-TRANSFER",
           "label": "UMass Amherst announces it will acquire the 74-acre Newton campus and assume Mount Ida's debt",
-          "sourceUrl": "https://www.umass.edu/news/article/mount-ida-college-reaches-agreement-umass"
+          "sourceUrl": "https://www.umass.edu/news/article/mount-ida-college-reaches-agreement-umass",
+          "ownershipChange": false
         },
         {
           "date": "2018-05",
@@ -4997,7 +5002,7 @@
           "ownershipChange": false
         }
       ],
-      "limboDays": -25,
+      "limboDays": 0,
       "ipeds": {
         "unitid": 166948,
         "opeid": "00219300",
@@ -5682,9 +5687,15 @@
           "type": "CLOSURE-EVENT",
           "label": "Merger with Boston University takes effect; the campus becomes BU's Fenway Campus",
           "sourceUrl": "https://www.wbur.org/news/2017/10/11/wheelock-to-merge"
+        },
+        {
+          "date": "2018-06-01",
+          "type": "ASSET-TRANSFER",
+          "label": "Boston University assumes Wheelock's property as the merger takes effect",
+          "sourceUrl": "https://www.bu.edu/community/files/2019/12/Fenway-Campus-IMP-Update-11-25-19-lr1-003-1.pdf"
         }
       ],
-      "limboDays": null,
+      "limboDays": 0,
       "ipeds": {
         "unitid": 168290,
         "opeid": "00222800",
@@ -7614,7 +7625,7 @@
       "campusType": "Main",
       "status": "Closed",
       "reuseType": "Redevelopment marketing",
-      "buyerController": "Braxton Miller Foundation / Pro Development Institute group (reported 2022; closing not confirmed)",
+      "buyerController": "Urbana Investment Group LLC (county owner of record since December 2022; a group including Braxton Miller was reported as involved)",
       "buyerType": "",
       "morphology": "Speculative",
       "scale": "115 acres, 22 buildings",
@@ -7784,7 +7795,7 @@
       "events": [
         {
           "date": "2014",
-          "type": "ASSET-TRANSFER",
+          "type": "ACTIVE-RISK",
           "label": "Franklin University buys Urbana and runs it as a branch campus",
           "sourceUrl": "https://en.wikipedia.org/wiki/Urbana_University"
         },
@@ -7807,6 +7818,12 @@
           "label": "Local media report the campus purchased by a group including Braxton Miller for a Pro Development Institute; Franklin says in May the sale is not finalized",
           "sourceUrl": "https://www.whio.com/news/local/former-site-urbana-university-campus-purchased/NRRZ6GAXHBFIJOUUYWZXW2Q36I",
           "ownershipChange": false
+        },
+        {
+          "date": "2022-12-07",
+          "type": "ASSET-TRANSFER",
+          "label": "County records show Franklin University deeding 29 parcels to Urbana Investment Group LLC for $8.5M in total",
+          "sourceUrl": "https://auditor.co.champaign.oh.us/Parcel?Parcel=K48-25-00-01-05-002-00"
         },
         {
           "date": "2026-01-12",
@@ -9991,7 +10008,14 @@
           "date": "2019-11-25",
           "type": "ASSET-TRANSFER",
           "label": "Bankruptcy court approves the $32M sale of the 15.6-acre campus to the Trustees of the Masonic Hall & Asylum Fund",
-          "sourceUrl": "https://westfaironline.com/real-estate/college-of-new-rochelle-acquired-by-masons-for-32-million/"
+          "sourceUrl": "https://westfaironline.com/real-estate/college-of-new-rochelle-acquired-by-masons-for-32-million/",
+          "ownershipChange": false
+        },
+        {
+          "date": "2020-01",
+          "type": "ASSET-TRANSFER",
+          "label": "The Masonic owner's own account dates its purchase of the campus to January 2020",
+          "sourceUrl": "https://masonichomeny.org/wp-content/uploads/2022/03/ESM_Spring_2022_Final.pdf"
         },
         {
           "date": "2025-09",
@@ -11232,7 +11256,8 @@
           "date": "2020-12-11",
           "type": "ASSET-TRANSFER",
           "label": "Southwestern Vermont Health Care wins the bankruptcy auction for the campus at $4.65M",
-          "sourceUrl": "https://vtdigger.org/2020/12/11/health-care-group-wins-bid-for-svc-campus/"
+          "sourceUrl": "https://vtdigger.org/2020/12/11/health-care-group-wins-bid-for-svc-campus/",
+          "ownershipChange": false
         },
         {
           "date": "2020-12-30",
@@ -11565,7 +11590,8 @@
           "date": "2018-10-25",
           "type": "ASSET-TRANSFER",
           "label": "Hobby Lobby agrees to pay $8M for the campus, subject to court approval",
-          "sourceUrl": "https://www.highereddive.com/news/hobby-lobby-is-buying-a-college-campus-whats-next/540529/"
+          "sourceUrl": "https://www.highereddive.com/news/hobby-lobby-is-buying-a-college-campus-whats-next/540529/",
+          "ownershipChange": false
         },
         {
           "date": "2018-12-04",
@@ -41624,7 +41650,7 @@
       "unresolved": 29,
       "closed-campus-reused": 85
     },
-    "knownBuyers": 107,
+    "knownBuyers": 108,
     "buyerSectors": [
       {
         "label": "Religious / mission",
@@ -41659,12 +41685,12 @@
       {
         "label": "Real estate capital",
         "count": 7,
-        "sharePct": 7
+        "sharePct": 6
       },
       {
         "label": "Public university",
         "count": 7,
-        "sharePct": 7
+        "sharePct": 6
       },
       {
         "label": "Public authority / municipality",
@@ -41682,17 +41708,17 @@
         "sharePct": 3
       },
       {
+        "label": "Elite / private university",
+        "count": 3,
+        "sharePct": 3
+      },
+      {
         "label": "Corporate",
         "count": 2,
         "sharePct": 2
       },
       {
         "label": "Absentee owner",
-        "count": 2,
-        "sharePct": 2
-      },
-      {
-        "label": "Elite / private university",
         "count": 2,
         "sharePct": 2
       },
@@ -41769,8 +41795,8 @@
       "id": "time-in-limbo",
       "claim": "Ruin is a duration, not a type. The gap between closure and transfer is where speculation happens.",
       "test": "Days from the closure event to the first completed ownership change, where both are dated to the month.",
-      "evidence": "16 campuses are dated closely enough: the median wait for a buyer is 8 months, the longest is Virginia Intermont College at 31 months, and 2 sold or agreed to sell before closing.",
-      "counter": "18 campuses still have year-only dates, and the fifteen measured are the ones with press coverage, which skews toward quick, visible sales.",
+      "evidence": "17 campuses are dated closely enough: the median wait for a buyer is 7 months, the longest is Virginia Intermont College at 31 months, and 1 closed a sale before the college shut.",
+      "counter": "17 campuses still have year-only dates, and the fifteen measured are the ones with press coverage, which skews toward quick, visible sales.",
       "status": "mixed"
     },
     {

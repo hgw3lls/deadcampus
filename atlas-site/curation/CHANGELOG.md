@@ -1,5 +1,9 @@
 # Curated record changelog
 
+## 2026-11-16: case-file labels
+
+Transfer events that are agreements, auction wins or approvals, not passed title, are now marked `ownershipChange: false` so the case file's "Transfer" line and "months from closure to first completed transfer" use the first completed one (Notre Dame, Mount Ida, St. Gregory's, Southern Vermont, New Rochelle, Presentation, Finlandia). New completed-transfer events: Urbana (county deed, 2022-12-07), New Rochelle (owner's account, 2020-01), Wheelock (BU assumes property, 2018-06-01). Urbana's 2014 Franklin acquisition of the running institution is typed ACTIVE-RISK, not a campus transfer. The "Afterlife" line now leads with the reviewed outcome ("No operating reuse documented", "Merged; campus continues", "Not a closure") before the recorded holder or plan.
+
 ## 2026-11-15: reviewed campus outcome
 
 Each of the 34 records now carries an explicit `outcome` and `outcomeBasis`. The builder used to label every curated campus closed and chose reused versus unknown from whether a transfer event existed, which conflated mergers, property sales and operating reuse. Values come from the research workbook's checked fields: 18 closed-campus-reused (an operating use is documented), 13 closed-campus-unknown (transfer or plan documented, operating use not), 2 merged-campus-continues (Wheelock, Pine Manor), 1 not-a-closure (GW Ashburn). Site headline recomputed: 252 of 427 (59%) confirmed closures, 36 merged with the campus continuing. Four values are provisional because the workbook still treats them as open: Wells, Alderson Broaddus, Southern Vermont, Green Mountain.
