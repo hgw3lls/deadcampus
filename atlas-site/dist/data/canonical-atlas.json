@@ -37,7 +37,7 @@
     "columns": 88,
     "file": "data/atlas-records.csv",
     "schema": "data/atlas-records.schema.json",
-    "bytes": 14117238
+    "bytes": 14127399
   },
   "sheeo": {
     "source": "SHEEO Closed College Context (N=748)",
@@ -849,12 +849,15 @@
       "afterlife": "Medical/institutional reuse",
       "latitude": 41.52,
       "longitude": -81.518,
-      "publicSummary": "Notre Dame College closed in 2024. Akron Children's Hospital won the May 2026 receivership auction with an $8M bid, a federal judge approved the sale on May 28, and it closed June 29. The hospital then resold the former Regina High School building to a yeshiva for $2.2M.",
+      "publicSummary": "Notre Dame College closed in 2024. Akron Children's Hospital won the May 2026 receivership auction with an $8M bid for two parcels, and a federal judge approved the sale on May 28. Cuyahoga County records show the receiver's deed to the hospital recorded July 10, 2026. A recorded memorandum shows the hospital leased the former Regina High School building to Yeshiva Derech Hatorah under a 50-year ground lease dated July 31 (local reporting called it a $2.2M purchase). South Euclid has noticed a December 10 hearing on rezoning both parcels. No operating hospital facility or school has been verified.",
       "outcome": "closed-campus-unknown",
       "outcomeBasis": "Reviewed against the research workbook (checked 2026-11-14/15): receiver transfer and ground lease documented; no operating replacement school or healthcare facility verified",
       "sourceUrls": [
         "https://www.ideastream.org/economy/2026-05-08/akron-childrens-is-the-top-bidder-for-the-former-notre-dame-college-campus",
-        "https://www.clevelandjewishnews.com/news/local_news/yeshiva-derech-hatorah-akron-children-s-discuss-regina-purchase/article_6c2fa021-af17-43a6-b911-08bc00cd0858.html"
+        "https://www.clevelandjewishnews.com/news/local_news/yeshiva-derech-hatorah-akron-children-s-discuss-regina-purchase/article_6c2fa021-af17-43a6-b911-08bc00cd0858.html",
+        "https://myplace.cuyahogacounty.gov/NzAzMTcwMjg=?city=OTk=&searchBy=UGFyY2Vs&dataRequested=VHJhbnNmZXJz",
+        "https://cuyahoga.oh.publicsearch.us/doc/326097959",
+        "https://drive.google.com/file/d/1Aia4Aaoa4cHFQ5OYCqWMee-6N_64GIlJ/view"
       ],
       "evidence": [
         {
@@ -922,14 +925,21 @@
         {
           "date": "2026-06-29",
           "type": "ASSET-TRANSFER",
-          "label": "Akron Children's completes the purchase of the campus",
+          "label": "Local reporting says Akron Children's completes the purchase of the campus",
           "sourceUrl": "https://www.clevelandjewishnews.com/news/local_news/yeshiva-derech-hatorah-akron-children-s-discuss-regina-purchase/article_6c2fa021-af17-43a6-b911-08bc00cd0858.html"
         },
         {
+          "date": "2026-07-10",
+          "type": "ASSET-TRANSFER",
+          "label": "County records show a receiver's deed to Akron Children's for two parcels, $8M in total",
+          "sourceUrl": "https://myplace.cuyahogacounty.gov/NzAzMTcwMjg=?city=OTk=&searchBy=UGFyY2Vs&dataRequested=VHJhbnNmZXJz"
+        },
+        {
           "date": "2026-07-31",
-          "type": "PARCELIZED",
-          "label": "Akron Children's sells the former Regina High School building, about 8 acres, to Yeshiva Derech Hatorah for $2.2M",
-          "sourceUrl": "https://www.clevelandjewishnews.com/kesher/news/community_news/yeshiva-derech-hatorah-purchases-former-regina-high-school-for-2-2m/article_e6b157ae-9a38-43b7-9e54-205f979a26f7.html"
+          "type": "COUNTER-USE",
+          "label": "Akron Children's leases the former Regina High School building to Yeshiva Derech Hatorah under a recorded 50-year ground lease; local reporting describes a $2.2M purchase",
+          "sourceUrl": "https://cuyahoga.oh.publicsearch.us/doc/326097959",
+          "ownershipChange": false
         }
       ],
       "limboDays": 735,
@@ -1611,13 +1621,15 @@
       "afterlife": "Disputed/pending Indigenous educational reuse",
       "latitude": 42.744,
       "longitude": -76.696,
-      "publicSummary": "Wells closed in 2024. The board accepted a $12.5M bid from the Hiawatha Institute for Indigenous Knowledge, then in June 2026 said the sale would not proceed; Hiawatha sued to preserve it. In September 2026 a judge approved selling the college's collections, and no buyer holds the 127-acre campus.",
+      "publicSummary": "Wells closed in 2024. The board accepted a $12.5M bid from the Hiawatha Institute for Indigenous Knowledge, then in June 2026 said the sale would not proceed; Hiawatha sued to preserve it. In September 2026 a judge approved selling the college's collections. On November 2, 2026 the college confirmed a new agreement with Paul Warshauer, reported at $10M, with senior living, sports and education proposed. It depends on the outstanding litigation and has a February 15 closing target. The 2026 village tax roll still lists Wells College as the owner of two campus parcels, so no buyer holds the campus yet.",
       "outcome": "closed-campus-unknown",
       "outcomeBasis": "Reviewed against the research workbook (checked 2026-11-14/15): sale unresolved; no replacement operating use verified",
       "sourceUrls": [
         "https://cnycentral.com/news/local/hiawatha-institutes-123m-bid-to-purchase-defunct-wells-college-falls-through",
         "https://www.fingerlakes1.com/2026/06/29/lawsuit-targets-wells-campus-sale/",
         "https://www.fingerlakes1.com/2026/10/06/wells-college-gets-approval-to-sell-collections-as-campus-future-remains-unsettled/",
+        "https://www.wskg.org/2026-11-02/wells-college-finds-new-buyer-for-historic-campus",
+        "https://www.cayugacounty.gov/DocumentCenter/View/33590/2026-Aurora-Village-Tax-Roll-PDF",
         "https://spectrumlocalnews.com/nys/rochester/economic-development/2026/06/23/12-5-million-sale-of-former-wells-college-falls-through"
       ],
       "evidence": [
@@ -1697,6 +1709,13 @@
           "type": "COUNTER-USE",
           "label": "Judge approves Wells' petition to sell its artwork and artifacts; the campus's future remains unsettled",
           "sourceUrl": "https://www.fingerlakes1.com/2026/10/06/wells-college-gets-approval-to-sell-collections-as-campus-future-remains-unsettled/",
+          "ownershipChange": false
+        },
+        {
+          "date": "2026-11-02",
+          "type": "ASSET-TRANSFER",
+          "label": "Wells confirms a new purchase agreement with Paul Warshauer, reported at $10M and contingent on litigation; no conveyance recorded",
+          "sourceUrl": "https://www.wskg.org/2026-11-02/wells-college-finds-new-buyer-for-historic-campus",
           "ownershipChange": false
         }
       ],
@@ -2806,7 +2825,7 @@
       "campusType": "Urban campus",
       "status": "Closed",
       "reuseType": "Charter school conversion",
-      "buyerController": "Charter School Development Corporation (BuffSci is the operator)",
+      "buyerController": "Charter School Development Corporation (2024 purchaser); BRASS Foundation, Incorporated named as owner in October 2026 financing documents; Buffalo Academy of Science operates",
       "buyerType": "Nonprofit charter-school developer",
       "morphology": "K12",
       "scale": "14 acres",
@@ -2818,11 +2837,14 @@
       "afterlife": "Charter school conversion",
       "latitude": 42.927,
       "longitude": -78.858,
-      "publicSummary": "Medaille closed in 2023. Charter School Development Corporation bought the nearly 14-acre Buffalo campus in 2024 for about $9.9M, and the Buffalo Academy of Science charter school now operates a high school there, with some dormitories still vacant.",
+      "publicSummary": "Medaille closed in 2023. Charter School Development Corporation bought the nearly 14-acre Buffalo campus in 2024 for about $9.9M. October 2026 financing documents name BRASS Foundation, Incorporated as owner and the Buffalo Academy of Science charter school as tenant, so the title chain from the 2024 sale is not yet reconciled. BuffSci operates a high school and a middle-school location at 18 Agassiz Circle and its district office at 24 Agassiz Circle. The dormitories are outside the financing, with some vacant.",
       "outcome": "closed-campus-reused",
       "outcomeBasis": "Reviewed against the research workbook (checked 2026-11-14/15): BuffSci high school and middle school operating; deed chain unverified",
       "sourceUrls": [
         "https://spectrumlocalnews.com/nys/buffalo/news/2026/08/28/medaille-university-repurposed-into-buffsci",
+        "https://www.ecidany.com/event/101470/tefra-public-hearing-equitable-school-revolving-fund-llc",
+        "https://www.ecidany.com/documents/2026%20Applications%20for%20Tax%20Incentives/ESRF%20Bond%20Application%20and%20PH%20Notice.pdf",
+        "https://buffsci.org/",
         "https://www.cbre.com/press-releases/cbre-upstate-ny-brokers-sale-of-former-medaille-university-campus"
       ],
       "evidence": [
@@ -3818,7 +3840,7 @@
       "afterlife": "Mixed redevelopment",
       "latitude": 42.93,
       "longitude": -75.852,
-      "publicSummary": "After Cazenovia closed in 2023, a New York State Police academy used the campus until early 2025. An investor group bought the whole campus for $9.5M in December 2025 and resold parts to Madison County and the Town of Cazenovia.",
+      "publicSummary": "After Cazenovia closed in 2023, a New York State Police academy used the campus until early 2025. Matta Fresca LLC, an investor group, bought the whole campus for $9.5M, and the buyer's counsel confirms a December 19, 2025 closing with simultaneous transfers to the Town of Cazenovia and Madison County. The wider innovation district is still a proposal.",
       "outcome": "closed-campus-unknown",
       "outcomeBasis": "Reviewed against the research workbook (checked 2026-11-14/15): transfers completed; municipal use planned, current occupancy unverified",
       "sourceUrls": [
@@ -4551,7 +4573,7 @@
       "afterlife": "Civic/nonprofit fragmentation",
       "latitude": 47.126,
       "longitude": -88.58,
-      "publicSummary": "Finlandia closed in 2023 and its 27 buildings entered state receivership. The city of Hancock bought five parcels, including three halls for $30,000 in total, and private investors bought others at a December 2023 auction. Hancock is designing a conversion of two halls into 47 housing units.",
+      "publicSummary": "Finlandia closed in 2023 and its 27 buildings entered state receivership. The city of Hancock bought five parcels, including three halls for $30,000 in total, and private investors bought others at a December 2023 auction. Hancock is designing a conversion of two halls into 47 housing units. MTEC SmartZone runs an accelerator on the fourth floor of the former Jutila building, now Skyline Commons; it is reported as the condominium owner, though a later funder calls it a tenant, so present tenure is open.",
       "outcome": "closed-campus-reused",
       "outcomeBasis": "Reviewed against the research workbook (checked 2026-11-14/15): divided campus: heritage, community and commercial uses retained; MTEC accelerator documented",
       "sourceUrls": [
@@ -5543,11 +5565,12 @@
       "afterlife": "Elite university merger",
       "latitude": 42.341,
       "longitude": -71.105,
-      "publicSummary": "Wheelock merged into Boston University on June 1, 2018, becoming the BU Wheelock College of Education & Human Development. This is a merger, not a campus closure or sale: BU retained the Fenway campus.",
+      "publicSummary": "Wheelock merged into Boston University on June 1, 2018, becoming the BU Wheelock College of Education & Human Development. This is a merger, not a campus closure or sale: BU retained the Fenway campus, and BU documents student move-in there in August 2026.",
       "outcome": "merged-campus-continues",
       "outcomeBasis": "Reviewed against the research workbook (checked 2026-11-14/15): merged into Boston University 2018; campus continues as BU residences and academic space",
       "sourceUrls": [
-        "https://en.wikipedia.org/wiki/Wheelock_College"
+        "https://en.wikipedia.org/wiki/Wheelock_College",
+        "https://www.bu.edu/today/close-ups/2026/fall-move-in-begins/"
       ],
       "evidence": [
         {
@@ -5889,12 +5912,14 @@
       "afterlife": "Senior living conversion",
       "latitude": 42.331,
       "longitude": -71.121,
-      "publicSummary": "After Newbury closed in 2019, Welltower bought the Brookline campus for $34M. The town of Brookline authorized buying about 4 acres of it in 2020, and Kisco Senior Living is developing the rest as The Newbury of Brookline, a 159-unit senior community.",
+      "publicSummary": "After Newbury closed in 2019, Welltower bought the Brookline campus for $34M. The town of Brookline bought the roughly 4-acre west parcel in January 2021 and is studying its long-term use, with a community study due June 2027. On the east side Kisco Senior Living opened The Newbury of Brookline, a 159-unit senior community, in December 2024.",
       "outcome": "closed-campus-reused",
       "outcomeBasis": "Reviewed against the research workbook (checked 2026-11-14/15): divided campus: Kisco-operated senior living; west parcel owned by Brookline",
       "sourceUrls": [
         "https://bankerandtradesman.com/brookline-backs-purchase-of-newbury-college-site",
-        "https://rebusinessonline.com/kisco-senior-living-to-develop-159-unit-complex-in-boston/"
+        "https://rebusinessonline.com/kisco-senior-living-to-develop-159-unit-complex-in-boston/",
+        "https://www.kiscoseniorliving.com/signature/newbury/about-us/",
+        "https://www.brooklinema.gov/m/newsflash/home/detail/2610"
       ],
       "evidence": [
         {
@@ -7278,7 +7303,7 @@
       "campusType": "Main",
       "status": "Closed",
       "reuseType": "Auction/redevelopment",
-      "buyerController": "Princeton Education Center LLC (Oakdale); Triple Five, then Hampshire Venture Partners (Shirley campus)",
+      "buyerController": "Mercury International (Oakdale, as later reported; the approved bidder was Princeton Education Center LLC); Triple Five, then Hampshire Venture Partners (Shirley campus)",
       "buyerType": "",
       "morphology": "Speculative",
       "scale": "Oakdale: 25 acres; Shirley campus: 105 acres",
@@ -7290,7 +7315,7 @@
       "afterlife": "Auction/redevelopment",
       "latitude": 40.744,
       "longitude": -73.132,
-      "publicSummary": "Dowling closed in 2016. The 25-acre Oakdale estate was sold whole in 2017 to Princeton Education Center LLC for about $26.5M and has stayed vacant and tax-delinquent, relisted for sale in 2021 and again in April 2026. Dowling's separate 105-acre Shirley campus sold to Triple Five for $14M in 2018 and to Hampshire Venture Partners in 2025.",
+      "publicSummary": "Dowling closed in 2016. The 25-acre Oakdale estate was sold whole in 2017 for about $26.5M. A Princeton Education Center bid was the one approved in bankruptcy court, while later reporting names Mercury International as the purchaser. It has stayed vacant and tax-delinquent, and was listed for sale in 2021 and again in April 2026; a listing is not evidence of a resale. Dowling's separate 105-acre Shirley campus sold to Triple Five for $14M in 2018 and to Hampshire Venture Partners in 2025.",
       "outcome": "closed-campus-unknown",
       "outcomeBasis": "Reviewed against the research workbook (checked 2026-11-14/15): no permanent new operating use verified; resale unverified",
       "sourceUrls": [
@@ -7354,7 +7379,7 @@
         {
           "date": "2017-04",
           "type": "ASSET-TRANSFER",
-          "label": "Bankruptcy judge approves the $26.5M sale of the Oakdale campus to Princeton Education Center LLC",
+          "label": "Bankruptcy judge approves the $26.5M sale of the Oakdale campus to Princeton Education Center LLC; later reporting names Mercury International as the 2017 purchaser",
           "sourceUrl": "https://longislandpress.com/2017/04/11/dowling-college-oakdale-campus-sold-for-26m"
         },
         {
@@ -7601,14 +7626,17 @@
       "afterlife": "Redevelopment marketing",
       "latitude": 40.108,
       "longitude": -83.752,
-      "publicSummary": "Urbana University closed in 2020 and its 115-acre campus was listed for sale by CBRE in 2021. A group including Braxton Miller reported buying it in 2022 for an athlete-development institute, though Franklin University said the sale was not final; as of January 2026 the site was privately owned and unused.",
+      "publicSummary": "Urbana University closed in 2020. CBRE listed the 115-acre campus in 2021, and Champaign County records show Urbana Investment Group LLC bought 29 parcels from Franklin University on December 7, 2022 for $8.5M in total. A group including Braxton Miller was reported as involved, for an athlete-development institute. The main parcel is flagged for foreclosure in county records but not for sheriff's sale. The city went to court in 2025 over fire-code violations after players and coaches were reported present in March 2025. In January 2026 Ohio's governor proposed the site for a Coast Guard training facility, with no acquisition. Current occupancy is unverified.",
       "outcome": "closed-campus-unknown",
       "outcomeBasis": "Reviewed against the research workbook (checked 2026-11-14/15): parcel sale recorded; current occupancy unverified, main parcel flagged in foreclosure",
       "sourceUrls": [
         "https://rejournals.com/cbre-selling-22-building-former-university-campus-in-ohio/",
         "https://www.whio.com/news/local/former-site-urbana-university-campus-purchased/NRRZ6GAXHBFIJOUUYWZXW2Q36I",
         "https://www.asumag.com/facilities-management/business-finance/article/21240988/former-urbana-university-campus-in-urbana-ohio-slated-to-become-pro-development-institution",
-        "https://www.whio.com/news/local/state-wants-convert-shuttered-local-university-us-coast-guard-training-site/BQWCR4YHBVDT3B73GK66TBSM2Q"
+        "https://www.whio.com/news/local/state-wants-convert-shuttered-local-university-us-coast-guard-training-site/BQWCR4YHBVDT3B73GK66TBSM2Q",
+        "https://auditor.co.champaign.oh.us/Parcel?Parcel=K48-25-00-01-05-002-00",
+        "https://www.peakofohio.com/local-news/city-of-urbana-takes-investment-group-to-court-over-old-urbana-university-campus/",
+        "https://hoodline.com/2026/10/champaign-county-sues-over-428k-in-back-taxes-on-empty-urbana-university-campus/"
       ],
       "evidence": [
         {
@@ -9269,7 +9297,7 @@
       "afterlife": "Auctioned in parcels",
       "latitude": 39.732,
       "longitude": -90.236,
-      "publicSummary": "MacMurray's 2020 closure culminated in a campus auction split into 18 tracts, a parcelized end to a 174-year college.",
+      "publicSummary": "MacMurray's 2020 closure culminated in a campus auction split into 18 tracts, a parcelized end to a 174-year college. Buildings went to different owners. MacMurray Hall is at 225 South Clay Avenue, and its current occupants are unverified: broker copy still names a departed arts academy, and a clinic lists two different addresses.",
       "outcome": "closed-campus-reused",
       "outcomeBasis": "Reviewed against the research workbook (checked 2026-11-14/15): divided campus: events/sports and reported apartments; MacMurray Hall occupancy unresolved",
       "sourceUrls": [
@@ -9581,7 +9609,7 @@
       "afterlife": "Municipal/emergency reuse",
       "latitude": 42.245,
       "longitude": -71.909,
-      "publicSummary": "Becker closed in 2021 and its campuses were divided. The town of Leicester took ownership of the Leicester campus in December 2021, and in 2023 three former dorms became an emergency family shelter run under a lease with the town. The Worcester campus buyer is not established here.",
+      "publicSummary": "Becker closed in 2021 and its campuses were divided. The town of Leicester took ownership of the Leicester campus in December 2021, and in 2023 three former dorms became an emergency family shelter run under a lease with the town. Five former houses on Main Street were then resold to private owners, which 2026 assessor cards name as limited-liability companies; one is marketed as four leased apartments, and occupancy of the others is unverified. The Worcester campus was split among private and city interests.",
       "outcome": "closed-campus-reused",
       "outcomeBasis": "Reviewed against the research workbook (checked 2026-11-14/15): divided campus: Leicester school and WPI uses retained; other parcels unresolved",
       "sourceUrls": [
@@ -10220,7 +10248,7 @@
       "afterlife": "Construction/event reuse",
       "latitude": 39.152,
       "longitude": -80.041,
-      "publicSummary": "Alderson Broaddus closed in 2023. Craig Phillips, owner of CGP Construction, bought the 170-acre Philippi campus through his entity Battlers Knob LLC for $5M. West Virginia Wesleyan College has since announced allied-health programs there, including LPN-to-BSN clinicals and a physician assistant program targeted for 2028.",
+      "publicSummary": "Alderson Broaddus closed in 2023. Craig Phillips, owner of CGP Construction, bought the 170-acre Philippi campus through his entity Battlers Knob LLC for $5M, and it now hosts events and local enterprises. West Virginia Wesleyan College announced allied-health programs there, with nursing clinicals scheduled for spring 2026 and a physician assistant program targeted for May 2028, subject to accreditation. The announcements do not show that the clinicals took place.",
       "outcome": "closed-campus-reused",
       "outcomeBasis": "Reviewed against the research workbook (checked 2026-11-14/15): events and local enterprises documented 2024; 2026 educational delivery unconfirmed",
       "sourceUrls": [
@@ -11146,14 +11174,17 @@
       "afterlife": "Health/resort redevelopment",
       "latitude": 42.878,
       "longitude": -73.215,
-      "publicSummary": "Southern Vermont closed in 2019. Southwestern Vermont Health Care won the bankruptcy auction for the 371-acre campus at $4.65M and closed in December 2020, using it for a COVID clinic. In March 2023 it agreed to sell to Alfred Weissman Real Estate for a planned resort, a sale not reported as closed as of July 2024.",
+      "publicSummary": "Southern Vermont closed in 2019. Southwestern Vermont Health Care won the bankruptcy auction for the campus at $4.65M and closed in December 2020, using it for a COVID clinic. In March 2023 it announced an agreement to sell about 366 acres to Alfred Weissman Real Estate for a planned resort. That sale has not been reported closed: Vermont's Act 250 agenda lists SVHC Realty as landowner and AWRE Vermont Resorts as applicant for a resort with 102 guest rooms and 24 residential units, with a hearing set for November 30, 2026. Public trail access is documented, and current building occupancy is not.",
       "outcome": "closed-campus-unknown",
       "outcomeBasis": "Reviewed against the research workbook (checked 2026-11-14/15): public trail access documented; building occupancy unverified, later developer closing unverified",
       "sourceUrls": [
         "https://vtdigger.org/2020/12/11/health-care-group-wins-bid-for-svc-campus/",
         "https://www.benningtonbanner.com/local-news/svc-campus-sale-now-official/article_03c2f8a6-4b8a-11eb-8e3a-0f10436d39ce.html",
         "https://vtdigger.org/2023/03/17/new-york-firm-plans-to-turn-former-southern-vermont-college-into-luxury-resort/",
-        "https://www.wcax.com/2024/07/26/plans-move-forward-turn-southern-vt-college-campus-into-resort/"
+        "https://www.wcax.com/2024/07/26/plans-move-forward-turn-southern-vt-college-campus-into-resort/",
+        "https://anrweb.vt.gov/anr/act250/agenda.aspx",
+        "https://benningtonbanner-vt.newsmemory.com/advmarketplace.php?c=201&p=0&p=6&pSetup=benningtonbanner_mpadv&sd=&v=search",
+        "https://vmba.org/plan_your_ride/bennington-area-trail-system/"
       ],
       "evidence": [
         {
@@ -11782,11 +11813,13 @@
       "afterlife": "Data infrastructure",
       "latitude": 39.043,
       "longitude": -77.489,
-      "publicSummary": "GW's Ashburn campus was sold in 2026 to Amazon Data Services; academic programs can remain temporarily while the land enters cloud-infrastructure redevelopment pressure.",
+      "publicSummary": "GW sold its Ashburn campus to Amazon Data Services; the university announced the completed sale on February 27, 2026, with an option to keep using the campus for five years, and county records put the price at $427M. GW's operations there continue, so this is a property sale, not a university closure. In October 2026 Loudoun County announced a preliminary agreement with Amazon that would send about 25 acres to the county and redirect the rest toward housing and mixed-use rezoning. It is not final, and no housing has been built.",
       "outcome": "not-a-closure",
       "outcomeBasis": "Reviewed against the research workbook (checked 2026-11-14/15): GW continues operating; the property sale is not a university closure",
       "sourceUrls": [
-        "https://gwtoday.gwu.edu/gw-leaders-discuss-sale-virginia-science-and-technology-campus"
+        "https://gwtoday.gwu.edu/gw-leaders-discuss-sale-virginia-science-and-technology-campus",
+        "https://president.gwu.edu/announcing-sale-gws-virginia-science-and-technology-campus",
+        "https://www.loudoun.gov/m/NewsFlash/Home/Detail/10944"
       ],
       "evidence": [
         {
@@ -11837,6 +11870,13 @@
           "type": "CLOUD",
           "label": "George Washington University announces it closed on the sale of its Ashburn campus; county records identify Amazon Data Services as the buyer at $427M (reported early March 2026)",
           "sourceUrl": "https://northernvirginiamag.com/news/2026/03/03/amazon-data-services-buys-george-washington-universitys-ashburn-campus/"
+        },
+        {
+          "date": "2026-10-22",
+          "type": "COUNTER-USE",
+          "label": "Loudoun County announces a preliminary agreement with Amazon: about 25 acres to the county, housing and mixed-use rezoning of retained land, and continued GW operations",
+          "sourceUrl": "https://www.loudoun.gov/m/NewsFlash/Home/Detail/10944",
+          "ownershipChange": false
         }
       ],
       "limboDays": null,
